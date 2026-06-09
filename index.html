@@ -363,7 +363,7 @@ a:hover { text-decoration: underline; }
   <a href="#accuracy">3 · Latency &amp; Accuracy</a>
   <a href="#dates">4 · Key Dates</a>
   <a href="#execution">5 · Execution</a>
-  <a href="#sources">6 · Sources</a>
+  <button onclick="toggleSources()" id="src-nav-btn" style="background:none;border:1px solid rgba(255,255,255,.3);border-radius:4px;color:rgba(255,255,255,.85);font-size:11px;font-weight:600;cursor:pointer;padding:3px 10px;transition:all .2s;">6 · Sources ▾</button>
 </nav>
 
 <div class="pg-body">
@@ -531,102 +531,85 @@ a:hover { text-decoration: underline; }
     </div>
     <div class="spark-lbl"><span>Feb 383</span><span class="now">Now 1,123</span></div>
   </div>
+  <!-- TRT P95 -->
+  <div class="card g">
+    <div class="card-lbl">TRT — Total Response Time (P95)</div>
+    <div class="card-val">39.53s</div>
+    <div class="card-meta"><span class="delta up">↓ −11.9% WoW</span> · prev 44.86s · Jun 1–7 · 483K msgs</div>
+    <div class="spark">
+      <div class="spark-bar sg" style="height:22px" title="prev 44.86s"></div>
+      <div class="spark-bar sg" style="height:18px" title="now 39.53s"></div>
+    </div>
+    <div class="spark-lbl"><span>prev 44.86s</span><span class="now">Now 39.53s</span></div>
+  </div>
 </div><!-- /card-grid -->
 
 
 <div style="margin:16px 0 4px;border-top:1px solid var(--gray-200);padding-top:14px">
   <div class="sh" style="margin-bottom:10px">V1 → V2 Performance Comparison <span style="font-size:10px;font-weight:400;color:var(--gray-500)">Data as of Jun 9</span></div>
-  <div class="two-col">
-
-    <!-- LEFT TABLE: Speed & Accuracy -->
-    <div>
-      <table style="width:100%;border-collapse:collapse;font-size:11.5px;">
-        <colgroup><col style="width:52%"><col style="width:16%"><col style="width:16%"><col style="width:16%"></colgroup>
-        <thead>
-          <tr style="background:var(--navy);">
-            <th style="padding:7px 10px;color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;text-align:left;border-bottom:none">Speed &amp; Accuracy</th>
-            <th style="padding:7px 10px;color:rgba(255,255,255,.7);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;text-align:center;border-bottom:none">V1</th>
-            <th style="padding:7px 10px;color:rgba(255,255,255,.7);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;text-align:center;border-bottom:none">V2 Now</th>
-            <th style="padding:7px 10px;color:rgba(255,255,255,.7);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;text-align:center;border-bottom:none">Change</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="border-bottom:1px solid var(--gray-200)">
-            <td style="padding:8px 10px;font-size:11px;color:var(--gray-700)"><span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;color:var(--gray-400);display:block;margin-bottom:1px">SPEED</span>TTFMT</td>
-            <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">~8.0s</td>
-            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">~1.4s</td>
-            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">−82.5%</td>
-          </tr>
-          <tr style="border-bottom:1px solid var(--gray-200)">
-            <td style="padding:8px 10px;font-size:11px;color:var(--gray-700)">Avg Response Time (P50)</td>
-            <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">31.6s</td>
-            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">~14.4s</td>
-            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">−54%</td>
-          </tr>
-          <tr style="border-bottom:1px solid var(--gray-200)">
-            <td style="padding:8px 10px;font-size:11px;color:var(--gray-700)"><span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;color:var(--gray-400);display:block;margin-bottom:1px">ACCURACY</span>Offline CQ@5</td>
-            <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">80.6%</td>
-            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#FB8C00">83.2%</td>
-            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">+2.6pp</td>
-          </tr>
-          <tr style="border-bottom:1px solid var(--gray-200)">
-            <td style="padding:8px 10px;font-size:11px;color:var(--gray-700)">Human Eval Correctness</td>
-            <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">—</td>
-            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">75.4%</td>
-            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">+17.3pp</td>
-          </tr>
-          <tr style="border-bottom:1px solid var(--gray-200)">
-            <td style="padding:8px 10px;font-size:11px;color:var(--gray-700)">AI Opt-Out (live)</td>
-            <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">17–18%</td>
-            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">8–9%</td>
-            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">Halved</td>
-          </tr>
-
-        </tbody>
-      </table>
-    </div>
-
-    <!-- RIGHT TABLE: Engagement & Sentiment -->
-    <div>
-      <table style="width:100%;border-collapse:collapse;font-size:11.5px;">
-        <colgroup><col style="width:52%"><col style="width:16%"><col style="width:16%"><col style="width:16%"></colgroup>
-        <thead>
-          <tr style="background:var(--navy);">
-            <th style="padding:7px 10px;color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;text-align:left;border-bottom:none">Engagement</th>
-            <th style="padding:7px 10px;color:rgba(255,255,255,.7);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;text-align:center;border-bottom:none">V1</th>
-            <th style="padding:7px 10px;color:rgba(255,255,255,.7);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;text-align:center;border-bottom:none">V2 Now</th>
-            <th style="padding:7px 10px;color:rgba(255,255,255,.7);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;text-align:center;border-bottom:none">Change</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="border-bottom:1px solid var(--gray-200)">
-            <td style="padding:8px 10px;font-size:11px;color:var(--gray-700)"><span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;color:var(--gray-400);display:block;margin-bottom:1px">ENGAGEMENT</span>Repeat Engagement Rate</td>
-            <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">22.6%</td>
-            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#F9A825">25.3%</td>
-            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">+6.3pp</td>
-          </tr>
-          <tr style="border-bottom:1px solid var(--gray-200)">
-            <td style="padding:8px 10px;font-size:11px;color:var(--gray-700)">Billable Message %</td>
-            <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">62.2%</td>
-            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">71.6%</td>
-            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">+9.4pp</td>
-          </tr>
-
-          <tr>
-            <td style="padding:8px 10px;font-size:11px;color:var(--gray-700)"><span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;color:var(--gray-400);display:block;margin-bottom:1px">MONETIZATION</span>Add-on Subscribers</td>
-            <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">383</td>
-            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">1,123</td>
-            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">+6.3pp</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-  </div>
-  <div class="strat-callout" style="margin-top:14px">
-    <strong>What this means for SLT:</strong> V2 is a proven upgrade on every tracked dimension. The risk entering Late July is not regression — it is the gap between production quality (Online CQ 92%, CSAT improving) and eval-layer confidence (Offline CQ 83.2%, No-Hallucination regression, 20+ skills without eval data). Close that gap and the readiness story becomes clean.
-
-  </div>
+  <table style="width:100%;border-collapse:collapse;font-size:11px;">
+    <colgroup><col style="width:24%"><col style="width:12%"><col style="width:13%"><col style="width:11%"><col style="width:8%"><col></colgroup>
+    <thead>
+      <tr style="background:var(--navy);">
+        <th style="padding:7px 10px;color:rgba(255,255,255,.85);font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;border-bottom:none;text-align:left">Metric</th>
+        <th style="padding:7px 10px;color:rgba(255,255,255,.85);font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;border-bottom:none;text-align:center">V1 Baseline</th>
+        <th style="padding:7px 10px;color:rgba(255,255,255,.85);font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;border-bottom:none;text-align:center">V2 Now</th>
+        <th style="padding:7px 10px;color:rgba(255,255,255,.85);font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;border-bottom:none;text-align:center">Change</th>
+        <th style="padding:7px 10px;color:rgba(255,255,255,.85);font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;border-bottom:none;text-align:center">Trend</th>
+        <th style="padding:7px 10px;color:rgba(255,255,255,.85);font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;border-bottom:none;text-align:left">So What</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid var(--gray-200)">
+        <td style="padding:8px 10px"><span style="font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--gray-400);display:block;margin-bottom:1px">SPEED</span>TTFMT (first token)</td>
+        <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">~8.0s</td>
+        <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">~1.4s</td>
+        <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">−82.5%</td>
+        <td style="padding:8px 10px;text-align:center"><svg width="38" height="14" viewBox="0 0 38 14" style="vertical-align:middle"><line x1="4" y1="2" x2="34" y2="12" stroke="#43A047" stroke-width="2" stroke-linecap="round"/><circle cx="4" cy="2" r="2.5" fill="#ccc"/><circle cx="34" cy="12" r="2.5" fill="#43A047"/></svg></td>
+        <td style="padding:8px 10px;font-size:9.5px;color:var(--gray-600);font-style:italic;line-height:1.35">6× faster first token — most felt improvement; TTFMT P95 now 2.78s, target 2s still open</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--gray-200)">
+        <td style="padding:8px 10px"><span style="font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--gray-400);display:block;margin-bottom:1px">ACCURACY</span>Offline CQ@5</td>
+        <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">80.6%</td>
+        <td style="padding:8px 10px;text-align:center;font-weight:700;color:#FB8C00">83.2%</td>
+        <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">+2.6pp</td>
+        <td style="padding:8px 10px;text-align:center"><svg width="38" height="14" viewBox="0 0 38 14" style="vertical-align:middle"><line x1="4" y1="12" x2="34" y2="2" stroke="#43A047" stroke-width="2" stroke-linecap="round"/><circle cx="4" cy="12" r="2.5" fill="#ccc"/><circle cx="34" cy="2" r="2.5" fill="#43A047"/></svg></td>
+        <td style="padding:8px 10px;font-size:9.5px;color:var(--gray-600);font-style:italic;line-height:1.35">Production CQ leads at 92%; eval gap (83.2% vs 88% goal) is the July readiness risk to close</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--gray-200)">
+        <td style="padding:8px 10px"><span style="font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--gray-400);display:block;margin-bottom:1px">OVERALL ENGAGEMENT</span>Engagement Rate</td>
+        <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">~7%</td>
+        <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">9.6%</td>
+        <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">+2.6pp</td>
+        <td style="padding:8px 10px;text-align:center"><svg width="38" height="14" viewBox="0 0 38 14" style="vertical-align:middle"><line x1="4" y1="12" x2="34" y2="2" stroke="#43A047" stroke-width="2" stroke-linecap="round"/><circle cx="4" cy="12" r="2.5" fill="#ccc"/><circle cx="34" cy="2" r="2.5" fill="#43A047"/></svg></td>
+        <td style="padding:8px 10px;font-size:9.5px;color:var(--gray-600);font-style:italic;line-height:1.35">Above May 9% target; 3× more customers actively engaged vs V1 launch</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--gray-200)">
+        <td style="padding:8px 10px"><span style="font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--gray-400);display:block;margin-bottom:1px">ENGAGEMENT · RETENTION SIGNAL</span>AI Opt-Out Rate ↓</td>
+        <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">17–18%</td>
+        <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">8–9%</td>
+        <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">Halved ✓</td>
+        <td style="padding:8px 10px;text-align:center"><svg width="38" height="14" viewBox="0 0 38 14" style="vertical-align:middle"><line x1="4" y1="2" x2="34" y2="12" stroke="#43A047" stroke-width="2" stroke-linecap="round"/><circle cx="4" cy="2" r="2.5" fill="#ccc"/><circle cx="34" cy="12" r="2.5" fill="#43A047"/></svg></td>
+        <td style="padding:8px 10px;font-size:9.5px;color:var(--gray-600);font-style:italic;line-height:1.35">Opt-out demand halved — customers choosing to stay with Omni doubled; strongest V2 stickiness signal</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--gray-200)">
+        <td style="padding:8px 10px"><span style="font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--gray-400);display:block;margin-bottom:1px">REPEAT ENGAGEMENT</span>Repeat Rate</td>
+        <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">22.6%</td>
+        <td style="padding:8px 10px;text-align:center;font-weight:700;color:#F9A825">25.3%</td>
+        <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">+6.3pp</td>
+        <td style="padding:8px 10px;text-align:center"><svg width="38" height="14" viewBox="0 0 38 14" style="vertical-align:middle"><line x1="4" y1="12" x2="34" y2="2" stroke="#43A047" stroke-width="2" stroke-linecap="round"/><circle cx="4" cy="12" r="2.5" fill="#ccc"/><circle cx="34" cy="2" r="2.5" fill="#43A047"/></svg></td>
+        <td style="padding:8px 10px;font-size:9.5px;color:var(--gray-600);font-style:italic;line-height:1.35">1-in-4 customers returns within 7 days — habit forming at scale; 1pt below 26.3% ITF target</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px"><span style="font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--gray-400);display:block;margin-bottom:1px">MONETIZATION</span>Add-on Subscribers</td>
+        <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">383</td>
+        <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">1,123</td>
+        <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">~3×</td>
+        <td style="padding:8px 10px;text-align:center"><svg width="38" height="14" viewBox="0 0 38 14" style="vertical-align:middle"><polyline points="4,12 12,10 22,7 34,2" fill="none" stroke="#43A047" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="12" r="2.5" fill="#ccc"/><circle cx="34" cy="2" r="2.5" fill="#43A047"/></svg></td>
+        <td style="padding:8px 10px;font-size:9.5px;color:var(--gray-600);font-style:italic;line-height:1.35">3× growth in 4 months post-GA; Intl CVR 20.8% beats US — pricing action due Aug 1</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 </div>
   </div>
@@ -1039,32 +1022,49 @@ a:hover { text-decoration: underline; }
   <div class="sec-hd">
     <div class="sec-num">3</div>
     <span class="sec-title">Latency &amp; Accuracy — Detail</span>
-    <span class="sec-sub">Online CQ 92.0% ✓ · Offline CQ@5 83.2% vs 88% goal · No-Hallucination regression 90.7%</span>
+    <span class="sec-sub">Wall Clock P95 44.45s ↓ · TTFMT P95 2.78s ⚠ vs 2.00s target · TRT P95 39.53s ↓ · Online CQ 92.0% ✓ · No-Hallucination 90.7%</span>
   </div>
   <div class="sec-body">
 
     <!-- ── LATENCY DEEP DIVE ── -->
-    <div class="sh">Latency — Strong Progress, WoW Spike Under Investigation</div>
+    <div class="sh">Latency KPIs — Jun 1–7, 2026 · 483,882 Messages · Source: de.dash.a.intuit.com/omni-latency</div>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px">
-      <div style="background:var(--green-lt);border-radius:var(--radius);padding:12px 14px;border:1px solid #A5D6A7">
-        <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--green);margin-bottom:3px">TTFMT (latest)</div>
-        <div style="font-size:24px;font-weight:900;color:var(--green)">~1.4s</div>
-        <div style="font-size:10.5px;color:var(--green-md)">V1 ~8s · <strong>−82.5% since launch</strong> · −36% this month</div>
+      <div style="background:var(--amber-lt);border-radius:var(--radius);padding:12px 14px;border:1px solid #FFCC80">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--amber);margin-bottom:3px">Wall Clock (P95)</div>
+        <div style="font-size:24px;font-weight:900;color:var(--amber)">44.45s</div>
+        <div style="font-size:10.5px;color:var(--amber)">prev 50.09s · <strong>−11.3% WoW</strong> · vs 30s target · above target</div>
+      </div>
+      <div style="background:#FFF3F3;border-radius:var(--radius);padding:12px 14px;border:1px solid #FFCDD2">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--red);margin-bottom:3px">TTFMT (P95) ⚠</div>
+        <div style="font-size:24px;font-weight:900;color:var(--red)">2.78s</div>
+        <div style="font-size:10.5px;color:var(--red)">prev 2.61s · <strong>+6.8% WoW ↑</strong> · vs 2.00s target · NEEDS ATTENTION</div>
       </div>
       <div style="background:var(--green-lt);border-radius:var(--radius);padding:12px 14px;border:1px solid #A5D6A7">
-        <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--green);margin-bottom:3px">WoW TTFMT improvement</div>
-        <div style="font-size:24px;font-weight:900;color:var(--green)">−9%</div>
-        <div style="font-size:10.5px;color:var(--green-md)">Week-over-week · trajectory caching ramping</div>
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--green);margin-bottom:3px">TRT (P95)</div>
+        <div style="font-size:24px;font-weight:900;color:var(--green)">39.53s</div>
+        <div style="font-size:10.5px;color:var(--green-md)">prev 44.86s · <strong>−11.9% WoW</strong> · improving</div>
+      </div>
+      <div style="background:var(--gray-50,#fafafa);border-radius:var(--radius);padding:12px 14px;border:1px solid var(--gray-200)">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--gray-600);margin-bottom:3px">Messages (7D)</div>
+        <div style="font-size:24px;font-weight:900;color:var(--gray-900)">483,882</div>
+        <div style="font-size:10.5px;color:var(--gray-500)">prev 412,329 · <strong>+17.4% WoW</strong> · data through Jun 7</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px">
+      <div style="background:var(--green-lt);border-radius:var(--radius);padding:12px 14px;border:1px solid #A5D6A7">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--green);margin-bottom:4px">TRT P95 — FAST tier <span style="font-weight:400;color:var(--gray-500)">57k msgs (13%)</span></div>
+        <div style="font-size:22px;font-weight:900;color:var(--green)">22.38s</div>
+        <div style="font-size:10.5px;color:var(--green-md)">Target 15s · Breach 11.7% · improving</div>
       </div>
       <div style="background:var(--amber-lt);border-radius:var(--radius);padding:12px 14px;border:1px solid #FFCC80">
-        <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--amber);margin-bottom:3px">Avg Response Time (P50)</div>
-        <div style="font-size:24px;font-weight:900;color:var(--amber)">~14.4s</div>
-        <div style="font-size:10.5px;color:var(--amber)">V1 31.6s · <strong>−54%</strong> · WoW spike under investigation</div>
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--amber);margin-bottom:4px">TRT P95 — STANDARD tier <span style="font-weight:400;color:var(--gray-500)">212k msgs (50%)</span></div>
+        <div style="font-size:22px;font-weight:900;color:var(--amber)">41.34s</div>
+        <div style="font-size:10.5px;color:var(--amber)">Target 35s · Breach 9.2% · above target</div>
       </div>
-      <div style="background:var(--amber-lt);border-radius:var(--radius);padding:12px 14px;border:1px solid #FFCC80">
-        <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--amber);margin-bottom:3px">Finance Planning Skill</div>
-        <div style="font-size:24px;font-weight:900;color:var(--amber)">~70s</div>
-        <div style="font-size:10.5px;color:var(--amber)">55s SLA target · OMQB-1160 · July exception under discussion</div>
+      <div style="background:var(--green-lt);border-radius:var(--radius);padding:12px 14px;border:1px solid #A5D6A7">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--green);margin-bottom:4px">TRT P95 — COMPLEX tier <span style="font-weight:400;color:var(--gray-500)">159k msgs (37%)</span></div>
+        <div style="font-size:22px;font-weight:900;color:var(--green)">41.27s</div>
+        <div style="font-size:10.5px;color:var(--green-md)">Target 55s · Breach 1.5% · well within target</div>
       </div>
     </div>
 
@@ -1073,11 +1073,11 @@ a:hover { text-decoration: underline; }
         <div class="sh" style="margin-top:0">Latency by Response Tier (Target SLAs)</div>
         <table class="tbl">
       <colgroup><col style="width:130px"><col style="width:130px"><col style="width:130px"><col></colgroup>
-          <thead><tr><th>Tier</th><th>SLA Target</th><th>Latest P50</th><th>Status</th></tr></thead>
+          <thead><tr><th>Tier</th><th>SLA Target</th><th>P95 (Jun 1–7)</th><th>Breach %</th><th>Status</th></tr></thead>
           <tbody>
-            <tr><td><strong>Fast (routing, simple)</strong></td><td class="num">≤15s</td><td class="num">~8–10s</td><td><span class="pill pg">GREEN</span></td></tr>
-            <tr><td><strong>Standard (most queries)</strong></td><td class="num">≤35s</td><td class="num">~14.4s P50</td><td><span class="pill pg">GREEN</span></td></tr>
-            <tr><td><strong>Deep analysis</strong></td><td class="num">≤55s</td><td class="num">~70s (FP)</td><td><span class="pill pa">WATCH — FP exception TBD</span></td></tr>
+            <tr><td><strong>Fast</strong> <span style="font-size:10px;color:var(--gray-500)">57k msgs · 13%</span></td><td class="num">≤15s</td><td class="num">22.38s</td><td class="num" style="color:var(--amber)">11.7%</td><td><span class="pill pa">WATCH</span></td></tr>
+            <tr><td><strong>Standard</strong> <span style="font-size:10px;color:var(--gray-500)">212k msgs · 50%</span></td><td class="num">≤35s</td><td class="num">41.34s</td><td class="num" style="color:var(--amber)">9.2%</td><td><span class="pill pa">WATCH — above target</span></td></tr>
+            <tr><td><strong>Complex</strong> <span style="font-size:10px;color:var(--gray-500)">159k msgs · 37%</span></td><td class="num">≤55s</td><td class="num">41.27s</td><td class="num" style="color:var(--green)">1.5%</td><td><span class="pill pg">GREEN</span></td></tr>
           </tbody>
         </table>
               </div>
@@ -1218,224 +1218,206 @@ a:hover { text-decoration: underline; }
   <div class="sec-hd">
     <div class="sec-num">4</div>
     <span class="sec-title">Key Dates to Late July Release</span>
-    <span class="sec-sub">Source: Exec Dashboard Scorecard</span>
+    <span class="sec-sub">Source: July Release Key Dates &amp; Milestones (Google Sheets)</span>
   </div>
   <div class="sec-body">
 
     <div class="sh">Milestone Timeline — Completed &amp; Upcoming</div>
-    <div class="sh-note" style="font-size:10px;color:var(--gray-500);margin:-8px 0 10px;">Green = shipped · Blue = in progress · Gray = upcoming · ★ = target GA</div>
+    <div class="sh-note" style="font-size:10px;color:var(--gray-500);margin:-8px 0 10px;">Green = complete · Orange = in progress / yellow · Gray = upcoming · ★ = target GA</div>
 
     <!-- UNIFIED TIMELINE -->
     <div style="position:relative; height:175px; margin:0 0 20px; overflow:visible;">
 
-      <!-- Completed label -->
-      <div style="position:absolute;left:0;top:84px;transform:translateY(-50%);font-size:8.5px;font-weight:800;color:#43A047;text-transform:uppercase;letter-spacing:.6px;writing-mode:vertical-rl;transform:rotate(180deg) translateX(50%);line-height:1">✓ DONE</div>
+      <!-- ✓ DONE label -->
+      <div style="position:absolute;left:0;top:84px;font-size:8.5px;font-weight:800;color:#43A047;text-transform:uppercase;letter-spacing:.6px;writing-mode:vertical-rl;transform:rotate(180deg) translateX(50%);line-height:1">✓ DONE</div>
 
-      <!-- === THE LINE === -->
-      <!-- Completed segment: green -->
-      <div style="position:absolute;top:84px;left:32px;width:41.5%;height:4px;background:#43A047;border-radius:2px 0 0 2px;"></div>
-      <!-- Today gap pulse marker handled below -->
+      <!-- Completed segment: green (5/13 → 6/9, ~40% of timeline) -->
+      <div style="position:absolute;top:84px;left:32px;width:40%;height:4px;background:#43A047;border-radius:2px 0 0 2px;"></div>
       <!-- Upcoming segment: gray -->
-      <div style="position:absolute;top:84px;left:calc(32px + 43%);right:8px;height:4px;background:#e0e0e0;border-radius:0 2px 2px 0;"></div>
+      <div style="position:absolute;top:84px;left:calc(32px + 41%);right:8px;height:4px;background:#e0e0e0;border-radius:0 2px 2px 0;"></div>
 
       <!-- ── COMPLETED ITEMS (ABOVE THE LINE) ── -->
 
-      <!-- V2 GA 100% Ramp · May 13 · ~14% · LEVEL A (taller tick=52px) -->
-      <div style="position:absolute;left:calc(32px + 14%);top:16px;transform:translateX(-50%);text-align:center;">
-        <div style="background:var(--green-lt);border:1.5px solid #81C784;border-radius:5px;padding:3px 7px;font-size:9.5px;font-weight:700;color:#2E7D32;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.08)">V2 GA 100%<br><span style="font-weight:400;color:var(--gray-500)">May 13</span></div>
-        <div style="width:1px;height:28px;background:#81C784;margin:0 auto;"></div>
+      <!-- 5/13 Scope Lock + Latency Targets · ~10% -->
+      <div style="position:absolute;left:calc(32px + 9%);top:18px;transform:translateX(-50%);text-align:center;">
+        <div style="background:var(--green-lt);border:1.5px solid #81C784;border-radius:5px;padding:3px 7px;font-size:9.5px;font-weight:700;color:#2E7D32;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.08)">Scope Lock<br><span style="font-weight:400;color:var(--gray-500)">May 13</span></div>
+        <div style="width:1px;height:26px;background:#81C784;margin:0 auto;"></div>
         <div style="width:9px;height:9px;background:#43A047;border-radius:50%;border:2px solid white;box-shadow:0 0 0 2px #43A047;margin:0 auto -4px;"></div>
       </div>
 
-      <!-- 1M Engaged US Users · May 19 · ~20% · LEVEL B (shorter tick=16px) -->
-      <div style="position:absolute;left:calc(32px + 20%);top:42px;transform:translateX(-50%);text-align:center;">
-        <div style="background:var(--green-lt);border:1.5px solid #81C784;border-radius:5px;padding:3px 7px;font-size:9.5px;font-weight:700;color:#2E7D32;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.08)">1M Users<br><span style="font-weight:400;color:var(--gray-500)">May 19</span></div>
-        <div style="width:1px;height:18px;background:#81C784;margin:0 auto;"></div>
+      <!-- 5/29 Monitoring + Accuracy Targets · ~22% -->
+      <div style="position:absolute;left:calc(32px + 22%);top:40px;transform:translateX(-50%);text-align:center;">
+        <div style="background:var(--green-lt);border:1.5px solid #81C784;border-radius:5px;padding:3px 7px;font-size:9.5px;font-weight:700;color:#2E7D32;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.08)">Latency &amp; Accuracy<br>Targets Set<br><span style="font-weight:400;color:var(--gray-500)">May 29</span></div>
+        <div style="width:1px;height:4px;background:#81C784;margin:0 auto;"></div>
         <div style="width:9px;height:9px;background:#43A047;border-radius:50%;border:2px solid white;box-shadow:0 0 0 2px #43A047;margin:0 auto -4px;"></div>
       </div>
 
-      <!-- 3 Features Shipped · Jun 6 · ~37% · LEVEL A -->
-      <div style="position:absolute;left:calc(32px + 36%);top:10px;transform:translateX(-50%);text-align:center;">
-        <div style="background:var(--green-lt);border:1.5px solid #81C784;border-radius:5px;padding:3px 7px;font-size:9.5px;font-weight:700;color:#2E7D32;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.08)" title="Web Search · CoT UX · Speculative Actions">3 Features Shipped ⓘ<br><span style="font-weight:400;color:var(--gray-500)">Jun 6</span></div>
-        <div style="width:1px;height:34px;background:#81C784;margin:0 auto;"></div>
+      <!-- 6/1 Required Scope Lock · ~31% -->
+      <div style="position:absolute;left:calc(32px + 30%);top:12px;transform:translateX(-50%);text-align:center;">
+        <div style="background:var(--green-lt);border:1.5px solid #81C784;border-radius:5px;padding:3px 7px;font-size:9.5px;font-weight:700;color:#2E7D32;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.08)">Required<br>Scope Lock<br><span style="font-weight:400;color:var(--gray-500)">Jun 1</span></div>
+        <div style="width:1px;height:32px;background:#81C784;margin:0 auto;"></div>
         <div style="width:9px;height:9px;background:#43A047;border-radius:50%;border:2px solid white;box-shadow:0 0 0 2px #43A047;margin:0 auto -4px;"></div>
       </div>
 
-      <!-- 2M V2 Customers · Jun 9 · ~41% · LEVEL B -->
-      <div style="position:absolute;left:calc(32px + 41%);top:40px;transform:translateX(-50%);text-align:center;">
-        <div style="background:var(--green-lt);border:1.5px solid #81C784;border-radius:5px;padding:3px 7px;font-size:9.5px;font-weight:700;color:#2E7D32;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.08)">2M Customers<br><span style="font-weight:400;color:var(--gray-500)">Jun 9</span></div>
-        <div style="width:1px;height:20px;background:#81C784;margin:0 auto;"></div>
-        <div style="width:9px;height:9px;background:#43A047;border-radius:50%;border:2px solid white;box-shadow:0 0 0 2px #43A047;margin:0 auto -4px;"></div>
-      </div>
-
-      <!-- TODAY marker -->
-      <div style="position:absolute;left:calc(32px + 43%);top:68px;transform:translateX(-50%);text-align:center;z-index:2;">
-        <div style="font-size:8px;font-weight:900;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px;">Today</div>
+      <!-- TODAY marker at ~41% -->
+      <div style="position:absolute;left:calc(32px + 41%);top:68px;transform:translateX(-50%);text-align:center;z-index:2;">
+        <div style="font-size:8px;font-weight:900;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px;">Today Jun 9</div>
         <div style="width:3px;height:20px;background:var(--blue);border-radius:2px;margin:0 auto;animation:pulse 2s infinite;box-shadow:0 0 0 3px rgba(21,101,192,.2)"></div>
       </div>
 
       <!-- ── UPCOMING ITEMS (BELOW THE LINE) ── -->
 
-            <!-- HI Live · ~Jun 16 · ~50% -->
-      <div style="position:absolute;left:calc(32px + 51%);top:89px;transform:translateX(-50%);text-align:center;">
+      <!-- 6/30 Dev Complete + Dashboards · ~55% -->
+      <div style="position:absolute;left:calc(32px + 55%);top:89px;transform:translateX(-50%);text-align:center;">
         <div style="width:11px;height:11px;background:#FB8C00;border-radius:50%;border:2px solid white;box-shadow:0 0 0 2px #FB8C00;margin:0 auto 4px;"></div>
-        <div style="font-size:9px;font-weight:700;color:var(--gray-700);text-align:center;max-width:68px;line-height:1.3">Human Intelligence</div>
-        <div style="font-size:8.5px;color:var(--gray-500);margin-top:1px">~Jun 16</div>
+        <div style="font-size:9px;font-weight:700;color:var(--gray-700);text-align:center;max-width:70px;line-height:1.3">Dev Complete<br>+ Dashboards</div>
+        <div style="font-size:8.5px;color:var(--gray-500);margin-top:1px">Jun 30</div>
         <div style="margin-top:3px"><span class="pill pb" style="font-size:7.5px;padding:1px 5px">NEXT</span></div>
       </div>
 
-      <!-- Quality Sprint · Late Jun · ~63% -->
-      <div style="position:absolute;left:calc(32px + 63%);top:89px;transform:translateX(-50%);text-align:center;">
+      <!-- 7/3 Stability Gates · ~63% -->
+      <div style="position:absolute;left:calc(32px + 62%);top:89px;transform:translateX(-50%);text-align:center;">
         <div style="width:11px;height:11px;background:var(--gray-400);border-radius:50%;border:2px solid white;box-shadow:0 0 0 2px var(--gray-400);margin:0 auto 4px;"></div>
-        <div style="font-size:9px;font-weight:700;color:var(--gray-700);text-align:center;max-width:65px;line-height:1.3">Quality Sprint</div>
-        <div style="font-size:8.5px;color:var(--gray-500);margin-top:1px">Late Jun</div>
+        <div style="font-size:9px;font-weight:700;color:var(--gray-700);text-align:center;max-width:64px;line-height:1.3">Latency &amp; Accuracy Stable</div>
+        <div style="font-size:8.5px;color:var(--gray-500);margin-top:1px">Jul 3</div>
       </div>
 
-      <!-- M3 Gate · Early Jul · ~72% -->
-      <div style="position:absolute;left:calc(32px + 72%);top:89px;transform:translateX(-50%);text-align:center;">
-        <div style="width:11px;height:11px;background:var(--gray-400);border-radius:50%;border:2px solid white;box-shadow:0 0 0 2px var(--gray-400);margin:0 auto 4px;"></div>
-        <div style="font-size:9px;font-weight:700;color:var(--gray-700);text-align:center;max-width:60px;line-height:1.3">M3 Gate</div>
-        <div style="font-size:8.5px;color:var(--gray-500);margin-top:1px">Early Jul</div>
-      </div>
-
-      <!-- Code Freeze · Mid Jul · ~82% -->
-      <div style="position:absolute;left:calc(32px + 81%);top:89px;transform:translateX(-50%);text-align:center;">
+      <!-- 7/15 Code Freeze · ~76% -->
+      <div style="position:absolute;left:calc(32px + 76%);top:89px;transform:translateX(-50%);text-align:center;">
         <div style="width:11px;height:11px;background:var(--gray-400);border-radius:50%;border:2px solid white;box-shadow:0 0 0 2px var(--gray-400);margin:0 auto 4px;"></div>
         <div style="font-size:9px;font-weight:700;color:var(--gray-700);text-align:center;max-width:60px;line-height:1.3">Code Freeze</div>
-        <div style="font-size:8.5px;color:var(--gray-500);margin-top:1px">Mid Jul</div>
+        <div style="font-size:8.5px;color:var(--gray-500);margin-top:1px">Jul 15</div>
       </div>
 
-      <!-- Go/No-Go · Mid Jul · ~86% -->
-      <div style="position:absolute;left:calc(32px + 87%);top:89px;transform:translateX(-50%);text-align:center;">
+      <!-- 7/22 E2E Go/No-Go · ~84% -->
+      <div style="position:absolute;left:calc(32px + 84%);top:89px;transform:translateX(-50%);text-align:center;">
         <div style="width:11px;height:11px;background:var(--gray-400);border-radius:50%;border:2px solid white;box-shadow:0 0 0 2px var(--gray-400);margin:0 auto 4px;"></div>
-        <div style="font-size:9px;font-weight:700;color:var(--gray-700);text-align:center;max-width:60px;line-height:1.3">Go / No-Go</div>
-        <div style="font-size:8.5px;color:var(--gray-500);margin-top:1px">Mid Jul</div>
+        <div style="font-size:9px;font-weight:700;color:var(--gray-700);text-align:center;max-width:60px;line-height:1.3">E2E Sign-Off Go/No-Go</div>
+        <div style="font-size:8.5px;color:var(--gray-500);margin-top:1px">Jul 22</div>
       </div>
 
-      <!-- Late July GA · ~97% · STAR -->
+      <!-- 7/24 GA Go-Live + STAR -->
       <div style="position:absolute;right:8px;top:81px;transform:translateX(0);text-align:center;width:64px;">
         <div style="font-size:18px;line-height:1;color:#1565C0;filter:drop-shadow(0 1px 3px rgba(21,101,192,.4))">★</div>
-        <div style="font-size:9px;font-weight:800;color:#1565C0;line-height:1.3;margin-top:2px">Late July<br>GA</div>
+        <div style="font-size:9px;font-weight:800;color:#1565C0;line-height:1.3;margin-top:2px">GA Go-Live<br>Jul 24</div>
         <div style="margin-top:3px"><span style="background:#1565C0;color:#fff;font-size:7.5px;font-weight:800;padding:1px 6px;border-radius:3px;text-transform:uppercase;letter-spacing:.4px">TARGET</span></div>
       </div>
 
     </div><!-- /unified timeline -->
 
+    <div class="sh" style="margin-top:6px">Release Milestones by Track</div>
+    <table class="tbl" style="font-size:11px;">
+      <colgroup><col style="width:90px"><col><col style="width:130px"><col style="width:80px"><col style="width:80px"></colgroup>
+      <thead><tr><th>Date</th><th>Milestone</th><th>Function</th><th>Track</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>5/13</td><td>Latency targets defined &amp; operational; teams ticketed</td><td>PM / PD · Ukeme / Steven</td><td>PMF-Latency</td><td><span class="pill pg">COMPLETE</span></td></tr>
+        <tr><td>5/29</td><td>Latency monitoring embedded in GNG; accuracy targets set with trackers</td><td>TPM · Aharon / Saket</td><td>All</td><td><span class="pill pg">COMPLETE</span></td></tr>
+        <tr><td>6/1</td><td>Required Scope Lock — final product scope locked for July</td><td>All PMs</td><td>All</td><td><span class="pill pg">COMPLETE</span></td></tr>
+        <tr><td>6/30</td><td>Dev complete: latency improvements (7 platform items) + dashboarding live</td><td>PD · Steven / Aharon</td><td>PMF-Latency</td><td><span class="pill pg">GREEN</span></td></tr>
+        <tr><td>6/30</td><td>Dev complete: platform accuracy improvements (Memory &amp; Personalization)</td><td>PD · Steven</td><td>PMF-Accuracy</td><td><span class="pill pg">GREEN</span></td></tr>
+        <tr><td>7/3</td><td>Latency stable — no new breaches; all tickets resolved across skill teams</td><td>All</td><td>PMF-Latency</td><td><span class="pill pa">YELLOW</span></td></tr>
+        <tr><td>7/3</td><td>Accuracy stable — no new correctness breaches; skill teams resolved</td><td>All</td><td>PMF-Accuracy</td><td><span class="pill pa">YELLOW</span></td></tr>
+        <tr><td>7/15</td><td>Required Code Freeze — only critical quality fixes after this</td><td>GBSG</td><td>All</td><td><span class="pill" style="background:#e0e0e0;color:#555">NOT STARTED</span></td></tr>
+        <tr><td>7/22</td><td>E2E Sign-Off — GTM &amp; Product Go/No-Go</td><td>Leads</td><td>All</td><td><span class="pill" style="background:#e0e0e0;color:#555">NOT STARTED</span></td></tr>
+        <tr><td>7/24</td><td>Product GA — Go Live</td><td>Leads</td><td>All</td><td><span class="pill" style="background:#e0e0e0;color:#555">NOT STARTED</span></td></tr>
+        <tr><td>8/1</td><td>Pricing Action</td><td>GTM</td><td>Monetization</td><td><span class="pill" style="background:#e0e0e0;color:#555">NOT STARTED</span></td></tr>
+        <tr><td>8/3</td><td>GTM Go Big Campaign</td><td>GTM</td><td>Growth</td><td><span class="pill" style="background:#e0e0e0;color:#555">NOT STARTED</span></td></tr>
+      </tbody>
+    </table>
 
-    <div class="sh" style="margin-top:6px">Six Tracks to Close the Gap</div>
-    <div class="tracks">
-      <div class="track"><div class="tr-name">Harness Engineering</div><div class="tr-sub">Latency-aware orchestrator · adaptive depth · tiers ≤15/35/55s</div></div>
-      <div class="track"><div class="tr-name">Domain Skills</div><div class="tr-sub">Faster, higher-quality BI & Help — highest-volume domains. Reports fast-track · Semantic BI Builder</div></div>
-      <div class="track"><div class="tr-name">Context Engineering</div><div class="tr-sub">Brain Center memory · metrics cache · peer benchmarks · multi-turn grounding</div></div>
-      <div class="track"><div class="tr-name">Evals</div><div class="tr-sub">Stratified by type · VOC failures as tests · vs Claude + MCP benchmarks · coverage gaps closed</div></div>
-      <div class="track"><div class="tr-name">FP&A Skills</div><div class="tr-sub">Code-generated forecasting, scenario & driver modeling · BI-owned · safe code execution</div></div>
-      <div class="track"><div class="tr-name">UX Context (Screen Awareness)</div><div class="tr-sub">Let Omni see what the customer sees on-page — directly targets #1 VOC complaint</div></div>
-    </div>
   </div>
-</div>
 
 
 
-
-
-<!-- ═══════════════════════════════════════════
-     SECTION 3 · CUSTOMER INSIGHTS
-     ═══════════════════════════════════════ -->
-<div id="execution" style="scroll-margin-top:115px"></div>
+id="execution" style="scroll-margin-top:115px"></div>
 <div class="section">
   <div class="sec-hd">
     <div class="sec-num">5</div>
-    <span class="sec-title">Execution & Delivery</span>
-    <span class="sec-sub">Source: <a href="https://intuit.enterprise.slack.com/canvas/F0B15CCL0SE" target="_blank">Chase canvas (F0B15CCL0SE)</a> · CPR 6/3 · OMQB-1160</span>
+    <span class="sec-title">Execution &amp; Delivery</span>
+    <span class="sec-sub">Source: July Release Milestones · Latency SLA Breach Tracker · Latency Improvements Tracker</span>
   </div>
   <div class="sec-body">
 
     <div class="prog-row">
-      <div class="pp g"><div class="pp-lbl">Latency</div><div class="pp-status">GREEN</div><div class="pp-note">↓36% this month · TTFMT ~1.4s · Speculative actions, CoT UX, Web Search shipped · Trajectory caching ramping</div></div>
-      <div class="pp a"><div class="pp-lbl">Accuracy</div><div class="pp-status">YELLOW</div><div class="pp-note">Online CQ ✓ 92% · Offline 4.8pp below goal · No-Hallucination regression, root cause unknown</div></div>
-      <div class="pp a"><div class="pp-lbl">Engagement</div><div class="pp-status">YELLOW</div><div class="pp-note">Overall 9.6% ✓ above May 9% target · Repeat 25.3% — 1pt below 26.3% ITF</div></div>
-      <div class="pp g"><div class="pp-lbl">Monetization</div><div class="pp-status">GREEN</div><div class="pp-note">IAS ahead of goal · Intl CVR beats US · 1,123 active subs · 88.3% retention</div></div>
+      <div class="pp a"><div class="pp-lbl">Latency</div><div class="pp-status">YELLOW</div><div class="pp-note">TRT P95 ↓ −12% WoW (39.5s) ✓ · TTFMT P95 2.78s above 2s target · 5 P0 breaches still open · stable gate due Jul 3</div></div>
+      <div class="pp a"><div class="pp-lbl">Accuracy</div><div class="pp-status">YELLOW</div><div class="pp-note">Online CQ 92% ✓ · Offline CQ 83.2%, 4.8pp below 88% goal · No-Hallucination regression root cause unknown · stable gate due Jul 3</div></div>
+      <div class="pp a"><div class="pp-lbl">Engagement</div><div class="pp-status">YELLOW</div><div class="pp-note">Overall 9.6% above May 9% target ✓ · Repeat 25.3%, 1pt below 26.3% ITF · Opt-out halved (win)</div></div>
+      <div class="pp g"><div class="pp-lbl">Monetization</div><div class="pp-status">GREEN</div><div class="pp-note">1,123 active subs · 3× growth in 4 months · Intl CVR 20.8% beats US · Pricing Action Aug 1</div></div>
     </div>
 
-    <div class="sh">Shipped This Week (Week of 6/6)</div>
-    <table class="tbl">
-      <colgroup><col style="width:220px"><col><col style="width:90px"></colgroup>
-      <thead><tr><th>Feature</th><th>Impact</th><th>Status</th></tr></thead>
+    <div class="sh">Latency Improvements — July Release (P0 Items)</div>
+    <table class="tbl" style="font-size:11px;">
+      <colgroup><col style="width:200px"><col><col style="width:80px"><col style="width:80px"></colgroup>
+      <thead><tr><th>Feature</th><th>Notes</th><th>Priority</th><th>Status</th></tr></thead>
       <tbody>
-        <tr><td><strong>Speculative actions (fast-track tools)</strong></td><td>4–7s faster retrieval · +0.01 CQ · +2% correctness · covers 90%+ retrieval queries</td><td><span class="pill pg">SHIPPED</span></td></tr>
-        <tr><td><strong>New CoT UX (web)</strong></td><td>Real-time reasoning narration → perceived-latency win</td><td><span class="pill pg">SHIPPED</span></td></tr>
-        <tr><td><strong>Web Search</strong></td><td>Tax law, regulatory updates, market data — live in production</td><td><span class="pill pg">SHIPPED</span></td></tr>
-        <tr><td><strong>Payroll: set base pay v2</strong></td><td>Commission-only employee support added</td><td><span class="pill pg">SHIPPED</span></td></tr>
-        <tr><td><strong>UK Tax: HMRC feedback</strong></td><td>Surfaces HMRC feedback on MTD tax calculations before submission</td><td><span class="pill pg">SHIPPED</span></td></tr>
-        <tr><td><strong>Reporting upgrades</strong></td><td>Split reports by group · understands budgets</td><td><span class="pill pg">SHIPPED</span></td></tr>
-        <tr><td><strong>Human Intelligence (Omni-side dev)</strong></td><td>GenUX/VEP integration complete · live human-in-chat pending GenUX prod deploy</td><td><span class="pill pb">IN PROGRESS</span></td></tr>
-        <tr><td><strong>Trajectory caching</strong></td><td>1.5–3s savings for non-BI queries</td><td><span class="pill pa">RAMPING</span></td></tr>
-        <tr><td><strong>UPI/GenUX Migration</strong></td><td>1% prod web (6/1) · 1% prod mobile (6/3) · Bronze milestone code-complete</td><td><span class="pill pa">1% RAMP</span></td></tr>
+        <tr><td><strong>Progressive Updates</strong></td><td>Streaming partial results to reduce perceived wait</td><td>P0</td><td><span class="pill pg">COMPLETE</span></td></tr>
+        <tr><td><strong>ReAct Agent/Planner Parallelization</strong></td><td>Parallel planning → faster orchestration</td><td>P0</td><td><span class="pill pg">COMPLETE</span></td></tr>
+        <tr><td><strong>Trajectory Caching</strong></td><td>1.5–3s savings for non-BI queries · ramping</td><td>P0</td><td><span class="pill pg">COMPLETE</span></td></tr>
+        <tr><td><strong>Richer CoT UI (Web + Native)</strong></td><td>Real-time reasoning narration → perceived-latency win</td><td>P0</td><td><span class="pill pg">COMPLETE</span></td></tr>
+        <tr><td><strong>BI Skill Optimization</strong></td><td>Highest-volume skill; optimized tool path</td><td>P0</td><td><span class="pill pg">COMPLETE</span></td></tr>
+        <tr><td><strong>Accelerating Help</strong></td><td>Help skill latency reduction — in progress</td><td>P0</td><td><span class="pill pb">IN PROGRESS</span></td></tr>
+        <tr><td><strong>Intent Classification/Matching</strong></td><td>Deferred from July release</td><td>P0</td><td><span class="pill pa">DEFERRED</span></td></tr>
+        <tr><td><strong>Multi-turn Optimization</strong></td><td>Not yet started; due 6/30</td><td>P0</td><td><span class="pill" style="background:#e0e0e0;color:#555">NOT STARTED</span></td></tr>
       </tbody>
     </table>
 
-    <div class="sh" style="margin-top:16px">Watch Items Requiring Leadership Attention</div>
+    <div class="sh" style="margin-top:16px">Open SLA Breach Tickets — P0 Items Requiring Resolution by Jul 3</div>
     <table class="watchlist">
-      <colgroup><col style="width:180px"><col style="width:90px"><col><col style="width:150px"><col style="width:120px"></colgroup>
+      <colgroup><col style="width:200px"><col style="width:90px"><col><col style="width:140px"><col style="width:110px"></colgroup>
       <thead>
         <tr>
-          <th style="width:220px">Item</th>
-          <th style="width:110px">Status</th>
-          <th>Why It Matters</th>
-          <th style="width:160px">Owner / Ticket</th>
-          <th style="width:160px">Next Checkpoint</th>
+          <th>Skill / Team</th>
+          <th>Status</th>
+          <th>Latest Update</th>
+          <th>Ticket / Owner</th>
+          <th>Fix Date</th>
         </tr>
       </thead>
       <tbody>
-                <tr>
-          <td class="item-name">No-Hallucination regression 97.6% → 90.7%<span class="sub">Largest single accuracy drop this week</span></td>
+        <tr>
+          <td class="item-name">Finance Agent (BI)<span class="sub">financial_planning · 60–117s avg, target 35s</span></td>
+          <td><span class="status-pill sp-yellow">IN REVIEW</span></td>
+          <td>Rohit perf PR #68: sandbox tests ~40s avg (from ~80s); Byron driving e2e jam + prod go/no-go</td>
+          <td>MMDFY-3307 · Rohit / Byron</td>
+          <td>Jun 9 (committed)</td>
+        </tr>
+        <tr>
+          <td class="item-name">Delphi — Financial Advisor<span class="sub">financial_business_advisor · 72.9s, target 35s</span></td>
+          <td><span class="status-pill sp-red">ESCALATED</span></td>
+          <td>P95 has gone to 72s; additional violations seen. Must fix by 7/3 — escalating to P0.</td>
+          <td>DELPHIAI-713 · Delphi team</td>
+          <td>Jul 3 (hard deadline)</td>
+        </tr>
+        <tr>
+          <td class="item-name">Payroll — Review Payroll<span class="sub">review_payroll · 68.3s spike, target 55s complex</span></td>
+          <td><span class="status-pill sp-yellow">OPEN</span></td>
+          <td>Parth building cross-skill fix (review_payroll prioritized), then Jiajie PRs</td>
+          <td>PAYC-20389 · Parth / Jiajie</td>
+          <td>Jul 10</td>
+        </tr>
+        <tr>
+          <td class="item-name">BI — Report Skill<span class="sub">report/data/graphs/BI skills · >55s complex SLA</span></td>
+          <td><span class="status-pill sp-yellow">IN REVIEW</span></td>
+          <td>Fix proposed on report skill; timeline and scope lock for all other skills pending</td>
+          <td>MMDFY-3359 · BI team</td>
+          <td>Jul 10</td>
+        </tr>
+        <tr>
+          <td class="item-name">No-Hallucination regression<span class="sub">97.6% → 90.7% · root cause unknown</span></td>
           <td><span class="status-pill sp-red">REGRESSION</span></td>
-          <td>Hallucination is the most visible trust failure for financial data. A 6.9pp drop without a known cause is a P0 risk that must be contained before late July readiness checkpoint.</td>
+          <td>Largest accuracy trust risk before GA. Must identify root cause before July readiness checkpoint.</td>
           <td>Eval team · TBD</td>
-          <td>Root cause must be identified by next CPR</td>
-        </tr>
-                <tr>
-          <td class="item-name">Finance planning skill ~70s vs 55s SLA<span class="sub">OMQB-1160 · PMF Yellow</span></td>
-          <td><span class="status-pill sp-yellow">WATCH</span></td>
-          <td>Deep-analysis mode required for quality but exceeds SLA. July exception under discussion with Byron's team. Quality-vs-latency tradeoff not yet quantified.</td>
-          <td>Byron's team · OMQB-1160</td>
-          <td>July exception decision TBD · quantify quality tradeoff</td>
-        </tr>
-        <tr>
-          <td class="item-name">WoW latency increase under investigation<span class="sub">Spike observed in production</span></td>
-          <td><span class="status-pill sp-yellow">WATCH</span></td>
-          <td>WoW increase could offset the 36% monthly progress story. Analytics running complexity classifier + top tools review. P0 if spike is confirmed structural.</td>
-          <td>Eng analytics team</td>
-          <td>P0 decision by end of this week if spike confirmed</td>
-        </tr>
-        <tr>
-          <td class="item-name">20+ skills — no eval data submitted<span class="sub">Due 5pm today</span></td>
-          <td><span class="status-pill sp-action">ACTION REQUIRED</span></td>
-          <td>Cannot track or certify quality for skills with no eval coverage. Unassigned skills create a blind spot in the release readiness story — especially with No-Hallucination regression active.</td>
-          <td>Domain PMs · unassigned skills need owners</td>
-          <td>5pm today submission deadline · escalate if missed</td>
-        </tr>
-        <tr>
-          <td class="item-name">Invoicing cascading eval failure<span class="sub">Fix in open PR (Rene Huang)</span></td>
-          <td><span class="status-pill sp-yellow">WATCH</span></td>
-          <td>Not a product regression — one broken eval cascaded. Fix in open PR with expected recovery to ~86% on merge. Needs to be merged before next eval run to avoid misleading the readiness picture.</td>
-          <td>Rene Huang · PR open</td>
-          <td>PR merge before next eval run</td>
+          <td>Before Jul 3 gate</td>
         </tr>
       </tbody>
     </table>
 
-    
   </div>
 </div>
 
-</div><!-- /wk7 -->
 
-
-<!-- ═══════════════════════════════════════════
-     SECTION 6 · SOURCES
-     ═══════════════════════════════════════ -->
-<div id="sources" style="scroll-margin-top:115px"></div>
+<div id="sources-reveal" style="display:none">
+id="sources" style="scroll-margin-top:115px"></div>
 <div class="section">
   <div class="sec-hd">
     <div class="sec-num">6</div>
@@ -1646,6 +1628,7 @@ a:hover { text-decoration: underline; }
 
   </div>
 </div>
+</div><!-- /sources-reveal -->
 </div><!-- /pg-body -->
 
 
@@ -1770,6 +1753,21 @@ function submitFeedback(){
     document.getElementById('fb-status').textContent='';document.getElementById('fb-status').className='';
     document.getElementById('fb-submit').disabled=false;
   },3000);
+}
+
+function toggleSources() {
+  var el = document.getElementById('sources-reveal');
+  var btn = document.getElementById('src-nav-btn');
+  if (el.style.display === 'none') {
+    el.style.display = 'block';
+    btn.textContent = '6 · Sources ▴';
+    btn.style.background = 'rgba(255,255,255,.15)';
+    el.scrollIntoView({behavior:'smooth', block:'start'});
+  } else {
+    el.style.display = 'none';
+    btn.textContent = '6 · Sources ▾';
+    btn.style.background = 'none';
+  }
 }
 </script>
 
