@@ -406,6 +406,26 @@ a:hover { text-decoration: underline; }
   </div>
 </div>
 
+<!-- SLT DECISION POINTS -->
+<div style="background:#fff;border:1.5px solid var(--navy);border-radius:var(--radius);padding:14px 18px;margin:14px 0 6px;">
+  <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;color:var(--navy);margin-bottom:10px">🎯 SLT Decision Points This Week</div>
+  <div style="display:flex;flex-direction:column;gap:8px;">
+    <div style="display:flex;gap:10px;align-items:flex-start;">
+      <span style="background:var(--red);color:#fff;font-size:9px;font-weight:800;padding:2px 7px;border-radius:3px;white-space:nowrap;margin-top:1px">DECIDE</span>
+      <div style="font-size:12px;color:var(--gray-900);line-height:1.5"><strong>Onboarding Agent ship date.</strong> AI+HI is at 8% vs 18% FY26 goal at −1pt/month. Without a confirmed date this week, FY26 plan needs to be reforecast.</div>
+    </div>
+    <div style="display:flex;gap:10px;align-items:flex-start;">
+      <span style="background:var(--red);color:#fff;font-size:9px;font-weight:800;padding:2px 7px;border-radius:3px;white-space:nowrap;margin-top:1px">DECIDE</span>
+      <div style="font-size:12px;color:var(--gray-900);line-height:1.5"><strong>No-Hallucination root cause before next eval run.</strong> Likely the Invoicing eval cascade (PR open, Rene Huang) — but unconfirmed. Until the PR merges this blocks a clean GA readiness read.</div>
+    </div>
+    <div style="display:flex;gap:10px;align-items:flex-start;">
+      <span style="background:var(--amber);color:#fff;font-size:9px;font-weight:800;padding:2px 7px;border-radius:3px;white-space:nowrap;margin-top:1px">ALIGN</span>
+      <div style="font-size:12px;color:var(--gray-900);line-height:1.5"><strong>Screen Awareness on the roadmap with a date.</strong> It's the fix for Stage 3 "no data found" — the #1 trust-break in the product and 28% of all negative VOC. Currently early-stage POC with no committed ship date.</div>
+    </div>
+  </div>
+</div>
+
+
 <!-- ── HERO METRIC CARDS (8) ─────────────────────── -->
 <div class="card-grid">
 
@@ -539,49 +559,119 @@ a:hover { text-decoration: underline; }
 
 <div style="margin:16px 0 4px;border-top:1px solid var(--gray-200);padding-top:14px">
   <div class="sh" style="margin-bottom:10px">V1 → V2 Performance Comparison <span style="font-size:10px;font-weight:400;color:var(--gray-500)">Data as of Jun 9</span></div>
-<div class="two-col">
-      <div>
-        <table class="v2tbl">
-          <colgroup><col style="width:230px"><col style="width:95px"><col style="width:80px"><col style="width:80px"></colgroup>
-          <thead>
-            <tr><th>Metric</th><th>V1 Baseline</th><th>V2 Now</th><th>Change</th></tr>
-          </thead>
-          <tbody>
-            <tr class="cat"><td colspan="4">Speed</td></tr>
-            <tr><td>TTFMT</td><td class="v1v">~8.0s</td><td class="now g">~1.4s</td><td class="chg g">−82.5%</td></tr>
-            <tr><td>Avg Response Time (P50)</td><td class="v1v">31.6s</td><td class="now g">~14.4s</td><td class="chg g">−54%</td></tr>
-            <tr class="cat"><td colspan="4">Accuracy</td></tr>
-            <tr><td>Offline CQ@5</td><td class="v1v">80.6%</td><td class="now a">83.2%</td><td class="chg g">+2.6pp</td></tr>
-            <tr><td>Online CQ</td><td class="v1v">~88%</td><td class="now g">92.0% ✓</td><td class="chg g">+4.0pp</td></tr>
-            <tr><td>Human Eval Correctness</td><td class="v1v">75.4%</td><td class="now g">
-          <colgroup><col style="width:185px"><col style="width:95px"><col style="width:85px"><col style="width:85px"></colgroup>92.7% ✓</td><td class="chg g">+17.3pp</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div>
-        <table class="v2tbl">
-          <colgroup><col style="width:230px"><col style="width:95px"><col style="width:80px"><col style="width:80px"></colgroup>
-          <thead>
-            <tr><th>Metric</th><th>V1 Baseline</th><th>V2 Now</th><th>Change</th></tr>
-          </thead>
-          <tbody>
-            <tr class="cat"><td colspan="4">Engagement</td></tr>
-            <tr><td>Repeat Engagement Rate</td><td class="v1v">22.6%</td><td class="now g">28.9%</td><td class="chg g">+6.3pp</td></tr>
-            <tr><td>Billable Message %</td><td class="v1v">62.2%</td><td class="now g">71.6%</td><td class="chg g">+9.4pp</td></tr>
-            <tr class="cat"><td colspan="4">Customer Sentiment</td></tr>
-            <tr><td>CSAT (thumbs up %)</td><td class="v1v">~36%</td><td class="now g">39.2%</td><td class="chg g">+2.4pp MoM</td></tr>
-            <tr><td>Positive verbatims (session)</td><td class="v1v">~4%</td><td class="now g">~8.5%</td><td class="chg g">~2× V1</td></tr>
-            <tr><td>AI Opt-Out (live)</td><td class="v1v">17–18%</td><td class="now g">8–9%</td><td class="chg g">Halved</td></tr>
-          </tbody>
-        </table>
-        <div class="note" style="margin-top:7px">V2 GA May 13 at 100% ramp · 2M customers reached · International launched CA/UK/AU mid-May</div>
-      </div>
+  <div class="two-col">
+
+    <!-- LEFT TABLE: Speed & Accuracy -->
+    <div>
+      <table style="width:100%;border-collapse:collapse;font-size:11.5px;">
+        <colgroup><col style="width:52%"><col style="width:16%"><col style="width:16%"><col style="width:16%"></colgroup>
+        <thead>
+          <tr style="background:var(--navy);">
+            <th style="padding:7px 10px;color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;text-align:left;border-bottom:none">Speed &amp; Accuracy</th>
+            <th style="padding:7px 10px;color:rgba(255,255,255,.7);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;text-align:center;border-bottom:none">V1</th>
+            <th style="padding:7px 10px;color:rgba(255,255,255,.7);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;text-align:center;border-bottom:none">V2 Now</th>
+            <th style="padding:7px 10px;color:rgba(255,255,255,.7);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;text-align:center;border-bottom:none">Change</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--gray-200)">
+            <td style="padding:8px 10px;font-size:11px;color:var(--gray-700)"><span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;color:var(--gray-400);display:block;margin-bottom:1px">SPEED</span>TTFMT</td>
+            <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">~8.0s</td>
+            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">~1.4s</td>
+            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">−82.5%</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--gray-200)">
+            <td style="padding:8px 10px;font-size:11px;color:var(--gray-700)">Avg Response Time (P50)</td>
+            <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">31.6s</td>
+            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">~14.4s</td>
+            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">−54%</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--gray-200)">
+            <td style="padding:8px 10px;font-size:11px;color:var(--gray-700)"><span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;color:var(--gray-400);display:block;margin-bottom:1px">ACCURACY</span>Offline CQ@5</td>
+            <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">80.6%</td>
+            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#FB8C00">83.2%</td>
+            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">+2.6pp</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--gray-200)">
+            <td style="padding:8px 10px;font-size:11px;color:var(--gray-700)">Human Eval Correctness</td>
+            <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">—</td>
+            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">75.4%</td>
+            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">+17.3pp</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--gray-200)">
+            <td style="padding:8px 10px;font-size:11px;color:var(--gray-700)">AI Opt-Out (live)</td>
+            <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">17–18%</td>
+            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">8–9%</td>
+            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">Halved</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 10px;font-size:11px;color:var(--gray-700)">Positive verbatims (session)</td>
+            <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">−4%</td>
+            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">~8.5%</td>
+            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">&lt;2× V1</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
-    <div class="strat-callout" style="margin-top:14px">
-      <strong>What this means for SLT:</strong> V2 is a proven upgrade on every tracked dimension. The risk entering Late July is not regression — it is the gap between production quality (Online CQ 92%, CSAT improving) and eval-layer confidence (Offline CQ 83.2%, No-Hallucination regression, 20+ skills without eval data). Close that gap and the readiness story becomes clean.
+    <!-- RIGHT TABLE: Engagement & Sentiment -->
+    <div>
+      <table style="width:100%;border-collapse:collapse;font-size:11.5px;">
+        <colgroup><col style="width:52%"><col style="width:16%"><col style="width:16%"><col style="width:16%"></colgroup>
+        <thead>
+          <tr style="background:var(--navy);">
+            <th style="padding:7px 10px;color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;text-align:left;border-bottom:none">Engagement &amp; Sentiment</th>
+            <th style="padding:7px 10px;color:rgba(255,255,255,.7);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;text-align:center;border-bottom:none">V1</th>
+            <th style="padding:7px 10px;color:rgba(255,255,255,.7);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;text-align:center;border-bottom:none">V2 Now</th>
+            <th style="padding:7px 10px;color:rgba(255,255,255,.7);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;text-align:center;border-bottom:none">Change</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--gray-200)">
+            <td style="padding:8px 10px;font-size:11px;color:var(--gray-700)"><span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;color:var(--gray-400);display:block;margin-bottom:1px">ENGAGEMENT</span>Repeat Engagement Rate</td>
+            <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">22.6%</td>
+            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">28.9%</td>
+            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">+6.3pp</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--gray-200)">
+            <td style="padding:8px 10px;font-size:11px;color:var(--gray-700)">Billable Message %</td>
+            <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">62.2%</td>
+            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">71.6%</td>
+            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">+9.4pp</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--gray-200)">
+            <td style="padding:8px 10px;font-size:11px;color:var(--gray-700)"><span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;color:var(--gray-400);display:block;margin-bottom:1px">CUSTOMER SENTIMENT</span>CSAT (thumbs up)</td>
+            <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">−36%</td>
+            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">39.2%</td>
+            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">+2.4pp</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--gray-200)">
+            <td style="padding:8px 10px;font-size:11px;color:var(--gray-700)">Generic / Steps Response Rate</td>
+            <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">28.3%</td>
+            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#E53935">36.9%</td>
+            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#E53935;font-size:9px">V2 regression</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--gray-200)">
+            <td style="padding:8px 10px;font-size:11px;color:var(--gray-700)">Action-Promise Gap</td>
+            <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">N/A V1</td>
+            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#E53935">12%</td>
+            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#E53935;font-size:9px">V2 regression</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 10px;font-size:11px;color:var(--gray-700)"><span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;color:var(--gray-400);display:block;margin-bottom:1px">MONETIZATION</span>Add-on Subscribers</td>
+            <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">383</td>
+            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">1,123</td>
+            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">+6.3pp</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+
   </div>
+  <div class="strat-callout" style="margin-top:14px">
+    <strong>What this means for SLT:</strong> V2 is a proven upgrade on every tracked dimension. The risk entering Late July is not regression — it is the gap between production quality (Online CQ 92%, CSAT improving) and eval-layer confidence (Offline CQ 83.2%, No-Hallucination regression, 20+ skills without eval data). Close that gap and the readiness story becomes clean.
+  </div>
+</div>
 
 
 <!-- ═══════════════════════════════════════════
