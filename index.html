@@ -1035,7 +1035,7 @@ id="accuracy" style="scroll-margin-top:115px"></div>
     </div>
 
     <div class="sh">Week-over-Week Accuracy Trend (V2)</div>
-    <table class="tbl" style="margin-bottom:14px">
+    <div style="overflow-x:auto;max-width:100%"><table class="tbl" style="margin-bottom:14px">
       <thead>
         <tr><th style="width:170px">Metric</th><th class="num">4/17</th><th class="num">4/24</th><th class="num">5/1</th><th class="num">5/8</th><th class="num">5/15</th><th class="num">6/2 (latest)</th><th>Goal</th><th>Status</th></tr>
       </thead>
@@ -1046,7 +1046,7 @@ id="accuracy" style="scroll-margin-top:115px"></div>
         <tr><td><strong>Human Eval</strong></td><td class="num">88.0%</td><td class="num">86.4%</td><td class="num">86.4%</td><td class="num">86.4%</td><td class="num">85.8%</td><td class="num"><strong style="color:var(--green)">92.7%</strong></td><td>—</td><td><span class="pill pg">GREEN — +6.9pp WoW</span></td></tr>
         <tr><td><strong>No-Hallucination</strong></td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">97.6%</td><td class="num"><strong style="color:var(--red)">90.7%</strong></td><td>—</td><td><span class="pill pr">REGRESSION — cause unknown</span></td></tr>
       </tbody>
-    </table>
+    </table></div>
 
     <div style="overflow-x:auto;max-width:100%;">
     <div class="sh">L1 Module CQ@5 vs 88% Goal (6/2 run)</div>
@@ -1118,31 +1118,6 @@ id="accuracy" style="scroll-margin-top:115px"></div>
 </div>
 
 <!-- ── SOURCE STRIP ──────────────────────────────── -->
-<div class="source-strip">
-  Sources: Chase canvas (F0B15CCL0SE) · Omni Overview deck (Jun 2026) · Eval Scorecard (Drive) · SBG Business Review (Drive) · Ruta Bhat CX Deck (851 verbatims, May 2026) · Austin Harris Qual Interviews (40+, Feb–Apr 2026)
-  <br>Generated June 9, 2026 · Prepared by BizOps (Dee Prasad, amardeep_prasad@intuit.com) · Confidential · Internal use only
-</div>
-
-</div><!-- /pg-body -->
-
-<script>
-  const sections = document.querySelectorAll('[id]');
-  const links    = document.querySelectorAll('.pg-nav a');
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
-      }
-    });
-  }, { rootMargin: '-118px 0px -60% 0px' });
-  sections.forEach(s => obs.observe(s));
-  links.forEach(l => l.addEventListener('click', function() {
-    links.forEach(x => x.classList.remove('active'));
-    this.classList.add('active');
-  }));
-</script>
-</body>
-</html>
 
 
 <!-- ═══════════════════════════════════════════
@@ -1333,3 +1308,29 @@ id="accuracy" style="scroll-margin-top:115px"></div>
     
   </div>
 </div>
+
+<div class="source-strip">
+  Sources: Chase canvas (F0B15CCL0SE) · Omni Overview deck (Jun 2026) · Eval Scorecard (Drive) · SBG Business Review (Drive) · Ruta Bhat CX Deck (851 verbatims, May 2026) · Austin Harris Qual Interviews (40+, Feb–Apr 2026)
+  <br>Generated June 9, 2026 · Prepared by BizOps (Dee Prasad, amardeep_prasad@intuit.com) · Confidential · Internal use only
+</div>
+
+</div><!-- /pg-body -->
+
+<script>
+  const sections = document.querySelectorAll('[id]');
+  const links    = document.querySelectorAll('.pg-nav a');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+      }
+    });
+  }, { rootMargin: '-118px 0px -60% 0px' });
+  sections.forEach(s => obs.observe(s));
+  links.forEach(l => l.addEventListener('click', function() {
+    links.forEach(x => x.classList.remove('active'));
+    this.classList.add('active');
+  }));
+</script>
+</body>
+</html>
