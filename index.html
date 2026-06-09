@@ -444,6 +444,7 @@ a:hover { text-decoration: underline; }
         <th style="padding:6px 10px;text-align:center;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-500);border-bottom:2px solid var(--gray-200)">V1</th>
         <th style="padding:6px 10px;text-align:center;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--navy);border-bottom:2px solid var(--gray-200)">NOW</th>
         <th style="padding:6px 10px;text-align:center;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-500);border-bottom:2px solid var(--gray-200)">CHANGE</th>
+        <th style="padding:6px 10px;text-align:left;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-500);border-bottom:2px solid var(--gray-200)">NOTE</th>
       </tr>
     </thead>
     <tbody>
@@ -454,12 +455,14 @@ a:hover { text-decoration: underline; }
         <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);color:var(--gray-500)">8.0s</td>
         <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);font-weight:700;color:var(--navy)">1.4s</td>
         <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);font-weight:700;color:#43A047">−83%</td>
+        <td style="padding:7px 10px;font-size:9.5px;color:var(--gray-500);font-style:italic">6× faster than V1 · GA latency gate cleared</td>
       </tr>
       <tr>
         <td style="padding:7px 10px;border-bottom:2px solid var(--gray-200);color:var(--gray-700)">Avg response (P50)</td>
         <td style="padding:7px 10px;text-align:center;border-bottom:2px solid var(--gray-200);color:var(--gray-500)">31.6s</td>
         <td style="padding:7px 10px;text-align:center;border-bottom:2px solid var(--gray-200);font-weight:700;color:var(--navy)">~14s</td>
         <td style="padding:7px 10px;text-align:center;border-bottom:2px solid var(--gray-200);font-weight:700;color:#43A047">−54%</td>
+        <td style="padding:7px 10px;font-size:9.5px;color:var(--gray-500);font-style:italic">P50 more than halved · speculative actions driving improvement</td>
       </tr>
       <!-- ACCURACY -->
       <tr>
@@ -468,12 +471,14 @@ a:hover { text-decoration: underline; }
         <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);color:var(--gray-500)">80.6%</td>
         <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);font-weight:700;color:var(--navy)">85.5%</td>
         <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);font-weight:700;color:#43A047">+4.9pp</td>
+        <td style="padding:7px 10px;font-size:9.5px;color:var(--gray-500);font-style:italic">2.5pp below ≥88% target · stable but work to do</td>
       </tr>
       <tr>
         <td style="padding:7px 10px;border-bottom:2px solid var(--gray-200);color:var(--gray-700)">Human Eval correctness</td>
         <td style="padding:7px 10px;text-align:center;border-bottom:2px solid var(--gray-200);color:var(--gray-500)">75.4%</td>
         <td style="padding:7px 10px;text-align:center;border-bottom:2px solid var(--gray-200);font-weight:700;color:var(--navy)">85.8%</td>
         <td style="padding:7px 10px;text-align:center;border-bottom:2px solid var(--gray-200);font-weight:700;color:#43A047">+10.4pp</td>
+        <td style="padding:7px 10px;font-size:9.5px;color:var(--gray-500);font-style:italic">Above ≥80% GA gate · highest since launch</td>
       </tr>
       <!-- ENGAGEMENT -->
       <tr>
@@ -482,12 +487,14 @@ a:hover { text-decoration: underline; }
         <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);color:var(--gray-500)">22.6%</td>
         <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);font-weight:700;color:var(--navy)">25.1%</td>
         <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);font-weight:700;color:#43A047">+2.5pp</td>
+        <td style="padding:7px 10px;font-size:9.5px;color:var(--gray-500);font-style:italic">Stats-sig cleared Apr 21 · over 104 ITPM target</td>
       </tr>
       <tr>
         <td style="padding:7px 10px;border-bottom:2px solid var(--gray-200);color:var(--gray-700)">Billable message %</td>
         <td style="padding:7px 10px;text-align:center;border-bottom:2px solid var(--gray-200);color:var(--gray-500)">62.2%</td>
         <td style="padding:7px 10px;text-align:center;border-bottom:2px solid var(--gray-200);font-weight:700;color:var(--navy)">71.6%</td>
         <td style="padding:7px 10px;text-align:center;border-bottom:2px solid var(--gray-200);font-weight:700;color:#43A047">+9.4pp</td>
+        <td style="padding:7px 10px;font-size:9.5px;color:var(--gray-500);font-style:italic">V2 users hit quota faster — DFY actions vs help text</td>
       </tr>
       <!-- SENTIMENT -->
       <tr>
@@ -496,18 +503,21 @@ a:hover { text-decoration: underline; }
         <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);color:var(--gray-500)">7.1%</td>
         <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);font-weight:700;color:var(--navy)">13.9%</td>
         <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);font-weight:700;color:#43A047">+6.8pp</td>
+        <td style="padding:7px 10px;font-size:9.5px;color:var(--gray-500);font-style:italic">Highest CSAT since launch · 39.2% MoM</td>
       </tr>
       <tr>
         <td style="padding:7px 10px;border-bottom:1px solid var(--gray-100);color:var(--gray-700)">Positive verbatims</td>
         <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);color:var(--gray-500)">~4%</td>
         <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);font-weight:700;color:var(--navy)">~8.5%</td>
         <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);font-weight:700;color:#43A047">~2×</td>
+        <td style="padding:7px 10px;font-size:9.5px;color:var(--gray-500);font-style:italic">~2× positive verbatims at same volume as V1</td>
       </tr>
       <tr>
         <td style="padding:7px 10px;border-bottom:1px solid var(--gray-200);color:var(--gray-700)">AI opt-out demand <span style="font-size:8.5px;color:var(--gray-400)">(VOC)</span></td>
         <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-500)">9.6%</td>
         <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-200);font-weight:700;color:var(--navy)">2.5%</td>
         <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-200);font-weight:700;color:#43A047">−74% ✓</td>
+        <td style="padding:7px 10px;font-size:9.5px;color:var(--gray-500);font-style:italic">Opt-out halved — customers choosing to stay vs leave</td>
       </tr>
     </tbody>
   </table>
