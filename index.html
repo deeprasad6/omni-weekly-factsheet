@@ -1168,63 +1168,113 @@ a:hover { text-decoration: underline; }
   </div>
   <div class="sec-body">
 
-    <div class="sh">Recent Proof Points (Completed)</div>
-    <div class="tl-proof">
-      <div class="tl-proof-item"><div class="tl-proof-dot"></div><strong>V2 GA 100% Ramp</strong><span class="date">May 13</span></div>
-      <div class="tl-proof-item"><div class="tl-proof-dot"></div><strong>1M Engaged US Users</strong><span class="date">May 19</span></div>
-      <div class="tl-proof-item"><div class="tl-proof-dot"></div><strong>Web Search Live in Production</strong><span class="date">Jun 6</span></div>
-      <div class="tl-proof-item"><div class="tl-proof-dot"></div><strong>CoT UX Shipped (Web)</strong><span class="date">Jun 6</span></div>
-      <div class="tl-proof-item"><div class="tl-proof-dot"></div><strong>Speculative Actions Shipped</strong><span class="date">Jun 6</span></div>
-      <div class="tl-proof-item"><div class="tl-proof-dot"></div><strong>2M V2 Customers</strong><span class="date">Jun 9</span></div>
-    </div>
+    <div class="sh">Milestone Timeline — Completed &amp; Upcoming</div>
+    <div class="sh-note" style="font-size:10px;color:var(--gray-500);margin:-8px 0 10px;">Green = shipped · Blue = in progress · Gray = upcoming · ★ = target GA</div>
 
-    <div class="sh">Upcoming Milestones to Late July GA</div>
-    <div class="tl-wrap">
-      <div class="tl">
-        <div class="tl-item">
-          <div class="tl-dot now"></div>
-          <div class="tl-lbl">GPT-5.2 Migration</div>
-          <div class="tl-date">~Jun 13</div>
-          <div class="tl-tag"><span class="pill pa">IN PROGRESS</span></div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot next"></div>
-          <div class="tl-lbl">Human Intelligence Live</div>
-          <div class="tl-date">~Jun 16</div>
-          <div class="tl-tag"><span class="pill pb">NEXT</span></div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot fut"></div>
-          <div class="tl-lbl">Quality Sprint</div>
-          <div class="tl-date">Late Jun</div>
-          <div class="tl-tag"><span class="pill pgr">UPCOMING</span></div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot fut"></div>
-          <div class="tl-lbl">M3 Gate</div>
-          <div class="tl-date">Early Jul</div>
-          <div class="tl-tag"><span class="pill pgr">UPCOMING</span></div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot fut"></div>
-          <div class="tl-lbl">Code Freeze</div>
-          <div class="tl-date">Mid Jul</div>
-          <div class="tl-tag"><span class="pill pgr">UPCOMING</span></div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot fut"></div>
-          <div class="tl-lbl">Go / No-Go</div>
-          <div class="tl-date">Mid Jul</div>
-          <div class="tl-tag"><span class="pill pgr">TBD</span></div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot fut"></div>
-          <div class="tl-lbl">Late July GA</div>
-          <div class="tl-date">Late Jul</div>
-          <div class="tl-tag"><span class="pill pgr">TARGET</span></div>
-        </div>
+    <!-- UNIFIED TIMELINE -->
+    <div style="position:relative; height:175px; margin:0 0 20px; overflow:visible;">
+
+      <!-- Completed label -->
+      <div style="position:absolute;left:0;top:84px;transform:translateY(-50%);font-size:8.5px;font-weight:800;color:#43A047;text-transform:uppercase;letter-spacing:.6px;writing-mode:vertical-rl;transform:rotate(180deg) translateX(50%);line-height:1">✓ DONE</div>
+
+      <!-- === THE LINE === -->
+      <!-- Completed segment: green -->
+      <div style="position:absolute;top:84px;left:32px;width:41.5%;height:4px;background:#43A047;border-radius:2px 0 0 2px;"></div>
+      <!-- Today gap pulse marker handled below -->
+      <!-- Upcoming segment: gray -->
+      <div style="position:absolute;top:84px;left:calc(32px + 43%);right:8px;height:4px;background:#e0e0e0;border-radius:0 2px 2px 0;"></div>
+
+      <!-- ── COMPLETED ITEMS (ABOVE THE LINE) ── -->
+
+      <!-- V2 GA 100% Ramp · May 13 · ~14% · LEVEL A (taller tick=52px) -->
+      <div style="position:absolute;left:calc(32px + 14%);top:16px;transform:translateX(-50%);text-align:center;">
+        <div style="background:var(--green-lt);border:1.5px solid #81C784;border-radius:5px;padding:3px 7px;font-size:9.5px;font-weight:700;color:#2E7D32;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.08)">V2 GA 100%<br><span style="font-weight:400;color:var(--gray-500)">May 13</span></div>
+        <div style="width:1px;height:28px;background:#81C784;margin:0 auto;"></div>
+        <div style="width:9px;height:9px;background:#43A047;border-radius:50%;border:2px solid white;box-shadow:0 0 0 2px #43A047;margin:0 auto -4px;"></div>
       </div>
-    </div>
+
+      <!-- 1M Engaged US Users · May 19 · ~20% · LEVEL B (shorter tick=16px) -->
+      <div style="position:absolute;left:calc(32px + 20%);top:42px;transform:translateX(-50%);text-align:center;">
+        <div style="background:var(--green-lt);border:1.5px solid #81C784;border-radius:5px;padding:3px 7px;font-size:9.5px;font-weight:700;color:#2E7D32;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.08)">1M Users<br><span style="font-weight:400;color:var(--gray-500)">May 19</span></div>
+        <div style="width:1px;height:18px;background:#81C784;margin:0 auto;"></div>
+        <div style="width:9px;height:9px;background:#43A047;border-radius:50%;border:2px solid white;box-shadow:0 0 0 2px #43A047;margin:0 auto -4px;"></div>
+      </div>
+
+      <!-- 3 Features Shipped · Jun 6 · ~37% · LEVEL A -->
+      <div style="position:absolute;left:calc(32px + 36%);top:10px;transform:translateX(-50%);text-align:center;">
+        <div style="background:var(--green-lt);border:1.5px solid #81C784;border-radius:5px;padding:3px 7px;font-size:9.5px;font-weight:700;color:#2E7D32;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.08)" title="Web Search · CoT UX · Speculative Actions">3 Features Shipped ⓘ<br><span style="font-weight:400;color:var(--gray-500)">Jun 6</span></div>
+        <div style="width:1px;height:34px;background:#81C784;margin:0 auto;"></div>
+        <div style="width:9px;height:9px;background:#43A047;border-radius:50%;border:2px solid white;box-shadow:0 0 0 2px #43A047;margin:0 auto -4px;"></div>
+      </div>
+
+      <!-- 2M V2 Customers · Jun 9 · ~41% · LEVEL B -->
+      <div style="position:absolute;left:calc(32px + 41%);top:40px;transform:translateX(-50%);text-align:center;">
+        <div style="background:var(--green-lt);border:1.5px solid #81C784;border-radius:5px;padding:3px 7px;font-size:9.5px;font-weight:700;color:#2E7D32;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.08)">2M Customers<br><span style="font-weight:400;color:var(--gray-500)">Jun 9</span></div>
+        <div style="width:1px;height:20px;background:#81C784;margin:0 auto;"></div>
+        <div style="width:9px;height:9px;background:#43A047;border-radius:50%;border:2px solid white;box-shadow:0 0 0 2px #43A047;margin:0 auto -4px;"></div>
+      </div>
+
+      <!-- TODAY marker -->
+      <div style="position:absolute;left:calc(32px + 43%);top:68px;transform:translateX(-50%);text-align:center;z-index:2;">
+        <div style="font-size:8px;font-weight:900;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px;">Today</div>
+        <div style="width:3px;height:20px;background:var(--blue);border-radius:2px;margin:0 auto;animation:pulse 2s infinite;box-shadow:0 0 0 3px rgba(21,101,192,.2)"></div>
+      </div>
+
+      <!-- ── UPCOMING ITEMS (BELOW THE LINE) ── -->
+
+      <!-- GPT-5.2 Migration · ~Jun 13 · ~46% -->
+      <div style="position:absolute;left:calc(32px + 46%);top:89px;transform:translateX(-50%);text-align:center;">
+        <div style="width:11px;height:11px;background:var(--blue);border-radius:50%;border:2px solid white;box-shadow:0 0 0 3px var(--blue);margin:0 auto 4px;animation:pulse 2s infinite;"></div>
+        <div style="font-size:9px;font-weight:700;color:var(--gray-700);text-align:center;max-width:70px;line-height:1.3">GPT-5.2 Migration</div>
+        <div style="font-size:8.5px;color:var(--gray-500);margin-top:1px">~Jun 13</div>
+        <div style="margin-top:3px"><span class="pill pa" style="font-size:7.5px;padding:1px 5px">IN PROGRESS</span></div>
+      </div>
+
+      <!-- HI Live · ~Jun 16 · ~50% -->
+      <div style="position:absolute;left:calc(32px + 51%);top:89px;transform:translateX(-50%);text-align:center;">
+        <div style="width:11px;height:11px;background:#FB8C00;border-radius:50%;border:2px solid white;box-shadow:0 0 0 2px #FB8C00;margin:0 auto 4px;"></div>
+        <div style="font-size:9px;font-weight:700;color:var(--gray-700);text-align:center;max-width:68px;line-height:1.3">Human Intelligence</div>
+        <div style="font-size:8.5px;color:var(--gray-500);margin-top:1px">~Jun 16</div>
+        <div style="margin-top:3px"><span class="pill pb" style="font-size:7.5px;padding:1px 5px">NEXT</span></div>
+      </div>
+
+      <!-- Quality Sprint · Late Jun · ~63% -->
+      <div style="position:absolute;left:calc(32px + 63%);top:89px;transform:translateX(-50%);text-align:center;">
+        <div style="width:11px;height:11px;background:var(--gray-400);border-radius:50%;border:2px solid white;box-shadow:0 0 0 2px var(--gray-400);margin:0 auto 4px;"></div>
+        <div style="font-size:9px;font-weight:700;color:var(--gray-700);text-align:center;max-width:65px;line-height:1.3">Quality Sprint</div>
+        <div style="font-size:8.5px;color:var(--gray-500);margin-top:1px">Late Jun</div>
+      </div>
+
+      <!-- M3 Gate · Early Jul · ~72% -->
+      <div style="position:absolute;left:calc(32px + 72%);top:89px;transform:translateX(-50%);text-align:center;">
+        <div style="width:11px;height:11px;background:var(--gray-400);border-radius:50%;border:2px solid white;box-shadow:0 0 0 2px var(--gray-400);margin:0 auto 4px;"></div>
+        <div style="font-size:9px;font-weight:700;color:var(--gray-700);text-align:center;max-width:60px;line-height:1.3">M3 Gate</div>
+        <div style="font-size:8.5px;color:var(--gray-500);margin-top:1px">Early Jul</div>
+      </div>
+
+      <!-- Code Freeze · Mid Jul · ~82% -->
+      <div style="position:absolute;left:calc(32px + 81%);top:89px;transform:translateX(-50%);text-align:center;">
+        <div style="width:11px;height:11px;background:var(--gray-400);border-radius:50%;border:2px solid white;box-shadow:0 0 0 2px var(--gray-400);margin:0 auto 4px;"></div>
+        <div style="font-size:9px;font-weight:700;color:var(--gray-700);text-align:center;max-width:60px;line-height:1.3">Code Freeze</div>
+        <div style="font-size:8.5px;color:var(--gray-500);margin-top:1px">Mid Jul</div>
+      </div>
+
+      <!-- Go/No-Go · Mid Jul · ~86% -->
+      <div style="position:absolute;left:calc(32px + 87%);top:89px;transform:translateX(-50%);text-align:center;">
+        <div style="width:11px;height:11px;background:var(--gray-400);border-radius:50%;border:2px solid white;box-shadow:0 0 0 2px var(--gray-400);margin:0 auto 4px;"></div>
+        <div style="font-size:9px;font-weight:700;color:var(--gray-700);text-align:center;max-width:60px;line-height:1.3">Go / No-Go</div>
+        <div style="font-size:8.5px;color:var(--gray-500);margin-top:1px">Mid Jul</div>
+      </div>
+
+      <!-- Late July GA · ~97% · STAR -->
+      <div style="position:absolute;right:8px;top:81px;transform:translateX(0);text-align:center;width:64px;">
+        <div style="font-size:18px;line-height:1;color:#1565C0;filter:drop-shadow(0 1px 3px rgba(21,101,192,.4))">★</div>
+        <div style="font-size:9px;font-weight:800;color:#1565C0;line-height:1.3;margin-top:2px">Late July<br>GA</div>
+        <div style="margin-top:3px"><span style="background:#1565C0;color:#fff;font-size:7.5px;font-weight:800;padding:1px 6px;border-radius:3px;text-transform:uppercase;letter-spacing:.4px">TARGET</span></div>
+      </div>
+
+    </div><!-- /unified timeline -->
+
 
     <div class="sh" style="margin-top:6px">Six Tracks to Close the Gap</div>
     <div class="tracks">
@@ -1358,82 +1408,42 @@ a:hover { text-decoration: underline; }
 </div>
 
 
-<!-- ══════════════════════════════════════════
-     FEEDBACK WIDGET
-     1. Create a Slack incoming webhook at:
-        slack.com → Your App → Incoming Webhooks
-     2. Paste the URL into SLACK_WEBHOOK below
-     ══════════════════════════════════════════ -->
+<!-- FEEDBACK WIDGET -->
 <style>
   #fb-btn {
-    position: fixed; bottom: 24px; right: 24px; z-index: 9999;
-    background: var(--navy); color: #fff;
-    border: none; border-radius: 24px; padding: 10px 18px;
-    font-size: 13px; font-weight: 700; cursor: pointer;
-    box-shadow: 0 4px 14px rgba(0,0,0,.25);
-    display: flex; align-items: center; gap: 7px;
-    transition: transform .15s, box-shadow .15s;
+    position:fixed;bottom:24px;right:24px;z-index:9999;
+    background:var(--navy);color:#fff;border:none;border-radius:24px;
+    padding:10px 18px;font-size:13px;font-weight:700;cursor:pointer;
+    box-shadow:0 4px 14px rgba(0,0,0,.25);display:flex;align-items:center;gap:7px;
+    transition:transform .15s,box-shadow .15s;
   }
-  #fb-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.3); }
-  #fb-overlay {
-    display: none; position: fixed; inset: 0; z-index: 10000;
-    background: rgba(0,0,0,.45); backdrop-filter: blur(2px);
-    align-items: center; justify-content: center;
-  }
-  #fb-overlay.open { display: flex; }
-  #fb-modal {
-    background: #fff; border-radius: 12px; width: 480px; max-width: 95vw;
-    box-shadow: 0 20px 60px rgba(0,0,0,.3); overflow: hidden;
-  }
-  #fb-modal-hd {
-    background: var(--navy); color: #fff; padding: 16px 20px;
-    display: flex; justify-content: space-between; align-items: center;
-  }
-  #fb-modal-hd h3 { margin: 0; font-size: 15px; font-weight: 700; }
-  #fb-modal-hd p { margin: 2px 0 0; font-size: 11px; opacity: .7; }
-  #fb-close { background: none; border: none; color: #fff; font-size: 20px; cursor: pointer; line-height: 1; }
-  #fb-body { padding: 20px; display: flex; flex-direction: column; gap: 14px; }
-  .fb-row label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .4px; color: var(--gray-600); margin-bottom: 5px; }
-  .fb-chips { display: flex; flex-wrap: wrap; gap: 6px; }
-  .fb-chip { display: flex; align-items: center; gap: 5px; }
-  .fb-chip input { display: none; }
-  .fb-chip span {
-    display: inline-block; padding: 4px 10px; border-radius: 12px;
-    border: 1.5px solid var(--gray-300); font-size: 11.5px; cursor: pointer;
-    background: #fff; color: var(--gray-700); transition: all .1s;
-  }
-  .fb-chip input:checked + span { background: var(--navy); color: #fff; border-color: var(--navy); }
-  .fb-stars { display: flex; gap: 4px; }
-  .fb-star { font-size: 22px; cursor: pointer; color: var(--gray-300); transition: color .1s; line-height: 1; }
-  .fb-star.lit { color: #FFA000; }
-  .fb-row textarea {
-    width: 100%; border: 1.5px solid var(--gray-300); border-radius: 6px;
-    padding: 8px 10px; font-size: 12.5px; font-family: inherit;
-    resize: vertical; min-height: 64px; box-sizing: border-box;
-    transition: border-color .15s;
-  }
-  .fb-row textarea:focus { outline: none; border-color: var(--navy); }
-  .fb-row input[type=text] {
-    width: 100%; border: 1.5px solid var(--gray-300); border-radius: 6px;
-    padding: 7px 10px; font-size: 12.5px; font-family: inherit; box-sizing: border-box;
-  }
-  .fb-row input[type=text]:focus { outline: none; border-color: var(--navy); }
-  #fb-submit {
-    background: var(--navy); color: #fff; border: none; border-radius: 7px;
-    padding: 11px 0; font-size: 13px; font-weight: 700; cursor: pointer; width: 100%;
-    transition: background .15s;
-  }
-  #fb-submit:hover { background: #1a3d6b; }
-  #fb-submit:disabled { background: var(--gray-400); cursor: not-allowed; }
-  #fb-status { font-size: 12px; text-align: center; min-height: 16px; color: var(--gray-600); }
-  #fb-status.ok { color: #2E7D32; font-weight: 700; }
-  #fb-status.err { color: var(--red); }
-  #fb-webhook-cfg {
-    background: #FFF8E1; border: 1px solid #FFE082; border-radius: 6px;
-    padding: 8px 12px; font-size: 11px; color: #5D4037; display: none;
-  }
-  #fb-webhook-cfg a { color: var(--navy); font-weight: 600; }
-  #fb-webhook-cfg code { background: #fff; padding: 1px 4px; border-radius: 3px; font-size: 10px; }
+  #fb-btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.3);}
+  #fb-overlay{display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.45);backdrop-filter:blur(2px);align-items:center;justify-content:center;}
+  #fb-overlay.open{display:flex;}
+  #fb-modal{background:#fff;border-radius:12px;width:480px;max-width:95vw;box-shadow:0 20px 60px rgba(0,0,0,.3);overflow:hidden;}
+  #fb-modal-hd{background:var(--navy);color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;}
+  #fb-modal-hd h3{margin:0;font-size:15px;font-weight:700;}
+  #fb-modal-hd p{margin:2px 0 0;font-size:11px;opacity:.7;}
+  #fb-close{background:none;border:none;color:#fff;font-size:20px;cursor:pointer;line-height:1;}
+  #fb-body{padding:20px;display:flex;flex-direction:column;gap:14px;}
+  .fb-row label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--gray-600);margin-bottom:5px;}
+  .fb-chips{display:flex;flex-wrap:wrap;gap:6px;}
+  .fb-chip{display:flex;align-items:center;gap:5px;}
+  .fb-chip input{display:none;}
+  .fb-chip span{display:inline-block;padding:4px 10px;border-radius:12px;border:1.5px solid var(--gray-300);font-size:11.5px;cursor:pointer;background:#fff;color:var(--gray-700);transition:all .1s;}
+  .fb-chip input:checked+span{background:var(--navy);color:#fff;border-color:var(--navy);}
+  .fb-stars{display:flex;gap:4px;}
+  .fb-star{font-size:22px;cursor:pointer;color:var(--gray-300);transition:color .1s;line-height:1;}
+  .fb-star.lit{color:#FFA000;}
+  .fb-row textarea{width:100%;border:1.5px solid var(--gray-300);border-radius:6px;padding:8px 10px;font-size:12.5px;font-family:inherit;resize:vertical;min-height:64px;box-sizing:border-box;transition:border-color .15s;}
+  .fb-row textarea:focus{outline:none;border-color:var(--navy);}
+  .fb-row input[type=text]{width:100%;border:1.5px solid var(--gray-300);border-radius:6px;padding:7px 10px;font-size:12.5px;font-family:inherit;box-sizing:border-box;}
+  .fb-row input[type=text]:focus{outline:none;border-color:var(--navy);}
+  #fb-submit{background:var(--navy);color:#fff;border:none;border-radius:7px;padding:11px 0;font-size:13px;font-weight:700;cursor:pointer;width:100%;transition:background .15s;}
+  #fb-submit:hover{background:#1a3d6b;}
+  #fb-status{font-size:12px;text-align:center;min-height:16px;color:var(--gray-600);}
+  #fb-status.ok{color:#2E7D32;font-weight:700;}
+  #fb-status.err{color:var(--red);}
 </style>
 
 <button id="fb-btn" onclick="document.getElementById('fb-overlay').classList.add('open')">
@@ -1445,29 +1455,26 @@ a:hover { text-decoration: underline; }
     <div id="fb-modal-hd">
       <div>
         <h3>📋 Fact Sheet Feedback</h3>
-        <p>Responses go to Slack — takes 60 seconds</p>
+        <p>Opens a pre-filled email — takes 60 seconds</p>
       </div>
       <button id="fb-close" onclick="closeFb()">×</button>
     </div>
     <div id="fb-body">
-
       <div class="fb-row">
         <label>Your name (optional)</label>
         <input type="text" id="fb-name" placeholder="e.g. Chase, Austin, Ruta…">
       </div>
-
       <div class="fb-row">
-        <label>Which section(s)? <span style="font-weight:400;text-transform:none">(select all that apply)</span></label>
+        <label>Which section(s)?</label>
         <div class="fb-chips">
           <label class="fb-chip"><input type="checkbox" value="Overview"><span>Overview</span></label>
-          <label class="fb-chip"><input type="checkbox" value="Metrics & Insights"><span>Metrics & Insights</span></label>
-          <label class="fb-chip"><input type="checkbox" value="Latency & Accuracy"><span>Latency & Accuracy</span></label>
+          <label class="fb-chip"><input type="checkbox" value="Metrics &amp; Insights"><span>Metrics &amp; Insights</span></label>
+          <label class="fb-chip"><input type="checkbox" value="Latency &amp; Accuracy"><span>Latency &amp; Accuracy</span></label>
           <label class="fb-chip"><input type="checkbox" value="Key Dates"><span>Key Dates</span></label>
           <label class="fb-chip"><input type="checkbox" value="Execution"><span>Execution</span></label>
           <label class="fb-chip"><input type="checkbox" value="Whole doc"><span>Whole doc</span></label>
         </div>
       </div>
-
       <div class="fb-row">
         <label>Overall usefulness for SLT</label>
         <div class="fb-stars" id="fb-stars">
@@ -1478,151 +1485,50 @@ a:hover { text-decoration: underline; }
           <span class="fb-star" data-v="5">★</span>
         </div>
       </div>
-
       <div class="fb-row">
         <label>What's working well?</label>
         <textarea id="fb-good" placeholder="e.g. Stage 3 drop-off signal is clear, V2 comparison tables are helpful…"></textarea>
       </div>
-
       <div class="fb-row">
         <label>What's unclear, missing, or needs fixing?</label>
-        <textarea id="fb-bad" placeholder="e.g. Latency table is hard to read, need context on ITT vs ITPM…"></textarea>
+        <textarea id="fb-bad" placeholder="e.g. Latency table is hard to read, need more context on ITT…"></textarea>
       </div>
-
-      <div id="fb-webhook-cfg">
-        ⚠ No Slack webhook configured yet. <a href="https://api.slack.com/apps" target="_blank">Create one here</a>, then set <code>SLACK_WEBHOOK</code> in the page source. Until then feedback is copied to clipboard.
-      </div>
-
       <div id="fb-status"></div>
-      <button id="fb-submit" onclick="submitFeedback()">Send to Slack →</button>
+      <button id="fb-submit" onclick="submitFeedback()">Send Feedback →</button>
     </div>
   </div>
 </div>
 
 <script>
-// ─────────────────────────────────────────────────────────────────
-//  CONFIGURE: paste your Slack incoming webhook URL here
-//  Get one at: Your Slack App → Features → Incoming Webhooks
-// ─────────────────────────────────────────────────────────────────
-const SLACK_WEBHOOK = '';   // e.g. 'https://hooks.slack.com/services/T.../B.../...'
-// ─────────────────────────────────────────────────────────────────
-
-let fbRating = 0;
-
-function closeFb() {
-  document.getElementById('fb-overlay').classList.remove('open');
-  document.getElementById('fb-status').textContent = '';
-  document.getElementById('fb-status').className = '';
-}
-
-// Star rating interaction
-document.querySelectorAll('.fb-star').forEach(star => {
-  star.addEventListener('click', () => {
-    fbRating = parseInt(star.dataset.v);
-    document.querySelectorAll('.fb-star').forEach(s => {
-      s.classList.toggle('lit', parseInt(s.dataset.v) <= fbRating);
-    });
-  });
-  star.addEventListener('mouseenter', () => {
-    const v = parseInt(star.dataset.v);
-    document.querySelectorAll('.fb-star').forEach(s => {
-      s.classList.toggle('lit', parseInt(s.dataset.v) <= v);
-    });
-  });
-  star.addEventListener('mouseleave', () => {
-    document.querySelectorAll('.fb-star').forEach(s => {
-      s.classList.toggle('lit', parseInt(s.dataset.v) <= fbRating);
-    });
-  });
+var fbRating=0;
+function closeFb(){document.getElementById('fb-overlay').classList.remove('open');document.getElementById('fb-status').textContent='';document.getElementById('fb-status').className='';}
+document.querySelectorAll('.fb-star').forEach(function(star){
+  star.addEventListener('click',function(){fbRating=parseInt(star.dataset.v);document.querySelectorAll('.fb-star').forEach(function(s){s.classList.toggle('lit',parseInt(s.dataset.v)<=fbRating);});});
+  star.addEventListener('mouseenter',function(){var v=parseInt(star.dataset.v);document.querySelectorAll('.fb-star').forEach(function(s){s.classList.toggle('lit',parseInt(s.dataset.v)<=v);});});
+  star.addEventListener('mouseleave',function(){document.querySelectorAll('.fb-star').forEach(function(s){s.classList.toggle('lit',parseInt(s.dataset.v)<=fbRating);});});
 });
-
-// Show webhook warning if not configured
-if (!SLACK_WEBHOOK) {
-  document.getElementById('fb-webhook-cfg').style.display = 'block';
-  document.getElementById('fb-submit').textContent = 'Copy to Clipboard →';
-}
-
-function submitFeedback() {
-  const name    = document.getElementById('fb-name').value.trim() || 'Anonymous';
-  const good    = document.getElementById('fb-good').value.trim();
-  const bad     = document.getElementById('fb-bad').value.trim();
-  const stars   = fbRating ? '★'.repeat(fbRating) + '☆'.repeat(5-fbRating) : 'not rated';
-  const sections = [...document.querySelectorAll('.fb-chips input:checked')].map(i=>i.value);
-  const sectionStr = sections.length ? sections.join(', ') : 'not specified';
-  const date = new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
-
-  if (!good && !bad) {
-    setStatus('Please fill in at least one feedback field.', 'err');
-    return;
-  }
-
-  const btn = document.getElementById('fb-submit');
-  btn.disabled = true;
-  setStatus('Sending…');
-
-  const msgText = [
-    `*📋 Omni Fact Sheet Feedback* — ${date}`,
-    `*From:* ${name}`,
-    `*Section(s):* ${sectionStr}`,
-    `*Rating:* ${stars}`,
-    good ? `*What's working:* ${good}` : null,
-    bad  ? `*What needs fixing:* ${bad}` : null,
-  ].filter(Boolean).join('\n');
-
-  if (SLACK_WEBHOOK) {
-    fetch(SLACK_WEBHOOK, {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({ text: msgText })
-    })
-    .then(r => {
-      if (r.ok) {
-        setStatus('✓ Sent to Slack! Thanks for the feedback.', 'ok');
-        resetForm();
-      } else {
-        throw new Error('Webhook returned ' + r.status);
-      }
-    })
-    .catch(e => {
-      setStatus('⚠ Slack error — feedback copied to clipboard instead.', 'err');
-      copyToClipboard(msgText.replace(/\n/g, '\n'));
-    })
-    .finally(() => { btn.disabled = false; });
-  } else {
-    // No webhook — copy to clipboard
-    copyToClipboard(msgText.replace(/\\n/g, '\n'));
-    setStatus('✓ Copied to clipboard — paste into Slack!', 'ok');
-    btn.disabled = false;
-    resetForm();
-  }
-}
-
-function copyToClipboard(text) {
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText(text);
-  } else {
-    const ta = document.createElement('textarea');
-    ta.value = text; document.body.appendChild(ta);
-    ta.select(); document.execCommand('copy');
-    document.body.removeChild(ta);
-  }
-}
-
-function setStatus(msg, cls='') {
-  const el = document.getElementById('fb-status');
-  el.textContent = msg; el.className = cls;
-}
-
-function resetForm() {
-  setTimeout(() => {
-    document.getElementById('fb-name').value = '';
-    document.getElementById('fb-good').value = '';
-    document.getElementById('fb-bad').value  = '';
-    document.querySelectorAll('.fb-chips input').forEach(i => i.checked = false);
-    fbRating = 0;
-    document.querySelectorAll('.fb-star').forEach(s => s.classList.remove('lit'));
-    setStatus('');
-  }, 2500);
+function submitFeedback(){
+  var name=document.getElementById('fb-name').value.trim()||'Anonymous';
+  var good=document.getElementById('fb-good').value.trim();
+  var bad=document.getElementById('fb-bad').value.trim();
+  var stars=fbRating?'★'.repeat(fbRating)+'☆'.repeat(5-fbRating):'not rated';
+  var sections=[].slice.call(document.querySelectorAll('.fb-chips input:checked')).map(function(i){return i.value;});
+  var sectionStr=sections.length?sections.join(', '):'not specified';
+  var date=new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+  if(!good&&!bad){document.getElementById('fb-status').textContent='Please fill in at least one field.';document.getElementById('fb-status').className='err';return;}
+  var subject=encodeURIComponent('Omni Fact Sheet Feedback — '+date);
+  var body=encodeURIComponent('FROM: '+name+'\nSECTION(S): '+sectionStr+'\nRATING: '+stars+'\n\nWHAT\'S WORKING:\n'+(good||'(not provided)')+'\n\nWHAT\'S UNCLEAR / MISSING:\n'+(bad||'(not provided)'));
+  window.open('mailto:amardeep_prasad@intuit.com?subject='+subject+'&body='+body);
+  document.getElementById('fb-status').textContent='✓ Email client opened — hit send!';
+  document.getElementById('fb-status').className='ok';
+  document.getElementById('fb-submit').disabled=true;
+  setTimeout(function(){
+    document.getElementById('fb-name').value='';document.getElementById('fb-good').value='';document.getElementById('fb-bad').value='';
+    document.querySelectorAll('.fb-chips input').forEach(function(i){i.checked=false;});
+    fbRating=0;document.querySelectorAll('.fb-star').forEach(function(s){s.classList.remove('lit');});
+    document.getElementById('fb-status').textContent='';document.getElementById('fb-status').className='';
+    document.getElementById('fb-submit').disabled=false;
+  },3000);
 }
 </script>
 
