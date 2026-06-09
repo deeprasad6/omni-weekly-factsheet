@@ -1096,23 +1096,7 @@ a:hover { text-decoration: underline; }
   </div>
   <div class="sec-body">
 
-    <!-- V2 vs V1 accuracy headline -->
     <!-- ── LATENCY DEEP DIVE ── -->
-    <div class="sh">
-</div>
-
-<script>
-function showPTab(btn, panelId) {
-  document.querySelectorAll('.ptab').forEach(function(b){
-    b.style.background='#fff'; b.style.color='var(--gray-700)';
-    b.style.borderColor='var(--gray-300)';
-  });
-  btn.style.background='var(--navy)'; btn.style.color='#fff';
-  btn.style.borderColor='var(--navy)';
-  document.querySelectorAll('.ptab-panel').forEach(function(p){p.style.display='none';});
-  document.getElementById(panelId).style.display='block';
-}
-</script>
 Latency — Strong Progress, WoW Spike Under Investigation</div>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px">
       <div style="background:var(--green-lt);border-radius:var(--radius);padding:12px 14px;border:1px solid #A5D6A7">
@@ -1194,9 +1178,10 @@ Latency — Strong Progress, WoW Spike Under Investigation</div>
     </div>
 
     <div class="sh">Week-over-Week Accuracy Trend (V2)</div>
-    <div style="overflow-x:auto;max-width:100%"><table class="tbl" style="margin-bottom:14px">
+    <div style="overflow-x:auto;max-width:100%"><table class="tbl" style="margin-bottom:14px;table-layout:fixed;width:100%">
+      <colgroup><col style="width:18%"><col style="width:9%"><col style="width:9%"><col style="width:9%"><col style="width:9%"><col style="width:9%"><col style="width:11%"><col style="width:9%"><col style="width:17%"></colgroup>
       <thead>
-        <tr><th style="width:170px">Metric</th><th class="num">4/17</th><th class="num">4/24</th><th class="num">5/1</th><th class="num">5/8</th><th class="num">5/15</th><th class="num">6/2 (latest)</th><th>Goal</th><th>Status</th></tr>
+        <tr><th>Metric</th><th class="num">4/17</th><th class="num">4/24</th><th class="num">5/1</th><th class="num">5/8</th><th class="num">5/15</th><th class="num">6/2 (latest)</th><th>Goal</th><th>Status</th></tr>
       </thead>
       <tbody>
         <tr><td><strong>Offline CQ@5</strong></td><td class="num">81.0%</td><td class="num">85.5%</td><td class="num">83.5%</td><td class="num">84.2%</td><td class="num">85.5%</td><td class="num"><strong style="color:var(--amber)">83.2%</strong></td><td>≥88%</td><td><span class="pill pa">WATCH — 4.8pp gap</span></td></tr>
