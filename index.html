@@ -379,242 +379,87 @@ a:hover { text-decoration: underline; }
     <span class="sec-sub">Executive summary · Top call outs · Weekly scorecard</span>
   </div>
   <div class="sec-body" style="padding:0">
-<div class="readout">
-  <div class="readout-head">
-    <div>
-      <div class="readout-eyebrow">Week 7 Overview — Jun 10, 2026</div>
-      <div class="readout-title">Omni is scaling; trust-quality is now the release gate. Two issues require attention before Late July GA confidence is clean: No-Hallucination root cause and "no data found" accuracy failures.</div>
+<!-- ── KEY METRICS OVERVIEW (5) ─────────────────────── -->
+<div style="padding:14px 22px 22px">
+  <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;color:var(--gray-400);margin-bottom:10px">Key Metrics — Monthly Trend · Jun 2026 · V1 Baseline Shown</div>
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px">
+  <div style="background:#fff;border:1.5px solid #43A047;border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:3px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3px">
+      <span style="font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#1565C0">SPEED</span>
+      <span style="font-size:8px;font-weight:700;background:var(--green-lt);color:#43A047;padding:1px 6px;border-radius:3px;text-transform:uppercase">ON TRACK</span>
     </div>
-    <div class="readout-context">Scale, latency, CSAT, and monetization are moving in the right direction. The constraint on Late July GA confidence is now accuracy coverage, hallucination containment, and onboarding activation — not the product itself.</div>
+    <div style="font-size:10px;font-weight:600;color:var(--gray-700);line-height:1.2">TTFMT — First Token</div>
+    <div style="display:flex;align-items:baseline;gap:8px;margin-top:2px">
+      <span style="font-size:22px;font-weight:800;color:var(--navy);line-height:1">~1.4s</span>
+      <span style="font-size:10px;color:var(--gray-500)">V1: ~8.0s</span>
+      <span style="font-size:11px;font-weight:700;color:#43A047">−82.5%</span>
+    </div>
+    <div style="font-size:9px;color:var(--gray-500);line-height:1.3;margin-top:1px">6× faster than V1 · WoW spike under watch</div>
+    <svg width="180" height="44" viewBox="0 0 180 44" style="display:block;margin:4px 0 0"><polygon points="12.0,38.0 51.0,14.7 90.0,8.4 129.0,7.0 168.0,6.0 168.0,38 12.0,38" fill="#43A047" opacity=".08"/><polyline points="12.0,38.0 51.0,14.7 90.0,8.4 129.0,7.0 168.0,6.0" fill="none" stroke="#43A047" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12.0" cy="38.0" r="3" fill="#43A047"/><text x="12.0" y="42" text-anchor="start" font-size="7.5" fill="#888" font-family="sans-serif">V1</text><circle cx="51.0" cy="14.7" r="2" fill="#43A047" opacity=".6"/><circle cx="90.0" cy="8.4" r="2" fill="#43A047" opacity=".6"/><circle cx="129.0" cy="7.0" r="2" fill="#43A047" opacity=".6"/><circle cx="168.0" cy="6.0" r="3" fill="#43A047"/><text x="168.0" y="42" text-anchor="end" font-size="7.5" fill="#888" font-family="sans-serif">Jun</text></svg>
   </div>
-  <div class="readout-body">
-    <div class="readout-cell rc-status">
-      <div class="rc-label">Late July Readiness</div>
-      <div class="status-pill sp-yellow">YELLOW</div>
-      <div class="rc-content">Shipping strong, but three accuracy/quality gaps need to close before the release checkpoint is green.</div>
+  <div style="background:#fff;border:1.5px solid #43A047;border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:3px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3px">
+      <span style="font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#6A1B9A">ACCURACY</span>
+      <span style="font-size:8px;font-weight:700;background:var(--green-lt);color:#43A047;padding:1px 6px;border-radius:3px;text-transform:uppercase">GREEN</span>
     </div>
-    <div class="readout-cell rc-why">
-      <div class="rc-label">Why It's Moving Right</div>
-      <div class="rc-content">V2 at 2M customers. TTFMT down 82.5% since V1. CSAT at highest since launch. Online CQ 92%+. Monetization ahead of goals. International CVR beating US.</div>
+    <div style="font-size:10px;font-weight:600;color:var(--gray-700);line-height:1.2">Online CQ — Production</div>
+    <div style="display:flex;align-items:baseline;gap:8px;margin-top:2px">
+      <span style="font-size:22px;font-weight:800;color:var(--navy);line-height:1">92.0%</span>
+      <span style="font-size:10px;color:var(--gray-500)">V1: 87.7%</span>
+      <span style="font-size:11px;font-weight:700;color:#43A047">+4.3pp</span>
     </div>
-    <div class="readout-cell rc-risk">
-      <div class="rc-label">Primary Risks</div>
-      <div class="rc-content">
-                <div style="margin-top:3px"><span class="pill pr">REGRESSION</span> No-Hallucination 90.7% ↓ from 97.6%</div>
-                <div style="margin-top:3px"><span class="pill pa">WATCH</span> Offline CQ@5 83.2% vs 88% goal</div>
-        <div style="margin-top:3px"><span class="pill pb">ACTION</span> 20+ skills missing eval data (due 5pm)</div>
-      </div>
+    <div style="font-size:9px;color:var(--gray-500);line-height:1.3;margin-top:1px">Above 88% goal ✓ · Human eval 75.4%</div>
+    <svg width="180" height="44" viewBox="0 0 180 44" style="display:block;margin:4px 0 0"><line x1="12" y1="48.7" x2="168" y2="48.7" stroke="#FB8C00" stroke-width="1" stroke-dasharray="3,2" opacity=".5"/><polygon points="12.0,38.0 51.0,27.3 90.0,18.8 129.0,11.3 168.0,6.0 168.0,38 12.0,38" fill="#43A047" opacity=".08"/><polyline points="12.0,38.0 51.0,27.3 90.0,18.8 129.0,11.3 168.0,6.0" fill="none" stroke="#43A047" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12.0" cy="38.0" r="3" fill="#43A047"/><text x="12.0" y="42" text-anchor="start" font-size="7.5" fill="#888" font-family="sans-serif">Feb</text><circle cx="51.0" cy="27.3" r="2" fill="#43A047" opacity=".6"/><circle cx="90.0" cy="18.8" r="2" fill="#43A047" opacity=".6"/><circle cx="129.0" cy="11.3" r="2" fill="#43A047" opacity=".6"/><circle cx="168.0" cy="6.0" r="3" fill="#43A047"/><text x="168.0" y="42" text-anchor="end" font-size="7.5" fill="#888" font-family="sans-serif">Jun</text></svg>
+  </div>
+  <div style="background:#fff;border:1.5px solid #43A047;border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:3px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3px">
+      <span style="font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#00695C">OVERALL ENGAGEMENT</span>
+      <span style="font-size:8px;font-weight:700;background:var(--green-lt);color:#43A047;padding:1px 6px;border-radius:3px;text-transform:uppercase">ABOVE TARGET</span>
     </div>
+    <div style="font-size:10px;font-weight:600;color:var(--gray-700);line-height:1.2">Engagement Rate</div>
+    <div style="display:flex;align-items:baseline;gap:8px;margin-top:2px">
+      <span style="font-size:22px;font-weight:800;color:var(--navy);line-height:1">9.6%</span>
+      <span style="font-size:10px;color:var(--gray-500)">V1: ~7%</span>
+      <span style="font-size:11px;font-weight:700;color:#43A047">+2.6pp</span>
+    </div>
+    <div style="font-size:9px;color:var(--gray-500);line-height:1.3;margin-top:1px">Above May 9% target ✓ · NTTF 19.8% all-time</div>
+    <svg width="180" height="44" viewBox="0 0 180 44" style="display:block;margin:4px 0 0"><line x1="12" y1="15.1" x2="168" y2="15.1" stroke="#FB8C00" stroke-width="1" stroke-dasharray="3,2" opacity=".5"/><polygon points="12.0,38.0 51.0,30.4 90.0,22.8 129.0,15.1 168.0,6.0 168.0,38 12.0,38" fill="#43A047" opacity=".08"/><polyline points="12.0,38.0 51.0,30.4 90.0,22.8 129.0,15.1 168.0,6.0" fill="none" stroke="#43A047" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12.0" cy="38.0" r="3" fill="#43A047"/><text x="12.0" y="42" text-anchor="start" font-size="7.5" fill="#888" font-family="sans-serif">Feb</text><circle cx="51.0" cy="30.4" r="2" fill="#43A047" opacity=".6"/><circle cx="90.0" cy="22.8" r="2" fill="#43A047" opacity=".6"/><circle cx="129.0" cy="15.1" r="2" fill="#43A047" opacity=".6"/><circle cx="168.0" cy="6.0" r="3" fill="#43A047"/><text x="168.0" y="42" text-anchor="end" font-size="7.5" fill="#888" font-family="sans-serif">Jun</text></svg>
+  </div>
+  <div style="background:#fff;border:1.5px solid #F9A825;border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:3px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3px">
+      <span style="font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#E65100">REPEAT ENGAGEMENT</span>
+      <span style="font-size:8px;font-weight:700;background:#FFF8E1;color:#F9A825;padding:1px 6px;border-radius:3px;text-transform:uppercase">WATCH</span>
+    </div>
+    <div style="font-size:10px;font-weight:600;color:var(--gray-700);line-height:1.2">Repeat Rate</div>
+    <div style="display:flex;align-items:baseline;gap:8px;margin-top:2px">
+      <span style="font-size:22px;font-weight:800;color:var(--navy);line-height:1">25.3%</span>
+      <span style="font-size:10px;color:var(--gray-500)">V1: 22.6%</span>
+      <span style="font-size:11px;font-weight:700;color:#43A047">+6.3pp</span>
+    </div>
+    <div style="font-size:9px;color:var(--gray-500);line-height:1.3;margin-top:1px">1pt below 26.3% ITF target · Opt-out halved ✓</div>
+    <svg width="180" height="44" viewBox="0 0 180 44" style="display:block;margin:4px 0 0"><line x1="12" y1="-5.9" x2="168" y2="-5.9" stroke="#FB8C00" stroke-width="1" stroke-dasharray="3,2" opacity=".5"/><polygon points="12.0,38.0 51.0,23.8 90.0,15.5 129.0,8.4 168.0,6.0 168.0,38 12.0,38" fill="#F9A825" opacity=".08"/><polyline points="12.0,38.0 51.0,23.8 90.0,15.5 129.0,8.4 168.0,6.0" fill="none" stroke="#F9A825" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12.0" cy="38.0" r="3" fill="#F9A825"/><text x="12.0" y="42" text-anchor="start" font-size="7.5" fill="#888" font-family="sans-serif">V1</text><circle cx="51.0" cy="23.8" r="2" fill="#F9A825" opacity=".6"/><circle cx="90.0" cy="15.5" r="2" fill="#F9A825" opacity=".6"/><circle cx="129.0" cy="8.4" r="2" fill="#F9A825" opacity=".6"/><circle cx="168.0" cy="6.0" r="3" fill="#F9A825"/><text x="168.0" y="42" text-anchor="end" font-size="7.5" fill="#888" font-family="sans-serif">Jun</text></svg>
+  </div>
+  <div style="background:#fff;border:1.5px solid #43A047;border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:3px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3px">
+      <span style="font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#1B5E20">MONETIZATION</span>
+      <span style="font-size:8px;font-weight:700;background:var(--green-lt);color:#43A047;padding:1px 6px;border-radius:3px;text-transform:uppercase">STRONG</span>
+    </div>
+    <div style="font-size:10px;font-weight:600;color:var(--gray-700);line-height:1.2">Add-on Subscribers</div>
+    <div style="display:flex;align-items:baseline;gap:8px;margin-top:2px">
+      <span style="font-size:22px;font-weight:800;color:var(--navy);line-height:1">1,123</span>
+      <span style="font-size:10px;color:var(--gray-500)">V1: 383</span>
+      <span style="font-size:11px;font-weight:700;color:#43A047">~3×</span>
+    </div>
+    <div style="font-size:9px;color:var(--gray-500);line-height:1.3;margin-top:1px">3× in 4 months · Intl CVR 20.8% beats US</div>
+    <svg width="180" height="44" viewBox="0 0 180 44" style="display:block;margin:4px 0 0"><polygon points="12.0,38.0 51.0,31.9 90.0,26.9 129.0,20.6 168.0,6.0 168.0,38 12.0,38" fill="#43A047" opacity=".08"/><polyline points="12.0,38.0 51.0,31.9 90.0,26.9 129.0,20.6 168.0,6.0" fill="none" stroke="#43A047" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12.0" cy="38.0" r="3" fill="#43A047"/><text x="12.0" y="42" text-anchor="start" font-size="7.5" fill="#888" font-family="sans-serif">Feb</text><circle cx="51.0" cy="31.9" r="2" fill="#43A047" opacity=".6"/><circle cx="90.0" cy="26.9" r="2" fill="#43A047" opacity=".6"/><circle cx="129.0" cy="20.6" r="2" fill="#43A047" opacity=".6"/><circle cx="168.0" cy="6.0" r="3" fill="#43A047"/><text x="168.0" y="42" text-anchor="end" font-size="7.5" fill="#888" font-family="sans-serif">Jun</text></svg>
+  </div>
   </div>
 </div>
 
-<!-- SLT DECISION POINTS -->
-<div style="padding:0 22px"><div style="background:#fff;border:1.5px solid var(--navy);border-radius:var(--radius);padding:14px 18px;margin:14px 0 6px;">
-  <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;color:var(--navy);margin-bottom:10px">⚠️ Top 3 Call Outs</div>
-  <div style="display:flex;flex-direction:column;gap:10px;">
-        <div style="font-size:12px;color:var(--gray-900);line-height:1.5;padding-left:10px;border-left:3px solid var(--red)"><strong>No-Hallucination eval is blocked — score cannot be trusted this week.</strong> Root cause: likely the Invoicing eval cascade (PR open, Rene Huang, unconfirmed). Example: a hallucination flagged in the eval may be an artifact of a broken test, not a real product regression — but we can't tell until the PR merges.</div>
-    <div style="font-size:12px;color:var(--gray-900);line-height:1.5;padding-left:10px;border-left:3px solid var(--amber)"><strong>25% of all feedback: Omni says "no data found" when the data is right on screen.</strong> Example: one customer flagged a $1.3M reporting risk after trusting a wrong answer. (Ruta Bhat, Jun 4) "Every confident wrong answer compounds trust loss." P0 JIRA: OMQB-635. Screen-aware PRD in motion with dates (Ukeme, Jun 9).</div>
+
+
   </div>
-</div></div></div>
-
-
-<!-- ── HERO METRIC CARDS (8) ─────────────────────── -->
-<div style="padding:0 22px 22px">
-<div class="card-grid">
-
-  <!-- TTFMT: ~8s → ~5.5s → ~3.2s → ~2.3s → ~1.9s → ~1.4s -->
-  <div class="card g">
-    <div class="card-lbl">TTFMT — Time to First Token</div>
-    <div class="card-val">~1.4s</div>
-    <div class="card-meta"><span class="delta up">↓ 82.5% since V1</span> · −36% this month · WoW spike being investigated</div>
-    <div class="spark">
-      <div class="spark-bar sg" style="height:22px" title="V1 ~8s"></div>
-      <div class="spark-bar sg" style="height:17px" title="~5.5s"></div>
-      <div class="spark-bar sg" style="height:11px" title="~3.2s"></div>
-      <div class="spark-bar sg" style="height:8px" title="~2.3s"></div>
-      <div class="spark-bar sg" style="height:6px" title="~1.9s"></div>
-      <div class="spark-bar sg" style="height:4px" title="~1.4s now"></div>
-    </div>
-    <div class="spark-lbl"><span>V1 ~8s</span><span class="now">Now ~1.4s</span></div>
-  </div>
-
-  <!-- Repeat Engagement: 22.6 → 23.8 → 24.5 → 25.1 → 25.3 -->
-  <div class="card y">
-    <div class="card-lbl">Repeat Engagement Rate</div>
-    <div class="card-val">25.3%</div>
-    <div class="card-meta"><span class="delta down">↓ −1pt vs 26.3% ITF target</span> · May full 25.3% (106 ITPM) · ITT 96</div>
-    <div class="spark">
-      <div class="spark-bar sg" style="height:7px" title="V1 22.6%"></div>
-      <div class="spark-bar sg" style="height:9px" title="23.8%"></div>
-      <div class="spark-bar sg" style="height:11px" title="24.5%"></div>
-      <div class="spark-bar sg" style="height:13px" title="25.1%"></div>
-      <div class="spark-bar sg" style="height:16px" title="26.1%"></div>
-      <div class="spark-bar sg" style="height:22px" title="25.3% now"></div>
-    </div>
-    <div class="spark-lbl"><span>V1 22.6%</span><span class="now">Now 25.3%</span></div>
-  </div>
-
-  <!-- CSAT: 27.7 → 35.1 → 33.7 → 35.9 → 39.2 -->
-  <div class="card g">
-    <div class="card-lbl">CSAT — Thumbs Up %</div>
-    <div class="card-val">39.2%</div>
-    <div class="card-meta"><span class="delta up">Highest since launch</span> · +11.5pp since Jan · ~850 verbatims</div>
-    <div class="spark">
-      <div class="spark-bar sr" style="height:8px" title="Jan 27.7%"></div>
-      <div class="spark-bar sg" style="height:16px" title="Feb 35.1%"></div>
-      <div class="spark-bar sa" style="height:14px" title="Mar 33.7%"></div>
-      <div class="spark-bar sg" style="height:17px" title="Apr 35.9%"></div>
-      <div class="spark-bar sg" style="height:22px" title="May 39.2%"></div>
-    </div>
-    <div class="spark-lbl"><span>Jan 27.7%</span><span class="now">May 39.2% ★</span></div>
-  </div>
-
-  <!-- Online CQ: 90.8 → 90.1 → 90.1 → 89.7 → 92.0 -->
-  <div class="card g">
-    <div class="card-lbl">Online CQ — Production</div>
-    <div class="card-val">92.0%</div>
-    <div class="card-meta"><span class="delta up">↑ +2.3pp WoW</span> · goal ≥88% ✓ · Human Eval 92.7%</div>
-    <div class="spark">
-      <div class="spark-bar sg" style="height:18px" title="4/17 90.8%"></div>
-      <div class="spark-bar sg" style="height:16px" title="4/24 90.1%"></div>
-      <div class="spark-bar sg" style="height:16px" title="5/1 90.1%"></div>
-      <div class="spark-bar sa" style="height:15px" title="5/15 89.7%"></div>
-      <div class="spark-bar sg" style="height:22px" title="6/2 92.0%"></div>
-    </div>
-    <div class="spark-lbl"><span>Apr 90.8%</span><span class="now">Now 92.0%</span></div>
-  </div>
-
-  <!-- Offline CQ@5: 81.0 → 85.5 → 83.5 → 85.5 → 83.2 (vs 88% goal) -->
-  <div class="card a">
-    <div class="card-lbl">Offline CQ@5 — Eval</div>
-    <div class="card-val">83.2%</div>
-    <div class="card-meta"><span class="delta warn">−2.3pp WoW · 4.8pp below 88% goal</span> · 6/2 run</div>
-    <div class="spark">
-      <div class="spark-bar sa" style="height:10px" title="4/17 81.0%"></div>
-      <div class="spark-bar sg" style="height:17px" title="4/24 85.5%"></div>
-      <div class="spark-bar sa" style="height:14px" title="5/1 83.5%"></div>
-      <div class="spark-bar sg" style="height:17px" title="5/15 85.5%"></div>
-      <div class="spark-bar sa" style="height:12px" title="6/2 83.2%"></div>
-      <div style="position:absolute;right:15px;top:45px;font-size:9px;font-weight:800;color:#BF360C">goal 88%</div>
-    </div>
-    <div class="spark-lbl"><span>Apr 81.0%</span><span class="now">Now 83.2% ↓</span></div>
-  </div>
-
-  <!-- No-Hallucination: was 97.6% → 90.7% regression -->
-  <div class="card r">
-    <div class="card-lbl">No-Hallucination Rate</div>
-    <div class="card-val">90.7%</div>
-    <div class="card-meta"><span class="delta down">REGRESSION ↓ −6.9pp WoW</span> · was 97.6% · root cause unknown</div>
-    <div style="margin-top:6px;padding:5px 8px;background:#FFF3CD;border-left:3px solid var(--red);border-radius:3px;font-size:10.5px;color:#5D4037;line-height:1.5">Root cause unconfirmed. Likely Invoicing eval cascade (PR open, Rene Huang) — but until merged, this blocks a clean GA readiness read.</div>
-    <div class="spark">
-      <div class="spark-bar sg" style="height:22px" title="Prior 97.6%"></div>
-      <div class="spark-bar sg" style="height:22px" title="—"></div>
-      <div class="spark-bar sg" style="height:22px" title="—"></div>
-      <div class="spark-bar sg" style="height:22px" title="97.6%"></div>
-      <div class="spark-bar sr" style="height:10px" title="Now 90.7%"></div>
-    </div>
-    <div class="spark-lbl"><span>Prior 97.6%</span><span class="now">Now 90.7% ↓</span></div>
-  </div>
-
-  
-  <!-- Paid Subs: 383 → 523 → 640 → 785 → 1,123 (all-time incl. total) -->
-  <div class="card t">
-    <div class="card-lbl">Add-On Subscribers</div>
-    <div class="card-val">1,123</div>
-    <div class="card-meta">US active · <span class="delta up">2× growth in 4 months</span> · Intl CVR 20.8% beats US</div>
-    <div class="spark">
-      <div class="spark-bar st" style="height:8px" title="Feb 383"></div>
-      <div class="spark-bar st" style="height:11px" title="Mar ~523"></div>
-      <div class="spark-bar st" style="height:14px" title="Apr ~640"></div>
-      <div class="spark-bar st" style="height:17px" title="May 785 (before churn adj.)"></div>
-      <div class="spark-bar st" style="height:22px" title="Jun 1,123 active"></div>
-    </div>
-    <div class="spark-lbl"><span>Feb 383</span><span class="now">Now 1,123</span></div>
-  </div>
-  <!-- TRT P95 -->
-  <div class="card g">
-    <div class="card-lbl">TRT — Total Response Time (P95)</div>
-    <div class="card-val">39.53s</div>
-    <div class="card-meta"><span class="delta up">↓ −11.9% WoW</span> · prev 44.86s · Jun 1–7 · 483K msgs</div>
-    <div class="spark">
-      <div class="spark-bar sg" style="height:22px" title="prev 44.86s"></div>
-      <div class="spark-bar sg" style="height:18px" title="now 39.53s"></div>
-    </div>
-    <div class="spark-lbl"><span>prev 44.86s</span><span class="now">Now 39.53s</span></div>
-  </div>
-</div><!-- /card-grid -->
-
-
-<div style="margin:16px 0 4px;border-top:1px solid var(--gray-200);padding-top:14px">
-  <div class="sh" style="margin-bottom:10px">V1 → V2 Performance Comparison <span style="font-size:10px;font-weight:400;color:var(--gray-500)">Data as of Jun 9</span></div>
-  <table style="width:100%;border-collapse:collapse;font-size:11px;">
-    <colgroup><col style="width:24%"><col style="width:12%"><col style="width:13%"><col style="width:11%"><col style="width:8%"><col></colgroup>
-    <thead>
-      <tr style="background:var(--navy);">
-        <th style="padding:7px 10px;color:rgba(255,255,255,.85);font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;border-bottom:none;text-align:left">Metric</th>
-        <th style="padding:7px 10px;color:rgba(255,255,255,.85);font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;border-bottom:none;text-align:center">V1 Baseline</th>
-        <th style="padding:7px 10px;color:rgba(255,255,255,.85);font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;border-bottom:none;text-align:center">V2 Now</th>
-        <th style="padding:7px 10px;color:rgba(255,255,255,.85);font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;border-bottom:none;text-align:center">Change</th>
-        <th style="padding:7px 10px;color:rgba(255,255,255,.85);font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;border-bottom:none;text-align:center">Trend</th>
-        <th style="padding:7px 10px;color:rgba(255,255,255,.85);font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;border-bottom:none;text-align:left">So What</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr style="border-bottom:1px solid var(--gray-200)">
-        <td style="padding:8px 10px"><span style="font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--gray-400);display:block;margin-bottom:1px">SPEED</span>TTFMT (first token)</td>
-        <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">~8.0s</td>
-        <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">~1.4s</td>
-        <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">−82.5%</td>
-        <td style="padding:8px 10px;text-align:center"><svg width="38" height="14" viewBox="0 0 38 14" style="vertical-align:middle"><line x1="4" y1="2" x2="34" y2="12" stroke="#43A047" stroke-width="2" stroke-linecap="round"/><circle cx="4" cy="2" r="2.5" fill="#ccc"/><circle cx="34" cy="12" r="2.5" fill="#43A047"/></svg></td>
-        <td style="padding:8px 10px;font-size:9.5px;color:var(--gray-600);font-style:italic;line-height:1.35">6× faster first token — most felt improvement; TTFMT P95 now 2.78s, target 2s still open</td>
-      </tr>
-      <tr style="border-bottom:1px solid var(--gray-200)">
-        <td style="padding:8px 10px"><span style="font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--gray-400);display:block;margin-bottom:1px">ACCURACY</span>Offline CQ@5</td>
-        <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">80.6%</td>
-        <td style="padding:8px 10px;text-align:center;font-weight:700;color:#FB8C00">83.2%</td>
-        <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">+2.6pp</td>
-        <td style="padding:8px 10px;text-align:center"><svg width="38" height="14" viewBox="0 0 38 14" style="vertical-align:middle"><line x1="4" y1="12" x2="34" y2="2" stroke="#43A047" stroke-width="2" stroke-linecap="round"/><circle cx="4" cy="12" r="2.5" fill="#ccc"/><circle cx="34" cy="2" r="2.5" fill="#43A047"/></svg></td>
-        <td style="padding:8px 10px;font-size:9.5px;color:var(--gray-600);font-style:italic;line-height:1.35">Production CQ leads at 92%; eval gap (83.2% vs 88% goal) is the July readiness risk to close</td>
-      </tr>
-      <tr style="border-bottom:1px solid var(--gray-200)">
-        <td style="padding:8px 10px"><span style="font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--gray-400);display:block;margin-bottom:1px">OVERALL ENGAGEMENT</span>Engagement Rate</td>
-        <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">~7%</td>
-        <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">9.6%</td>
-        <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">+2.6pp</td>
-        <td style="padding:8px 10px;text-align:center"><svg width="38" height="14" viewBox="0 0 38 14" style="vertical-align:middle"><line x1="4" y1="12" x2="34" y2="2" stroke="#43A047" stroke-width="2" stroke-linecap="round"/><circle cx="4" cy="12" r="2.5" fill="#ccc"/><circle cx="34" cy="2" r="2.5" fill="#43A047"/></svg></td>
-        <td style="padding:8px 10px;font-size:9.5px;color:var(--gray-600);font-style:italic;line-height:1.35">Above May 9% target; 3× more customers actively engaged vs V1 launch</td>
-      </tr>
-      <tr style="border-bottom:1px solid var(--gray-200)">
-        <td style="padding:8px 10px"><span style="font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--gray-400);display:block;margin-bottom:1px">ENGAGEMENT · RETENTION SIGNAL</span>AI Opt-Out Rate ↓</td>
-        <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">17–18%</td>
-        <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">8–9%</td>
-        <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">Halved ✓</td>
-        <td style="padding:8px 10px;text-align:center"><svg width="38" height="14" viewBox="0 0 38 14" style="vertical-align:middle"><line x1="4" y1="2" x2="34" y2="12" stroke="#43A047" stroke-width="2" stroke-linecap="round"/><circle cx="4" cy="2" r="2.5" fill="#ccc"/><circle cx="34" cy="12" r="2.5" fill="#43A047"/></svg></td>
-        <td style="padding:8px 10px;font-size:9.5px;color:var(--gray-600);font-style:italic;line-height:1.35">Opt-out demand halved — customers choosing to stay with Omni doubled; strongest V2 stickiness signal</td>
-      </tr>
-      <tr style="border-bottom:1px solid var(--gray-200)">
-        <td style="padding:8px 10px"><span style="font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--gray-400);display:block;margin-bottom:1px">REPEAT ENGAGEMENT</span>Repeat Rate</td>
-        <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">22.6%</td>
-        <td style="padding:8px 10px;text-align:center;font-weight:700;color:#F9A825">25.3%</td>
-        <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">+6.3pp</td>
-        <td style="padding:8px 10px;text-align:center"><svg width="38" height="14" viewBox="0 0 38 14" style="vertical-align:middle"><line x1="4" y1="12" x2="34" y2="2" stroke="#43A047" stroke-width="2" stroke-linecap="round"/><circle cx="4" cy="12" r="2.5" fill="#ccc"/><circle cx="34" cy="2" r="2.5" fill="#43A047"/></svg></td>
-        <td style="padding:8px 10px;font-size:9.5px;color:var(--gray-600);font-style:italic;line-height:1.35">1-in-4 customers returns within 7 days — habit forming at scale; 1pt below 26.3% ITF target</td>
-      </tr>
-      <tr>
-        <td style="padding:8px 10px"><span style="font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--gray-400);display:block;margin-bottom:1px">MONETIZATION</span>Add-on Subscribers</td>
-        <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">383</td>
-        <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">1,123</td>
-        <td style="padding:8px 10px;text-align:center;font-weight:700;color:#43A047">~3×</td>
-        <td style="padding:8px 10px;text-align:center"><svg width="38" height="14" viewBox="0 0 38 14" style="vertical-align:middle"><polyline points="4,12 12,10 22,7 34,2" fill="none" stroke="#43A047" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="12" r="2.5" fill="#ccc"/><circle cx="34" cy="2" r="2.5" fill="#43A047"/></svg></td>
-        <td style="padding:8px 10px;font-size:9.5px;color:var(--gray-600);font-style:italic;line-height:1.35">3× growth in 4 months post-GA; Intl CVR 20.8% beats US — pricing action due Aug 1</td>
-      </tr>
-    </tbody>
-  </table>
 </div>
-</div>
-  </div>
-
-
 <!-- ═══════════════════════════════════════════
      SECTION 1 · METRICS PULSE CHECK
      ═══════════════════════════════════════ -->
@@ -815,61 +660,7 @@ a:hover { text-decoration: underline; }
       </tbody>
     </table>
 
-    <div class="sh" style="margin-top:24px">In Their Own Words &amp; VOC Themes</div>
-
-<div class="quotes">
-      <div class="qcard"><div class="qtext">I will definitely reuse it — it's more than standard help. I hope it resolves my daily problems.</div><div class="qsrc">Joseph R., Controller (recently migrated QBO) · Qual Interviews (Austin Harris, Feb–Apr 2026) · Feb 2026</div></div>
-      <div class="qcard"><div class="qtext">I moved everything to QuickBooks so it could help me automate... I can't keep spending an hour every morning tracking everything.</div><div class="qsrc">Abigail Z., Owner · Qual Interviews (Austin Harris, Feb–Apr 2026) · Apr 2026</div></div>
-      <div class="qcard"><div class="qtext">It's easier for the client to go here than to try to get a hold of us — if they're getting the right answer, they don't have to wait.</div><div class="qsrc">Wesley, Accountant, High Point CPA · Qual Interviews (Austin Harris, Feb–Apr 2026) · Apr 2026</div></div>
-      <div class="qcard"><div class="qtext">If I know QuickBooks can do this... why go with ChatGPT? I'm already paying you.</div><div class="qsrc">Andre, Pool Company Owner · Qual Interviews (Austin Harris, Feb–Apr 2026) · Mar 2026</div></div>
-      <div class="qcard neg"><div class="qtext">Not ready for prime time.</div><div class="qsrc">Brian Borchardt, QBO user · Omni CX Deck, Stage 3 Appendix (Ruta Bhat, June 2026) · vendor lookup failure</div></div>
-    </div>
-
-    <div class="two-col" style="margin-top:6px">
-      <div>
-        <div class="sh">Where We Fall Short — Share of Negative VOC</div>
-        <div style="margin-bottom:10px;font-size:11.5px;color:var(--gray-700)">"No data found" when the data exists flagged across 623+ verbatims, every surface, both V1 and V2. Accountant verbatims run ~95% negative on web.</div>
-        <div class="voc-row">
-          <div class="voc-lbl-row"><span class="vl">Accuracy — "no data found" visible on screen</span><span class="vp" style="color:#E53935">25%</span></div>
-          <div class="voc-outer"><div class="voc-inner vi-top" style="width:100%"></div></div>
-        </div>
-        <div class="voc-row">
-          <div class="voc-lbl-row"><span class="vl">Can't see what user sees — no page context</span><span class="vp" style="color:#FB8C00">14%</span></div>
-          <div class="voc-outer"><div class="voc-inner vi-neg" style="width:50%"></div></div>
-        </div>
-        <div class="voc-row">
-          <div class="voc-lbl-row"><span class="vl">How-to steps, not do-it-for-me</span><span class="vp" style="color:#FB8C00">12%</span></div>
-          <div class="voc-outer"><div class="voc-inner vi-neg" style="width:43%"></div></div>
-        </div>
-        <div class="voc-row">
-          <div class="voc-lbl-row"><span class="vl">Help & human-handoff gaps</span><span class="vp" style="color:#FB8C00">7%</span></div>
-          <div class="voc-outer"><div class="voc-inner vi-neg" style="width:25%"></div></div>
-        </div>
-        <div class="voc-row">
-          <div class="voc-lbl-row"><span class="vl">"It doesn't know me" — no business memory</span><span class="vp" style="color:#FB8C00">6%</span></div>
-          <div class="voc-outer"><div class="voc-inner vi-neg" style="width:21%"></div></div>
-        </div>
-        <div class="voc-row">
-          <div class="voc-lbl-row"><span class="vl">Positive / time-saving (signal of what works)</span><span class="vp" style="color:#43A047">10.7% V2</span></div>
-          <div class="voc-outer"><div class="voc-inner vi-pos" style="width:38%"></div></div>
-        </div>
-        <div class="note">Cancellation verbatims reference general AI tools — see Monthly Market Watch for external context.</div>
-      </div>
-      <div>
-        <div class="sh">VOC Themes — V1 vs V2 (Apr full)</div>
-        <table class="tbl">
-      <colgroup><col style="width:220px"><col style="width:75px"><col style="width:75px"><col></colgroup>
-          <thead><tr><th>Theme</th><th>V1%</th><th>V2%</th><th>Direction</th></tr></thead>
-          <tbody>
-            <tr><td>Generic / steps not action</td><td class="num">28.3%</td><td class="num">36.9%</td><td><span class="delta down">↑ V2 worse · top theme</span></td></tr>
-            <tr><td>AI Inaccuracy — wrong data</td><td class="num">17.7%</td><td class="num">19.7%</td><td><span class="pill pa">Slight uptick</span></td></tr>
-            <tr><td>Positive / Time-Saving</td><td class="num">5.6%</td><td class="num">10.7%</td><td><span class="delta up">↑ ~2× V1</span></td></tr>
-            <tr><td>Feature Requests / Batch Actions</td><td class="num">7.1%</td><td class="num">9.8%</td><td><span class="pill pgr">Stable growth</span></td></tr>
-            <tr><td>Human Help / Transfer Loop</td><td class="num">3.0%</td><td class="num">7.4%</td><td><span class="delta down">↑ V2 worse · escalation friction</span></td></tr>
-            <tr><td>AI Opt-Out</td><td class="num">9.6%</td><td class="num">2.5%</td><td><span class="delta up">↓ Sharply lower in V2</span></td></tr>
-          </tbody>
-        </table>
-        <div class="sh" style="margin-top:12px">CSAT Trend (Dec '25–May '26)</div>
+    <div class="sh" style="margin-top:12px">CSAT Trend (Dec '25–May '26)</div>
         <div style="display:flex;align-items:flex-end;gap:9px;height:62px;padding:2px 0;margin-bottom:4px">
           <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1"><div style="font-size:9px;font-weight:700;color:var(--gray-700)">36.2%</div><div style="width:100%;background:#90CAF9;border-radius:3px 3px 0 0;height:37px"></div><div style="font-size:8.5px;color:var(--gray-500)">Dec</div></div>
           <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1"><div style="font-size:9px;font-weight:700;color:#C62828">27.7%</div><div style="width:100%;background:#EF9A9A;border-radius:3px 3px 0 0;height:14px"></div><div style="font-size:8.5px;color:var(--gray-500)">Jan</div></div>
@@ -879,19 +670,6 @@ a:hover { text-decoration: underline; }
           <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1"><div style="font-size:9px;font-weight:700;color:var(--green)"><strong>39.2%</strong></div><div style="width:100%;background:#43A047;border-radius:3px 3px 0 0;height:50px"></div><div style="font-size:8.5px;color:var(--gray-500)">May ✓</div></div>
         </div>
         <div class="note">Feedback rate ~0.3% — all signals directional. 1,280 add-on subs = 88.3% retained.</div>
-      </div>
-    </div>
-
-    <div class="cpair" style="margin-top:14px">
-      <div class="callout w">
-        <div class="clbl">Wins</div>
-        CSAT 39.2% highest since launch · V2 positive verbatims ~2× V1 · Opt-out halved · Contextual Auto-Open drove 13% of repeat engagement in first weeks · Screen-awareness worktrack now kicked off to address #1 trust-break
-      </div>
-      <div class="callout x">
-        <div class="clbl">Watch</div>
-        "No data found" = 25% of all feedback (Ruta Bhat, Jun 4) — screen-aware PRD in motion · Generic/unhelpful 36.9% in V2 · Cancellation theme includes AI commodity perception — differentiation narrative needs to sharpen
-      </div>
-    </div>
 
     <div style="margin-top:24px">
       <div class="sh" style="margin-top:18px">Engagement Campaigns — ELM Status (Product Marketing)</div>
