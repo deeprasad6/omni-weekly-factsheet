@@ -383,7 +383,7 @@ a:hover { text-decoration: underline; }
   <div class="readout-head">
     <div>
       <div class="readout-eyebrow">Week 7 Overview — Jun 10, 2026</div>
-      <div class="readout-title">Omni is scaling; trust-quality is now the release gate. Three issues require attention before Late July GA confidence is clean: AI+HI activation gap, No-Hallucination root cause, and "no data found" accuracy failures.</div>
+      <div class="readout-title">Omni is scaling; trust-quality is now the release gate. Two issues require attention before Late July GA confidence is clean: No-Hallucination root cause and "no data found" accuracy failures.</div>
     </div>
     <div class="readout-context">Scale, latency, CSAT, and monetization are moving in the right direction. The constraint on Late July GA confidence is now accuracy coverage, hallucination containment, and onboarding activation — not the product itself.</div>
   </div>
@@ -400,10 +400,8 @@ a:hover { text-decoration: underline; }
     <div class="readout-cell rc-risk">
       <div class="rc-label">Primary Risks</div>
       <div class="rc-content">
-        <div><span class="pill pr">BLOCKED</span> GPT-5.2 capacity (GENOSSUP-7434)</div>
-        <div style="margin-top:3px"><span class="pill pr">REGRESSION</span> No-Hallucination 90.7% ↓ from 97.6%</div>
-        <div style="margin-top:3px"><span class="pill pa">AT RISK</span> AI+HI onboarding 8% vs 18% goal</div>
-        <div style="margin-top:3px"><span class="pill pa">WATCH</span> Offline CQ@5 83.2% vs 88% goal</div>
+                <div style="margin-top:3px"><span class="pill pr">REGRESSION</span> No-Hallucination 90.7% ↓ from 97.6%</div>
+                <div style="margin-top:3px"><span class="pill pa">WATCH</span> Offline CQ@5 83.2% vs 88% goal</div>
         <div style="margin-top:3px"><span class="pill pb">ACTION</span> 20+ skills missing eval data (due 5pm)</div>
       </div>
     </div>
@@ -414,8 +412,7 @@ a:hover { text-decoration: underline; }
 <div style="padding:0 22px"><div style="background:#fff;border:1.5px solid var(--navy);border-radius:var(--radius);padding:14px 18px;margin:14px 0 6px;">
   <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;color:var(--navy);margin-bottom:10px">⚠️ Top 3 Call Outs</div>
   <div style="display:flex;flex-direction:column;gap:10px;">
-    <div style="font-size:12px;color:var(--gray-900);line-height:1.5;padding-left:10px;border-left:3px solid var(--red)"><strong>8% AI+HI vs. 18% FY26 goal. −1pt/month for 3 months.</strong> Example: customers who never interact with an AI feature are counted as missed activations every week. At this trajectory the annual plan misses without an Onboarding Agent ship date confirmed.</div>
-    <div style="font-size:12px;color:var(--gray-900);line-height:1.5;padding-left:10px;border-left:3px solid var(--red)"><strong>No-Hallucination eval is blocked — score cannot be trusted this week.</strong> Root cause: likely the Invoicing eval cascade (PR open, Rene Huang, unconfirmed). Example: a hallucination flagged in the eval may be an artifact of a broken test, not a real product regression — but we can't tell until the PR merges.</div>
+        <div style="font-size:12px;color:var(--gray-900);line-height:1.5;padding-left:10px;border-left:3px solid var(--red)"><strong>No-Hallucination eval is blocked — score cannot be trusted this week.</strong> Root cause: likely the Invoicing eval cascade (PR open, Rene Huang, unconfirmed). Example: a hallucination flagged in the eval may be an artifact of a broken test, not a real product regression — but we can't tell until the PR merges.</div>
     <div style="font-size:12px;color:var(--gray-900);line-height:1.5;padding-left:10px;border-left:3px solid var(--amber)"><strong>25% of all feedback: Omni says "no data found" when the data is right on screen.</strong> Example: one customer flagged a $1.3M reporting risk after trusting a wrong answer. (Ruta Bhat, Jun 4) "Every confident wrong answer compounds trust loss." P0 JIRA: OMQB-635. Screen-aware PRD in motion with dates (Ukeme, Jun 9).</div>
   </div>
 </div></div></div>
@@ -519,23 +516,7 @@ a:hover { text-decoration: underline; }
     <div class="spark-lbl"><span>Prior 97.6%</span><span class="now">Now 90.7% ↓</span></div>
   </div>
 
-  <!-- AI+HI 31D onboarding: flat/declining toward goal -->
-  <div class="card r">
-    <div class="card-lbl">AI+HI 31-Day Onboarding</div>
-    <div class="card-val">8%</div>
-    <div class="card-meta"><span class="delta down">AT RISK vs 18% FY26 goal</span> · −1pt MoM · Onboarding Agent delayed</div>
-    <div style="margin-top:6px;padding:5px 8px;background:#FFF3CD;border-left:3px solid var(--red);border-radius:3px;font-size:10.5px;color:#5D4037;line-height:1.5">At −1pt/month this gap cannot close by FY26 without an Onboarding Agent ship date. <strong>This is a plan miss, not a trend watch.</strong></div>
-    <div class="spark">
-      <div class="spark-bar sr" style="height:14px" title="~10% launch"></div>
-      <div class="spark-bar sr" style="height:13px" title="~9%"></div>
-      <div class="spark-bar sr" style="height:12px" title="~9%"></div>
-      <div class="spark-bar sr" style="height:10px" title="~8.5%"></div>
-      <div class="spark-bar sr" style="height:9px" title="Now 8%"></div>
-      <div style="position:absolute;right:15px;top:45px;font-size:9px;font-weight:800;color:#B71C1C">goal 18%</div>
-    </div>
-    <div class="spark-lbl"><span>Launch ~10%</span><span class="now">Now 8% ↓</span></div>
-  </div>
-
+  
   <!-- Paid Subs: 383 → 523 → 640 → 785 → 1,123 (all-time incl. total) -->
   <div class="card t">
     <div class="card-lbl">Add-On Subscribers</div>
@@ -728,8 +709,7 @@ a:hover { text-decoration: underline; }
           <div style="background:rgba(165,214,167,.15);border:1px solid rgba(165,214,167,.3);border-radius:3px;padding:3px 6px;font-size:8.5px;color:#A5D6A7;margin-bottom:2px">Repeat Eng. 25.3%</div>
           <div style="background:rgba(165,214,167,.15);border-radius:3px;padding:3px 6px;font-size:8.5px;color:#A5D6A7;margin-bottom:2px">Add-on Subs 1,123</div>
           <div style="background:rgba(255,255,255,.08);border-radius:3px;padding:3px 6px;font-size:8.5px;color:rgba(255,255,255,.5);margin-bottom:2px">CSAT 39.2%</div>
-          <div style="background:rgba(255,255,255,.08);border-radius:3px;padding:3px 6px;font-size:8.5px;color:rgba(255,255,255,.5)">AI+HI Onboard 71%</div>
-        </div>
+                  </div>
         <div>
           <div style="font-size:8.5px;font-weight:700;color:rgba(255,255,255,.55);margin-bottom:3px">S6 · When It Fails</div>
           <div style="background:rgba(255,255,255,.08);border-radius:3px;padding:3px 6px;font-size:8.5px;color:rgba(255,255,255,.5);margin-bottom:2px">Agent Escape 7%</div>
@@ -1020,8 +1000,7 @@ a:hover { text-decoration: underline; }
         <tr><td style="padding-left:22px;color:var(--gray-500);font-size:10.5px">↳ <em>NTTF Engagement Rate</em></td><td class="num" style="color:var(--gray-500)">19.8%</td><td class="num" style="color:var(--gray-500)">17.7% (121 ITPM)</td><td style="color:var(--gray-500)">—</td><td style="color:var(--gray-500)">—</td><td><span class="delta up">↑ +0.1pts</span></td><td><span class="pill pa">Sub-segment of Overall</span></td></tr>
         <tr><td><strong>Repeat Engagement Rate</strong></td><td class="num">25.3% (106 ITPM)</td><td class="num">25.1% (105 ITPM)</td><td>26.3% ITF</td><td>96</td><td><span class="delta up">↑ +0.2pts MoM</span></td><td><span class="pill pa">WATCH — 1pt below ITF target</span></td></tr>
         <tr><td><strong>Contextual Auto-Open</strong></td><td style="text-align:center;font-size:11.5px;font-weight:600;white-space:nowrap">17% of engaged cos</td><td>—</td><td>—</td><td>—</td><td style="text-align:center;font-size:11px;color:var(--gray-600)">2nd largest first-touch after header</td><td><span class="pill pg">GREEN — 100% ramped 5/27</span></td></tr>
-        <tr><td><strong>AI+HI 31D Onboarding</strong></td><td class="num">~8%</td><td>—</td><td>18% FY26</td><td>~44</td><td><span class="delta down">↓ −1pt MoM</span></td><td><span class="pill pr">AT RISK — Onboarding Agent delayed</span></td></tr>
-      </tbody>
+              </tbody>
     </table>
   </div>
   <div style="margin-bottom:20px">
@@ -1073,7 +1052,7 @@ a:hover { text-decoration: underline; }
       </div>
       <div class="callout x">
         <div class="clbl">Watch</div>
-        AI+HI 31D onboarding 8% vs 18% — AT RISK · May Full repeat 25.3% — 1pt below 26.3% target · 3 high-volume experiments paused mid-May — watch 2H engagement trajectory
+        May Full repeat 25.3% — 1pt below 26.3% target · 3 high-volume experiments paused mid-May — watch 2H engagement trajectory
       </div>
     </div>
   </div>
@@ -1125,8 +1104,7 @@ a:hover { text-decoration: underline; }
             <tr><td><strong>Deep analysis</strong></td><td class="num">≤55s</td><td class="num">~70s (FP)</td><td><span class="pill pa">WATCH — FP exception TBD</span></td></tr>
           </tbody>
         </table>
-        <div class="note">GPT-5.2 migration expected to improve Standard tier further pending capacity unblock (GENOSSUP-7434).</div>
-      </div>
+              </div>
       <div>
         <div class="sh" style="margin-top:0">Latency Improvements Shipped This Sprint</div>
         <table class="tbl">
@@ -1135,8 +1113,7 @@ a:hover { text-decoration: underline; }
           <tbody>
             <tr><td>Speculative actions (fast-track tools)</td><td>4–7s faster retrieval · +0.01 CQ</td><td><span class="pill pg">LIVE</span></td></tr>
             <tr><td>Trajectory caching</td><td>1.5–3s savings non-BI queries</td><td><span class="pill pa">RAMPING</span></td></tr>
-            <tr><td>GPT-5.2 migration</td><td>Speed + quality improvement</td><td><span class="pill pa">BLOCKED — capacity</span></td></tr>
-            <tr><td>Adaptive depth orchestration</td><td>Reduces unnecessary compute for simple queries</td><td><span class="pill pb">IN PROGRESS</span></td></tr>
+                        <tr><td>Adaptive depth orchestration</td><td>Reduces unnecessary compute for simple queries</td><td><span class="pill pb">IN PROGRESS</span></td></tr>
           </tbody>
         </table>
         <div class="note">WoW overall latency spike under investigation — analytics running complexity classifier + top-tool review. P0 decision EOW if spike confirmed structural.</div>
@@ -1323,15 +1300,7 @@ a:hover { text-decoration: underline; }
 
       <!-- ── UPCOMING ITEMS (BELOW THE LINE) ── -->
 
-      <!-- GPT-5.2 Migration · ~Jun 13 · ~46% -->
-      <div style="position:absolute;left:calc(32px + 46%);top:89px;transform:translateX(-50%);text-align:center;">
-        <div style="width:11px;height:11px;background:var(--blue);border-radius:50%;border:2px solid white;box-shadow:0 0 0 3px var(--blue);margin:0 auto 4px;animation:pulse 2s infinite;"></div>
-        <div style="font-size:9px;font-weight:700;color:var(--gray-700);text-align:center;max-width:70px;line-height:1.3">GPT-5.2 Migration</div>
-        <div style="font-size:8.5px;color:var(--gray-500);margin-top:1px">~Jun 13</div>
-        <div style="margin-top:3px"><span class="pill pa" style="font-size:7.5px;padding:1px 5px">IN PROGRESS</span></div>
-      </div>
-
-      <!-- HI Live · ~Jun 16 · ~50% -->
+            <!-- HI Live · ~Jun 16 · ~50% -->
       <div style="position:absolute;left:calc(32px + 51%);top:89px;transform:translateX(-50%);text-align:center;">
         <div style="width:11px;height:11px;background:#FB8C00;border-radius:50%;border:2px solid white;box-shadow:0 0 0 2px #FB8C00;margin:0 auto 4px;"></div>
         <div style="font-size:9px;font-weight:700;color:var(--gray-700);text-align:center;max-width:68px;line-height:1.3">Human Intelligence</div>
@@ -1379,7 +1348,7 @@ a:hover { text-decoration: underline; }
 
     <div class="sh" style="margin-top:6px">Six Tracks to Close the Gap</div>
     <div class="tracks">
-      <div class="track"><div class="tr-name">Harness Engineering</div><div class="tr-sub">Latency-aware orchestrator · adaptive depth · GPT-5.2 · tiers ≤15/35/55s</div></div>
+      <div class="track"><div class="tr-name">Harness Engineering</div><div class="tr-sub">Latency-aware orchestrator · adaptive depth · tiers ≤15/35/55s</div></div>
       <div class="track"><div class="tr-name">Domain Skills</div><div class="tr-sub">Faster, higher-quality BI & Help — highest-volume domains. Reports fast-track · Semantic BI Builder</div></div>
       <div class="track"><div class="tr-name">Context Engineering</div><div class="tr-sub">Brain Center memory · metrics cache · peer benchmarks · multi-turn grounding</div></div>
       <div class="track"><div class="tr-name">Evals</div><div class="tr-sub">Stratified by type · VOC failures as tests · vs Claude + MCP benchmarks · coverage gaps closed</div></div>
@@ -1408,7 +1377,7 @@ a:hover { text-decoration: underline; }
     <div class="prog-row">
       <div class="pp g"><div class="pp-lbl">Latency</div><div class="pp-status">GREEN</div><div class="pp-note">↓36% this month · TTFMT ~1.4s · Speculative actions, CoT UX, Web Search shipped · Trajectory caching ramping</div></div>
       <div class="pp a"><div class="pp-lbl">Accuracy</div><div class="pp-status">YELLOW</div><div class="pp-note">Online CQ ✓ 92% · Offline 4.8pp below goal · No-Hallucination regression, root cause unknown</div></div>
-      <div class="pp a"><div class="pp-lbl">Engagement</div><div class="pp-status">YELLOW</div><div class="pp-note">Overall 9.6% ✓ above May 9% target · Repeat 25.3% — 1pt below 26.3% ITF · AI+HI onboarding AT RISK</div></div>
+      <div class="pp a"><div class="pp-lbl">Engagement</div><div class="pp-status">YELLOW</div><div class="pp-note">Overall 9.6% ✓ above May 9% target · Repeat 25.3% — 1pt below 26.3% ITF</div></div>
       <div class="pp g"><div class="pp-lbl">Monetization</div><div class="pp-status">GREEN</div><div class="pp-note">IAS ahead of goal · Intl CVR beats US · 1,123 active subs · 88.3% retention</div></div>
     </div>
 
@@ -1442,28 +1411,14 @@ a:hover { text-decoration: underline; }
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td class="item-name">GPT-5.2 capacity — final node removal blocked<span class="sub">100M tokens/min priority queue request pending</span></td>
-          <td><span class="status-pill sp-blocked">BLOCKED</span></td>
-          <td>Without capacity, GPT-5.2 migration increases latency. Final node removal is the offset. If not resolved by Friday, migration should not proceed to production.</td>
-          <td>GenOS · GENOSSUP-7434</td>
-          <td>Friday this week — confirm capacity resolved before prod flip</td>
-        </tr>
-        <tr>
+                <tr>
           <td class="item-name">No-Hallucination regression 97.6% → 90.7%<span class="sub">Largest single accuracy drop this week</span></td>
           <td><span class="status-pill sp-red">REGRESSION</span></td>
           <td>Hallucination is the most visible trust failure for financial data. A 6.9pp drop without a known cause is a P0 risk that must be contained before late July readiness checkpoint.</td>
           <td>Eval team · TBD</td>
           <td>Root cause must be identified by next CPR</td>
         </tr>
-        <tr>
-          <td class="item-name">AI+HI 31D onboarding 8% vs 18% goal<span class="sub">Gap widening MoM · Onboarding Agent delayed</span></td>
-          <td><span class="status-pill sp-red">AT RISK</span></td>
-          <td>AI+HI onboarding is a key FY26 metric and a core part of the Human Intelligence value story. At current trajectory, the gap will not close without an intervention on the Onboarding Agent delay.</td>
-          <td>Onboarding team · TBD</td>
-          <td>Onboarding Agent timeline needs to be confirmed this week</td>
-        </tr>
-        <tr>
+                <tr>
           <td class="item-name">Finance planning skill ~70s vs 55s SLA<span class="sub">OMQB-1160 · PMF Yellow</span></td>
           <td><span class="status-pill sp-yellow">WATCH</span></td>
           <td>Deep-analysis mode required for quality but exceeds SLA. July exception under discussion with Byron's team. Quality-vs-latency tradeoff not yet quantified.</td>
@@ -1553,7 +1508,7 @@ a:hover { text-decoration: underline; }
           <td><strong>SBG Business Review</strong></td>
           <td>SBG · Google Drive</td>
           <td>Jun 2026</td>
-          <td>AI+HI 31-Day Onboarding (8% vs 18% goal), Add-On Subscribers growth, International CVR</td>
+          <td>Add-On Subscribers growth, International CVR</td>
           <td>Metrics, Execution</td>
         </tr>
         <tr>
@@ -1563,14 +1518,7 @@ a:hover { text-decoration: underline; }
           <td>Key milestone dates, GA readiness gate status, upcoming sprint schedule</td>
           <td>Key Dates</td>
         </tr>
-        <tr>
-          <td><strong>Jira / GPT-5.2 Ticket</strong><br><span style="font-size:10px;color:var(--gray-500)">GENOSSUP-7434</span></td>
-          <td>Engineering</td>
-          <td>Active</td>
-          <td>GPT-5.2 capacity block — root cause of No-Hallucination regression</td>
-          <td>Overview (risk), Execution</td>
-        </tr>
-      </tbody>
+              </tbody>
     </table>
 
     <div class="sh">VOC &amp; Qualitative Research Sources</div>
@@ -1626,8 +1574,7 @@ a:hover { text-decoration: underline; }
         <tr><td>Online CQ — Production</td><td>92.0% (↑+2.3pp WoW)</td><td>Chase canvas</td><td>Jun 9</td><td>Goal ≥88% ✓; Human Eval 92.7%</td></tr>
         <tr><td>Offline CQ@5 — Eval</td><td>83.2% (↓2.3pp WoW)</td><td>Eval Scorecard</td><td>6/2 run</td><td>4.8pp below 88% goal; <span style="color:var(--amber);font-weight:700">AT WATCH</span></td></tr>
         <tr><td>No-Hallucination Rate</td><td>90.7% (↓6.9pp WoW)</td><td>Eval Scorecard</td><td>Jun 9</td><td>Was 97.6%; regression; <span style="color:var(--red);font-weight:700">AT RISK</span></td></tr>
-        <tr><td>AI+HI 31-Day Onboarding</td><td>8% (vs 18% FY26 goal)</td><td>SBG Biz Review</td><td>Jun 2026</td><td>~1pt MoM; Onboarding Agent delayed</td></tr>
-        <tr><td>Add-On Subscribers</td><td>1,123 US active</td><td>Chase canvas</td><td>Jun 9</td><td>2× growth in 4 months; Intl CVR 20.8%</td></tr>
+                <tr><td>Add-On Subscribers</td><td>1,123 US active</td><td>Chase canvas</td><td>Jun 9</td><td>2× growth in 4 months; Intl CVR 20.8%</td></tr>
         <tr><td>Positive VOC Rate</td><td>10.7% (V2 vs 5.6% V1)</td><td>Ruta Bhat CX Deck</td><td>May 2026</td><td>851 verbatims; 1 in 10 sessions positive</td></tr>
         <tr><td>Stage 3 Positive Sentiment</td><td>7% positive (~178 negative)</td><td>Ruta Bhat CX Deck</td><td>May 2026</td><td>Highest-volume stage; n=191; drop-off signal</td></tr>
         <tr><td>Avg Response Time (P50)</td><td>~14.4s (↓54% V1)</td><td>Chase canvas</td><td>Jun 9</td><td>V1 baseline 31.6s</td></tr>
