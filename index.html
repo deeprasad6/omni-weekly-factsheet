@@ -1357,5 +1357,274 @@ a:hover { text-decoration: underline; }
 
 </div>
 
+
+<!-- ══════════════════════════════════════════
+     FEEDBACK WIDGET
+     1. Create a Slack incoming webhook at:
+        slack.com → Your App → Incoming Webhooks
+     2. Paste the URL into SLACK_WEBHOOK below
+     ══════════════════════════════════════════ -->
+<style>
+  #fb-btn {
+    position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+    background: var(--navy); color: #fff;
+    border: none; border-radius: 24px; padding: 10px 18px;
+    font-size: 13px; font-weight: 700; cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0,0,0,.25);
+    display: flex; align-items: center; gap: 7px;
+    transition: transform .15s, box-shadow .15s;
+  }
+  #fb-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.3); }
+  #fb-overlay {
+    display: none; position: fixed; inset: 0; z-index: 10000;
+    background: rgba(0,0,0,.45); backdrop-filter: blur(2px);
+    align-items: center; justify-content: center;
+  }
+  #fb-overlay.open { display: flex; }
+  #fb-modal {
+    background: #fff; border-radius: 12px; width: 480px; max-width: 95vw;
+    box-shadow: 0 20px 60px rgba(0,0,0,.3); overflow: hidden;
+  }
+  #fb-modal-hd {
+    background: var(--navy); color: #fff; padding: 16px 20px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  #fb-modal-hd h3 { margin: 0; font-size: 15px; font-weight: 700; }
+  #fb-modal-hd p { margin: 2px 0 0; font-size: 11px; opacity: .7; }
+  #fb-close { background: none; border: none; color: #fff; font-size: 20px; cursor: pointer; line-height: 1; }
+  #fb-body { padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+  .fb-row label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .4px; color: var(--gray-600); margin-bottom: 5px; }
+  .fb-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .fb-chip { display: flex; align-items: center; gap: 5px; }
+  .fb-chip input { display: none; }
+  .fb-chip span {
+    display: inline-block; padding: 4px 10px; border-radius: 12px;
+    border: 1.5px solid var(--gray-300); font-size: 11.5px; cursor: pointer;
+    background: #fff; color: var(--gray-700); transition: all .1s;
+  }
+  .fb-chip input:checked + span { background: var(--navy); color: #fff; border-color: var(--navy); }
+  .fb-stars { display: flex; gap: 4px; }
+  .fb-star { font-size: 22px; cursor: pointer; color: var(--gray-300); transition: color .1s; line-height: 1; }
+  .fb-star.lit { color: #FFA000; }
+  .fb-row textarea {
+    width: 100%; border: 1.5px solid var(--gray-300); border-radius: 6px;
+    padding: 8px 10px; font-size: 12.5px; font-family: inherit;
+    resize: vertical; min-height: 64px; box-sizing: border-box;
+    transition: border-color .15s;
+  }
+  .fb-row textarea:focus { outline: none; border-color: var(--navy); }
+  .fb-row input[type=text] {
+    width: 100%; border: 1.5px solid var(--gray-300); border-radius: 6px;
+    padding: 7px 10px; font-size: 12.5px; font-family: inherit; box-sizing: border-box;
+  }
+  .fb-row input[type=text]:focus { outline: none; border-color: var(--navy); }
+  #fb-submit {
+    background: var(--navy); color: #fff; border: none; border-radius: 7px;
+    padding: 11px 0; font-size: 13px; font-weight: 700; cursor: pointer; width: 100%;
+    transition: background .15s;
+  }
+  #fb-submit:hover { background: #1a3d6b; }
+  #fb-submit:disabled { background: var(--gray-400); cursor: not-allowed; }
+  #fb-status { font-size: 12px; text-align: center; min-height: 16px; color: var(--gray-600); }
+  #fb-status.ok { color: #2E7D32; font-weight: 700; }
+  #fb-status.err { color: var(--red); }
+  #fb-webhook-cfg {
+    background: #FFF8E1; border: 1px solid #FFE082; border-radius: 6px;
+    padding: 8px 12px; font-size: 11px; color: #5D4037; display: none;
+  }
+  #fb-webhook-cfg a { color: var(--navy); font-weight: 600; }
+  #fb-webhook-cfg code { background: #fff; padding: 1px 4px; border-radius: 3px; font-size: 10px; }
+</style>
+
+<button id="fb-btn" onclick="document.getElementById('fb-overlay').classList.add('open')">
+  💬 Leave Feedback
+</button>
+
+<div id="fb-overlay" onclick="if(event.target===this)closeFb()">
+  <div id="fb-modal">
+    <div id="fb-modal-hd">
+      <div>
+        <h3>📋 Fact Sheet Feedback</h3>
+        <p>Responses go to Slack — takes 60 seconds</p>
+      </div>
+      <button id="fb-close" onclick="closeFb()">×</button>
+    </div>
+    <div id="fb-body">
+
+      <div class="fb-row">
+        <label>Your name (optional)</label>
+        <input type="text" id="fb-name" placeholder="e.g. Chase, Austin, Ruta…">
+      </div>
+
+      <div class="fb-row">
+        <label>Which section(s)? <span style="font-weight:400;text-transform:none">(select all that apply)</span></label>
+        <div class="fb-chips">
+          <label class="fb-chip"><input type="checkbox" value="Overview"><span>Overview</span></label>
+          <label class="fb-chip"><input type="checkbox" value="Metrics & Insights"><span>Metrics & Insights</span></label>
+          <label class="fb-chip"><input type="checkbox" value="Latency & Accuracy"><span>Latency & Accuracy</span></label>
+          <label class="fb-chip"><input type="checkbox" value="Key Dates"><span>Key Dates</span></label>
+          <label class="fb-chip"><input type="checkbox" value="Execution"><span>Execution</span></label>
+          <label class="fb-chip"><input type="checkbox" value="Whole doc"><span>Whole doc</span></label>
+        </div>
+      </div>
+
+      <div class="fb-row">
+        <label>Overall usefulness for SLT</label>
+        <div class="fb-stars" id="fb-stars">
+          <span class="fb-star" data-v="1">★</span>
+          <span class="fb-star" data-v="2">★</span>
+          <span class="fb-star" data-v="3">★</span>
+          <span class="fb-star" data-v="4">★</span>
+          <span class="fb-star" data-v="5">★</span>
+        </div>
+      </div>
+
+      <div class="fb-row">
+        <label>What's working well?</label>
+        <textarea id="fb-good" placeholder="e.g. Stage 3 drop-off signal is clear, V2 comparison tables are helpful…"></textarea>
+      </div>
+
+      <div class="fb-row">
+        <label>What's unclear, missing, or needs fixing?</label>
+        <textarea id="fb-bad" placeholder="e.g. Latency table is hard to read, need context on ITT vs ITPM…"></textarea>
+      </div>
+
+      <div id="fb-webhook-cfg">
+        ⚠ No Slack webhook configured yet. <a href="https://api.slack.com/apps" target="_blank">Create one here</a>, then set <code>SLACK_WEBHOOK</code> in the page source. Until then feedback is copied to clipboard.
+      </div>
+
+      <div id="fb-status"></div>
+      <button id="fb-submit" onclick="submitFeedback()">Send to Slack →</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ─────────────────────────────────────────────────────────────────
+//  CONFIGURE: paste your Slack incoming webhook URL here
+//  Get one at: Your Slack App → Features → Incoming Webhooks
+// ─────────────────────────────────────────────────────────────────
+const SLACK_WEBHOOK = '';   // e.g. 'https://hooks.slack.com/services/T.../B.../...'
+// ─────────────────────────────────────────────────────────────────
+
+let fbRating = 0;
+
+function closeFb() {
+  document.getElementById('fb-overlay').classList.remove('open');
+  document.getElementById('fb-status').textContent = '';
+  document.getElementById('fb-status').className = '';
+}
+
+// Star rating interaction
+document.querySelectorAll('.fb-star').forEach(star => {
+  star.addEventListener('click', () => {
+    fbRating = parseInt(star.dataset.v);
+    document.querySelectorAll('.fb-star').forEach(s => {
+      s.classList.toggle('lit', parseInt(s.dataset.v) <= fbRating);
+    });
+  });
+  star.addEventListener('mouseenter', () => {
+    const v = parseInt(star.dataset.v);
+    document.querySelectorAll('.fb-star').forEach(s => {
+      s.classList.toggle('lit', parseInt(s.dataset.v) <= v);
+    });
+  });
+  star.addEventListener('mouseleave', () => {
+    document.querySelectorAll('.fb-star').forEach(s => {
+      s.classList.toggle('lit', parseInt(s.dataset.v) <= fbRating);
+    });
+  });
+});
+
+// Show webhook warning if not configured
+if (!SLACK_WEBHOOK) {
+  document.getElementById('fb-webhook-cfg').style.display = 'block';
+  document.getElementById('fb-submit').textContent = 'Copy to Clipboard →';
+}
+
+function submitFeedback() {
+  const name    = document.getElementById('fb-name').value.trim() || 'Anonymous';
+  const good    = document.getElementById('fb-good').value.trim();
+  const bad     = document.getElementById('fb-bad').value.trim();
+  const stars   = fbRating ? '★'.repeat(fbRating) + '☆'.repeat(5-fbRating) : 'not rated';
+  const sections = [...document.querySelectorAll('.fb-chips input:checked')].map(i=>i.value);
+  const sectionStr = sections.length ? sections.join(', ') : 'not specified';
+  const date = new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+
+  if (!good && !bad) {
+    setStatus('Please fill in at least one feedback field.', 'err');
+    return;
+  }
+
+  const btn = document.getElementById('fb-submit');
+  btn.disabled = true;
+  setStatus('Sending…');
+
+  const msgText = [
+    `*📋 Omni Fact Sheet Feedback* — ${date}`,
+    `*From:* ${name}`,
+    `*Section(s):* ${sectionStr}`,
+    `*Rating:* ${stars}`,
+    good ? `*What's working:* ${good}` : null,
+    bad  ? `*What needs fixing:* ${bad}` : null,
+  ].filter(Boolean).join('\n');
+
+  if (SLACK_WEBHOOK) {
+    fetch(SLACK_WEBHOOK, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ text: msgText })
+    })
+    .then(r => {
+      if (r.ok) {
+        setStatus('✓ Sent to Slack! Thanks for the feedback.', 'ok');
+        resetForm();
+      } else {
+        throw new Error('Webhook returned ' + r.status);
+      }
+    })
+    .catch(e => {
+      setStatus('⚠ Slack error — feedback copied to clipboard instead.', 'err');
+      copyToClipboard(msgText.replace(/\n/g, '\n'));
+    })
+    .finally(() => { btn.disabled = false; });
+  } else {
+    // No webhook — copy to clipboard
+    copyToClipboard(msgText.replace(/\\n/g, '\n'));
+    setStatus('✓ Copied to clipboard — paste into Slack!', 'ok');
+    btn.disabled = false;
+    resetForm();
+  }
+}
+
+function copyToClipboard(text) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text);
+  } else {
+    const ta = document.createElement('textarea');
+    ta.value = text; document.body.appendChild(ta);
+    ta.select(); document.execCommand('copy');
+    document.body.removeChild(ta);
+  }
+}
+
+function setStatus(msg, cls='') {
+  const el = document.getElementById('fb-status');
+  el.textContent = msg; el.className = cls;
+}
+
+function resetForm() {
+  setTimeout(() => {
+    document.getElementById('fb-name').value = '';
+    document.getElementById('fb-good').value = '';
+    document.getElementById('fb-bad').value  = '';
+    document.querySelectorAll('.fb-chips input').forEach(i => i.checked = false);
+    fbRating = 0;
+    document.querySelectorAll('.fb-star').forEach(s => s.classList.remove('lit'));
+    setStatus('');
+  }, 2500);
+}
+</script>
+
 </body>
 </html>
