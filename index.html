@@ -159,6 +159,8 @@ a:hover { text-decoration: underline; }
 .v2tbl .cat td { background: #EEF3F8; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .5px; color: var(--navy); padding: 5px 12px; border: none; }
 
 /* ── STANDARD TABLE ──────────────────────────── */
+
+.tbl-wrap { overflow-x: auto; margin-bottom: 20px; }
 .tbl { width: 100%; border-collapse: collapse; font-size: 12.5px; }
 .tbl th { background: var(--gray-100); text-align: left; padding: 8px 12px; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .4px; color: var(--gray-600); border-bottom: 2px solid var(--gray-300); }
 .tbl tbody tr:nth-child(even) { background: #fafafa; }
@@ -903,8 +905,16 @@ a:hover { text-decoration: underline; }
     <div style="font-size:10px;color:var(--gray-500);margin-bottom:4px">Source: Product Marketing team · Slack update Jun 9, 2026 · Dashboards: ELM 9444 (github.intuit.com/jlee81) · ELM 9916 (github.intuit.com/spatkar)</div>
     </div>
 
-    <div class="sh" style="margin-top:24px">Performance Metrics — Funnel, Quality &amp; Monetization</div>
+    <div class="sh" style="margin-top:24px">Performance Metrics</div>
 
+<!-- Pill tabs for the 3 metric tables -->
+<div style="display:flex;gap:6px;margin:8px 0 14px;flex-wrap:wrap;">
+  <button class="ptab active" onclick="showPTab(this,'pt-funnel')" style="padding:5px 14px;border-radius:12px;border:1.5px solid var(--navy);background:var(--navy);color:#fff;font-size:11.5px;font-weight:700;cursor:pointer;">Funnel &amp; Adoption</button>
+  <button class="ptab" onclick="showPTab(this,'pt-quality')" style="padding:5px 14px;border-radius:12px;border:1.5px solid var(--gray-300);background:#fff;color:var(--gray-700);font-size:11.5px;font-weight:700;cursor:pointer;">Quality &amp; Performance</button>
+  <button class="ptab" onclick="showPTab(this,'pt-mono')" style="padding:5px 14px;border-radius:12px;border:1.5px solid var(--gray-300);background:#fff;color:var(--gray-700);font-size:11.5px;font-weight:700;cursor:pointer;">Monetization</button>
+</div>
+
+<div id="pt-funnel" class="ptab-panel">
 <div class="sh">Funnel & Adoption</div>
     <table class="tbl">
       <colgroup>
@@ -926,7 +936,10 @@ a:hover { text-decoration: underline; }
       </tbody>
     </table>
 
-    <div class="sh">Quality & Performance</div>
+    
+</div>
+<div id="pt-quality" class="ptab-panel" style="display:none">
+<div class="sh">Quality & Performance</div>
     <table class="tbl">
       <colgroup>
         <col style="width:190px">
@@ -947,7 +960,10 @@ a:hover { text-decoration: underline; }
       </tbody>
     </table>
 
-    <div class="sh">Monetization</div>
+    
+</div>
+<div id="pt-mono" class="ptab-panel" style="display:none">
+<div class="sh">Monetization</div>
     <table class="tbl">
       <colgroup>
         <col style="width:210px">
@@ -990,7 +1006,22 @@ a:hover { text-decoration: underline; }
 
     <!-- V2 vs V1 accuracy headline -->
     <!-- ── LATENCY DEEP DIVE ── -->
-    <div class="sh">Latency — Strong Progress, WoW Spike Under Investigation</div>
+    <div class="sh">
+</div>
+
+<script>
+function showPTab(btn, panelId) {
+  document.querySelectorAll('.ptab').forEach(function(b){
+    b.style.background='#fff'; b.style.color='var(--gray-700)';
+    b.style.borderColor='var(--gray-300)';
+  });
+  btn.style.background='var(--navy)'; btn.style.color='#fff';
+  btn.style.borderColor='var(--navy)';
+  document.querySelectorAll('.ptab-panel').forEach(function(p){p.style.display='none';});
+  document.getElementById(panelId).style.display='block';
+}
+</script>
+Latency — Strong Progress, WoW Spike Under Investigation</div>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px">
       <div style="background:var(--green-lt);border-radius:var(--radius);padding:12px 14px;border:1px solid #A5D6A7">
         <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--green);margin-bottom:3px">TTFMT (latest)</div>
@@ -1417,11 +1448,7 @@ a:hover { text-decoration: underline; }
     <div class="sh">Primary Source Documents</div>
     <table class="tbl" style="margin-bottom:20px">
       <colgroup>
-        <col style="width:200px">
-        <col style="width:120px">
-        <col style="width:80px">
-        <col>
-        <col style="width:100px">
+        <col style="width:180px"><col style="width:110px"><col style="width:72px"><col><col style="width:90px">
       </colgroup>
       <thead>
         <tr>
@@ -1481,11 +1508,7 @@ a:hover { text-decoration: underline; }
     <div class="sh">VOC &amp; Qualitative Research Sources</div>
     <table class="tbl" style="margin-bottom:20px">
       <colgroup>
-        <col style="width:200px">
-        <col style="width:120px">
-        <col style="width:80px">
-        <col>
-        <col style="width:100px">
+        <col style="width:180px"><col style="width:110px"><col style="width:72px"><col><col style="width:90px">
       </colgroup>
       <thead>
         <tr>
@@ -1517,11 +1540,7 @@ a:hover { text-decoration: underline; }
     <div class="sh">Metric-Level Source Map</div>
     <table class="tbl" style="margin-bottom:20px">
       <colgroup>
-        <col style="width:220px">
-        <col style="width:100px">
-        <col style="width:110px">
-        <col style="width:130px">
-        <col>
+        <col style="width:200px"><col style="width:90px"><col style="width:100px"><col style="width:100px"><col>
       </colgroup>
       <thead>
         <tr>
@@ -1555,10 +1574,7 @@ a:hover { text-decoration: underline; }
     <div class="sh">Customer Quote Attribution</div>
     <table class="tbl">
       <colgroup>
-        <col style="width:260px">
-        <col style="width:180px">
-        <col style="width:150px">
-        <col>
+        <col style="width:230px"><col style="width:160px"><col style="width:140px"><col>
       </colgroup>
       <thead>
         <tr>
