@@ -146,7 +146,8 @@ a:hover { text-decoration: underline; }
 .v2tbl th { background: var(--navy); color: white; padding: 8px 12px; font-size: 10.5px; font-weight: 700; letter-spacing: .4px; text-transform: uppercase; }
 .v2tbl th:first-child { text-align: left; }
 .v2tbl th:not(:first-child) { text-align: center; }
-.v2tbl td { padding: 8px 12px; border-bottom: 1px solid var(--gray-200); vertical-align: middle; }
+.v2tbl td { padding: 7px 10px; border-bottom: 1px solid var(--gray-200); vertical-align: middle; }
+.v2tbl td:first-child { font-size: 11.5px; }
 .v2tbl tr:last-child td { border-bottom: none; }
 .v2tbl td.v1v { text-align: center; color: var(--gray-500); font-variant-numeric: tabular-nums; }
 .v2tbl td.now { text-align: center; font-weight: 800; font-variant-numeric: tabular-nums; }
@@ -533,7 +534,7 @@ a:hover { text-decoration: underline; }
 <div class="two-col">
       <div>
         <table class="v2tbl">
-          <colgroup><col style="width:185px"><col style="width:95px"><col style="width:85px"><col style="width:85px"></colgroup>
+          <colgroup><col style="width:230px"><col style="width:95px"><col style="width:80px"><col style="width:80px"></colgroup>
           <thead>
             <tr><th>Metric</th><th>V1 Baseline</th><th>V2 Now</th><th>Change</th></tr>
           </thead>
@@ -551,6 +552,7 @@ a:hover { text-decoration: underline; }
       </div>
       <div>
         <table class="v2tbl">
+          <colgroup><col style="width:230px"><col style="width:95px"><col style="width:80px"><col style="width:80px"></colgroup>
           <thead>
             <tr><th>Metric</th><th>V1 Baseline</th><th>V2 Now</th><th>Change</th></tr>
           </thead>
@@ -572,7 +574,6 @@ a:hover { text-decoration: underline; }
       <strong>What this means for SLT:</strong> V2 is a proven upgrade on every tracked dimension. The risk entering Late July is not regression — it is the gap between production quality (Online CQ 92%, CSAT improving) and eval-layer confidence (Offline CQ 83.2%, No-Hallucination regression, 20+ skills without eval data). Close that gap and the readiness story becomes clean.
     </div>
   </div>
-</div>
 </div>
 
 
@@ -1260,6 +1261,7 @@ a:hover { text-decoration: underline; }
 
     <div class="sh">Shipped This Week (Week of 6/6)</div>
     <table class="tbl">
+      <colgroup><col style="width:220px"><col><col style="width:90px"></colgroup>
       <thead><tr><th>Feature</th><th>Impact</th><th>Status</th></tr></thead>
       <tbody>
         <tr><td><strong>Speculative actions (fast-track tools)</strong></td><td>4–7s faster retrieval · +0.01 CQ · +2% correctness · covers 90%+ retrieval queries</td><td><span class="pill pg">SHIPPED</span></td></tr>
@@ -1276,6 +1278,7 @@ a:hover { text-decoration: underline; }
 
     <div class="sh" style="margin-top:16px">Watch Items Requiring Leadership Attention</div>
     <table class="watchlist">
+      <colgroup><col style="width:180px"><col style="width:90px"><col><col style="width:150px"><col style="width:120px"></colgroup>
       <thead>
         <tr>
           <th style="width:220px">Item</th>
@@ -1343,6 +1346,7 @@ a:hover { text-decoration: underline; }
 </div>
 
 </div><!-- /wk7 -->
+</div><!-- /pg-body -->
 
 <div class="source-strip">
   Sources: Chase canvas (F0B15CCL0SE) · Omni Overview deck (Jun 2026) · Eval Scorecard (Drive) · SBG Business Review (Drive) · Ruta Bhat CX Deck (851 verbatims, May 2026) · Austin Harris Qual Interviews (40+, Feb–Apr 2026)
