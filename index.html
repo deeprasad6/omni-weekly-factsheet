@@ -954,7 +954,7 @@ a:hover { text-decoration: underline; }
 
     <div style="margin-top:24px">
       <div class="sh" style="margin-top:18px">Engagement Campaigns — ELM Status (Product Marketing)</div>
-    <div style="font-size:11.5px;color:var(--gray-700);margin-bottom:10px">Vikram raised this in the metrics meeting: what are we doing to drive first-time and repeat engagement? Two campaigns are live, one launching in July as part of Supernova.</div>
+    <div style="font-size:11.5px;color:var(--gray-700);margin-bottom:10px"></div>
     <table class="tbl" style="margin-bottom:10px">
       <colgroup><col style="width:155px"><col style="width:100px"><col><col style="width:160px"><col style="width:75px"></colgroup>
       <thead>
@@ -999,14 +999,9 @@ a:hover { text-decoration: underline; }
     <div class="sh" style="margin-top:24px">Performance Metrics</div>
 
 <!-- Pill tabs for the 3 metric tables -->
-<div style="display:flex;gap:6px;margin:8px 0 14px;flex-wrap:wrap;">
-  <button class="ptab active" onclick="showPTab(this,'pt-funnel')" style="padding:5px 14px;border-radius:12px;border:1.5px solid var(--navy);background:var(--navy);color:#fff;font-size:11.5px;font-weight:700;cursor:pointer;">Funnel &amp; Adoption</button>
-  <button class="ptab" onclick="showPTab(this,'pt-quality')" style="padding:5px 14px;border-radius:12px;border:1.5px solid var(--gray-300);background:#fff;color:var(--gray-700);font-size:11.5px;font-weight:700;cursor:pointer;">Quality &amp; Performance</button>
-  <button class="ptab" onclick="showPTab(this,'pt-mono')" style="padding:5px 14px;border-radius:12px;border:1.5px solid var(--gray-300);background:#fff;color:var(--gray-700);font-size:11.5px;font-weight:700;cursor:pointer;">Monetization</button>
-</div>
-
-<div id="pt-funnel" class="ptab-panel">
-<div class="sh">Funnel & Adoption</div>
+<div style="margin-top:4px">
+  <div style="margin-bottom:20px">
+    <div class="sh">Funnel & Adoption</div>
     <table class="tbl">
       <colgroup>
         <col style="width:190px">
@@ -1026,11 +1021,9 @@ a:hover { text-decoration: underline; }
         <tr><td><strong>AI+HI 31D Onboarding</strong></td><td class="num">~8%</td><td>—</td><td>18% FY26</td><td>~44</td><td><span class="delta down">↓ −1pt MoM</span></td><td><span class="pill pr">AT RISK — Onboarding Agent delayed</span></td></tr>
       </tbody>
     </table>
-
-    
-</div>
-<div id="pt-quality" class="ptab-panel" style="display:none">
-<div class="sh">Quality & Performance</div>
+  </div>
+  <div style="margin-bottom:20px">
+    <div class="sh">Quality & Performance</div>
     <table class="tbl">
       <colgroup>
         <col style="width:190px">
@@ -1050,11 +1043,9 @@ a:hover { text-decoration: underline; }
         <tr><td><strong>TTFMT</strong></td><td>~1.4s</td><td>—</td><td>continuing ↓</td><td><span class="delta up">↓ 36% this month · 9% WoW</span></td><td><span class="pill pg">GREEN — strong trajectory</span></td></tr>
       </tbody>
     </table>
-
-    
-</div>
-<div id="pt-mono" class="ptab-panel" style="display:none">
-<div class="sh">Monetization</div>
+  </div>
+  <div style="margin-bottom:4px">
+    <div class="sh">Monetization</div>
     <table class="tbl">
       <colgroup>
         <col style="width:210px">
@@ -1083,8 +1074,8 @@ a:hover { text-decoration: underline; }
         AI+HI 31D onboarding 8% vs 18% — AT RISK · May Full repeat 25.1% missed 26.3% target · 3 high-volume experiments paused mid-May — watch 2H engagement trajectory
       </div>
     </div>
-
   </div>
+</div>
 </div>
 <div id="accuracy" style="scroll-margin-top:115px"></div>
 <div class="section">
@@ -1857,22 +1848,5 @@ function submitFeedback(){
 }
 </script>
 
-
-<script>
-function showPTab(btn, panelId) {
-  document.querySelectorAll('.ptab').forEach(function(b) {
-    b.style.background = '#fff';
-    b.style.color = 'var(--gray-700)';
-    b.style.borderColor = 'var(--gray-300)';
-  });
-  btn.style.background = 'var(--navy)';
-  btn.style.color = '#fff';
-  btn.style.borderColor = 'var(--navy)';
-  document.querySelectorAll('.ptab-panel').forEach(function(p) {
-    p.style.display = 'none';
-  });
-  document.getElementById(panelId).style.display = 'block';
-}
-</script>
 </body>
 </html>
