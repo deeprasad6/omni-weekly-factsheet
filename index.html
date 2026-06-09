@@ -343,9 +343,6 @@ a:hover { text-decoration: underline; }
     </div>
     <div class="hdr-pills">
       <span class="hpill hpill-draft">Draft</span>
-      <span class="hpill hpill-green">CSAT 39.2% — Highest Since Launch</span>
-      <span class="hpill hpill-red">AI+HI Onboarding AT RISK</span>
-      <span class="hpill hpill-amber">No-Hallucination Regression</span>
     </div>
   </div>
 </header>
@@ -654,7 +651,7 @@ a:hover { text-decoration: underline; }
             <td style="padding:8px 10px;font-size:11px;color:var(--gray-700)">Action-Promise Gap <sup style="font-size:8px;color:var(--gray-500)">①</sup></td>
             <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">N/A V1</td>
             <td style="padding:8px 10px;text-align:center;font-weight:700;color:#E53935">12%</td>
-            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#E53935;font-size:9px">V2 regression</td>
+            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#E53935;font-size:9px">New in V2</td>
           </tr>
           <tr>
             <td style="padding:8px 10px;font-size:11px;color:var(--gray-700)"><span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;color:var(--gray-400);display:block;margin-bottom:1px">MONETIZATION</span>Add-on Subscribers</td>
@@ -671,7 +668,7 @@ a:hover { text-decoration: underline; }
     <strong>What this means for SLT:</strong> V2 is a proven upgrade on every tracked dimension. The risk entering Late July is not regression — it is the gap between production quality (Online CQ 92%, CSAT improving) and eval-layer confidence (Offline CQ 83.2%, No-Hallucination regression, 20+ skills without eval data). Close that gap and the readiness story becomes clean.
 
 <div style="padding:8px 22px 4px;border-top:1px solid var(--gray-200);margin-top:4px;font-size:10.5px;color:var(--gray-500);line-height:1.6">
-  <sup style="font-size:8px">①</sup> <strong style="color:var(--gray-700)">Action-Promise Gap</strong> — Omni offers to perform an action ("I'll do that for you"), then responds with step-by-step instructions instead of executing it. Measured as % of sessions where Omni's stated intent did not match its output. <span style="color:var(--red);font-weight:600">This is an accuracy failure, not a UX issue</span> — it erodes the same trust as "no data found": Omni asserts something that turns out to be false. New in V2 (N/A in V1); 12% is a regression flag that must close before GA. Source: Chase canvas, Jun 9.
+  <sup style="font-size:8px">①</sup> <strong style="color:var(--gray-700)">Action-Promise Gap</strong> — Omni offers to perform an action ("I'll do that for you"), then responds with step-by-step instructions instead of executing it. Measured as % of sessions where Omni's stated intent did not match its output. <span style="color:var(--red);font-weight:600">This is an accuracy failure, not a UX issue</span> — it erodes the same trust as "no data found": Omni asserts something that turns out to be false. New in V2 (N/A in V1); 12% is a V2-introduced failure (no V1 baseline) that must close before GA. Source: Chase canvas, Jun 9.
 </div>  </div>
 </div>
 </div>
@@ -724,7 +721,7 @@ a:hover { text-decoration: underline; }
         <div>
           <div style="font-size:8.5px;font-weight:700;color:rgba(255,255,255,.55);margin-bottom:3px">S4 · Trust It</div>
           <div style="background:rgba(255,255,255,.08);border-radius:3px;padding:3px 6px;font-size:8.5px;color:rgba(255,255,255,.5);margin-bottom:2px">Human Eval 92.7%</div>
-          <div style="background:rgba(239,83,80,.2);border-radius:3px;padding:3px 6px;font-size:8.5px;color:#EF9A9A">Action-Promise Gap 12% ↑ reg.</div>
+          <div style="background:rgba(239,83,80,.2);border-radius:3px;padding:3px 6px;font-size:8.5px;color:#EF9A9A">Action-Promise Gap 12% — new in V2</div>
         </div>
         <div>
           <div style="font-size:8.5px;font-weight:700;color:#A5D6A7;margin-bottom:3px">S5 · Use Again ★ goal</div>
@@ -787,7 +784,7 @@ a:hover { text-decoration: underline; }
         <div style="font-size:12px;font-weight:800;color:var(--gray-900);margin-bottom:3px">Trust It</div>
         <div style="font-size:20px;font-weight:900;color:var(--red)">0%</div>
         <div style="font-size:10px;color:var(--gray-500);margin-bottom:5px">positive · n=80</div>
-        <div style="font-size:10px;color:var(--gray-700);line-height:1.4">Action-promise gap (12%) is a V2 regression — says "I'll do that" then gives instructions. 80 verbatims on wrong answers.</div>
+        <div style="font-size:10px;color:var(--gray-700);line-height:1.4">Action-promise gap (12%) — says "I'll do that" then gives instructions instead. New in V2; no V1 baseline. 80 verbatims on wrong answers.</div>
                 <div style="margin-top:5px;font-size:10px;font-style:italic;color:var(--gray-500)">"I'd be a fool to take AI data to a board meeting without verifying."</div>
         <div style="font-size:8px;color:var(--gray-400);margin-top:2px">Ryan Bowen · Omni CX Deck, Stage 4 Appendix (June 2026)</div>
       </div>
@@ -818,7 +815,7 @@ a:hover { text-decoration: underline; }
 
     <!-- Journey insight bar -->
     <div style="background:#EEF3F8;border:1px solid #B0BEC5;border-radius:var(--radius);padding:8px 14px;font-size:11px;color:var(--navy);margin-bottom:10px">
-      <strong>The funnel insight:</strong> Opt-out demand falling 40%→9% (Stage 2) and positive VOC nearly doubling 5.6%→10.7% show V2 improved the entry experience. Stage 5's 37% loyalty cohort is the target state — but getting more customers there requires fixing Stage 3 "no data found" and Stage 4 action-promise regression first.
+      <strong>The funnel insight:</strong> Opt-out demand falling 40%→9% (Stage 2) and positive VOC nearly doubling 5.6%→10.7% show V2 improved the entry experience. Stage 5's 37% loyalty cohort is the target state — but getting more customers there requires fixing Stage 3 "no data found" and Stage 4 action-promise gap first.
     </div>
 
     <!-- V2 Metrics → Customer Language Translation -->
@@ -856,14 +853,14 @@ a:hover { text-decoration: underline; }
           <td>Stages 3–5</td>
         </tr>
         <tr style="background:#FFF3E0">
-          <td><strong>Generic / Steps Response Rate</strong><div style="font-size:9px;color:var(--red);font-weight:600">V2 regression</div></td>
+          <td><strong>Generic / Steps Response Rate</strong><div style="font-size:9px;color:var(--amber);font-weight:600">New in V2</div></td>
           <td class="num" style="color:var(--amber)">28.3%</td>
           <td class="num" style="color:var(--red)">36.9%</td>
           <td>Customers feel like they're reading a manual. V2 Omni sounds more confident but still gives instructions instead of taking action.</td>
           <td>Stages 3–4</td>
         </tr>
         <tr style="background:#FFF3E0">
-          <td><strong>Action-Promise Gap</strong><div style="font-size:9px;color:var(--red);font-weight:600">V2 regression</div></td>
+          <td><strong>Action-Promise Gap</strong><div style="font-size:9px;color:var(--amber);font-weight:600">New in V2</div></td>
           <td class="num">N/A V1</td>
           <td class="num" style="color:var(--red)">12%</td>
           <td>Omni says "I'll do that for you" then gives step-by-step instructions. Creates distrust — customers feel misled by the product's own language.</td>
@@ -1636,7 +1633,7 @@ a:hover { text-decoration: underline; }
         <tr><td>Avg Response Time (P50)</td><td>~14.4s (↓54% V1)</td><td>Chase canvas</td><td>Jun 9</td><td>V1 baseline 31.6s</td></tr>
         <tr><td>Human Eval Correctness</td><td>75.4%</td><td>Eval Scorecard</td><td>6/2 run</td><td>+17.3pp vs prior</td></tr>
         <tr><td>AI Opt-Out (live)</td><td>8–9%</td><td>Chase canvas</td><td>Jun 9</td><td>V1 17–18%; halved</td></tr>
-        <tr><td>Action-Promise Gap</td><td>12% (N/A V1)</td><td>Chase canvas</td><td>Jun 9</td><td><span style="color:var(--red);font-weight:700">Regression flag</span>; Omni "I'll do that" then gives instructions</td></tr>
+        <tr><td>Action-Promise Gap</td><td>12% (N/A V1)</td><td>Chase canvas</td><td>Jun 9</td><td><span style="color:var(--amber);font-weight:700">New in V2 — not a regression</span>; Omni "I'll do that" then gives instructions</td></tr>
         <tr><td>Billable Message %</td><td>71.6% (↑+9.4pp)</td><td>Chase canvas</td><td>Jun 9</td><td>V1 62.2%</td></tr>
         <tr><td>Generic / Steps Response Rate</td><td>36.9% (V1 28.3%)</td><td>Chase canvas</td><td>Jun 9</td><td>V2 regression; Omni sounds more confident but still gives instructions</td></tr>
       </tbody>
