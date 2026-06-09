@@ -343,11 +343,10 @@ a:hover { text-decoration: underline; }
 <nav class="pg-nav">
   <a href="#readout">SLT Readout</a>
   <a href="#v1v2">V1→V2 Progress</a>
-  <a href="#metrics">1 · Metrics Pulse</a>
-  <a href="#dates">2 · Key Dates</a>
-  <a href="#voc">3 · Customer Insights</a>
+  <a href="#metrics">1 · Metrics &amp; Journey</a>
+  <a href="#accuracy">2 · Accuracy &amp; Evals</a>
+  <a href="#dates">3 · Key Dates</a>
   <a href="#execution">4 · Execution</a>
-  <a href="#accuracy">5 · Accuracy &amp; Evals</a>
 </nav>
 
 <div class="pg-body">
@@ -574,163 +573,16 @@ a:hover { text-decoration: underline; }
 <!-- ═══════════════════════════════════════════
      SECTION 1 · METRICS PULSE CHECK
      ═══════════════════════════════════════ -->
-<div id="metrics" style="scroll-margin-top:115px"></div>
+<div <div id="metrics" style="scroll-margin-top:115px"></div>
 <div class="section">
   <div class="sec-hd">
     <div class="sec-num">1</div>
     <span class="sec-title">Metrics Pulse Check</span>
-    <span class="sec-sub">ITT = Index to Target · ITPM = Index to Prior Month · Sources: Chase canvas 6/6 · Scorecard</span>
+    <span class="sec-sub">Customer journey · VOC &amp; sentiment · ELM campaigns · Performance metrics · Sources: Chase canvas 6/6 · Scorecard · ~850 verbatims</span>
   </div>
   <div class="sec-body">
 
-    <div class="sh">Funnel & Adoption</div>
-    <table class="tbl">
-      <thead><tr><th style="width:185px">Metric</th><th>Latest</th><th>May Full</th><th>Target</th><th>ITT</th><th>WoW / MoM Δ</th><th>Status</th></tr></thead>
-      <tbody>
-        <tr><td><strong>NTTF Engagement Rate</strong></td><td class="num">11.2%</td><td class="num">17.6% (120 ITPM)</td><td>—</td><td>—</td><td><span class="delta up">↑ +1.7pts WoW</span></td><td><span class="pill pa">WATCH — Auto-Open paused 5/15</span></td></tr>
-        <tr><td><strong>Repeat Engagement Rate</strong></td><td class="num">28.9%</td><td class="num">25.1% (105 ITPM)</td><td>26.3% ITF</td><td>~110</td><td><span class="delta up">↑ +2.8pts WoW</span></td><td><span class="pill pg">GREEN — above target this week</span></td></tr>
-        <tr><td><strong>Overall Engagement Rate</strong></td><td>—</td><td class="num">9.5% (107 ITPM)</td><td>—</td><td>—</td><td><span class="delta up">↑ vs 8.5% Apr</span></td><td><span class="pill pg">GREEN — MoM improvement</span></td></tr>
-        <tr><td><strong>Contextual Auto-Open</strong></td><td class="num">17% of engaged cos</td><td>—</td><td>—</td><td>—</td><td>2nd largest first-touch after header</td><td><span class="pill pg">GREEN — 100% ramped 5/27</span></td></tr>
-        <tr><td><strong>AI+HI 31D Onboarding</strong></td><td class="num">~8%</td><td>—</td><td>18% FY26</td><td>~44</td><td><span class="delta down">↓ −1pt MoM</span></td><td><span class="pill pr">AT RISK — Onboarding Agent delayed</span></td></tr>
-      </tbody>
-    </table>
-
-    <div class="sh">Quality & Performance</div>
-    <table class="tbl">
-      <thead><tr><th style="width:185px">Metric</th><th>Latest</th><th>Prior Week</th><th>Goal</th><th>WoW Δ</th><th>Status</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Online CQ (production)</strong></td><td class="num">92.0%</td><td class="num">89.7%</td><td>≥88%</td><td><span class="delta up">↑ +2.3pp</span></td><td><span class="pill pg">GREEN — above goal</span></td></tr>
-        <tr><td><strong>Human Eval Accuracy</strong></td><td class="num">92.7%</td><td class="num">85.8%</td><td>—</td><td><span class="delta up">↑ +6.9pp</span></td><td><span class="pill pg">GREEN — strong recovery</span></td></tr>
-        <tr><td><strong>Offline CQ@5</strong></td><td class="num">83.2%</td><td class="num">85.5%</td><td>≥88%</td><td><span class="delta down">↓ −2.3pp</span></td><td><span class="pill pa">WATCH — 4.8pp below goal</span></td></tr>
-        <tr><td><strong>Offline Correctness</strong></td><td class="num">69.1%</td><td class="num">72.9%</td><td>—</td><td><span class="delta down">↓ −3.8pp</span></td><td><span class="pill pa">WATCH — monitor</span></td></tr>
-        <tr><td><strong>No-Hallucination Rate</strong></td><td class="num">90.7%</td><td class="num">97.6%</td><td>—</td><td><span class="delta down">↓ −6.9pp</span></td><td><span class="pill pr">REGRESSION — root cause unknown</span></td></tr>
-        <tr><td><strong>TTFMT</strong></td><td>~1.4s</td><td>—</td><td>continuing ↓</td><td><span class="delta up">↓ 36% this month · 9% WoW</span></td><td><span class="pill pg">GREEN — strong trajectory</span></td></tr>
-      </tbody>
-    </table>
-
-    <div class="sh">Monetization</div>
-    <table class="tbl">
-      <thead><tr><th style="width:210px">Metric</th><th>Current</th><th>Target / Benchmark</th><th>Status</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Add-on All-Time CVR</strong></td><td class="num">20.3%</td><td>—</td><td><span class="pill pg">GREEN — strong purchase funnel</span></td></tr>
-        <tr><td><strong>US Active Subs</strong></td><td class="num">1,123 (1,280 total)</td><td>88.3% retained · 11.7% cumulative churn</td><td><span class="pill pb">TRACKING</span></td></tr>
-        <tr><td><strong>Intl CVR (CA/UK/AU, mid-May)</strong></td><td class="num">20.8% (41 subs)</td><td>US benchmark 18.4%</td><td><span class="pill pg">GREEN — +2.5pts above US</span></td></tr>
-        <tr><td><strong>Monthly Churn (May)</strong></td><td class="num">5.6%</td><td>—</td><td><span class="pill pt">Older cohort mix — not dissatisfaction</span></td></tr>
-        <tr><td><strong>IAS Firms (monetizable)</strong></td><td class="num">4.4K firms</td><td>4K IG goal before July 1 billing</td><td><span class="pill pg">GREEN — ahead of goal</span></td></tr>
-        <tr><td><strong>WW QBO Customer Growth (May)</strong></td><td class="num">+5% Y/Y</td><td>US GNS 113 ITF · Digital Acq 118 ITF</td><td><span class="pill pg">GREEN — E3B conversions driving</span></td></tr>
-      </tbody>
-    </table>
-
-    <div class="cpair">
-      <div class="callout w">
-        <div class="clbl">Wins</div>
-        1M engaged US users milestone · Intl CVR beats US benchmark · CSAT highest since launch · V2 opt-out halved vs V1 · IAS ahead of July 1 billing goal
-      </div>
-      <div class="callout x">
-        <div class="clbl">Watch</div>
-        AI+HI 31D onboarding 8% vs 18% — AT RISK · May Full repeat 25.1% missed 26.3% target · 3 high-volume experiments paused mid-May — watch 2H engagement trajectory
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- ═══════════════════════════════════════════
-     SECTION 2 · KEY DATES
-     ═══════════════════════════════════════ -->
-<div id="dates" style="scroll-margin-top:115px"></div>
-<div class="section">
-  <div class="sec-hd">
-    <div class="sec-num">2</div>
-    <span class="sec-title">Key Dates to Late July Release</span>
-    <span class="sec-sub">Source: Exec Dashboard Scorecard</span>
-  </div>
-  <div class="sec-body">
-
-    <div class="sh">Recent Proof Points (Completed)</div>
-    <div class="tl-proof">
-      <div class="tl-proof-item"><div class="tl-proof-dot"></div><strong>V2 GA 100% Ramp</strong><span class="date">May 13</span></div>
-      <div class="tl-proof-item"><div class="tl-proof-dot"></div><strong>1M Engaged US Users</strong><span class="date">May 19</span></div>
-      <div class="tl-proof-item"><div class="tl-proof-dot"></div><strong>Web Search Live in Production</strong><span class="date">Jun 6</span></div>
-      <div class="tl-proof-item"><div class="tl-proof-dot"></div><strong>CoT UX Shipped (Web)</strong><span class="date">Jun 6</span></div>
-      <div class="tl-proof-item"><div class="tl-proof-dot"></div><strong>Speculative Actions Shipped</strong><span class="date">Jun 6</span></div>
-      <div class="tl-proof-item"><div class="tl-proof-dot"></div><strong>2M V2 Customers</strong><span class="date">Jun 9</span></div>
-    </div>
-
-    <div class="sh">Upcoming Milestones to Late July GA</div>
-    <div class="tl-wrap">
-      <div class="tl">
-        <div class="tl-item">
-          <div class="tl-dot now"></div>
-          <div class="tl-lbl">GPT-5.2 Migration</div>
-          <div class="tl-date">~Jun 13</div>
-          <div class="tl-tag"><span class="pill pa">IN PROGRESS</span></div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot next"></div>
-          <div class="tl-lbl">Human Intelligence Live</div>
-          <div class="tl-date">~Jun 16</div>
-          <div class="tl-tag"><span class="pill pb">NEXT</span></div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot fut"></div>
-          <div class="tl-lbl">Quality Sprint</div>
-          <div class="tl-date">Late Jun</div>
-          <div class="tl-tag"><span class="pill pgr">UPCOMING</span></div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot fut"></div>
-          <div class="tl-lbl">M3 Gate</div>
-          <div class="tl-date">Early Jul</div>
-          <div class="tl-tag"><span class="pill pgr">UPCOMING</span></div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot fut"></div>
-          <div class="tl-lbl">Code Freeze</div>
-          <div class="tl-date">Mid Jul</div>
-          <div class="tl-tag"><span class="pill pgr">UPCOMING</span></div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot fut"></div>
-          <div class="tl-lbl">Go / No-Go</div>
-          <div class="tl-date">Mid Jul</div>
-          <div class="tl-tag"><span class="pill pgr">TBD</span></div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot fut"></div>
-          <div class="tl-lbl">Late July GA</div>
-          <div class="tl-date">Late Jul</div>
-          <div class="tl-tag"><span class="pill pgr">TARGET</span></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="sh" style="margin-top:6px">Six Tracks to Close the Gap</div>
-    <div class="tracks">
-      <div class="track"><div class="tr-name">Harness Engineering</div><div class="tr-sub">Latency-aware orchestrator · adaptive depth · GPT-5.2 · tiers ≤15/35/55s</div></div>
-      <div class="track"><div class="tr-name">Domain Skills</div><div class="tr-sub">Faster, higher-quality BI & Help — highest-volume domains. Reports fast-track · Semantic BI Builder</div></div>
-      <div class="track"><div class="tr-name">Context Engineering</div><div class="tr-sub">Brain Center memory · metrics cache · peer benchmarks · multi-turn grounding</div></div>
-      <div class="track"><div class="tr-name">Evals</div><div class="tr-sub">Stratified by type · VOC failures as tests · vs Claude + MCP benchmarks · coverage gaps closed</div></div>
-      <div class="track"><div class="tr-name">FP&A Skills</div><div class="tr-sub">Code-generated forecasting, scenario & driver modeling · BI-owned · safe code execution</div></div>
-      <div class="track"><div class="tr-name">UX Context (Screen Awareness)</div><div class="tr-sub">Let Omni see what the customer sees on-page — directly targets #1 VOC complaint</div></div>
-    </div>
-  </div>
-</div>
-
-
-<!-- ═══════════════════════════════════════════
-     SECTION 3 · CUSTOMER INSIGHTS
-     ═══════════════════════════════════════ -->
-<div id="voc" style="scroll-margin-top:115px"></div>
-<div class="section">
-  <div class="sec-hd">
-    <div class="sec-num">3</div>
-    <span class="sec-title">Customer Insights & Feedback</span>
-    <span class="sec-sub">CSAT 39.2% (May, +2.4pp MoM) · ~850 verbatims · V2 positive sentiment ~2× V1</span>
-  </div>
-  <div class="sec-body">
-
-    <div class="strat-callout">
+<div class="strat-callout">
       <strong>Strategic read:</strong> Customers are not rejecting Omni — they are rejecting moments where Omni breaks financial truth. Every major complaint maps to a single failure mode: Omni asserting something that contradicts what the customer can see or knows to be true in their own books. CSAT and sentiment are improving because V2 is more accurate and faster, but "no data found when data clearly exists" remains the single largest trust-breaker and must be treated as a product correctness issue, not a UX issue.
     </div>
 
@@ -801,35 +653,10 @@ a:hover { text-decoration: underline; }
         <div style="font-size:12px;font-weight:800;color:var(--gray-900);margin-bottom:3px">Try It</div>
         <div style="font-size:20px;font-weight:900;color:var(--amber)">8%</div>
         <div style="font-size:10px;color:var(--gray-500);margin-bottom:5px">positive · n=136</div>
-        <div style="font-size:10px;color:var(--gray-700);line-height:1.4;margin-bottom:5px">54 verbatims cite outdated nav. Positive rate doubled V1→V2.</div>
-        <!-- Opt-out sparkline trend -->
-        <div style="background:rgba(255,255,255,.75);border:1px solid #FFCC80;border-radius:4px;padding:5px 7px;margin-bottom:5px">
-          <div style="font-size:8.5px;font-weight:800;color:var(--amber);margin-bottom:4px">Opt-Out Demand ↓ Biggest V2 Win</div>
-          <div style="display:flex;align-items:flex-end;gap:3px;height:26px">
-            <div style="display:flex;flex-direction:column;align-items:center;gap:1px;flex:1">
-              <div style="font-size:7px;font-weight:700;color:#E53935">40%</div>
-              <div style="width:100%;background:#EF5350;border-radius:2px 2px 0 0;height:26px"></div>
-            </div>
-            <div style="display:flex;flex-direction:column;align-items:center;gap:1px;flex:1">
-              <div style="font-size:7px;font-weight:700;color:#FB8C00">30%</div>
-              <div style="width:100%;background:#FFA726;border-radius:2px 2px 0 0;height:19px"></div>
-            </div>
-            <div style="display:flex;flex-direction:column;align-items:center;gap:1px;flex:1">
-              <div style="font-size:7px;font-weight:700;color:#FB8C00">17%</div>
-              <div style="width:100%;background:#FFA726;border-radius:2px 2px 0 0;height:11px"></div>
-            </div>
-            <div style="display:flex;flex-direction:column;align-items:center;gap:1px;flex:1">
-              <div style="font-size:7px;font-weight:700;color:#388E3C">9%</div>
-              <div style="width:100%;background:#66BB6A;border-radius:2px 2px 0 0;height:6px"></div>
-            </div>
-          </div>
-          <div style="display:flex;justify-content:space-between;font-size:7px;color:var(--gray-500);margin-top:2px">
-            <span>Dec</span><span>Feb</span><span>V1</span><span>V2</span>
-          </div>
-        </div>
+        <div style="font-size:10px;color:var(--gray-700);line-height:1.4;margin-bottom:5px">54 verbatims cite outdated nav post-Fusion redesign. Opt-out demand fell 40% (launch) → 9% (V2) — biggest positive signal in the dataset. Positive rate doubled V1→V2.</div>
         <div style="padding:3px 6px;background:rgba(255,167,38,.12);border-radius:3px;font-size:8.5px;color:var(--amber)">↳ Opt-Out Rate · TTFMT</div>
-        <div style="margin-top:5px;font-size:10px;font-style:italic;color:var(--gray-500)">"I'd ask ChatGPT how to word a question for your AI."</div>
-        <div style="font-size:8px;color:var(--gray-400);margin-top:2px">Austin Harris Qual · Apr 2026</div>
+        <div style="margin-top:5px;font-size:10px;font-style:italic;color:var(--gray-500)">"I would never use this again — it's too slow."</div>
+        <div style="font-size:8px;color:var(--gray-400);margin-top:2px">Corey Cook, QBO user, UK · Mar 2026</div>
       </div>
 
       <!-- Stage 3 — biggest volume, worst -->
@@ -944,13 +771,15 @@ a:hover { text-decoration: underline; }
       </tbody>
     </table>
 
-    <div class="sh">In Their Own Words</div>
+    <div class="sh" style="margin-top:24px">In Their Own Words &amp; VOC Themes</div>
+
+<div class="sh">In Their Own Words</div>
     <div class="quotes">
-      <div class="qcard"><div class="qtext">You saved me time searching for the answers. Thanks.</div><div class="qsrc">QBO Web · May 2026 · Positive / Time-Saving category · Ruta Bhat CX Deck (n=851)</div></div>
-      <div class="qcard"><div class="qtext">Gave me a breakdown of my P&L immediately, and a way to discuss planning and budgeting.</div><div class="qsrc">iOS · May 2026 · Positive / Time-Saving category · Ruta Bhat CX Deck (n=851)</div></div>
-      <div class="qcard"><div class="qtext">The advice was spot-on! And quick. Very helpful with an odd problem.</div><div class="qsrc">QBO Web · Apr 2026 · V2 Positive Feedback · Ruta Bhat CX Deck (n=851)</div></div>
-      <div class="qcard"><div class="qtext">I got the perfect result I wanted to know. It saved my time.</div><div class="qsrc">QBO Web · Apr 2026 · V2 Positive Feedback · Ruta Bhat CX Deck (n=851)</div></div>
-      <div class="qcard neg"><div class="qtext">I'm looking at my P&L right now — you are wrong.</div><div class="qsrc">QBO Web · May 2026 · Top negative verbatim · "No data found" category · #1 trust-break driver across all surfaces · Ruta Bhat CX Deck</div></div>
+      <div class="qcard"><div class="qtext">I will definitely reuse it — it's more than standard help. I hope it resolves my daily problems.</div><div class="qsrc">Joseph R., Controller (recently migrated to QBO) · Feb 2026 · Austin Harris Qual Interviews (40+ sessions)</div></div>
+      <div class="qcard"><div class="qtext">I moved everything to QuickBooks so it could help me automate... I can't keep spending an hour every morning tracking everything.</div><div class="qsrc">Abigail Z., Owner · Apr 2026 · Austin Harris Qual Interviews (40+ sessions)</div></div>
+      <div class="qcard"><div class="qtext">It's easier for the client to go here than to try to get a hold of us — if they're getting the right answer, they don't have to wait.</div><div class="qsrc">Wesley, Accountant, High Point CPA · Apr 2026 · Austin Harris Qual Interviews</div></div>
+      <div class="qcard"><div class="qtext">If I know QuickBooks can do this... why go with ChatGPT? I'm already paying you.</div><div class="qsrc">Andre, Pool Company Owner · Mar 2026 · Austin Harris Qual Interviews (security advantage theme)</div></div>
+      <div class="qcard neg"><div class="qtext">It shows $19,305 — I paid $37,000.</div><div class="qsrc">John R., QBO SMB owner · May 2026 · Stage 4 financial accuracy failure · Ruta Bhat CX Dataset (n=851)</div></div>
     </div>
 
     <div class="two-col" style="margin-top:6px">
@@ -1019,110 +848,9 @@ a:hover { text-decoration: underline; }
         "No data found" = 28% of all negative verbatims — screen-awareness POC is early-stage · Generic/unhelpful 36.9% in V2 · Cancellation theme includes AI commodity perception — differentiation narrative needs to sharpen
       </div>
     </div>
-  </div>
-</div>
 
-
-<!-- ═══════════════════════════════════════════
-     SECTION 4 · EXECUTION & DELIVERY
-     ═══════════════════════════════════════ -->
-<div id="execution" style="scroll-margin-top:115px"></div>
-<div class="section">
-  <div class="sec-hd">
-    <div class="sec-num">4</div>
-    <span class="sec-title">Execution & Delivery</span>
-    <span class="sec-sub">Source: Chase canvas (F0B15CCL0SE) · CPR 6/3 · OMQB-1160</span>
-  </div>
-  <div class="sec-body">
-
-    <div class="prog-row">
-      <div class="pp g"><div class="pp-lbl">Latency</div><div class="pp-status">GREEN</div><div class="pp-note">↓36% this month · TTFMT ~1.4s · Speculative actions, CoT UX, Web Search shipped · Trajectory caching ramping</div></div>
-      <div class="pp a"><div class="pp-lbl">Accuracy</div><div class="pp-status">YELLOW</div><div class="pp-note">Online CQ ✓ 92% · Offline 4.8pp below goal · No-Hallucination regression, root cause unknown</div></div>
-      <div class="pp a"><div class="pp-lbl">Engagement</div><div class="pp-status">YELLOW</div><div class="pp-note">WoW improving · May Full repeat missed target · AI+HI onboarding AT RISK</div></div>
-      <div class="pp g"><div class="pp-lbl">Monetization</div><div class="pp-status">GREEN</div><div class="pp-note">IAS ahead of goal · Intl CVR beats US · 1,123 active subs · 88.3% retention</div></div>
-    </div>
-
-    <div class="sh">Shipped This Week (Week of 6/6)</div>
-    <table class="tbl">
-      <thead><tr><th>Feature</th><th>Impact</th><th>Status</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Speculative actions (fast-track tools)</strong></td><td>4–7s faster retrieval · +0.01 CQ · +2% correctness · covers 90%+ retrieval queries</td><td><span class="pill pg">SHIPPED</span></td></tr>
-        <tr><td><strong>New CoT UX (web)</strong></td><td>Real-time reasoning narration → perceived-latency win</td><td><span class="pill pg">SHIPPED</span></td></tr>
-        <tr><td><strong>Web Search</strong></td><td>Tax law, regulatory updates, market data — live in production</td><td><span class="pill pg">SHIPPED</span></td></tr>
-        <tr><td><strong>Payroll: set base pay v2</strong></td><td>Commission-only employee support added</td><td><span class="pill pg">SHIPPED</span></td></tr>
-        <tr><td><strong>UK Tax: HMRC feedback</strong></td><td>Surfaces HMRC feedback on MTD tax calculations before submission</td><td><span class="pill pg">SHIPPED</span></td></tr>
-        <tr><td><strong>Reporting upgrades</strong></td><td>Split reports by group · understands budgets</td><td><span class="pill pg">SHIPPED</span></td></tr>
-        <tr><td><strong>Human Intelligence (Omni-side dev)</strong></td><td>GenUX/VEP integration complete · live human-in-chat pending GenUX prod deploy</td><td><span class="pill pb">IN PROGRESS</span></td></tr>
-        <tr><td><strong>Trajectory caching</strong></td><td>1.5–3s savings for non-BI queries</td><td><span class="pill pa">RAMPING</span></td></tr>
-        <tr><td><strong>UPI/GenUX Migration</strong></td><td>1% prod web (6/1) · 1% prod mobile (6/3) · Bronze milestone code-complete</td><td><span class="pill pa">1% RAMP</span></td></tr>
-      </tbody>
-    </table>
-
-    <div class="sh" style="margin-top:16px">Watch Items Requiring Leadership Attention</div>
-    <table class="watchlist">
-      <thead>
-        <tr>
-          <th style="width:220px">Item</th>
-          <th style="width:110px">Status</th>
-          <th>Why It Matters</th>
-          <th style="width:160px">Owner / Ticket</th>
-          <th style="width:160px">Next Checkpoint</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="item-name">GPT-5.2 capacity — final node removal blocked<span class="sub">100M tokens/min priority queue request pending</span></td>
-          <td><span class="status-pill sp-blocked">BLOCKED</span></td>
-          <td>Without capacity, GPT-5.2 migration increases latency. Final node removal is the offset. If not resolved by Friday, migration should not proceed to production.</td>
-          <td>GenOS · GENOSSUP-7434</td>
-          <td>Friday this week — confirm capacity resolved before prod flip</td>
-        </tr>
-        <tr>
-          <td class="item-name">No-Hallucination regression 97.6% → 90.7%<span class="sub">Largest single accuracy drop this week</span></td>
-          <td><span class="status-pill sp-red">REGRESSION</span></td>
-          <td>Hallucination is the most visible trust failure for financial data. A 6.9pp drop without a known cause is a P0 risk that must be contained before late July readiness checkpoint.</td>
-          <td>Eval team · TBD</td>
-          <td>Root cause must be identified by next CPR</td>
-        </tr>
-        <tr>
-          <td class="item-name">AI+HI 31D onboarding 8% vs 18% goal<span class="sub">Gap widening MoM · Onboarding Agent delayed</span></td>
-          <td><span class="status-pill sp-red">AT RISK</span></td>
-          <td>AI+HI onboarding is a key FY26 metric and a core part of the Human Intelligence value story. At current trajectory, the gap will not close without an intervention on the Onboarding Agent delay.</td>
-          <td>Onboarding team · TBD</td>
-          <td>Onboarding Agent timeline needs to be confirmed this week</td>
-        </tr>
-        <tr>
-          <td class="item-name">Finance planning skill ~70s vs 55s SLA<span class="sub">OMQB-1160 · PMF Yellow</span></td>
-          <td><span class="status-pill sp-yellow">WATCH</span></td>
-          <td>Deep-analysis mode required for quality but exceeds SLA. July exception under discussion with Byron's team. Quality-vs-latency tradeoff not yet quantified.</td>
-          <td>Byron's team · OMQB-1160</td>
-          <td>July exception decision TBD · quantify quality tradeoff</td>
-        </tr>
-        <tr>
-          <td class="item-name">WoW latency increase under investigation<span class="sub">Spike observed in production</span></td>
-          <td><span class="status-pill sp-yellow">WATCH</span></td>
-          <td>WoW increase could offset the 36% monthly progress story. Analytics running complexity classifier + top tools review. P0 if spike is confirmed structural.</td>
-          <td>Eng analytics team</td>
-          <td>P0 decision by end of this week if spike confirmed</td>
-        </tr>
-        <tr>
-          <td class="item-name">20+ skills — no eval data submitted<span class="sub">Due 5pm today</span></td>
-          <td><span class="status-pill sp-action">ACTION REQUIRED</span></td>
-          <td>Cannot track or certify quality for skills with no eval coverage. Unassigned skills create a blind spot in the release readiness story — especially with No-Hallucination regression active.</td>
-          <td>Domain PMs · unassigned skills need owners</td>
-          <td>5pm today submission deadline · escalate if missed</td>
-        </tr>
-        <tr>
-          <td class="item-name">Invoicing cascading eval failure<span class="sub">Fix in open PR (Rene Huang)</span></td>
-          <td><span class="status-pill sp-yellow">WATCH</span></td>
-          <td>Not a product regression — one broken eval cascaded. Fix in open PR with expected recovery to ~86% on merge. Needs to be merged before next eval run to avoid misleading the readiness picture.</td>
-          <td>Rene Huang · PR open</td>
-          <td>PR merge before next eval run</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="sh" style="margin-top:18px">Engagement Campaigns — ELM Status (Product Marketing)</div>
+    <div style="margin-top:24px">
+      <div class="sh" style="margin-top:18px">Engagement Campaigns — ELM Status (Product Marketing)</div>
     <div style="font-size:11.5px;color:var(--gray-700);margin-bottom:10px">Vikram raised this in the metrics meeting: what are we doing to drive first-time and repeat engagement? Two campaigns are live, one launching in July as part of Supernova.</div>
     <table class="tbl" style="margin-bottom:10px">
       <thead>
@@ -1162,20 +890,65 @@ a:hover { text-decoration: underline; }
       <strong>ELM 9916 signal to watch:</strong> The Intuit Intelligence treatment (Treatment B) is underperforming the evergreen experience by 1.5pp in CTR. This is the reverse of what we'd want — worth a closer look at message framing, surface placement, or audience before the campaign closes Jun 25.
     </div>
     <div style="font-size:10px;color:var(--gray-500);margin-bottom:4px">Source: Product Marketing team · Slack update Jun 9, 2026 · Dashboards: ELM 9444 (github.intuit.com/jlee81) · ELM 9916 (github.intuit.com/spatkar)</div>
+    </div>
+
+    <div class="sh" style="margin-top:24px">Performance Metrics — Funnel, Quality &amp; Monetization</div>
+
+<div class="sh">Funnel & Adoption</div>
+    <table class="tbl">
+      <thead><tr><th style="width:185px">Metric</th><th>Latest</th><th>May Full</th><th>Target</th><th>ITT</th><th>WoW / MoM Δ</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td><strong>NTTF Engagement Rate</strong></td><td class="num">11.2%</td><td class="num">17.6% (120 ITPM)</td><td>—</td><td>—</td><td><span class="delta up">↑ +1.7pts WoW</span></td><td><span class="pill pa">WATCH — Auto-Open paused 5/15</span></td></tr>
+        <tr><td><strong>Repeat Engagement Rate</strong></td><td class="num">28.9%</td><td class="num">25.1% (105 ITPM)</td><td>26.3% ITF</td><td>~110</td><td><span class="delta up">↑ +2.8pts WoW</span></td><td><span class="pill pg">GREEN — above target this week</span></td></tr>
+        <tr><td><strong>Overall Engagement Rate</strong></td><td>—</td><td class="num">9.5% (107 ITPM)</td><td>—</td><td>—</td><td><span class="delta up">↑ vs 8.5% Apr</span></td><td><span class="pill pg">GREEN — MoM improvement</span></td></tr>
+        <tr><td><strong>Contextual Auto-Open</strong></td><td class="num">17% of engaged cos</td><td>—</td><td>—</td><td>—</td><td>2nd largest first-touch after header</td><td><span class="pill pg">GREEN — 100% ramped 5/27</span></td></tr>
+        <tr><td><strong>AI+HI 31D Onboarding</strong></td><td class="num">~8%</td><td>—</td><td>18% FY26</td><td>~44</td><td><span class="delta down">↓ −1pt MoM</span></td><td><span class="pill pr">AT RISK — Onboarding Agent delayed</span></td></tr>
+      </tbody>
+    </table>
+
+    <div class="sh">Quality & Performance</div>
+    <table class="tbl">
+      <thead><tr><th style="width:185px">Metric</th><th>Latest</th><th>Prior Week</th><th>Goal</th><th>WoW Δ</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Online CQ (production)</strong></td><td class="num">92.0%</td><td class="num">89.7%</td><td>≥88%</td><td><span class="delta up">↑ +2.3pp</span></td><td><span class="pill pg">GREEN — above goal</span></td></tr>
+        <tr><td><strong>Human Eval Accuracy</strong></td><td class="num">92.7%</td><td class="num">85.8%</td><td>—</td><td><span class="delta up">↑ +6.9pp</span></td><td><span class="pill pg">GREEN — strong recovery</span></td></tr>
+        <tr><td><strong>Offline CQ@5</strong></td><td class="num">83.2%</td><td class="num">85.5%</td><td>≥88%</td><td><span class="delta down">↓ −2.3pp</span></td><td><span class="pill pa">WATCH — 4.8pp below goal</span></td></tr>
+        <tr><td><strong>Offline Correctness</strong></td><td class="num">69.1%</td><td class="num">72.9%</td><td>—</td><td><span class="delta down">↓ −3.8pp</span></td><td><span class="pill pa">WATCH — monitor</span></td></tr>
+        <tr><td><strong>No-Hallucination Rate</strong></td><td class="num">90.7%</td><td class="num">97.6%</td><td>—</td><td><span class="delta down">↓ −6.9pp</span></td><td><span class="pill pr">REGRESSION — root cause unknown</span></td></tr>
+        <tr><td><strong>TTFMT</strong></td><td>~1.4s</td><td>—</td><td>continuing ↓</td><td><span class="delta up">↓ 36% this month · 9% WoW</span></td><td><span class="pill pg">GREEN — strong trajectory</span></td></tr>
+      </tbody>
+    </table>
+
+    <div class="sh">Monetization</div>
+    <table class="tbl">
+      <thead><tr><th style="width:210px">Metric</th><th>Current</th><th>Target / Benchmark</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Add-on All-Time CVR</strong></td><td class="num">20.3%</td><td>—</td><td><span class="pill pg">GREEN — strong purchase funnel</span></td></tr>
+        <tr><td><strong>US Active Subs</strong></td><td class="num">1,123 (1,280 total)</td><td>88.3% retained · 11.7% cumulative churn</td><td><span class="pill pb">TRACKING</span></td></tr>
+        <tr><td><strong>Intl CVR (CA/UK/AU, mid-May)</strong></td><td class="num">20.8% (41 subs)</td><td>US benchmark 18.4%</td><td><span class="pill pg">GREEN — +2.5pts above US</span></td></tr>
+        <tr><td><strong>Monthly Churn (May)</strong></td><td class="num">5.6%</td><td>—</td><td><span class="pill pt">Older cohort mix — not dissatisfaction</span></td></tr>
+        <tr><td><strong>IAS Firms (monetizable)</strong></td><td class="num">4.4K firms</td><td>4K IG goal before July 1 billing</td><td><span class="pill pg">GREEN — ahead of goal</span></td></tr>
+        <tr><td><strong>WW QBO Customer Growth (May)</strong></td><td class="num">+5% Y/Y</td><td>US GNS 113 ITF · Digital Acq 118 ITF</td><td><span class="pill pg">GREEN — E3B conversions driving</span></td></tr>
+      </tbody>
+    </table>
+
+    <div class="cpair">
+      <div class="callout w">
+        <div class="clbl">Wins</div>
+        1M engaged US users milestone · Intl CVR beats US benchmark · CSAT highest since launch · V2 opt-out halved vs V1 · IAS ahead of July 1 billing goal
+      </div>
+      <div class="callout x">
+        <div class="clbl">Watch</div>
+        AI+HI 31D onboarding 8% vs 18% — AT RISK · May Full repeat 25.1% missed 26.3% target · 3 high-volume experiments paused mid-May — watch 2H engagement trajectory
+      </div>
+    </div>
+
   </div>
 </div>
-
-
-
-
-
-<!-- ═══════════════════════════════════════════
-     SECTION 5 · ACCURACY & EVALS
-     ═══════════════════════════════════════ -->
-<div id="accuracy" style="scroll-margin-top:115px"></div>
+id="accuracy" style="scroll-margin-top:115px"></div>
 <div class="section">
   <div class="sec-hd">
-    <div class="sec-num">5</div>
+    <div class="sec-num">2</div>
     <span class="sec-title">Accuracy &amp; Evals — Detail</span>
     <span class="sec-sub">Online CQ 92.0% ✓ · Offline CQ@5 83.2% vs 88% goal · No-Hallucination regression 90.7%</span>
   </div>
@@ -1275,6 +1048,7 @@ a:hover { text-decoration: underline; }
       </tbody>
     </table>
 
+    <div style="overflow-x:auto;max-width:100%;">
     <div class="sh">L1 Module CQ@5 vs 88% Goal (6/2 run)</div>
     <div style="margin-bottom:4px;display:grid;grid-template-columns:150px 1fr 70px 115px;gap:8px;font-size:9.5px;font-weight:700;text-transform:uppercase;color:var(--gray-500)">
       <div>Module</div><div>CQ@5 vs 88% goal threshold (|)</div><div>Correctness</div><div>Status</div>
@@ -1289,6 +1063,7 @@ a:hover { text-decoration: underline; }
       <div class="mod-row"><div style="font-size:11.5px;font-weight:600">Product Help & Support</div><div class="mod-outer"><div class="mod-inner r" style="width:79%"><span>&lt;85%</span></div><div class="mod-goal"></div></div><div style="font-size:11.5px;font-weight:700;color:var(--red)">48.2%</div><span class="pill pr">help_questions 46.5% — structural drag</span></div>
     </div>
     <div class="note" style="margin:6px 0 14px">Vertical marker = 88% goal. Payroll and Invoicing drops are infra/eval failures — not product regressions.</div>
+    </div>
 
     <div class="skills-note" style="background:var(--amber-lt);border:1px solid #FFCC80;border-radius:var(--radius);padding:7px 12px;font-size:11.5px;color:var(--amber);display:flex;align-items:center;gap:6px;margin-bottom:10px">
       Skills CQ data refresh in progress. Table below reflects 5/28 run. Updated submissions due from domain PMs by 5pm today — rows marked as No Data remain outstanding.
@@ -1368,3 +1143,193 @@ a:hover { text-decoration: underline; }
 </script>
 </body>
 </html>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 4 · KEY DATES
+     ═══════════════════════════════════════ -->
+<div id="dates" style="scroll-margin-top:115px"></div>
+<div class="section">
+  <div class="sec-hd">
+    <div class="sec-num">3</div>
+    <span class="sec-title">Key Dates to Late July Release</span>
+    <span class="sec-sub">Source: Exec Dashboard Scorecard</span>
+  </div>
+  <div class="sec-body">
+
+    <div class="sh">Recent Proof Points (Completed)</div>
+    <div class="tl-proof">
+      <div class="tl-proof-item"><div class="tl-proof-dot"></div><strong>V2 GA 100% Ramp</strong><span class="date">May 13</span></div>
+      <div class="tl-proof-item"><div class="tl-proof-dot"></div><strong>1M Engaged US Users</strong><span class="date">May 19</span></div>
+      <div class="tl-proof-item"><div class="tl-proof-dot"></div><strong>Web Search Live in Production</strong><span class="date">Jun 6</span></div>
+      <div class="tl-proof-item"><div class="tl-proof-dot"></div><strong>CoT UX Shipped (Web)</strong><span class="date">Jun 6</span></div>
+      <div class="tl-proof-item"><div class="tl-proof-dot"></div><strong>Speculative Actions Shipped</strong><span class="date">Jun 6</span></div>
+      <div class="tl-proof-item"><div class="tl-proof-dot"></div><strong>2M V2 Customers</strong><span class="date">Jun 9</span></div>
+    </div>
+
+    <div class="sh">Upcoming Milestones to Late July GA</div>
+    <div class="tl-wrap">
+      <div class="tl">
+        <div class="tl-item">
+          <div class="tl-dot now"></div>
+          <div class="tl-lbl">GPT-5.2 Migration</div>
+          <div class="tl-date">~Jun 13</div>
+          <div class="tl-tag"><span class="pill pa">IN PROGRESS</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot next"></div>
+          <div class="tl-lbl">Human Intelligence Live</div>
+          <div class="tl-date">~Jun 16</div>
+          <div class="tl-tag"><span class="pill pb">NEXT</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot fut"></div>
+          <div class="tl-lbl">Quality Sprint</div>
+          <div class="tl-date">Late Jun</div>
+          <div class="tl-tag"><span class="pill pgr">UPCOMING</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot fut"></div>
+          <div class="tl-lbl">M3 Gate</div>
+          <div class="tl-date">Early Jul</div>
+          <div class="tl-tag"><span class="pill pgr">UPCOMING</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot fut"></div>
+          <div class="tl-lbl">Code Freeze</div>
+          <div class="tl-date">Mid Jul</div>
+          <div class="tl-tag"><span class="pill pgr">UPCOMING</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot fut"></div>
+          <div class="tl-lbl">Go / No-Go</div>
+          <div class="tl-date">Mid Jul</div>
+          <div class="tl-tag"><span class="pill pgr">TBD</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot fut"></div>
+          <div class="tl-lbl">Late July GA</div>
+          <div class="tl-date">Late Jul</div>
+          <div class="tl-tag"><span class="pill pgr">TARGET</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sh" style="margin-top:6px">Six Tracks to Close the Gap</div>
+    <div class="tracks">
+      <div class="track"><div class="tr-name">Harness Engineering</div><div class="tr-sub">Latency-aware orchestrator · adaptive depth · GPT-5.2 · tiers ≤15/35/55s</div></div>
+      <div class="track"><div class="tr-name">Domain Skills</div><div class="tr-sub">Faster, higher-quality BI & Help — highest-volume domains. Reports fast-track · Semantic BI Builder</div></div>
+      <div class="track"><div class="tr-name">Context Engineering</div><div class="tr-sub">Brain Center memory · metrics cache · peer benchmarks · multi-turn grounding</div></div>
+      <div class="track"><div class="tr-name">Evals</div><div class="tr-sub">Stratified by type · VOC failures as tests · vs Claude + MCP benchmarks · coverage gaps closed</div></div>
+      <div class="track"><div class="tr-name">FP&A Skills</div><div class="tr-sub">Code-generated forecasting, scenario & driver modeling · BI-owned · safe code execution</div></div>
+      <div class="track"><div class="tr-name">UX Context (Screen Awareness)</div><div class="tr-sub">Let Omni see what the customer sees on-page — directly targets #1 VOC complaint</div></div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 3 · CUSTOMER INSIGHTS
+     ═══════════════════════════════════════ -->
+<div id="execution" style="scroll-margin-top:115px"></div>
+<div class="section">
+  <div class="sec-hd">
+    <div class="sec-num">4</div>
+    <span class="sec-title">Execution & Delivery</span>
+    <span class="sec-sub">Source: Chase canvas (F0B15CCL0SE) · CPR 6/3 · OMQB-1160</span>
+  </div>
+  <div class="sec-body">
+
+    <div class="prog-row">
+      <div class="pp g"><div class="pp-lbl">Latency</div><div class="pp-status">GREEN</div><div class="pp-note">↓36% this month · TTFMT ~1.4s · Speculative actions, CoT UX, Web Search shipped · Trajectory caching ramping</div></div>
+      <div class="pp a"><div class="pp-lbl">Accuracy</div><div class="pp-status">YELLOW</div><div class="pp-note">Online CQ ✓ 92% · Offline 4.8pp below goal · No-Hallucination regression, root cause unknown</div></div>
+      <div class="pp a"><div class="pp-lbl">Engagement</div><div class="pp-status">YELLOW</div><div class="pp-note">WoW improving · May Full repeat missed target · AI+HI onboarding AT RISK</div></div>
+      <div class="pp g"><div class="pp-lbl">Monetization</div><div class="pp-status">GREEN</div><div class="pp-note">IAS ahead of goal · Intl CVR beats US · 1,123 active subs · 88.3% retention</div></div>
+    </div>
+
+    <div class="sh">Shipped This Week (Week of 6/6)</div>
+    <table class="tbl">
+      <thead><tr><th>Feature</th><th>Impact</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Speculative actions (fast-track tools)</strong></td><td>4–7s faster retrieval · +0.01 CQ · +2% correctness · covers 90%+ retrieval queries</td><td><span class="pill pg">SHIPPED</span></td></tr>
+        <tr><td><strong>New CoT UX (web)</strong></td><td>Real-time reasoning narration → perceived-latency win</td><td><span class="pill pg">SHIPPED</span></td></tr>
+        <tr><td><strong>Web Search</strong></td><td>Tax law, regulatory updates, market data — live in production</td><td><span class="pill pg">SHIPPED</span></td></tr>
+        <tr><td><strong>Payroll: set base pay v2</strong></td><td>Commission-only employee support added</td><td><span class="pill pg">SHIPPED</span></td></tr>
+        <tr><td><strong>UK Tax: HMRC feedback</strong></td><td>Surfaces HMRC feedback on MTD tax calculations before submission</td><td><span class="pill pg">SHIPPED</span></td></tr>
+        <tr><td><strong>Reporting upgrades</strong></td><td>Split reports by group · understands budgets</td><td><span class="pill pg">SHIPPED</span></td></tr>
+        <tr><td><strong>Human Intelligence (Omni-side dev)</strong></td><td>GenUX/VEP integration complete · live human-in-chat pending GenUX prod deploy</td><td><span class="pill pb">IN PROGRESS</span></td></tr>
+        <tr><td><strong>Trajectory caching</strong></td><td>1.5–3s savings for non-BI queries</td><td><span class="pill pa">RAMPING</span></td></tr>
+        <tr><td><strong>UPI/GenUX Migration</strong></td><td>1% prod web (6/1) · 1% prod mobile (6/3) · Bronze milestone code-complete</td><td><span class="pill pa">1% RAMP</span></td></tr>
+      </tbody>
+    </table>
+
+    <div class="sh" style="margin-top:16px">Watch Items Requiring Leadership Attention</div>
+    <table class="watchlist">
+      <thead>
+        <tr>
+          <th style="width:220px">Item</th>
+          <th style="width:110px">Status</th>
+          <th>Why It Matters</th>
+          <th style="width:160px">Owner / Ticket</th>
+          <th style="width:160px">Next Checkpoint</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="item-name">GPT-5.2 capacity — final node removal blocked<span class="sub">100M tokens/min priority queue request pending</span></td>
+          <td><span class="status-pill sp-blocked">BLOCKED</span></td>
+          <td>Without capacity, GPT-5.2 migration increases latency. Final node removal is the offset. If not resolved by Friday, migration should not proceed to production.</td>
+          <td>GenOS · GENOSSUP-7434</td>
+          <td>Friday this week — confirm capacity resolved before prod flip</td>
+        </tr>
+        <tr>
+          <td class="item-name">No-Hallucination regression 97.6% → 90.7%<span class="sub">Largest single accuracy drop this week</span></td>
+          <td><span class="status-pill sp-red">REGRESSION</span></td>
+          <td>Hallucination is the most visible trust failure for financial data. A 6.9pp drop without a known cause is a P0 risk that must be contained before late July readiness checkpoint.</td>
+          <td>Eval team · TBD</td>
+          <td>Root cause must be identified by next CPR</td>
+        </tr>
+        <tr>
+          <td class="item-name">AI+HI 31D onboarding 8% vs 18% goal<span class="sub">Gap widening MoM · Onboarding Agent delayed</span></td>
+          <td><span class="status-pill sp-red">AT RISK</span></td>
+          <td>AI+HI onboarding is a key FY26 metric and a core part of the Human Intelligence value story. At current trajectory, the gap will not close without an intervention on the Onboarding Agent delay.</td>
+          <td>Onboarding team · TBD</td>
+          <td>Onboarding Agent timeline needs to be confirmed this week</td>
+        </tr>
+        <tr>
+          <td class="item-name">Finance planning skill ~70s vs 55s SLA<span class="sub">OMQB-1160 · PMF Yellow</span></td>
+          <td><span class="status-pill sp-yellow">WATCH</span></td>
+          <td>Deep-analysis mode required for quality but exceeds SLA. July exception under discussion with Byron's team. Quality-vs-latency tradeoff not yet quantified.</td>
+          <td>Byron's team · OMQB-1160</td>
+          <td>July exception decision TBD · quantify quality tradeoff</td>
+        </tr>
+        <tr>
+          <td class="item-name">WoW latency increase under investigation<span class="sub">Spike observed in production</span></td>
+          <td><span class="status-pill sp-yellow">WATCH</span></td>
+          <td>WoW increase could offset the 36% monthly progress story. Analytics running complexity classifier + top tools review. P0 if spike is confirmed structural.</td>
+          <td>Eng analytics team</td>
+          <td>P0 decision by end of this week if spike confirmed</td>
+        </tr>
+        <tr>
+          <td class="item-name">20+ skills — no eval data submitted<span class="sub">Due 5pm today</span></td>
+          <td><span class="status-pill sp-action">ACTION REQUIRED</span></td>
+          <td>Cannot track or certify quality for skills with no eval coverage. Unassigned skills create a blind spot in the release readiness story — especially with No-Hallucination regression active.</td>
+          <td>Domain PMs · unassigned skills need owners</td>
+          <td>5pm today submission deadline · escalate if missed</td>
+        </tr>
+        <tr>
+          <td class="item-name">Invoicing cascading eval failure<span class="sub">Fix in open PR (Rene Huang)</span></td>
+          <td><span class="status-pill sp-yellow">WATCH</span></td>
+          <td>Not a product regression — one broken eval cascaded. Fix in open PR with expected recovery to ~86% on merge. Needs to be merged before next eval run to avoid misleading the readiness picture.</td>
+          <td>Rene Huang · PR open</td>
+          <td>PR merge before next eval run</td>
+        </tr>
+      </tbody>
+    </table>
+
+    
+  </div>
+</div>
