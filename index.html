@@ -651,7 +651,7 @@ a:hover { text-decoration: underline; }
             <td style="padding:8px 10px;text-align:center;font-weight:700;color:#E53935;font-size:9px">V2 regression</td>
           </tr>
           <tr style="border-bottom:1px solid var(--gray-200)">
-            <td style="padding:8px 10px;font-size:11px;color:var(--gray-700)">Action-Promise Gap</td>
+            <td style="padding:8px 10px;font-size:11px;color:var(--gray-700)">Action-Promise Gap <sup style="font-size:8px;color:var(--gray-500)">①</sup></td>
             <td style="padding:8px 10px;text-align:center;color:var(--gray-500)">N/A V1</td>
             <td style="padding:8px 10px;text-align:center;font-weight:700;color:#E53935">12%</td>
             <td style="padding:8px 10px;text-align:center;font-weight:700;color:#E53935;font-size:9px">V2 regression</td>
@@ -669,7 +669,10 @@ a:hover { text-decoration: underline; }
   </div>
   <div class="strat-callout" style="margin-top:14px">
     <strong>What this means for SLT:</strong> V2 is a proven upgrade on every tracked dimension. The risk entering Late July is not regression — it is the gap between production quality (Online CQ 92%, CSAT improving) and eval-layer confidence (Offline CQ 83.2%, No-Hallucination regression, 20+ skills without eval data). Close that gap and the readiness story becomes clean.
-  </div>
+
+<div style="padding:8px 22px 4px;border-top:1px solid var(--gray-200);margin-top:4px;font-size:10.5px;color:var(--gray-500);line-height:1.6">
+  <sup style="font-size:8px">①</sup> <strong style="color:var(--gray-700)">Action-Promise Gap</strong> — Omni offers to perform an action ("I'll do that for you"), then responds with step-by-step instructions instead of executing it. Measured as % of sessions where Omni's stated intent did not match its output. <span style="color:var(--red);font-weight:600">This is an accuracy failure, not a UX issue</span> — it erodes the same trust as "no data found": Omni asserts something that turns out to be false. New in V2 (N/A in V1); 12% is a regression flag that must close before GA. Source: Chase canvas, Jun 9.
+</div>  </div>
 </div>
 </div>
   </div>
