@@ -1857,5 +1857,22 @@ function submitFeedback(){
 }
 </script>
 
+
+<script>
+function showPTab(btn, panelId) {
+  document.querySelectorAll('.ptab').forEach(function(b) {
+    b.style.background = '#fff';
+    b.style.color = 'var(--gray-700)';
+    b.style.borderColor = 'var(--gray-300)';
+  });
+  btn.style.background = 'var(--navy)';
+  btn.style.color = '#fff';
+  btn.style.borderColor = 'var(--navy)';
+  document.querySelectorAll('.ptab-panel').forEach(function(p) {
+    p.style.display = 'none';
+  });
+  document.getElementById(panelId).style.display = 'block';
+}
+</script>
 </body>
 </html>
