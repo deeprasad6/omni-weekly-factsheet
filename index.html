@@ -738,9 +738,49 @@ a:hover { text-decoration: underline; }
     <div class="sh" style="margin-top:16px">Customer Journey — Where Trust Is Built and Lost</div>
     <div style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius);padding:10px 14px;margin-bottom:10px">
       <div style="font-size:12px;font-weight:700;color:var(--gray-900);margin-bottom:4px">How to read this</div>
-      <div style="font-size:11.5px;color:var(--gray-700);line-height:1.6">Every customer who opens Omni moves through six stages — from noticing the product to deciding whether to make it a weekly habit. Each stage shows how many customers wrote feedback there and what share of that feedback was positive. <strong>The bottleneck is Stages 3 and 4</strong>: the highest-volume moments, where Omni fails to return accurate data or delivers a how-to instead of an action. Customers who get through those stages (Stage 5) become loyal at 37% positive — nearly 5× better than the entry experience. The job is to widen that funnel.</div>
-      <div style="font-size:10.5px;color:var(--gray-500);margin-top:5px">n=616 verbatims classified by behavioral intent, May 2026 · % = confirmed-positive (text + thumbs-up agree) · Source: Ruta Bhat CX Deck (851 verbatims) · Austin Harris Qual Interviews (40+ sessions, Feb–Apr 2026)</div>
+      <div style="font-size:11.5px;color:var(--gray-700);line-height:1.6">Six stages from discovery to loyalty. The metrics row below each stage shows the program signals that tell us how Omni is performing <em>at that moment</em>. <strong>Opt-out demand is the clearest V2 win at Stage 2:</strong> customers who hit early friction demanded to turn Omni off — 40% at launch, now 9%. That single trend shows V2 improved first contact. The job now is to fix the accuracy and trust failures at Stages 3–4 so more customers reach the loyalty cohort at Stage 5.</div>
+      <div style="font-size:10.5px;color:var(--gray-500);margin-top:5px">n=616 verbatims by behavioral intent, May 2026 · % = confirmed-positive · Source: Ruta Bhat CX Deck (851 verbatims) · Austin Harris Qual Interviews (40+, Feb–Apr 2026)</div>
     </div>
+
+    <!-- Metrics Ladder Strip -->
+    <div style="background:var(--navy);border-radius:var(--radius);padding:9px 12px;margin-bottom:7px">
+      <div style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.7px;color:rgba(255,255,255,.45);margin-bottom:7px">Program Metrics → Journey Stage</div>
+      <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:5px">
+        <div>
+          <div style="font-size:8.5px;font-weight:700;color:rgba(255,255,255,.55);margin-bottom:3px">S1 · Find It</div>
+          <div style="background:rgba(255,255,255,.08);border-radius:3px;padding:3px 6px;font-size:8.5px;color:rgba(255,255,255,.5);margin-bottom:2px">Reach Rate 9.5%</div>
+        </div>
+        <div>
+          <div style="font-size:8.5px;font-weight:700;color:#FFD54F;margin-bottom:3px">S2 · Try It ★ best trend</div>
+          <div style="background:rgba(255,213,79,.15);border:1px solid rgba(255,213,79,.35);border-radius:3px;padding:3px 6px;font-size:8.5px;color:#FFD54F;margin-bottom:2px">Opt-Out 40%→9% ↓</div>
+          <div style="background:rgba(255,255,255,.08);border-radius:3px;padding:3px 6px;font-size:8.5px;color:rgba(255,255,255,.5)">TTFMT 1.4s avg</div>
+        </div>
+        <div>
+          <div style="font-size:8.5px;font-weight:700;color:rgba(255,255,255,.55);margin-bottom:3px">S3 · Get Answer</div>
+          <div style="background:rgba(255,255,255,.08);border-radius:3px;padding:3px 6px;font-size:8.5px;color:rgba(255,255,255,.5);margin-bottom:2px">Online CQ 92%</div>
+          <div style="background:rgba(255,255,255,.08);border-radius:3px;padding:3px 6px;font-size:8.5px;color:rgba(255,255,255,.5);margin-bottom:2px">Offline CQ@5 83.2%</div>
+          <div style="background:rgba(255,255,255,.08);border-radius:3px;padding:3px 6px;font-size:8.5px;color:rgba(255,255,255,.5)">No-Hallucination 90.7%</div>
+        </div>
+        <div>
+          <div style="font-size:8.5px;font-weight:700;color:rgba(255,255,255,.55);margin-bottom:3px">S4 · Trust It</div>
+          <div style="background:rgba(255,255,255,.08);border-radius:3px;padding:3px 6px;font-size:8.5px;color:rgba(255,255,255,.5);margin-bottom:2px">Human Eval 92.7%</div>
+          <div style="background:rgba(239,83,80,.2);border-radius:3px;padding:3px 6px;font-size:8.5px;color:#EF9A9A">Action-Promise Gap 12% ↑ reg.</div>
+        </div>
+        <div>
+          <div style="font-size:8.5px;font-weight:700;color:#A5D6A7;margin-bottom:3px">S5 · Use Again ★ goal</div>
+          <div style="background:rgba(165,214,167,.15);border:1px solid rgba(165,214,167,.3);border-radius:3px;padding:3px 6px;font-size:8.5px;color:#A5D6A7;margin-bottom:2px">Repeat Eng. 28.9%</div>
+          <div style="background:rgba(165,214,167,.15);border-radius:3px;padding:3px 6px;font-size:8.5px;color:#A5D6A7;margin-bottom:2px">Add-on Subs 1,123</div>
+          <div style="background:rgba(255,255,255,.08);border-radius:3px;padding:3px 6px;font-size:8.5px;color:rgba(255,255,255,.5);margin-bottom:2px">CSAT 39.2%</div>
+          <div style="background:rgba(255,255,255,.08);border-radius:3px;padding:3px 6px;font-size:8.5px;color:rgba(255,255,255,.5)">AI+HI Onboard 71%</div>
+        </div>
+        <div>
+          <div style="font-size:8.5px;font-weight:700;color:rgba(255,255,255,.55);margin-bottom:3px">S6 · When It Fails</div>
+          <div style="background:rgba(255,255,255,.08);border-radius:3px;padding:3px 6px;font-size:8.5px;color:rgba(255,255,255,.5);margin-bottom:2px">Agent Escape 7%</div>
+          <div style="background:rgba(255,255,255,.08);border-radius:3px;padding:3px 6px;font-size:8.5px;color:rgba(255,255,255,.5)">Monthly Churn 5.6%</div>
+        </div>
+      </div>
+    </div>
+
     <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-bottom:6px">
 
       <!-- Stage 1 -->
@@ -748,19 +788,48 @@ a:hover { text-decoration: underline; }
         <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;color:var(--gray-500);margin-bottom:2px">Stage 1</div>
         <div style="font-size:12px;font-weight:800;color:var(--gray-900);margin-bottom:3px">Find It</div>
         <div style="font-size:20px;font-weight:900;color:var(--gray-400)">0%</div>
-        <div style="font-size:10px;color:var(--gray-500);margin-bottom:6px">positive · n=9</div>
+        <div style="font-size:10px;color:var(--gray-500);margin-bottom:5px">positive · n=9</div>
         <div style="font-size:10px;color:var(--gray-700);line-height:1.4">90.5% of QBO users never open Omni. Discovery earns zero positives.</div>
-        <div style="margin-top:6px;font-size:10px;font-style:italic;color:var(--gray-500)">"I kind of figured it was just a logo thing."</div>
+        <div style="margin-top:6px;padding:3px 6px;background:rgba(0,0,0,.04);border-radius:3px;font-size:8.5px;color:var(--gray-500)">↳ Reach Rate</div>
+        <div style="margin-top:5px;font-size:10px;font-style:italic;color:var(--gray-500)">"I kind of figured it was just a logo thing."</div>
+        <div style="font-size:8px;color:var(--gray-400);margin-top:2px">Austin Harris Qual · Feb 2026</div>
       </div>
 
-      <!-- Stage 2 -->
+      <!-- Stage 2 — opt-out prominence -->
       <div style="background:var(--amber-lt);border:1px solid #FFCC80;border-radius:var(--radius);padding:9px 10px">
         <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;color:var(--amber);margin-bottom:2px">Stage 2</div>
         <div style="font-size:12px;font-weight:800;color:var(--gray-900);margin-bottom:3px">Try It</div>
         <div style="font-size:20px;font-weight:900;color:var(--amber)">8%</div>
-        <div style="font-size:10px;color:var(--gray-500);margin-bottom:6px">positive · n=136</div>
-        <div style="font-size:10px;color:var(--gray-700);line-height:1.4">54 verbatims cite outdated navigation menus. Positive rate doubled V1→V2.</div>
-        <div style="margin-top:6px;font-size:10px;font-style:italic;color:var(--gray-500)">"Hilariously, I'd ask ChatGPT how to word a question for your AI."</div>
+        <div style="font-size:10px;color:var(--gray-500);margin-bottom:5px">positive · n=136</div>
+        <div style="font-size:10px;color:var(--gray-700);line-height:1.4;margin-bottom:5px">54 verbatims cite outdated nav. Positive rate doubled V1→V2.</div>
+        <!-- Opt-out sparkline trend -->
+        <div style="background:rgba(255,255,255,.75);border:1px solid #FFCC80;border-radius:4px;padding:5px 7px;margin-bottom:5px">
+          <div style="font-size:8.5px;font-weight:800;color:var(--amber);margin-bottom:4px">Opt-Out Demand ↓ Biggest V2 Win</div>
+          <div style="display:flex;align-items:flex-end;gap:3px;height:26px">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:1px;flex:1">
+              <div style="font-size:7px;font-weight:700;color:#E53935">40%</div>
+              <div style="width:100%;background:#EF5350;border-radius:2px 2px 0 0;height:26px"></div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:1px;flex:1">
+              <div style="font-size:7px;font-weight:700;color:#FB8C00">30%</div>
+              <div style="width:100%;background:#FFA726;border-radius:2px 2px 0 0;height:19px"></div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:1px;flex:1">
+              <div style="font-size:7px;font-weight:700;color:#FB8C00">17%</div>
+              <div style="width:100%;background:#FFA726;border-radius:2px 2px 0 0;height:11px"></div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:1px;flex:1">
+              <div style="font-size:7px;font-weight:700;color:#388E3C">9%</div>
+              <div style="width:100%;background:#66BB6A;border-radius:2px 2px 0 0;height:6px"></div>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:7px;color:var(--gray-500);margin-top:2px">
+            <span>Dec</span><span>Feb</span><span>V1</span><span>V2</span>
+          </div>
+        </div>
+        <div style="padding:3px 6px;background:rgba(255,167,38,.12);border-radius:3px;font-size:8.5px;color:var(--amber)">↳ Opt-Out Rate · TTFMT</div>
+        <div style="margin-top:5px;font-size:10px;font-style:italic;color:var(--gray-500)">"I'd ask ChatGPT how to word a question for your AI."</div>
+        <div style="font-size:8px;color:var(--gray-400);margin-top:2px">Austin Harris Qual · Apr 2026</div>
       </div>
 
       <!-- Stage 3 — biggest volume, worst -->
@@ -768,9 +837,11 @@ a:hover { text-decoration: underline; }
         <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;color:var(--red);margin-bottom:2px">Stage 3 · Highest Volume</div>
         <div style="font-size:12px;font-weight:800;color:var(--gray-900);margin-bottom:3px">Get Answer</div>
         <div style="font-size:20px;font-weight:900;color:var(--red)">7%</div>
-        <div style="font-size:10px;color:var(--gray-500);margin-bottom:6px">positive · n=191</div>
-        <div style="font-size:10px;color:var(--gray-700);line-height:1.4">"No data found" fires 30% of cases with data on screen. 95% negative for accountants.</div>
-        <div style="margin-top:6px;font-size:10px;font-style:italic;color:var(--red)">"There are 18 pending transactions. How can I trust it on anything?"</div>
+        <div style="font-size:10px;color:var(--gray-500);margin-bottom:5px">positive · n=191</div>
+        <div style="font-size:10px;color:var(--gray-700);line-height:1.4">"No data found" fires 30% of cases with data visible on screen. 95% negative for accountants.</div>
+        <div style="margin-top:6px;padding:3px 6px;background:rgba(239,83,80,.1);border-radius:3px;font-size:8.5px;color:var(--red)">↳ Online CQ · Offline CQ@5 · No-Hallucination</div>
+        <div style="margin-top:5px;font-size:10px;font-style:italic;color:var(--red)">"18 pending transactions — how can I trust it on anything?"</div>
+        <div style="font-size:8px;color:var(--gray-400);margin-top:2px">CX Deck Verbatim · May 2026 · Accuracy category</div>
       </div>
 
       <!-- Stage 4 -->
@@ -778,9 +849,11 @@ a:hover { text-decoration: underline; }
         <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;color:var(--red);margin-bottom:2px">Stage 4</div>
         <div style="font-size:12px;font-weight:800;color:var(--gray-900);margin-bottom:3px">Trust It</div>
         <div style="font-size:20px;font-weight:900;color:var(--red)">0%</div>
-        <div style="font-size:10px;color:var(--gray-500);margin-bottom:6px">positive · n=80</div>
-        <div style="font-size:10px;color:var(--gray-700);line-height:1.4">80 verbatims catching wrong answers. Action-promise gap (12%) is a V2 regression — says "I'll do that" then gives instructions.</div>
-        <div style="margin-top:6px;font-size:10px;font-style:italic;color:var(--gray-500)">"I'd be a fool to take AI data to a board meeting without verifying it."</div>
+        <div style="font-size:10px;color:var(--gray-500);margin-bottom:5px">positive · n=80</div>
+        <div style="font-size:10px;color:var(--gray-700);line-height:1.4">Action-promise gap (12%) is a V2 regression — says "I'll do that" then gives instructions. 80 verbatims on wrong answers.</div>
+        <div style="margin-top:6px;padding:3px 6px;background:rgba(239,83,80,.1);border-radius:3px;font-size:8.5px;color:var(--red)">↳ Human Eval Accuracy · Action-Promise Gap</div>
+        <div style="margin-top:5px;font-size:10px;font-style:italic;color:var(--gray-500)">"I'd be a fool to take AI data to a board meeting without verifying."</div>
+        <div style="font-size:8px;color:var(--gray-400);margin-top:2px">Austin Harris Qual · Mar 2026 · Accountant segment</div>
       </div>
 
       <!-- Stage 5 — best stage -->
@@ -788,9 +861,11 @@ a:hover { text-decoration: underline; }
         <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;color:var(--green);margin-bottom:2px">Stage 5 · Best Stage</div>
         <div style="font-size:12px;font-weight:800;color:var(--gray-900);margin-bottom:3px">Use Again</div>
         <div style="font-size:20px;font-weight:900;color:var(--green)">37%</div>
-        <div style="font-size:10px;color:var(--gray-500);margin-bottom:6px">positive · n=67</div>
-        <div style="font-size:10px;color:var(--gray-700);line-height:1.4">Customers who survive stages 3–4 become loyal. Subs 2× in 4 months. No saved queries yet.</div>
-        <div style="margin-top:6px;font-size:10px;font-style:italic;color:var(--green)">"I use this every day — saves me so much time."</div>
+        <div style="font-size:10px;color:var(--gray-500);margin-bottom:5px">positive · n=67</div>
+        <div style="font-size:10px;color:var(--gray-700);line-height:1.4">Customers who survive Stages 3–4 become loyal. Subs 2× in 4 months. No saved queries yet.</div>
+        <div style="margin-top:6px;padding:3px 6px;background:rgba(102,187,106,.15);border-radius:3px;font-size:8.5px;color:var(--green)">↳ Repeat Engagement · CSAT · Add-on Subs · AI+HI Onboard</div>
+        <div style="margin-top:5px;font-size:10px;font-style:italic;color:var(--green)">"I use this every day — saves me so much time."</div>
+        <div style="font-size:8px;color:var(--gray-400);margin-top:2px">CX Deck Verbatim · May 2026 · Positive / Time-Saving</div>
       </div>
 
       <!-- Stage 6 -->
@@ -798,24 +873,84 @@ a:hover { text-decoration: underline; }
         <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;color:var(--gray-500);margin-bottom:2px">Stage 6</div>
         <div style="font-size:12px;font-weight:800;color:var(--gray-900);margin-bottom:3px">When It Fails</div>
         <div style="font-size:20px;font-weight:900;color:var(--gray-500)">2%</div>
-        <div style="font-size:10px;color:var(--gray-500);margin-bottom:6px">positive · n=57</div>
+        <div style="font-size:10px;color:var(--gray-500);margin-bottom:5px">positive · n=57</div>
         <div style="font-size:10px;color:var(--gray-700);line-height:1.4">3 of 18 May cancellations cited named AI competitors. Bot loops block human handoff.</div>
-        <div style="margin-top:6px;font-size:10px;font-style:italic;color:var(--gray-500)">"Gemini keeps all that context — I don't have to re-explain."</div>
+        <div style="margin-top:6px;padding:3px 6px;background:rgba(0,0,0,.04);border-radius:3px;font-size:8.5px;color:var(--gray-500)">↳ Agent Escape Rate · Monthly Churn</div>
+        <div style="margin-top:5px;font-size:10px;font-style:italic;color:var(--gray-500)">"Gemini keeps all that context — I don't have to re-explain."</div>
+        <div style="font-size:8px;color:var(--gray-400);margin-top:2px">Cancellation Verbatim · May 2026 · AI Competitor category</div>
       </div>
 
     </div>
+
     <!-- Journey insight bar -->
-    <div style="background:#EEF3F8;border:1px solid #B0BEC5;border-radius:var(--radius);padding:8px 14px;font-size:11px;color:var(--navy);margin-bottom:16px">
-      <strong>The funnel insight:</strong> Stage 5 (37% positive) is the only stage that earns loyalty — but the drop from Try It (8%) to Get Answer (7%) shows trust is lost before users can repeat. Fixing Stage 3 "no data found" and Stage 4 action-promise gaps are the highest-leverage moves to widen the loyal cohort.
+    <div style="background:#EEF3F8;border:1px solid #B0BEC5;border-radius:var(--radius);padding:8px 14px;font-size:11px;color:var(--navy);margin-bottom:10px">
+      <strong>The funnel insight:</strong> Opt-out demand falling 40%→9% (Stage 2) and positive VOC nearly doubling 5.6%→10.7% show V2 improved the entry experience. Stage 5's 37% loyalty cohort is the target state — but getting more customers there requires fixing Stage 3 "no data found" and Stage 4 action-promise regression first.
     </div>
+
+    <!-- V2 Metrics → Customer Language Translation -->
+    <div class="sh" style="margin-top:4px">What V2 Metrics Mean in Customer Language</div>
+    <table class="tbl" style="margin-bottom:16px">
+      <thead><tr><th>Metric</th><th>V1 Baseline</th><th>V2 Result</th><th>What Customers Now Say / Experience</th><th>Journey Stage</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Opt-Out Demand Rate</strong></td>
+          <td class="num" style="color:var(--red)">17–40%</td>
+          <td class="num" style="color:var(--green)">9%</td>
+          <td>Customers stopped demanding to turn Omni off. First contact is no longer a breaking point.</td>
+          <td>Stage 2</td>
+        </tr>
+        <tr>
+          <td><strong>Positive VOC Rate</strong></td>
+          <td class="num" style="color:var(--amber)">5.6%</td>
+          <td class="num" style="color:var(--green)">10.7%</td>
+          <td>1 in 10 customers now actively praises the product — nearly double. Time-saving language appearing in verbatims.</td>
+          <td>Stages 3–5</td>
+        </tr>
+        <tr>
+          <td><strong>Add-on Subscribers</strong></td>
+          <td class="num" style="color:var(--amber)">383</td>
+          <td class="num" style="color:var(--green)">1,123</td>
+          <td>3× more customers paying extra to keep Omni. Loyalty cohort at Stage 5 is real and growing.</td>
+          <td>Stage 5</td>
+        </tr>
+        <tr>
+          <td><strong>CSAT</strong></td>
+          <td class="num" style="color:var(--amber)">36.2%</td>
+          <td class="num" style="color:var(--amber)">39.2%</td>
+          <td>Satisfaction is improving but still losing 6 in 10 interactions. Trend is right; absolute level is not there yet.</td>
+          <td>Stages 3–5</td>
+        </tr>
+        <tr style="background:#FFF3E0">
+          <td><strong>Generic / Steps Response Rate</strong><div style="font-size:9px;color:var(--red);font-weight:600">V2 regression</div></td>
+          <td class="num" style="color:var(--amber)">28.3%</td>
+          <td class="num" style="color:var(--red)">36.9%</td>
+          <td>Customers feel like they're reading a manual. V2 Omni sounds more confident but still gives instructions instead of taking action.</td>
+          <td>Stages 3–4</td>
+        </tr>
+        <tr style="background:#FFF3E0">
+          <td><strong>Action-Promise Gap</strong><div style="font-size:9px;color:var(--red);font-weight:600">V2 regression</div></td>
+          <td class="num">N/A V1</td>
+          <td class="num" style="color:var(--red)">12%</td>
+          <td>Omni says "I'll do that for you" then gives step-by-step instructions. Creates distrust — customers feel misled by the product's own language.</td>
+          <td>Stage 4</td>
+        </tr>
+        <tr>
+          <td><strong>Repeat Engagement Rate</strong></td>
+          <td class="num" style="color:var(--amber)">Low / unmeasured</td>
+          <td class="num" style="color:var(--green)">28.9%</td>
+          <td>Nearly 1 in 3 customers who use Omni once come back. Habit formation is beginning — the product is earning a second look.</td>
+          <td>Stage 5</td>
+        </tr>
+      </tbody>
+    </table>
 
     <div class="sh">In Their Own Words</div>
     <div class="quotes">
-      <div class="qcard"><div class="qtext">You saved me time searching for the answers. Thanks.</div><div class="qsrc">QBO Web — Apr–May 2026</div></div>
-      <div class="qcard"><div class="qtext">Gave me a breakdown of my P&L immediately, and a way to discuss planning and budgeting.</div><div class="qsrc">iOS — Apr–May 2026</div></div>
-      <div class="qcard"><div class="qtext">The advice was spot-on! And quick. Very helpful with an odd problem.</div><div class="qsrc">QBO Web — Apr–May 2026</div></div>
-      <div class="qcard"><div class="qtext">I got the perfect result I wanted to know. It saved my time.</div><div class="qsrc">QBO Web — Apr–May 2026</div></div>
-      <div class="qcard neg"><div class="qtext">I'm looking at my P&L right now — you are wrong.</div><div class="qsrc">Top negative verbatim · "No data found" category · #1 trust-break driver across all surfaces</div></div>
+      <div class="qcard"><div class="qtext">You saved me time searching for the answers. Thanks.</div><div class="qsrc">QBO Web · May 2026 · Positive / Time-Saving category · Ruta Bhat CX Deck (n=851)</div></div>
+      <div class="qcard"><div class="qtext">Gave me a breakdown of my P&L immediately, and a way to discuss planning and budgeting.</div><div class="qsrc">iOS · May 2026 · Positive / Time-Saving category · Ruta Bhat CX Deck (n=851)</div></div>
+      <div class="qcard"><div class="qtext">The advice was spot-on! And quick. Very helpful with an odd problem.</div><div class="qsrc">QBO Web · Apr 2026 · V2 Positive Feedback · Ruta Bhat CX Deck (n=851)</div></div>
+      <div class="qcard"><div class="qtext">I got the perfect result I wanted to know. It saved my time.</div><div class="qsrc">QBO Web · Apr 2026 · V2 Positive Feedback · Ruta Bhat CX Deck (n=851)</div></div>
+      <div class="qcard neg"><div class="qtext">I'm looking at my P&L right now — you are wrong.</div><div class="qsrc">QBO Web · May 2026 · Top negative verbatim · "No data found" category · #1 trust-break driver across all surfaces · Ruta Bhat CX Deck</div></div>
     </div>
 
     <div class="two-col" style="margin-top:6px">
@@ -986,6 +1121,47 @@ a:hover { text-decoration: underline; }
         </tr>
       </tbody>
     </table>
+
+    <div class="sh" style="margin-top:18px">Engagement Campaigns — ELM Status (Product Marketing)</div>
+    <div style="font-size:11.5px;color:var(--gray-700);margin-bottom:10px">Vikram raised this in the metrics meeting: what are we doing to drive first-time and repeat engagement? Two campaigns are live, one launching in July as part of Supernova.</div>
+    <table class="tbl" style="margin-bottom:10px">
+      <thead>
+        <tr>
+          <th>Campaign</th>
+          <th>Window</th>
+          <th>Goal</th>
+          <th>Result</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>ELM 9444</strong> — Brainstorming &amp; Analytics</td>
+          <td>Apr 20 – Jun 30</td>
+          <td>First-time use · Chat engagement · Repeat usage</td>
+          <td>Chat Engagement: <strong>105.11 ITC</strong> · Repeat Usage (2+ engaged days): <strong>105.17 ITC</strong></td>
+          <td><span class="pill pg">LIVE · ON TRACK</span></td>
+        </tr>
+        <tr>
+          <td><strong>ELM 9916</strong> — AI Takes Action NTTF: Bank Connect</td>
+          <td>Apr 22 – Jun 25</td>
+          <td>First-time use via Bank Connect entry point</td>
+          <td>Treatment A (Evergreen): CTR <strong>2.41%</strong> · Treatment B (Intuit Intelligence): CTR <strong>0.91%</strong> — Treatment A outperforming</td>
+          <td><span class="status-pill sp-yellow">WATCH · A&gt;B</span></td>
+        </tr>
+        <tr style="background:#F1F8E9">
+          <td><strong>ELM 9490</strong> — Create Invoice (Supernova)</td>
+          <td>July launch</td>
+          <td>Repeat engagement via recurring invoicing behavior</td>
+          <td>Requires PM/PD support to build attributes. Unlike first-time use campaigns, invoicing is recurring — highest repeat engagement potential of the three.</td>
+          <td><span class="status-pill sp-blocked">NEEDS PM/PD SUPPORT</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="background:#FFF8E1;border:1px solid #FFE082;border-radius:var(--radius);padding:7px 12px;font-size:11px;color:#5D4037;margin-bottom:4px">
+      <strong>ELM 9916 signal to watch:</strong> The Intuit Intelligence treatment (Treatment B) is underperforming the evergreen experience by 1.5pp in CTR. This is the reverse of what we'd want — worth a closer look at message framing, surface placement, or audience before the campaign closes Jun 25.
+    </div>
+    <div style="font-size:10px;color:var(--gray-500);margin-bottom:4px">Source: Product Marketing team · Slack update Jun 9, 2026 · Dashboards: ELM 9444 (github.intuit.com/jlee81) · ELM 9916 (github.intuit.com/spatkar)</div>
   </div>
 </div>
 
