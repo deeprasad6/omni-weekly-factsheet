@@ -382,7 +382,7 @@ a:hover { text-decoration: underline; }
 
 <!-- ── HERO STATS ────────────────────────────── -->
 <div style="padding:16px 22px 12px;background:var(--gray-50);border-bottom:1px solid var(--gray-200)">
-  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px">
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
 
     <div style="background:#fff;border-radius:8px;padding:12px 16px;border:1px solid var(--gray-200)">
       <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-400);margin-bottom:4px">US Engaged Users</div>
@@ -414,14 +414,6 @@ a:hover { text-decoration: underline; }
       <div style="font-size:10px;color:var(--gray-500);margin-top:3px">V1: ~8.0s · GA latency gate cleared</div>
     </div>
 
-    <div style="background:#fff;border-radius:8px;padding:12px 16px;border:1px solid #A5D6A7">
-      <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-400);margin-bottom:4px">Add-On Subscribers</div>
-      <div style="display:flex;align-items:baseline;gap:6px">
-        <div style="font-size:28px;font-weight:900;color:var(--navy);line-height:1">1,123</div>
-        <div style="font-size:11px;font-weight:700;color:#43A047">active</div>
-      </div>
-      <div style="font-size:10px;color:var(--gray-500);margin-top:3px">20.3% CVR · 88.3% retained</div>
-    </div>
 
   </div>
 </div>
@@ -522,43 +514,6 @@ a:hover { text-decoration: underline; }
     </tbody>
   </table>
   <div style="font-size:9.5px;color:var(--gray-500);margin-top:8px;font-style:italic">V2: 100% ramp Apr 29 · GA May 13 · 2M customers reached · Data Jun 2026</div>
-
-  <!-- Monetization funnel strip -->
-  <div style="margin-top:14px;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:8px;padding:10px 16px">
-    <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-400);margin-bottom:8px">Monetization · Add-On Purchase Funnel — All-Time · Source: Omni Overview Jun 2026</div>
-    <div style="display:flex;align-items:center;gap:4px">
-      <div style="flex:1;text-align:center">
-        <div style="background:var(--navy);color:#fff;border-radius:5px;padding:6px 2px;font-size:10.5px;font-weight:700">Sees message</div>
-        <div style="font-size:10px;font-weight:600;color:var(--gray-600);margin-top:3px">100%</div>
-      </div>
-      <div style="color:var(--gray-400);font-size:13px">→</div>
-      <div style="flex:1;text-align:center">
-        <div style="background:#1565C0;color:#fff;border-radius:5px;padding:6px 2px;font-size:10.5px;font-weight:700">Clicks</div>
-        <div style="font-size:10px;font-weight:600;color:var(--gray-600);margin-top:3px">61.4%</div>
-      </div>
-      <div style="color:var(--gray-400);font-size:13px">→</div>
-      <div style="flex:1;text-align:center">
-        <div style="background:#1976D2;color:#fff;border-radius:5px;padding:6px 2px;font-size:10.5px;font-weight:700">Buy Now</div>
-        <div style="font-size:10px;font-weight:600;color:var(--gray-600);margin-top:3px">35.5%</div>
-      </div>
-      <div style="color:var(--gray-400);font-size:13px">→</div>
-      <div style="flex:1;text-align:center">
-        <div style="background:#2E7D32;color:#fff;border-radius:5px;padding:6px 2px;font-size:10.5px;font-weight:700">Purchases</div>
-        <div style="font-size:10px;font-weight:600;color:var(--gray-600);margin-top:3px">93.1%</div>
-      </div>
-      <div style="color:var(--gray-400);font-size:13px">→</div>
-      <div style="flex:1;text-align:center">
-        <div style="background:#1B5E20;color:#fff;border-radius:5px;padding:6px 2px;font-size:10.5px;font-weight:700">Retained</div>
-        <div style="font-size:10px;font-weight:600;color:#2E7D32;margin-top:3px">88.3%</div>
-      </div>
-      <div style="width:1px;background:var(--gray-200);margin:0 8px;height:36px"></div>
-      <div style="text-align:center;min-width:80px">
-        <div style="font-size:9px;color:var(--gray-400);font-weight:600;text-transform:uppercase;letter-spacing:.4px">Intl CVR</div>
-        <div style="font-size:14px;font-weight:800;color:#43A047;margin-top:1px">20.8%</div>
-        <div style="font-size:8.5px;color:var(--gray-500)">CA/UK/AU vs US 18.4%</div>
-      </div>
-    </div>
-  </div>
 
 </div>
 
@@ -761,7 +716,24 @@ a:hover { text-decoration: underline; }
           <td>1 in 4 customers who use Omni once come back. Repeat engagement is building — slightly below the 26.3% ITF target but trending positively.</td>
           <td>Stage 5</td>
         </tr>
-      </tbody>
+
+      <!-- MONETIZATION -->
+      <tr>
+        <td rowspan="2" style="padding:7px 10px;border-bottom:1px solid var(--gray-200);vertical-align:top;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#1565C0;background:#F3F8FF">MONETI&shy;ZATION</td>
+        <td style="padding:7px 10px;border-bottom:1px solid var(--gray-100);color:var(--gray-700)">Add-on subscribers</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);color:var(--gray-500)">—</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);font-weight:700;color:var(--navy)">1,123</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);font-weight:700;color:#43A047">New in V2</td>
+        <td style="padding:7px 10px;font-size:9.5px;color:var(--gray-500);font-style:italic">1,346 all-time purchases · launched with V2 add-on</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;border-bottom:1px solid var(--gray-200);color:var(--gray-700)">Conversion &amp; retention</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-500)">—</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-200);font-weight:700;color:var(--navy)">20.3% CVR</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-200);font-weight:700;color:#43A047">88.3% retained</td>
+        <td style="padding:7px 10px;font-size:9.5px;color:var(--gray-500);font-style:italic">Intl (CA/UK/AU) 20.8% CVR — ahead of US 18.4%</td>
+      </tr>
+    </tbody>
     </table>
 
     <div class="sh" style="margin-top:12px">CSAT Trend (Dec '25–May '26)</div>
