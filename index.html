@@ -414,17 +414,18 @@ a:hover { text-decoration: underline; }
 </div>
 
 <!-- SLT DECISION POINTS -->
-<div style="background:#fff;border:1.5px solid var(--navy);border-radius:var(--radius);padding:14px 18px;margin:14px 0 6px;">
+<div style="padding:0 22px"><div style="background:#fff;border:1.5px solid var(--navy);border-radius:var(--radius);padding:14px 18px;margin:14px 0 6px;">
   <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;color:var(--navy);margin-bottom:10px">⚠️ Top 3 Call Outs</div>
   <div style="display:flex;flex-direction:column;gap:10px;">
     <div style="font-size:12px;color:var(--gray-900);line-height:1.5;padding-left:10px;border-left:3px solid var(--red)"><strong>8% AI+HI vs. 18% FY26 goal. −1pt/month for 3 months.</strong> Example: customers who never interact with an AI feature are counted as missed activations every week. At this trajectory the annual plan misses without an Onboarding Agent ship date confirmed.</div>
     <div style="font-size:12px;color:var(--gray-900);line-height:1.5;padding-left:10px;border-left:3px solid var(--red)"><strong>No-Hallucination eval is blocked — score cannot be trusted this week.</strong> Root cause: likely the Invoicing eval cascade (PR open, Rene Huang, unconfirmed). Example: a hallucination flagged in the eval may be an artifact of a broken test, not a real product regression — but we can't tell until the PR merges.</div>
     <div style="font-size:12px;color:var(--gray-900);line-height:1.5;padding-left:10px;border-left:3px solid var(--amber)"><strong>25% of all feedback: Omni says "no data found" when the data is right on screen.</strong> Example: one customer flagged a $1.3M reporting risk after trusting a wrong answer. (Ruta Bhat, Jun 4) "Every confident wrong answer compounds trust loss." P0 JIRA: OMQB-635. Screen-aware PRD in motion with dates (Ukeme, Jun 9).</div>
   </div>
-</div></div>
+</div></div></div>
 
 
 <!-- ── HERO METRIC CARDS (8) ─────────────────────── -->
+<div style="padding:0 22px 22px">
 <div class="card-grid">
 
   <!-- TTFMT: ~8s → ~5.5s → ~3.2s → ~2.3s → ~1.9s → ~1.4s -->
@@ -669,6 +670,7 @@ a:hover { text-decoration: underline; }
   <div class="strat-callout" style="margin-top:14px">
     <strong>What this means for SLT:</strong> V2 is a proven upgrade on every tracked dimension. The risk entering Late July is not regression — it is the gap between production quality (Online CQ 92%, CSAT improving) and eval-layer confidence (Offline CQ 83.2%, No-Hallucination regression, 20+ skills without eval data). Close that gap and the readiness story becomes clean.
   </div>
+</div>
 </div>
   </div>
 
