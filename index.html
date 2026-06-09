@@ -159,11 +159,13 @@ a:hover { text-decoration: underline; }
 
 /* ── STANDARD TABLE ──────────────────────────── */
 .tbl { width: 100%; border-collapse: collapse; font-size: 12px; }
-.tbl th { background: var(--gray-100); text-align: left; padding: 7px 10px; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .4px; color: var(--gray-600); border-bottom: 2px solid var(--gray-200); }
-.tbl td { padding: 7px 10px; border-bottom: 1px solid var(--gray-200); vertical-align: top; line-height: 1.45; }
+.tbl th { background: var(--gray-100); text-align: left; padding: 6px 10px; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .4px; color: var(--gray-600); border-bottom: 2px solid var(--gray-200); }
+    .tbl th:not(:first-child) { text-align: center; }
+.tbl tbody tr:nth-child(even) td { background: #FAFBFC; }
+    .tbl td { padding: 6px 10px; border-bottom: 1px solid var(--gray-200); vertical-align: middle; line-height: 1.4; }
 .tbl tr:last-child td { border-bottom: none; }
 .tbl tr:hover td { background: var(--gray-50); }
-.tbl td.num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+.tbl td.num { text-align: center; font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
 .tbl .grp td { background: var(--gray-100); font-weight: 700; font-size: 10.5px; color: var(--gray-700); padding: 5px 10px; }
 
 /* ── STATUS PILLS ────────────────────────────── */
@@ -264,7 +266,7 @@ a:hover { text-decoration: underline; }
 
 /* ── MODULE BARS ─────────────────────────────── */
 .mod-rows { margin-bottom: 4px; }
-.mod-row { display: grid; grid-template-columns: 150px 1fr 70px 115px; gap: 8px; align-items: center; margin-bottom: 5px; }
+.mod-row { display: grid; grid-template-columns: 150px 1fr 60px minmax(130px,1fr); gap: 8px; align-items: center; margin-bottom: 5px; }
 .mod-outer { background: var(--gray-200); border-radius: 3px; height: 16px; position: relative; }
 .mod-inner { height: 100%; border-radius: 3px; display: flex; align-items: center; padding-left: 5px; }
 .mod-inner.g { background: #43A047; }
@@ -573,7 +575,7 @@ a:hover { text-decoration: underline; }
 <!-- ═══════════════════════════════════════════
      SECTION 1 · METRICS PULSE CHECK
      ═══════════════════════════════════════ -->
-<div <div id="metrics" style="scroll-margin-top:115px"></div>
+<div id="metrics" style="scroll-margin-top:115px"></div>
 <div class="section">
   <div class="sec-hd">
     <div class="sec-num">1</div>
@@ -591,7 +593,7 @@ a:hover { text-decoration: underline; }
     <div style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius);padding:10px 14px;margin-bottom:10px">
       <div style="font-size:12px;font-weight:700;color:var(--gray-900);margin-bottom:4px">How to read this</div>
       <div style="font-size:11.5px;color:var(--gray-700);line-height:1.6">Six stages from discovery to loyalty. The metrics row below each stage shows the program signals that tell us how Omni is performing <em>at that moment</em>. <strong>Opt-out demand is the clearest V2 win at Stage 2:</strong> customers who hit early friction demanded to turn Omni off — 40% at launch, now 9%. That single trend shows V2 improved first contact. The job now is to fix the accuracy and trust failures at Stages 3–4 so more customers reach the loyalty cohort at Stage 5.</div>
-      <div style="font-size:10.5px;color:var(--gray-500);margin-top:5px">n=616 verbatims by behavioral intent, May 2026 · % = confirmed-positive · Source: Ruta Bhat CX Deck (851 verbatims) · Austin Harris Qual Interviews (40+, Feb–Apr 2026)</div>
+      <div style="font-size:10.5px;color:var(--gray-500);margin-top:5px">n=616 verbatims by behavioral intent, May 2026 · % = confirmed-positive · Source: Omni CX Deck (Ruta Bhat, 851 verbatims, May 2026) · Qual Interviews (Austin Harris, 40+ sessions, Feb–Apr 2026)</div>
     </div>
 
     <!-- Metrics Ladder Strip -->
@@ -642,9 +644,8 @@ a:hover { text-decoration: underline; }
         <div style="font-size:20px;font-weight:900;color:var(--gray-400)">0%</div>
         <div style="font-size:10px;color:var(--gray-500);margin-bottom:5px">positive · n=9</div>
         <div style="font-size:10px;color:var(--gray-700);line-height:1.4">90.5% of QBO users never open Omni. Discovery earns zero positives.</div>
-        <div style="margin-top:6px;padding:3px 6px;background:rgba(0,0,0,.04);border-radius:3px;font-size:8.5px;color:var(--gray-500)">↳ Reach Rate</div>
-        <div style="margin-top:5px;font-size:10px;font-style:italic;color:var(--gray-500)">"I kind of figured it was just a logo thing."</div>
-        <div style="font-size:8px;color:var(--gray-400);margin-top:2px">Austin Harris Qual · Feb 2026</div>
+                <div style="margin-top:5px;font-size:10px;font-style:italic;color:var(--gray-500)">"I kind of figured it was just a logo thing."</div>
+        <div style="font-size:8px;color:var(--gray-400);margin-top:2px">Jake Fuller · Omni CX Deck, Stage 1 Appendix (June 2026)</div>
       </div>
 
       <!-- Stage 2 — opt-out prominence -->
@@ -654,9 +655,8 @@ a:hover { text-decoration: underline; }
         <div style="font-size:20px;font-weight:900;color:var(--amber)">8%</div>
         <div style="font-size:10px;color:var(--gray-500);margin-bottom:5px">positive · n=136</div>
         <div style="font-size:10px;color:var(--gray-700);line-height:1.4;margin-bottom:5px">54 verbatims cite outdated nav post-Fusion redesign. Opt-out demand fell 40% (launch) → 9% (V2) — biggest positive signal in the dataset. Positive rate doubled V1→V2.</div>
-        <div style="padding:3px 6px;background:rgba(255,167,38,.12);border-radius:3px;font-size:8.5px;color:var(--amber)">↳ Opt-Out Rate · TTFMT</div>
-        <div style="margin-top:5px;font-size:10px;font-style:italic;color:var(--gray-500)">"I would never use this again — it's too slow."</div>
-        <div style="font-size:8px;color:var(--gray-400);margin-top:2px">Corey Cook, QBO user, UK · Mar 2026</div>
+                <div style="margin-top:5px;font-size:10px;font-style:italic;color:var(--gray-500)">"I would never use this again — it's too slow."</div>
+        <div style="font-size:8px;color:var(--gray-400);margin-top:2px">Corey Cook, QBO user, UK · Omni CX Deck, Stage 2 Appendix (Ruta Bhat, June 2026)</div>
       </div>
 
       <!-- Stage 3 — biggest volume, worst -->
@@ -666,8 +666,7 @@ a:hover { text-decoration: underline; }
         <div style="font-size:20px;font-weight:900;color:var(--red)">7%</div>
         <div style="font-size:10px;color:var(--gray-500);margin-bottom:5px">positive · n=191</div>
         <div style="font-size:10px;color:var(--gray-700);line-height:1.4">"No data found" fires 30% of cases with data visible on screen. 95% negative for accountants.</div>
-        <div style="margin-top:6px;padding:3px 6px;background:rgba(239,83,80,.1);border-radius:3px;font-size:8.5px;color:var(--red)">↳ Online CQ · Offline CQ@5 · No-Hallucination</div>
-        <div style="margin-top:5px;font-size:10px;font-style:italic;color:var(--red)">"18 pending transactions — how can I trust it on anything?"</div>
+                <div style="margin-top:5px;font-size:10px;font-style:italic;color:var(--red)">"18 pending transactions — how can I trust it on anything?"</div>
         <div style="font-size:8px;color:var(--gray-400);margin-top:2px">CX Deck Verbatim · May 2026 · Accuracy category</div>
       </div>
 
@@ -678,9 +677,8 @@ a:hover { text-decoration: underline; }
         <div style="font-size:20px;font-weight:900;color:var(--red)">0%</div>
         <div style="font-size:10px;color:var(--gray-500);margin-bottom:5px">positive · n=80</div>
         <div style="font-size:10px;color:var(--gray-700);line-height:1.4">Action-promise gap (12%) is a V2 regression — says "I'll do that" then gives instructions. 80 verbatims on wrong answers.</div>
-        <div style="margin-top:6px;padding:3px 6px;background:rgba(239,83,80,.1);border-radius:3px;font-size:8.5px;color:var(--red)">↳ Human Eval Accuracy · Action-Promise Gap</div>
-        <div style="margin-top:5px;font-size:10px;font-style:italic;color:var(--gray-500)">"I'd be a fool to take AI data to a board meeting without verifying."</div>
-        <div style="font-size:8px;color:var(--gray-400);margin-top:2px">Austin Harris Qual · Mar 2026 · Accountant segment</div>
+                <div style="margin-top:5px;font-size:10px;font-style:italic;color:var(--gray-500)">"I'd be a fool to take AI data to a board meeting without verifying."</div>
+        <div style="font-size:8px;color:var(--gray-400);margin-top:2px">Ryan Bowen · Omni CX Deck, Stage 4 Appendix (June 2026)</div>
       </div>
 
       <!-- Stage 5 — best stage -->
@@ -690,8 +688,7 @@ a:hover { text-decoration: underline; }
         <div style="font-size:20px;font-weight:900;color:var(--green)">37%</div>
         <div style="font-size:10px;color:var(--gray-500);margin-bottom:5px">positive · n=67</div>
         <div style="font-size:10px;color:var(--gray-700);line-height:1.4">Customers who survive Stages 3–4 become loyal. Subs 2× in 4 months. No saved queries yet.</div>
-        <div style="margin-top:6px;padding:3px 6px;background:rgba(102,187,106,.15);border-radius:3px;font-size:8.5px;color:var(--green)">↳ Repeat Engagement · CSAT · Add-on Subs · AI+HI Onboard</div>
-        <div style="margin-top:5px;font-size:10px;font-style:italic;color:var(--green)">"I use this every day — saves me so much time."</div>
+                <div style="margin-top:5px;font-size:10px;font-style:italic;color:var(--green)">"I use this every day — saves me so much time."</div>
         <div style="font-size:8px;color:var(--gray-400);margin-top:2px">CX Deck Verbatim · May 2026 · Positive / Time-Saving</div>
       </div>
 
@@ -702,9 +699,8 @@ a:hover { text-decoration: underline; }
         <div style="font-size:20px;font-weight:900;color:var(--gray-500)">2%</div>
         <div style="font-size:10px;color:var(--gray-500);margin-bottom:5px">positive · n=57</div>
         <div style="font-size:10px;color:var(--gray-700);line-height:1.4">3 of 18 May cancellations cited named AI competitors. Bot loops block human handoff.</div>
-        <div style="margin-top:6px;padding:3px 6px;background:rgba(0,0,0,.04);border-radius:3px;font-size:8.5px;color:var(--gray-500)">↳ Agent Escape Rate · Monthly Churn</div>
-        <div style="margin-top:5px;font-size:10px;font-style:italic;color:var(--gray-500)">"Gemini keeps all that context — I don't have to re-explain."</div>
-        <div style="font-size:8px;color:var(--gray-400);margin-top:2px">Cancellation Verbatim · May 2026 · AI Competitor category</div>
+                <div style="margin-top:5px;font-size:10px;font-style:italic;color:var(--gray-500)">"Gemini keeps all that context — I don't have to re-explain."</div>
+        <div style="font-size:8px;color:var(--gray-400);margin-top:2px">Shelli Broussard, Bookkeeper · Omni CX Deck, Stage 6 Appendix (Ruta Bhat, June 2026) · AI competitor category</div>
       </div>
 
     </div>
@@ -775,11 +771,11 @@ a:hover { text-decoration: underline; }
 
 <div class="sh">In Their Own Words</div>
     <div class="quotes">
-      <div class="qcard"><div class="qtext">I will definitely reuse it — it's more than standard help. I hope it resolves my daily problems.</div><div class="qsrc">Joseph R., Controller (recently migrated to QBO) · Feb 2026 · Austin Harris Qual Interviews (40+ sessions)</div></div>
-      <div class="qcard"><div class="qtext">I moved everything to QuickBooks so it could help me automate... I can't keep spending an hour every morning tracking everything.</div><div class="qsrc">Abigail Z., Owner · Apr 2026 · Austin Harris Qual Interviews (40+ sessions)</div></div>
-      <div class="qcard"><div class="qtext">It's easier for the client to go here than to try to get a hold of us — if they're getting the right answer, they don't have to wait.</div><div class="qsrc">Wesley, Accountant, High Point CPA · Apr 2026 · Austin Harris Qual Interviews</div></div>
-      <div class="qcard"><div class="qtext">If I know QuickBooks can do this... why go with ChatGPT? I'm already paying you.</div><div class="qsrc">Andre, Pool Company Owner · Mar 2026 · Austin Harris Qual Interviews (security advantage theme)</div></div>
-      <div class="qcard neg"><div class="qtext">It shows $19,305 — I paid $37,000.</div><div class="qsrc">John R., QBO SMB owner · May 2026 · Stage 4 financial accuracy failure · Ruta Bhat CX Dataset (n=851)</div></div>
+      <div class="qcard"><div class="qtext">I will definitely reuse it — it's more than standard help. I hope it resolves my daily problems.</div><div class="qsrc">Joseph R., Controller (recently migrated QBO) · Qual Interviews (Austin Harris, Feb–Apr 2026) · Feb 2026</div></div>
+      <div class="qcard"><div class="qtext">I moved everything to QuickBooks so it could help me automate... I can't keep spending an hour every morning tracking everything.</div><div class="qsrc">Abigail Z., Owner · Qual Interviews (Austin Harris, Feb–Apr 2026) · Apr 2026</div></div>
+      <div class="qcard"><div class="qtext">It's easier for the client to go here than to try to get a hold of us — if they're getting the right answer, they don't have to wait.</div><div class="qsrc">Wesley, Accountant, High Point CPA · Qual Interviews (Austin Harris, Feb–Apr 2026) · Apr 2026</div></div>
+      <div class="qcard"><div class="qtext">If I know QuickBooks can do this... why go with ChatGPT? I'm already paying you.</div><div class="qsrc">Andre, Pool Company Owner · Qual Interviews (Austin Harris, Feb–Apr 2026) · Mar 2026</div></div>
+      <div class="qcard neg"><div class="qtext">Not ready for prime time.</div><div class="qsrc">Brian Borchardt, QBO user · Omni CX Deck, Stage 3 Appendix (Ruta Bhat, June 2026) · vendor lookup failure</div></div>
     </div>
 
     <div class="two-col" style="margin-top:6px">
@@ -896,19 +892,36 @@ a:hover { text-decoration: underline; }
 
 <div class="sh">Funnel & Adoption</div>
     <table class="tbl">
-      <thead><tr><th style="width:185px">Metric</th><th>Latest</th><th>May Full</th><th>Target</th><th>ITT</th><th>WoW / MoM Δ</th><th>Status</th></tr></thead>
+      <colgroup>
+        <col style="width:190px">
+        <col style="width:110px">
+        <col style="width:145px">
+        <col style="width:85px">
+        <col style="width:45px">
+        <col style="width:160px">
+        <col>
+      </colgroup>
+      <thead><tr><th>Metric</th><th style="text-align:center">Latest</th><th style="text-align:center">May Full</th><th style="text-align:center">Target</th><th style="text-align:center">ITT</th><th style="text-align:center">WoW / MoM Δ</th><th>Status</th></tr></thead>
       <tbody>
         <tr><td><strong>NTTF Engagement Rate</strong></td><td class="num">11.2%</td><td class="num">17.6% (120 ITPM)</td><td>—</td><td>—</td><td><span class="delta up">↑ +1.7pts WoW</span></td><td><span class="pill pa">WATCH — Auto-Open paused 5/15</span></td></tr>
         <tr><td><strong>Repeat Engagement Rate</strong></td><td class="num">28.9%</td><td class="num">25.1% (105 ITPM)</td><td>26.3% ITF</td><td>~110</td><td><span class="delta up">↑ +2.8pts WoW</span></td><td><span class="pill pg">GREEN — above target this week</span></td></tr>
         <tr><td><strong>Overall Engagement Rate</strong></td><td>—</td><td class="num">9.5% (107 ITPM)</td><td>—</td><td>—</td><td><span class="delta up">↑ vs 8.5% Apr</span></td><td><span class="pill pg">GREEN — MoM improvement</span></td></tr>
-        <tr><td><strong>Contextual Auto-Open</strong></td><td class="num">17% of engaged cos</td><td>—</td><td>—</td><td>—</td><td>2nd largest first-touch after header</td><td><span class="pill pg">GREEN — 100% ramped 5/27</span></td></tr>
+        <tr><td><strong>Contextual Auto-Open</strong></td><td style="text-align:center;font-size:11.5px;font-weight:600;white-space:nowrap">17% of engaged cos</td><td>—</td><td>—</td><td>—</td><td style="text-align:center;font-size:11px;color:var(--gray-600)">2nd largest first-touch after header</td><td><span class="pill pg">GREEN — 100% ramped 5/27</span></td></tr>
         <tr><td><strong>AI+HI 31D Onboarding</strong></td><td class="num">~8%</td><td>—</td><td>18% FY26</td><td>~44</td><td><span class="delta down">↓ −1pt MoM</span></td><td><span class="pill pr">AT RISK — Onboarding Agent delayed</span></td></tr>
       </tbody>
     </table>
 
     <div class="sh">Quality & Performance</div>
     <table class="tbl">
-      <thead><tr><th style="width:185px">Metric</th><th>Latest</th><th>Prior Week</th><th>Goal</th><th>WoW Δ</th><th>Status</th></tr></thead>
+      <colgroup>
+        <col style="width:190px">
+        <col style="width:105px">
+        <col style="width:105px">
+        <col style="width:80px">
+        <col style="width:155px">
+        <col>
+      </colgroup>
+      <thead><tr><th>Metric</th><th style="text-align:center">Latest</th><th style="text-align:center">Prior Week</th><th style="text-align:center">Goal</th><th style="text-align:center">WoW Δ</th><th>Status</th></tr></thead>
       <tbody>
         <tr><td><strong>Online CQ (production)</strong></td><td class="num">92.0%</td><td class="num">89.7%</td><td>≥88%</td><td><span class="delta up">↑ +2.3pp</span></td><td><span class="pill pg">GREEN — above goal</span></td></tr>
         <tr><td><strong>Human Eval Accuracy</strong></td><td class="num">92.7%</td><td class="num">85.8%</td><td>—</td><td><span class="delta up">↑ +6.9pp</span></td><td><span class="pill pg">GREEN — strong recovery</span></td></tr>
@@ -921,11 +934,17 @@ a:hover { text-decoration: underline; }
 
     <div class="sh">Monetization</div>
     <table class="tbl">
-      <thead><tr><th style="width:210px">Metric</th><th>Current</th><th>Target / Benchmark</th><th>Status</th></tr></thead>
+      <colgroup>
+        <col style="width:210px">
+        <col style="width:170px">
+        <col style="width:260px">
+        <col>
+      </colgroup>
+      <thead><tr><th>Metric</th><th style="text-align:center">Current</th><th>Target / Benchmark</th><th>Status</th></tr></thead>
       <tbody>
         <tr><td><strong>Add-on All-Time CVR</strong></td><td class="num">20.3%</td><td>—</td><td><span class="pill pg">GREEN — strong purchase funnel</span></td></tr>
         <tr><td><strong>US Active Subs</strong></td><td class="num">1,123 (1,280 total)</td><td>88.3% retained · 11.7% cumulative churn</td><td><span class="pill pb">TRACKING</span></td></tr>
-        <tr><td><strong>Intl CVR (CA/UK/AU, mid-May)</strong></td><td class="num">20.8% (41 subs)</td><td>US benchmark 18.4%</td><td><span class="pill pg">GREEN — +2.5pts above US</span></td></tr>
+        <tr><td><strong>Intl CVR (CA/UK/AU, mid-May)</strong></td><td class="num">20.8% (41 subs)</td><td>US benchmark 18.3%</td><td><span class="pill pg">GREEN — +2.5pts above US</span></td></tr>
         <tr><td><strong>Monthly Churn (May)</strong></td><td class="num">5.6%</td><td>—</td><td><span class="pill pt">Older cohort mix — not dissatisfaction</span></td></tr>
         <tr><td><strong>IAS Firms (monetizable)</strong></td><td class="num">4.4K firms</td><td>4K IG goal before July 1 billing</td><td><span class="pill pg">GREEN — ahead of goal</span></td></tr>
         <tr><td><strong>WW QBO Customer Growth (May)</strong></td><td class="num">+5% Y/Y</td><td>US GNS 113 ITF · Digital Acq 118 ITF</td><td><span class="pill pg">GREEN — E3B conversions driving</span></td></tr>
@@ -945,7 +964,7 @@ a:hover { text-decoration: underline; }
 
   </div>
 </div>
-id="accuracy" style="scroll-margin-top:115px"></div>
+<div id="accuracy" style="scroll-margin-top:115px"></div>
 <div class="section">
   <div class="sec-hd">
     <div class="sec-num">2</div>
@@ -1050,7 +1069,7 @@ id="accuracy" style="scroll-margin-top:115px"></div>
 
     <div style="overflow-x:auto;max-width:100%;">
     <div class="sh">L1 Module CQ@5 vs 88% Goal (6/2 run)</div>
-    <div style="margin-bottom:4px;display:grid;grid-template-columns:150px 1fr 70px 115px;gap:8px;font-size:9.5px;font-weight:700;text-transform:uppercase;color:var(--gray-500)">
+    <div style="margin-bottom:4px;display:grid;grid-template-columns:150px 1fr 60px minmax(120px,1fr);gap:8px;font-size:9.5px;font-weight:700;text-transform:uppercase;color:var(--gray-500)">
       <div>Module</div><div>CQ@5 vs 88% goal threshold (|)</div><div>Correctness</div><div>Status</div>
     </div>
     <div class="mod-rows">
