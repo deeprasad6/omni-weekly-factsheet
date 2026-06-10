@@ -350,22 +350,22 @@ a:hover { text-decoration: underline; }
 .tab-panel { display: none; }
 .tab-panel:first-of-type, .tab-panel[id="tab-1"] { display: block; }
 .stb {
-  background: #e8edf5;
-  border: 1px solid #c8d0e0;
+  background: #1a3a5c;
+  border: 1px solid #12294a;
   border-bottom: none;
   border-radius: 6px 6px 0 0;
-  color: #4a5568;
+  color: rgba(255,255,255,.72);
   font-size: 11.5px;
   font-weight: 700;
   cursor: pointer;
   padding: 8px 18px 8px;
   letter-spacing: .3px;
   margin-right: 4px;
-  transition: color .15s, background .15s, border-color .15s;
+  transition: color .15s, background .15s;
   position: relative;
   top: 1px;
 }
-.stb:hover { background: #d4daea; color: var(--navy); border-color: #aab4c8; }
+.stb:hover { background: #234870; color: #fff; }
 .stb.active { background: #fff; color: var(--blue); border-color: #c0c8d8; border-bottom-color: #fff; font-weight: 800; }
 .subtab-panel { display: none; }
 .subtab-panel[id="subtab-voc"] { display: block; }
@@ -603,7 +603,7 @@ a:hover { text-decoration: underline; }
     <span class="sec-title">Metrics &amp; Customer Insights</span>
     <span class="sec-sub">Customer journey · VOC &amp; sentiment · ELM campaigns · Performance metrics · Sources: Chase canvas 6/6 · Scorecard · ~850 verbatims</span>
   </div>
-  <div style="display:flex;gap:0;padding:6px 22px 0;background:#f0f4fa;border-bottom:2px solid #c0c8d8">
+  <div style="display:flex;gap:0;padding:6px 22px 0;background:#0f2744;border-bottom:2px solid #c0c8d8">
     <button class="stb active" id="stb-voc" onclick="showSub('voc')">VOC &amp; Sentiment</button>
     <button class="stb" id="stb-met" onclick="showSub('met')">Metrics</button>
     <button class="stb" id="stb-acc" onclick="showSub('acc')">Latency &amp; Accuracy</button>
