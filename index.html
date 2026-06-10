@@ -330,7 +330,42 @@ a:hover { text-decoration: underline; }
     .week-panel { display:none; }
     .week-panel.active { display:block; }
 
-  </style>
+  
+/* ── TAB + SUBTAB SYSTEM ─────────────────────────── */
+.tab-btn {
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: rgba(255,255,255,.72);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0 14px;
+  height: 100%;
+  letter-spacing: .3px;
+  transition: color .15s, border-color .15s;
+}
+.tab-btn:hover { color: #fff; }
+.tab-btn.active { color: #fff; border-bottom-color: #fff; }
+.tab-panel { display: none; }
+.tab-panel:first-of-type, .tab-panel[id="tab-1"] { display: block; }
+.stb {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: #4a5568;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 9px 14px 7px;
+  letter-spacing: .3px;
+  transition: color .15s, border-color .15s;
+}
+.stb:hover { color: var(--navy); }
+.stb.active { color: var(--blue); border-bottom-color: var(--blue); }
+.subtab-panel { display: none; }
+.subtab-panel[id="subtab-voc"] { display: block; }
+</style>
 </head>
 <body>
 
@@ -358,15 +393,14 @@ a:hover { text-decoration: underline; }
 
 <!-- ── NAV ──────────────────────────────────────────── -->
 <nav class="pg-nav" id="main-nav">
-  <a href="#overview">1 · Overview</a>
-  <a href="#metrics">2 · Metrics &amp; Insights</a>
-  <a href="#accuracy">3 · Latency &amp; Accuracy</a>
-  <a href="#dates">4 · Key Dates</a>
-  <a href="#execution">5 · Execution</a>
-  <button onclick="toggleSources()" id="src-nav-btn" style="background:none;border:1px solid rgba(255,255,255,.3);border-radius:4px;color:rgba(255,255,255,.85);font-size:11px;font-weight:600;cursor:pointer;padding:3px 10px;transition:all .2s;">Sources ▾</button>
+  <button class="tab-btn active" id="tb-1" onclick="showTab(1)">Overview</button>
+  <button class="tab-btn" id="tb-2" onclick="showTab(2)">Metrics &amp; Insights</button>
+  <button class="tab-btn" id="tb-3" onclick="showTab(3)">Key Dates &amp; Execution</button>
+  <button class="tab-btn" id="tb-4" onclick="showTab(4)">Data Sources</button>
 </nav>
 
 <div class="pg-body">
+<div class="tab-panel" id="tab-1">
 
 <!-- ═══════════════════════════════════════════
      SLT READOUT BOX
@@ -558,6 +592,8 @@ a:hover { text-decoration: underline; }
 <!-- ═══════════════════════════════════════════
      SECTION 1 · METRICS PULSE CHECK
      ═══════════════════════════════════════ -->
+</div><!-- /tab-1 -->
+<div class="tab-panel" id="tab-2" style="display:none">
 <div id="metrics" style="scroll-margin-top:115px"></div>
 <div class="section">
   <div class="sec-hd">
@@ -565,8 +601,14 @@ a:hover { text-decoration: underline; }
     <span class="sec-title">Metrics &amp; Customer Insights</span>
     <span class="sec-sub">Customer journey · VOC &amp; sentiment · ELM campaigns · Performance metrics · Sources: Chase canvas 6/6 · Scorecard · ~850 verbatims</span>
   </div>
+  <div style="display:flex;gap:0;padding:0 0 0 22px;background:#f0f4fa;border-bottom:1px solid #dde3ed">
+    <button class="stb active" id="stb-voc" onclick="showSub('voc')">VOC &amp; Sentiment</button>
+    <button class="stb" id="stb-met" onclick="showSub('met')">Metrics</button>
+    <button class="stb" id="stb-acc" onclick="showSub('acc')">Latency &amp; Accuracy</button>
+  </div>
   <div class="sec-body">
 
+<div class="subtab-panel" id="subtab-voc">
 <div class="strat-callout">
       <strong>Strategic read:</strong> Customers are not rejecting Omni — they are rejecting moments where Omni breaks financial truth. Every major complaint maps to a single failure mode: Omni asserting something that contradicts what the customer can see or knows to be true in their own books. CSAT and sentiment are improving because V2 is more accurate and faster, but "no data found when data clearly exists" remains the single largest trust-breaker and must be treated as a product correctness issue, not a UX issue.
     </div>
@@ -811,7 +853,9 @@ a:hover { text-decoration: underline; }
     <div style="font-size:10px;color:var(--gray-500);margin-bottom:4px">Source: Product Marketing team · Slack update Jun 9, 2026 · Dashboards: ELM 9444 (github.intuit.com/jlee81) · ELM 9916 (github.intuit.com/spatkar)</div>
     </div>
 
-    <div class="sh" style="margin-top:24px">Performance Metrics</div>
+</div><!-- /subtab-voc -->
+<div class="subtab-panel" id="subtab-met" style="display:none">
+    <div class="sh" style="margin-top:24px">Metrics</div>
 
 <!-- Pill tabs for the 3 metric tables -->
 <div style="margin-top:4px">
@@ -888,9 +932,11 @@ a:hover { text-decoration: underline; }
         May Full repeat 25.3% — 1pt below 26.3% target · 3 high-volume experiments paused mid-May — watch 2H engagement trajectory
       </div>
     </div>
+</div><!-- /subtab-met -->
   </div>
 </div>
 </div>
+<div class="subtab-panel" id="subtab-acc" style="display:none">
 <div id="accuracy" style="scroll-margin-top:115px"></div>
 <div class="section">
   <div class="sec-hd">
@@ -1087,115 +1133,32 @@ a:hover { text-decoration: underline; }
 <!-- ═══════════════════════════════════════════
      SECTION 4 · KEY DATES
      ═══════════════════════════════════════ -->
+</div><!-- /subtab-acc -->
+</div><!-- /tab-2 -->
+<div class="tab-panel" id="tab-3" style="display:none">
 <div id="dates" style="scroll-margin-top:115px"></div>
 <div class="section">
   <div class="sec-hd">
     <div class="sec-num">4</div>
-    <span class="sec-title">Key Dates to Late July Release</span>
+    <span class="sec-title">Upcoming Milestones — Jun 9 to July GA</span>
     <span class="sec-sub">Source: July Release Key Dates &amp; Milestones (Google Sheets)</span>
   </div>
   <div class="sec-body">
 
-    <div class="sh">Milestone Timeline — Completed &amp; Upcoming</div>
-    <div class="sh-note" style="font-size:10px;color:var(--gray-500);margin:-8px 0 10px;">Green = complete · Orange = in progress / yellow · Gray = upcoming · ★ = target GA</div>
-
-    <!-- UNIFIED TIMELINE -->
-    <div style="position:relative; height:175px; margin:0 0 20px; overflow:visible;">
-
-      <!-- ✓ DONE label -->
-      <div style="position:absolute;left:0;top:84px;font-size:8.5px;font-weight:800;color:#43A047;text-transform:uppercase;letter-spacing:.6px;writing-mode:vertical-rl;transform:rotate(180deg) translateX(50%);line-height:1">✓ DONE</div>
-
-      <!-- Completed segment: green (5/13 → 6/9, ~40% of timeline) -->
-      <div style="position:absolute;top:84px;left:32px;width:40%;height:4px;background:#43A047;border-radius:2px 0 0 2px;"></div>
-      <!-- Upcoming segment: gray -->
-      <div style="position:absolute;top:84px;left:calc(32px + 41%);right:8px;height:4px;background:#e0e0e0;border-radius:0 2px 2px 0;"></div>
-
-      <!-- ── COMPLETED ITEMS (ABOVE THE LINE) ── -->
-
-      <!-- 5/13 Scope Lock + Latency Targets · ~10% -->
-      <div style="position:absolute;left:calc(32px + 9%);top:18px;transform:translateX(-50%);text-align:center;">
-        <div style="background:var(--green-lt);border:1.5px solid #81C784;border-radius:5px;padding:3px 7px;font-size:9.5px;font-weight:700;color:#2E7D32;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.08)">Scope Lock<br><span style="font-weight:400;color:var(--gray-500)">May 13</span></div>
-        <div style="width:1px;height:26px;background:#81C784;margin:0 auto;"></div>
-        <div style="width:9px;height:9px;background:#43A047;border-radius:50%;border:2px solid white;box-shadow:0 0 0 2px #43A047;margin:0 auto -4px;"></div>
-      </div>
-
-      <!-- 5/29 Monitoring + Accuracy Targets · ~22% -->
-      <div style="position:absolute;left:calc(32px + 22%);top:40px;transform:translateX(-50%);text-align:center;">
-        <div style="background:var(--green-lt);border:1.5px solid #81C784;border-radius:5px;padding:3px 7px;font-size:9.5px;font-weight:700;color:#2E7D32;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.08)">Latency &amp; Accuracy<br>Targets Set<br><span style="font-weight:400;color:var(--gray-500)">May 29</span></div>
-        <div style="width:1px;height:4px;background:#81C784;margin:0 auto;"></div>
-        <div style="width:9px;height:9px;background:#43A047;border-radius:50%;border:2px solid white;box-shadow:0 0 0 2px #43A047;margin:0 auto -4px;"></div>
-      </div>
-
-      <!-- 6/1 Required Scope Lock · ~31% -->
-      <div style="position:absolute;left:calc(32px + 30%);top:12px;transform:translateX(-50%);text-align:center;">
-        <div style="background:var(--green-lt);border:1.5px solid #81C784;border-radius:5px;padding:3px 7px;font-size:9.5px;font-weight:700;color:#2E7D32;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.08)">Required<br>Scope Lock<br><span style="font-weight:400;color:var(--gray-500)">Jun 1</span></div>
-        <div style="width:1px;height:32px;background:#81C784;margin:0 auto;"></div>
-        <div style="width:9px;height:9px;background:#43A047;border-radius:50%;border:2px solid white;box-shadow:0 0 0 2px #43A047;margin:0 auto -4px;"></div>
-      </div>
-
-      <!-- TODAY marker at ~41% -->
-      <div style="position:absolute;left:calc(32px + 41%);top:68px;transform:translateX(-50%);text-align:center;z-index:2;">
-        <div style="font-size:8px;font-weight:900;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px;">Today Jun 9</div>
-        <div style="width:3px;height:20px;background:var(--blue);border-radius:2px;margin:0 auto;animation:pulse 2s infinite;box-shadow:0 0 0 3px rgba(21,101,192,.2)"></div>
-      </div>
-
-      <!-- ── UPCOMING ITEMS (BELOW THE LINE) ── -->
-
-      <!-- 6/30 Dev Complete + Dashboards · ~55% -->
-      <div style="position:absolute;left:calc(32px + 55%);top:89px;transform:translateX(-50%);text-align:center;">
-        <div style="width:11px;height:11px;background:#FB8C00;border-radius:50%;border:2px solid white;box-shadow:0 0 0 2px #FB8C00;margin:0 auto 4px;"></div>
-        <div style="font-size:9px;font-weight:700;color:var(--gray-700);text-align:center;max-width:70px;line-height:1.3">Dev Complete<br>+ Dashboards</div>
-        <div style="font-size:8.5px;color:var(--gray-500);margin-top:1px">Jun 30</div>
-        <div style="margin-top:3px"><span class="pill pb" style="font-size:7.5px;padding:1px 5px">NEXT</span></div>
-      </div>
-
-      <!-- 7/3 Stability Gates · ~63% -->
-      <div style="position:absolute;left:calc(32px + 62%);top:89px;transform:translateX(-50%);text-align:center;">
-        <div style="width:11px;height:11px;background:var(--gray-400);border-radius:50%;border:2px solid white;box-shadow:0 0 0 2px var(--gray-400);margin:0 auto 4px;"></div>
-        <div style="font-size:9px;font-weight:700;color:var(--gray-700);text-align:center;max-width:64px;line-height:1.3">Latency &amp; Accuracy Stable</div>
-        <div style="font-size:8.5px;color:var(--gray-500);margin-top:1px">Jul 3</div>
-      </div>
-
-      <!-- 7/15 Code Freeze · ~76% -->
-      <div style="position:absolute;left:calc(32px + 76%);top:89px;transform:translateX(-50%);text-align:center;">
-        <div style="width:11px;height:11px;background:var(--gray-400);border-radius:50%;border:2px solid white;box-shadow:0 0 0 2px var(--gray-400);margin:0 auto 4px;"></div>
-        <div style="font-size:9px;font-weight:700;color:var(--gray-700);text-align:center;max-width:60px;line-height:1.3">Code Freeze</div>
-        <div style="font-size:8.5px;color:var(--gray-500);margin-top:1px">Jul 15</div>
-      </div>
-
-      <!-- 7/22 E2E Go/No-Go · ~84% -->
-      <div style="position:absolute;left:calc(32px + 84%);top:89px;transform:translateX(-50%);text-align:center;">
-        <div style="width:11px;height:11px;background:var(--gray-400);border-radius:50%;border:2px solid white;box-shadow:0 0 0 2px var(--gray-400);margin:0 auto 4px;"></div>
-        <div style="font-size:9px;font-weight:700;color:var(--gray-700);text-align:center;max-width:60px;line-height:1.3">E2E Sign-Off Go/No-Go</div>
-        <div style="font-size:8.5px;color:var(--gray-500);margin-top:1px">Jul 22</div>
-      </div>
-
-      <!-- 7/24 GA Go-Live + STAR -->
-      <div style="position:absolute;right:8px;top:81px;transform:translateX(0);text-align:center;width:64px;">
-        <div style="font-size:18px;line-height:1;color:#1565C0;filter:drop-shadow(0 1px 3px rgba(21,101,192,.4))">★</div>
-        <div style="font-size:9px;font-weight:800;color:#1565C0;line-height:1.3;margin-top:2px">GA Go-Live<br>Jul 24</div>
-        <div style="margin-top:3px"><span style="background:#1565C0;color:#fff;font-size:7.5px;font-weight:800;padding:1px 6px;border-radius:3px;text-transform:uppercase;letter-spacing:.4px">TARGET</span></div>
-      </div>
-
-    </div><!-- /unified timeline -->
-
-    <div class="sh" style="margin-top:6px">Release Milestones by Track</div>
+    <div class="sh" style="margin-bottom:8px">What&#8217;s Next — Jun 9 to July GA</div>
     <table class="tbl" style="font-size:11px;">
-      <colgroup><col style="width:90px"><col><col style="width:130px"><col style="width:80px"><col style="width:80px"></colgroup>
+      <colgroup><col style="width:70px"><col><col style="width:140px"><col style="width:90px"><col style="width:80px"></colgroup>
       <thead><tr><th>Date</th><th>Milestone</th><th>Function</th><th>Track</th><th>Status</th></tr></thead>
       <tbody>
-        <tr><td>5/13</td><td>Latency targets defined &amp; operational; teams ticketed</td><td>PM / PD · Ukeme / Steven</td><td>PMF-Latency</td><td><span class="pill pg">COMPLETE</span></td></tr>
-        <tr><td>5/29</td><td>Latency monitoring embedded in GNG; accuracy targets set with trackers</td><td>TPM · Aharon / Saket</td><td>All</td><td><span class="pill pg">COMPLETE</span></td></tr>
-        <tr><td>6/1</td><td>Required Scope Lock — final product scope locked for July</td><td>All PMs</td><td>All</td><td><span class="pill pg">COMPLETE</span></td></tr>
-        <tr><td>6/30</td><td>Dev complete: latency improvements (7 platform items) + dashboarding live</td><td>PD · Steven / Aharon</td><td>PMF-Latency</td><td><span class="pill pg">GREEN</span></td></tr>
-        <tr><td>6/30</td><td>Dev complete: platform accuracy improvements (Memory &amp; Personalization)</td><td>PD · Steven</td><td>PMF-Accuracy</td><td><span class="pill pg">GREEN</span></td></tr>
-        <tr><td>7/3</td><td>Latency stable — no new breaches; all tickets resolved across skill teams</td><td>All</td><td>PMF-Latency</td><td><span class="pill pa">YELLOW</span></td></tr>
-        <tr><td>7/3</td><td>Accuracy stable — no new correctness breaches; skill teams resolved</td><td>All</td><td>PMF-Accuracy</td><td><span class="pill pa">YELLOW</span></td></tr>
-        <tr><td>7/15</td><td>Required Code Freeze — only critical quality fixes after this</td><td>GBSG</td><td>All</td><td><span class="pill" style="background:#e0e0e0;color:#555">NOT STARTED</span></td></tr>
-        <tr><td>7/22</td><td>E2E Sign-Off — GTM &amp; Product Go/No-Go</td><td>Leads</td><td>All</td><td><span class="pill" style="background:#e0e0e0;color:#555">NOT STARTED</span></td></tr>
-        <tr><td>7/24</td><td>Product GA — Go Live</td><td>Leads</td><td>All</td><td><span class="pill" style="background:#e0e0e0;color:#555">NOT STARTED</span></td></tr>
-        <tr><td>8/1</td><td>Pricing Action</td><td>GTM</td><td>Monetization</td><td><span class="pill" style="background:#e0e0e0;color:#555">NOT STARTED</span></td></tr>
-        <tr><td>8/3</td><td>GTM Go Big Campaign</td><td>GTM</td><td>Growth</td><td><span class="pill" style="background:#e0e0e0;color:#555">NOT STARTED</span></td></tr>
+        <tr><td><strong>Jun 30</strong></td><td>Dev complete: latency improvements (7 platform items) + dashboarding live</td><td>PD · Steven / Aharon</td><td>PMF-Latency</td><td><span class="pill pg">GREEN</span></td></tr>
+        <tr><td><strong>Jun 30</strong></td><td>Dev complete: platform accuracy improvements (Memory &amp; Personalization)</td><td>PD · Steven</td><td>PMF-Accuracy</td><td><span class="pill pg">GREEN</span></td></tr>
+        <tr><td><strong>Jul 3</strong></td><td>Latency stable — no new breaches; all tickets resolved across skill teams</td><td>All</td><td>PMF-Latency</td><td><span class="pill pa">YELLOW</span></td></tr>
+        <tr><td><strong>Jul 3</strong></td><td>Accuracy stable — no new correctness breaches; skill teams resolved</td><td>All</td><td>PMF-Accuracy</td><td><span class="pill pa">YELLOW</span></td></tr>
+        <tr><td><strong>Jul 15</strong></td><td>Required Code Freeze — only critical quality fixes after this</td><td>GBSG</td><td>All</td><td><span class="pill" style="background:#e0e0e0;color:#555">NOT STARTED</span></td></tr>
+        <tr><td><strong>Jul 22</strong></td><td>E2E Sign-Off — GTM &amp; Product Go/No-Go</td><td>Leads</td><td>All</td><td><span class="pill" style="background:#e0e0e0;color:#555">NOT STARTED</span></td></tr>
+        <tr><td><strong>Jul 24 ★</strong></td><td>Product GA — Go Live</td><td>Leads</td><td>All</td><td><span class="pill" style="background:#e0e0e0;color:#555">NOT STARTED</span></td></tr>
+        <tr><td><strong>Aug 1</strong></td><td>Pricing Action</td><td>GTM</td><td>Monetization</td><td><span class="pill" style="background:#e0e0e0;color:#555">NOT STARTED</span></td></tr>
+        <tr><td><strong>Aug 3</strong></td><td>GTM Go Big Campaign</td><td>GTM</td><td>Growth</td><td><span class="pill" style="background:#e0e0e0;color:#555">NOT STARTED</span></td></tr>
       </tbody>
     </table>
 
@@ -1286,97 +1249,13 @@ id="execution" style="scroll-margin-top:115px"></div>
       </tbody>
     </table>
 
-    <!-- ── SHIPPED THIS WEEK ──────────────────────── -->
-    <div class="sh" style="margin-top:20px">What We&#8217;ve Shipped — 3–5 Releases / Week</div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px">
-
-      <div style="background:var(--green-lt);border:1px solid #A5D6A7;border-radius:8px;padding:12px 14px">
-        <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#2E7D32;margin-bottom:4px">SHIPPED · Jun 4</div>
-        <div style="font-size:11.5px;font-weight:700;color:var(--navy);margin-bottom:4px">Replaced the Digital Assistant</div>
-        <div style="font-size:10.5px;color:var(--gray-700);line-height:1.4">Now QB&#8217;s default assistant — 100% on Jun 4. 2× engagement vs DA · fewer support calls · payroll GNS +111 ITC</div>
-      </div>
-
-      <div style="background:var(--green-lt);border:1px solid #A5D6A7;border-radius:8px;padding:12px 14px">
-        <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#2E7D32;margin-bottom:4px">SHIPPED</div>
-        <div style="font-size:11.5px;font-weight:700;color:var(--navy);margin-bottom:4px">Speculative Actions</div>
-        <div style="font-size:10.5px;color:var(--gray-700);line-height:1.4">Fast-track covers 90%+ of retrieval queries. 4–7s faster · +2% correctness · −10% global P50</div>
-      </div>
-
-      <div style="background:var(--green-lt);border:1px solid #A5D6A7;border-radius:8px;padding:12px 14px">
-        <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#2E7D32;margin-bottom:4px">SHIPPED</div>
-        <div style="font-size:11.5px;font-weight:700;color:var(--navy);margin-bottom:4px">Reports Fast-Track</div>
-        <div style="font-size:10.5px;color:var(--gray-700);line-height:1.4">Short path for 78% of BI questions. −20s on those queries · −30% global P50</div>
-      </div>
-
-      <div style="background:var(--green-lt);border:1px solid #A5D6A7;border-radius:8px;padding:12px 14px">
-        <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#2E7D32;margin-bottom:4px">SHIPPED</div>
-        <div style="font-size:11.5px;font-weight:700;color:var(--navy);margin-bottom:4px">Perceived-Latency UX</div>
-        <div style="font-size:10.5px;color:var(--gray-700);line-height:1.4">Dynamic reasoning narration, pre-planning, drafts. Tested well in customer interviews</div>
-      </div>
-
-      <div style="background:var(--green-lt);border:1px solid #A5D6A7;border-radius:8px;padding:12px 14px">
-        <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#2E7D32;margin-bottom:4px">SHIPPED</div>
-        <div style="font-size:11.5px;font-weight:700;color:var(--navy);margin-bottom:4px">Contextual Auto-Open</div>
-        <div style="font-size:10.5px;color:var(--gray-700);line-height:1.4">Opens Omni inside the relevant QBO flow. 17% of first touches · 2nd-largest entry · 13% of repeat</div>
-      </div>
-
-      <div style="background:var(--green-lt);border:1px solid #A5D6A7;border-radius:8px;padding:12px 14px">
-        <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#2E7D32;margin-bottom:4px">SHIPPED</div>
-        <div style="font-size:11.5px;font-weight:700;color:var(--navy);margin-bottom:4px">Human Intelligence Path</div>
-        <div style="font-size:10.5px;color:var(--gray-700);line-height:1.4">Bring expert in-line to the Omni conversation. A clean human-into-chat escape hatch</div>
-      </div>
-
-    </div>
-
-    <!-- ── SHIPPING NEXT: JULY RELEASE ───────────── -->
-    <div class="sh" style="margin-top:4px">Delivering Now — July Release · Next 6–8 Weeks</div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px">
-
-      <div style="background:#EFF6FF;border:1px solid #93C5FD;border-radius:8px;padding:12px 14px">
-        <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#1D4ED8;margin-bottom:4px">NEXT UP</div>
-        <div style="font-size:11.5px;font-weight:700;color:var(--navy);margin-bottom:4px">Harness Engineering</div>
-        <div style="font-size:10.5px;color:var(--gray-700);line-height:1.4">Latency-aware orchestrator. Adaptive depth · GPT-5.2 · tiers ≤15/35/55s</div>
-      </div>
-
-      <div style="background:#EFF6FF;border:1px solid #93C5FD;border-radius:8px;padding:12px 14px">
-        <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#1D4ED8;margin-bottom:4px">NEXT UP</div>
-        <div style="font-size:11.5px;font-weight:700;color:var(--navy);margin-bottom:4px">Domain Skills</div>
-        <div style="font-size:10.5px;color:var(--gray-700);line-height:1.4">Faster BI &amp; Help — highest-volume domains. Reports fast-track · Semantic BI Builder · Help → Skills</div>
-      </div>
-
-      <div style="background:#EFF6FF;border:1px solid #93C5FD;border-radius:8px;padding:12px 14px">
-        <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#1D4ED8;margin-bottom:4px">NEXT UP</div>
-        <div style="font-size:11.5px;font-weight:700;color:var(--navy);margin-bottom:4px">Context Engineering</div>
-        <div style="font-size:10.5px;color:var(--gray-700);line-height:1.4">Brain Center memory · metrics cache · peer benchmarks · multi-turn grounding</div>
-      </div>
-
-      <div style="background:#EFF6FF;border:1px solid #93C5FD;border-radius:8px;padding:12px 14px">
-        <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#1D4ED8;margin-bottom:4px">NEXT UP</div>
-        <div style="font-size:11.5px;font-weight:700;color:var(--navy);margin-bottom:4px">Evals</div>
-        <div style="font-size:10.5px;color:var(--gray-700);line-height:1.4">Stratified by type · VOC failures as tests · vs Claude + MCP baseline</div>
-      </div>
-
-      <div style="background:#EFF6FF;border:1px solid #93C5FD;border-radius:8px;padding:12px 14px">
-        <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#1D4ED8;margin-bottom:4px">NEXT UP</div>
-        <div style="font-size:11.5px;font-weight:700;color:var(--navy);margin-bottom:4px">FP&amp;A Skills</div>
-        <div style="font-size:10.5px;color:var(--gray-700);line-height:1.4">Code-generated forecasting, scenario &amp; driver modeling. New capability · BI-owned</div>
-      </div>
-
-      <div style="background:#EFF6FF;border:1px solid #93C5FD;border-radius:8px;padding:12px 14px">
-        <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#1D4ED8;margin-bottom:4px">NEXT UP</div>
-        <div style="font-size:11.5px;font-weight:700;color:var(--navy);margin-bottom:4px">UX Context</div>
-        <div style="font-size:10.5px;color:var(--gray-700);line-height:1.4">Let Omni see what the customer sees on-page. Page / report / invoice context · Reports, BI, accountant flows</div>
-      </div>
-
-    </div>
-
-
 
   </div>
 </div>
+</div><!-- /tab-3 -->
+<div class="tab-panel" id="tab-4" style="display:none">
 
-
-<div id="sources-reveal" style="display:none">
+<div id="sources-reveal">
 id="sources" style="scroll-margin-top:115px"></div>
 <div class="section">
   <div class="sec-hd">
@@ -1589,6 +1468,7 @@ id="sources" style="scroll-margin-top:115px"></div>
   </div>
 </div>
 </div><!-- /sources-reveal -->
+</div><!-- /tab-4 -->
 </div><!-- /pg-body -->
 
 
@@ -1728,6 +1608,22 @@ function toggleSources() {
     btn.textContent = '6 · Sources ▾';
     btn.style.background = 'none';
   }
+}
+
+function showTab(n) {
+  [1,2,3,4].forEach(i => {
+    document.getElementById('tab-' + i).style.display = (i===n)?'block':'none';
+    var btn = document.getElementById('tb-' + i);
+    if(btn) btn.classList.toggle('active', i===n);
+  });
+  if(n===2) showSub('voc'); // reset to VOC sub-tab when switching to metrics
+}
+function showSub(s) {
+  ['voc','met','acc'].forEach(k => {
+    document.getElementById('subtab-' + k).style.display = (k===s)?'block':'none';
+    var btn = document.getElementById('stb-' + k);
+    if(btn) btn.classList.toggle('active', k===s);
+  });
 }
 </script>
 
