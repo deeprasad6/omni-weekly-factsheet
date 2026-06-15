@@ -1,1 +1,1798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intuit Intelligence (Omni) — Weekly SLT Fact Sheet | June 9, 2026</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+:root {
+  --navy:      #01416A;
+  --blue:      #0277BD;
+  --blue-lt:   #E3F2FD;
+  --green:     #1B5E20;
+  --green-md:  #2E7D32;
+  --green-lt:  #E8F5E9;
+  --amber:     #BF360C;
+  --amber-md:  #E65100;
+  --amber-lt:  #FFF3E0;
+  --red:       #B71C1C;
+  --red-lt:    #FFEBEE;
+  --teal:      #004D40;
+  --teal-lt:   #E0F2F1;
+  --gray-50:   #FAFAFA;
+  --gray-100:  #F5F5F5;
+  --gray-200:  #EEEEEE;
+  --gray-300:  #E0E0E0;
+  --gray-500:  #9E9E9E;
+  --gray-600:  #757575;
+  --gray-700:  #616161;
+  --gray-800:  #424242;
+  --gray-900:  #212121;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --radius: 6px;
+  --shadow: 0 1px 3px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.06);
+  --shadow-md: 0 4px 8px rgba(0,0,0,.08);
+}
+
+body { font-family: var(--font); background: #EEF1F5; color: var(--gray-900); font-size: 13px; line-height: 1.55; }
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── HEADER ─────────────────────────────────── */
+.pg-header {
+  background: linear-gradient(135deg, #01344F 0%, #0277BD 70%, #0288D1 100%);
+  color: white; padding: 14px 28px 10px;
+  position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,.3);
+}
+.hdr-row { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 6px; }
+.hdr-title { font-size: 16px; font-weight: 800; letter-spacing: -.2px; }
+.hdr-sub   { font-size: 11px; opacity: .82; margin-top: 2px; line-height: 1.4; }
+.hdr-pills { display: flex; gap: 5px; flex-wrap: wrap; align-items: flex-start; margin-top: 2px; }
+.hpill { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 9.5px; font-weight: 700; letter-spacing: .3px; text-transform: uppercase; }
+.hpill-draft  { background: rgba(255,255,255,.15); color: rgba(255,255,255,.9); border: 1px solid rgba(255,255,255,.35); }
+.hpill-green  { background: #1B5E20; color: #A5D6A7; }
+.hpill-red    { background: #7F0000; color: #FFCDD2; }
+.hpill-amber  { background: #7B1900; color: #FFCCBC; }
+
+/* ── ALERT ──────────────────────────────────── */
+.pg-alert { background: #FFF8E1; border-left: 4px solid #F9A825; padding: 7px 24px; font-size: 11.5px; color: #4E342E; display: flex; align-items: center; gap: 8px; }
+.pg-alert strong { color: #BF360C; }
+
+/* ── NAV ─────────────────────────────────────── */
+.pg-nav { background: white; border-bottom: 1px solid var(--gray-200); display: flex; overflow-x: auto; padding: 0 24px; position: sticky; top: 58px; z-index: 90; box-shadow: 0 1px 4px rgba(0,0,0,.08); gap: 0; }
+.pg-nav a { padding: 9px 14px; font-size: 11.5px; font-weight: 600; color: var(--gray-600); white-space: nowrap; display: block; border-bottom: 3px solid transparent; transition: all .15s; }
+.pg-nav a:hover { color: var(--blue); text-decoration: none; background: var(--blue-lt); }
+.pg-nav a.active { color: var(--blue); border-bottom-color: var(--blue); }
+
+/* ── BODY ────────────────────────────────────── */
+.pg-body { max-width: 1160px; margin: 0 auto; padding: 20px 20px 60px; }
+
+/* ── SLT READOUT BOX ────────────────────────── */
+.readout {
+  background: white; border-radius: var(--radius);
+  box-shadow: var(--shadow-md); margin-bottom: 18px;
+  border-top: 4px solid #FB8C00;
+  overflow: hidden;
+}
+.readout-head { background: #FFF8E1; padding: 10px 20px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #FFE082; }
+.readout-eyebrow { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .6px; color: #BF360C; }
+.readout-title { font-size: 14px; font-weight: 800; color: var(--gray-900); }
+.readout-context { font-size: 11.5px; color: var(--gray-700); margin-left: 16px; border-left: 2px solid #FFE082; padding-left: 12px; }
+.readout-body { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+.readout-cell { padding: 13px 18px; border-right: 1px solid var(--gray-200); }
+.readout-cell:last-child { border-right: none; }
+.rc-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 5px; }
+.rc-status  .rc-label { color: #BF360C; }
+.rc-why     .rc-label { color: var(--green); }
+.rc-risk    .rc-label { color: var(--red); }
+.rc-ask     .rc-label { color: var(--blue); }
+.rc-content { font-size: 11.5px; color: var(--gray-800); line-height: 1.5; }
+.status-pill {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 10px; border-radius: 4px;
+  font-size: 11px; font-weight: 800; letter-spacing: .4px;
+  margin-bottom: 5px;
+}
+.sp-yellow { background: #FFF3E0; color: #BF360C; border: 1px solid #FFCC80; }
+.sp-green  { background: #E8F5E9; color: #1B5E20; border: 1px solid #A5D6A7; }
+.sp-red    { background: #FFEBEE; color: #B71C1C; border: 1px solid #FFCDD2; }
+.sp-blocked{ background: #EDE7F6; color: #4527A0; border: 1px solid #CE93D8; }
+.sp-watch  { background: #FFF3E0; color: #BF360C; border: 1px solid #FFCC80; }
+.sp-action { background: #E3F2FD; color: #01579B; border: 1px solid #90CAF9; }
+
+/* ── CARD GRID ───────────────────────────────── */
+.card-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 18px; }
+.card {
+  background: white; border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: 13px 15px 11px;
+  border-top: 3px solid var(--gray-300); position: relative;
+}
+.card.g { border-top-color: #43A047; }
+.card.a { border-top-color: #FB8C00; }
+.card.r { border-top-color: #E53935; }
+.card.b { border-top-color: #039BE5; }
+.card.t { border-top-color: #00897B; }
+.card-lbl { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: var(--gray-600); margin-bottom: 3px; }
+.card-val { font-size: 24px; font-weight: 900; color: var(--gray-900); line-height: 1.1; letter-spacing: -.5px; }
+.card-meta { font-size: 10.5px; color: var(--gray-600); margin-top: 3px; line-height: 1.4; }
+.delta { display: inline-flex; align-items: center; gap: 1px; font-size: 11px; font-weight: 700; }
+.up   { color: #2E7D32; }
+.down { color: #C62828; }
+.warn { color: #BF360C; }
+/* sparkline */
+.spark { display: flex; align-items: flex-end; gap: 2px; height: 22px; margin-top: 7px; padding-top: 4px; border-top: 1px solid var(--gray-200); }
+.spark-bar { flex: 1; border-radius: 2px 2px 0 0; min-height: 3px; }
+.spark-bar.sg { background: #66BB6A; }
+.spark-bar.sa { background: #FFA726; }
+.spark-bar.sr { background: #EF5350; }
+.spark-bar.sb { background: #42A5F5; }
+.spark-bar.st { background: #26A69A; }
+.spark-lbl { display: flex; justify-content: space-between; font-size: 8.5px; color: var(--gray-500); margin-top: 1px; }
+.spark-lbl .now { font-weight: 700; color: var(--gray-800); }
+
+/* ── SECTION ─────────────────────────────────── */
+.section { background: white; border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 16px; overflow: hidden; }
+.sec-hd { padding: 11px 22px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--gray-200); background: var(--gray-50); }
+.sec-num { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; background: var(--navy); color: white; border-radius: 4px; font-size: 10px; font-weight: 800; flex-shrink: 0; }
+.sec-title { font-size: 13px; font-weight: 800; color: var(--gray-900); }
+.sec-sub   { font-size: 10.5px; color: var(--gray-500); margin-left: auto; text-align: right; }
+.sec-body  { padding: 18px 22px; }
+
+/* ── V1→V2 TABLE ─────────────────────────────── */
+.v2tbl { width: 100%; border-collapse: collapse; font-size: 12px; }
+.v2tbl th { background: var(--navy); color: white; padding: 8px 12px; font-size: 10.5px; font-weight: 700; letter-spacing: .4px; text-transform: uppercase; }
+.v2tbl th:first-child { text-align: left; }
+.v2tbl th:not(:first-child) { text-align: center; }
+.v2tbl td { padding: 9px 12px; border-bottom: 1px solid var(--gray-200); vertical-align: middle; line-height: 1.45; }
+.v2tbl td:first-child { font-size: 11.5px; }
+.v2tbl tr:last-child td { border-bottom: none; }
+.v2tbl td.v1v { text-align: center; color: var(--gray-500); font-variant-numeric: tabular-nums; }
+.v2tbl td.now { text-align: center; font-weight: 800; font-variant-numeric: tabular-nums; }
+.v2tbl td.now.g { color: var(--green); }
+.v2tbl td.now.a { color: var(--amber); }
+.v2tbl td.chg { text-align: center; font-size: 11.5px; font-weight: 700; }
+.v2tbl td.chg.g { color: var(--green); }
+.v2tbl td.chg.r { color: var(--red); }
+.v2tbl .cat td { background: #EEF3F8; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .5px; color: var(--navy); padding: 5px 12px; border: none; }
+
+/* ── STANDARD TABLE ──────────────────────────── */
+
+.tbl-wrap { overflow-x: auto; margin-bottom: 20px; }
+.tbl { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+.tbl th { background: var(--gray-100); text-align: left; padding: 8px 12px; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .4px; color: var(--gray-600); border-bottom: 2px solid var(--gray-300); }
+.tbl tbody tr:nth-child(even) { background: #fafafa; }
+.tbl tbody tr:hover { background: #f0f4ff; }
+    .tbl th:not(:first-child) { text-align: center; }
+.tbl tbody tr:nth-child(even) td { background: #FAFBFC; }
+    .tbl td { padding: 9px 12px; border-bottom: 1px solid var(--gray-200); vertical-align: middle; line-height: 1.5; overflow-wrap: break-word; }
+.tbl tr:last-child td { border-bottom: none; }
+.tbl tr:hover td { background: var(--gray-50); }
+.tbl td.num { text-align: center; font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+.tbl .grp td { background: var(--gray-100); font-weight: 700; font-size: 10.5px; color: var(--gray-700); padding: 5px 10px; }
+
+/* ── STATUS PILLS ────────────────────────────── */
+.pill { display: inline-flex; align-items: center; gap: 4px; padding: 1px 7px; border-radius: 3px; font-size: 10px; font-weight: 700; letter-spacing: .2px; white-space: nowrap; }
+.pg  { background: var(--green-lt); color: var(--green); }
+.pa  { background: var(--amber-lt); color: var(--amber); }
+.pr  { background: var(--red-lt);   color: var(--red); }
+.pb  { background: var(--blue-lt);  color: var(--blue); }
+.pt  { background: var(--teal-lt);  color: var(--teal); }
+.pgr { background: var(--gray-200); color: var(--gray-700); }
+
+/* ── WATCHLIST ───────────────────────────────── */
+.watchlist { width: 100%; border-collapse: collapse; font-size: 12px; }
+.watchlist th { background: #1C2B3A; color: white; text-align: left; padding: 8px 12px; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .4px; }
+.watchlist td { padding: 9px 12px; border-bottom: 1px solid var(--gray-200); vertical-align: top; line-height: 1.45; }
+.watchlist tr:last-child td { border-bottom: none; }
+.watchlist tr:hover td { background: var(--gray-50); }
+.watchlist .item-name { font-weight: 700; color: var(--gray-900); }
+.watchlist .item-name .sub { font-weight: 400; color: var(--gray-600); font-size: 11px; display: block; margin-top: 1px; }
+
+/* ── CALLOUT PAIR ────────────────────────────── */
+.cpair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+.callout { padding: 10px 14px; border-radius: var(--radius); font-size: 11.5px; line-height: 1.5; }
+.callout.w { background: var(--green-lt); border-left: 3px solid #43A047; }
+.callout.x { background: var(--amber-lt); border-left: 3px solid #FB8C00; }
+.clbl { font-size: 9.5px; font-weight: 800; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 3px; }
+.callout.w .clbl { color: var(--green); }
+.callout.x .clbl { color: var(--amber); }
+
+/* ── TIMELINE ────────────────────────────────── */
+.tl-wrap { overflow-x: auto; padding: 4px 0 12px; }
+.tl-proof { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+.tl-proof-item { background: var(--green-lt); border: 1px solid #A5D6A7; border-radius: var(--radius); padding: 6px 12px; font-size: 11.5px; display: flex; align-items: center; gap: 6px; }
+.tl-proof-dot { width: 8px; height: 8px; border-radius: 50%; background: #43A047; flex-shrink: 0; }
+.tl-proof-item .date { font-size: 10px; color: var(--gray-500); }
+.tl { display: flex; align-items: flex-start; position: relative; padding: 34px 10px 4px; min-width: 600px; }
+.tl::before { content: ''; position: absolute; top: 44px; left: 10px; right: 10px; height: 3px; background: linear-gradient(to right, #039BE5 30%, var(--gray-300) 30%); border-radius: 3px; }
+.tl-item { flex: 1; display: flex; flex-direction: column; align-items: center; }
+.tl-dot { width: 13px; height: 13px; border-radius: 50%; border: 2px solid white; margin-bottom: 10px; z-index: 1; }
+.tl-dot.now  { background: var(--blue); box-shadow: 0 0 0 3px var(--blue); animation: pulse 2s infinite; }
+.tl-dot.next { background: #FB8C00; box-shadow: 0 0 0 3px #FB8C00; }
+.tl-dot.fut  { background: var(--gray-400, #BDBDBD); box-shadow: 0 0 0 2px var(--gray-400, #BDBDBD); }
+@keyframes pulse { 0%,100%{box-shadow:0 0 0 3px var(--blue)} 50%{box-shadow:0 0 0 5px rgba(2,119,189,.25)} }
+.tl-lbl  { font-size: 10px; font-weight: 700; text-align: center; max-width: 78px; color: var(--gray-700); line-height: 1.3; }
+.tl-date { font-size: 9px; color: var(--gray-500); text-align: center; margin-top: 2px; }
+.tl-tag  { margin-top: 4px; }
+
+/* ── QUOTE CARDS ─────────────────────────────── */
+.quotes { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px,1fr)); gap: 10px; margin-bottom: 14px; }
+.qcard { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 12px 14px; }
+.qcard.neg { background: #FFF8F8; border-color: #FFCDD2; }
+.qtext { font-style: italic; color: var(--gray-800); font-size: 12px; line-height: 1.6; margin-bottom: 7px; }
+.qtext::before { content: '"'; font-size: 18px; color: #039BE5; line-height: 0; vertical-align: -.35em; margin-right: 1px; }
+.qtext::after  { content: '"'; font-size: 18px; color: #039BE5; line-height: 0; vertical-align: -.35em; margin-left: 1px; }
+.qcard.neg .qtext::before, .qcard.neg .qtext::after { color: #E53935; }
+.qsrc { font-size: 10px; color: var(--gray-500); font-weight: 600; text-transform: uppercase; letter-spacing: .4px; }
+.qcard.neg .qsrc { color: var(--red); }
+
+/* ── VOC BARS ────────────────────────────────── */
+.voc-row { margin-bottom: 7px; }
+.voc-lbl-row { display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 2px; }
+.voc-lbl-row .vl { color: var(--gray-800); }
+.voc-lbl-row .vp { font-weight: 700; }
+.voc-outer { background: var(--gray-200); border-radius: 3px; height: 11px; }
+.voc-inner { height: 100%; border-radius: 3px; }
+.vi-top  { background: #E53935; }
+.vi-neg  { background: #FB8C00; }
+.vi-pos  { background: #43A047; }
+.vi-other{ background: #90A4AE; }
+
+/* ── STRATEGIC CALLOUT ───────────────────────── */
+.strat-callout { background: #EEF3F8; border: 1px solid #B0BEC5; border-radius: var(--radius); padding: 12px 16px; font-size: 12px; color: var(--gray-900); line-height: 1.6; margin: 10px 0; }
+.strat-callout strong { color: var(--navy); }
+
+/* ── PROG PANES ──────────────────────────────── */
+.prog-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin-bottom: 16px; }
+.pp { border-radius: var(--radius); padding: 12px 14px; }
+.pp.g { background: var(--green-lt); border: 1px solid #A5D6A7; }
+.pp.a { background: var(--amber-lt); border: 1px solid #FFCC80; }
+.pp.r { background: var(--red-lt);   border: 1px solid #FFCDD2; }
+.pp-lbl { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 3px; }
+.pp.g .pp-lbl { color: var(--green); }
+.pp.a .pp-lbl { color: var(--amber); }
+.pp.r .pp-lbl { color: var(--red); }
+.pp-status { font-size: 14px; font-weight: 900; margin-bottom: 4px; }
+.pp.g .pp-status { color: var(--green); }
+.pp.a .pp-status { color: var(--amber); }
+.pp.r .pp-status { color: var(--red); }
+.pp-note { font-size: 10.5px; color: var(--gray-700); line-height: 1.4; }
+
+/* ── SUPPLEMENTAL (accordion-feel) ──────────── */
+.suppl { border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 16px; overflow: hidden; background: white; border: 1px solid var(--gray-200); }
+.suppl-hd { padding: 11px 22px; background: #F0F4F8; border-bottom: 1px solid var(--gray-200); display: flex; align-items: center; gap: 8px; }
+.suppl-label { font-size: 10px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; color: var(--gray-500); background: var(--gray-200); padding: 1px 7px; border-radius: 3px; }
+.suppl-title { font-size: 12.5px; font-weight: 800; color: var(--gray-800); }
+.suppl-sub { font-size: 10.5px; color: var(--gray-500); margin-left: auto; }
+.suppl-body { padding: 16px 22px; }
+
+/* ── MODULE BARS ─────────────────────────────── */
+.mod-rows { margin-bottom: 4px; }
+.mod-row { display: grid; grid-template-columns: 150px 1fr 60px minmax(130px,1fr); gap: 8px; align-items: center; margin-bottom: 5px; }
+.mod-outer { background: var(--gray-200); border-radius: 3px; height: 16px; position: relative; }
+.mod-inner { height: 100%; border-radius: 3px; display: flex; align-items: center; padding-left: 5px; }
+.mod-inner.g { background: #43A047; }
+.mod-inner.a { background: #FB8C00; }
+.mod-inner.r { background: #E53935; }
+.mod-inner span { font-size: 9.5px; color: white; font-weight: 700; }
+.mod-goal { position: absolute; top: -2px; bottom: -2px; width: 2px; background: rgba(0,0,0,.4); border-radius: 2px; left: 88%; }
+
+/* ── MARKET WATCH TABLE ──────────────────────── */
+.mw-intro { font-size: 11.5px; color: var(--gray-700); background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 10px 14px; margin-bottom: 14px; line-height: 1.6; }
+.mw-tbl { width: 100%; border-collapse: collapse; font-size: 11.5px; }
+.mw-tbl th { background: #1C2B3A; color: white; text-align: left; padding: 8px 11px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .4px; }
+.mw-tbl td { padding: 9px 11px; border-bottom: 1px solid var(--gray-200); vertical-align: top; line-height: 1.5; }
+.mw-tbl tr:last-child td { border-bottom: none; }
+.mw-tbl tr:hover td { background: var(--gray-50); }
+.mw-tbl td.mw-name { font-weight: 700; color: var(--gray-900); white-space: nowrap; }
+.mw-tbl td.mw-cat { color: var(--gray-600); font-size: 10.5px; white-space: nowrap; }
+.mw-tbl td.mw-move { }
+.mw-tbl td.mw-why { }
+.mw-tbl td.mw-watch { color: var(--navy); font-style: italic; }
+.mw-tbl td.mw-counter { color: #1B5E20; font-weight: 600; }
+.mw-closing { font-size: 11.5px; color: var(--gray-800); background: #EEF3F8; border: 1px solid #B0BEC5; border-radius: var(--radius); padding: 10px 14px; margin-top: 14px; line-height: 1.6; }
+.mw-closing strong { color: var(--navy); }
+
+/* ── MISC ────────────────────────────────────── */
+.sh { font-size: 10.5px; font-weight: 800; text-transform: uppercase; letter-spacing: .5px; color: var(--gray-600); margin: 14px 0 8px; }
+.sh:first-child { margin-top: 0; }
+.divider { border: none; border-top: 1px solid var(--gray-200); margin: 14px 0; }
+.note { font-size: 10.5px; color: var(--gray-500); font-style: italic; margin-top: 5px; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+.tracks { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+.track { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 11px 13px; }
+.track .tr-name { font-size: 12px; font-weight: 800; color: var(--gray-900); margin-bottom: 4px; }
+.track .tr-sub  { font-size: 11px; color: var(--gray-600); line-height: 1.4; }
+.source-strip { font-size: 9.5px; color: var(--gray-500); padding: 12px 0 4px; border-top: 1px solid var(--gray-300); margin-top: 24px; line-height: 1.6; }
+.source-strip a { color: var(--gray-500); }
+
+@media (max-width: 800px) {
+  
+  .readout-body { grid-template-columns: 1fr 1fr; }
+  .prog-row, .tracks { grid-template-columns: 1fr 1fr; }
+  .two-col, .cpair, .three-col { grid-template-columns: 1fr; }
+  .pg-nav { top: 60px; }
+}
+@media print {
+  .pg-header, .pg-nav { position: static; }
+  .section, .suppl { break-inside: avoid; }
+}
+
+    /* ── WEEK TABS ── */
+    .week-tabs { display:flex; gap:4px; padding:10px 18px 0; background:var(--navy); overflow-x:auto; position:sticky; top:0; z-index:200; }
+    .week-tab { padding:7px 14px; border-radius:6px 6px 0 0; font-size:11px; font-weight:700; letter-spacing:.3px; cursor:pointer; border:none; background:rgba(255,255,255,.12); color:rgba(255,255,255,.7); transition:background .15s; white-space:nowrap; }
+    .week-tab:hover { background:rgba(255,255,255,.2); }
+    .week-tab.active { background:#fff; color:var(--navy); }
+    .week-panel { display:none; }
+    .week-panel.active { display:block; }
+
+  
+/* ── TAB + SUBTAB SYSTEM ─────────────────────────── */
+.tab-btn {
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: var(--gray-600);
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 9px 14px;
+  white-space: nowrap;
+  letter-spacing: .3px;
+  transition: color .15s, border-color .15s, background .15s;
+}
+.tab-btn:hover { color: var(--blue); background: var(--blue-lt); }
+.tab-btn.active { color: var(--blue); border-bottom-color: var(--blue); }
+.tab-panel { display: none; }
+.tab-panel:first-of-type, .tab-panel[id="tab-1"] { display: block; }
+.stb {
+  background: #1a3a5c;
+  border: 1px solid #12294a;
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  color: rgba(255,255,255,.72);
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 8px 18px 8px;
+  letter-spacing: .3px;
+  margin-right: 4px;
+  transition: color .15s, background .15s;
+  position: relative;
+  top: 1px;
+}
+.stb:hover { background: #234870; color: #fff; }
+.stb.active { background: #fff; color: var(--blue); border-color: #c0c8d8; border-bottom-color: #fff; font-weight: 800; }
+.subtab-panel { display: none; }
+.subtab-panel[id="subtab-voc"] { display: block; }
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ──────────────────────────────────────── -->
+<header class="pg-header">
+  <div class="hdr-row">
+    <div>
+      <div class="hdr-title">Intuit Intelligence (Omni) — Weekly SLT Fact Sheet</div>
+      <div class="hdr-sub">Week of June 9, 2026 &nbsp;·&nbsp; Exec-ready snapshot of momentum, release readiness, customer trust, and watch items &nbsp;·&nbsp; BizOps: Dee Prasad</div>
+    </div>
+    <div class="hdr-pills">
+      <span class="hpill hpill-draft">Draft</span>
+    </div>
+  </div>
+</header>
+
+<!-- ── ALERT ────────────────────────────────────────── -->
+<div style="background:var(--navy);padding:6px 24px;display:flex;gap:8px;align-items:center">
+  <span style="background:white;color:var(--navy);font-size:11px;font-weight:800;padding:4px 14px;border-radius:4px 4px 0 0">Wk 7 · Jun 10</span>
+  <span style="font-size:10px;color:rgba(255,255,255,.5);margin-left:4px">More weeks will be added here</span>
+</div>
+
+
+<!-- ── NAV ──────────────────────────────────────────── -->
+<nav class="pg-nav" id="main-nav">
+  <button class="tab-btn active" id="tb-1" onclick="showTab(1)">Overview</button>
+  <button class="tab-btn" id="tb-2" onclick="showTab(2)">Metrics &amp; Insights</button>
+  <button class="tab-btn" id="tb-3" onclick="showTab(3)">Key Dates &amp; Execution</button>
+  <button class="tab-btn" id="tb-4" onclick="showTab(4)">Data Sources</button>
+</nav>
+
+<div class="pg-body">
+<div class="tab-panel" id="tab-1">
+
+<!-- ═══════════════════════════════════════════
+     SLT READOUT BOX
+     ═══════════════════════════════════════ -->
+<div id="overview" style="scroll-margin-top:115px"></div>
+<div class="section">
+  <div class="sec-hd">
+    <div class="sec-num">1</div>
+    <span class="sec-title">Overview</span>
+    <span class="sec-sub">How we&#8217;re doing · V1 → V2 impact · Jun 2026</span>
+  </div>
+  <div class="sec-body" style="padding:0">
+
+<!-- ── HERO STATS ────────────────────────────── -->
+<div style="padding:16px 22px 12px;background:var(--gray-50);border-bottom:1px solid var(--gray-200)">
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px">
+
+    <div style="background:#fff;border-radius:8px;padding:12px 16px;border:1px solid var(--gray-200)">
+      <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-400);margin-bottom:4px">Overall Engagement</div>
+      <div style="display:flex;align-items:baseline;gap:6px">
+        <div style="font-size:26px;font-weight:900;color:var(--navy);line-height:1">23.2%</div>
+        <div style="font-size:11px;font-weight:700;color:var(--gray-500)">all-time · 1.1M</div>
+      </div>
+      <div style="margin-top:5px;display:flex;justify-content:space-between;align-items:center;background:#EEF3F8;border-radius:4px;padding:4px 7px">
+        <div>
+          <div style="font-size:9px;color:var(--gray-500);font-weight:600">Jun MTD wk1</div>
+          <div style="font-size:13px;font-weight:900;color:var(--navy)">4.3% <span style="font-size:10px;font-weight:700;color:#43A047">114 ITPM</span></div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-size:9px;color:var(--gray-500);font-weight:600">May wk1</div>
+          <div style="font-size:13px;font-weight:700;color:var(--gray-600)">4.3% <span style="font-size:10px;color:var(--gray-500)">101 ITPM</span></div>
+        </div>
+      </div>
+      <div style="font-size:9px;color:#43A047;font-weight:700;margin-top:3px">+13pp ITPM MoM · same rate, stronger intent</div>
+      <svg width="130" height="32" viewBox="0 0 130 32" style="display:block;margin-top:5px"><rect x="4.0" y="18.1" width="21.2" height="7.9" rx="1.5" fill="#90CAF9"/><text x="14.6" y="29" text-anchor="middle" font-size="6" fill="#90CAF9" font-family="sans-serif">F</text><rect x="29.2" y="10.0" width="21.2" height="16.0" rx="1.5" fill="#64B5F6"/><text x="39.8" y="29" text-anchor="middle" font-size="6" fill="#64B5F6" font-family="sans-serif">M</text><rect x="54.4" y="8.0" width="21.2" height="18.0" rx="1.5" fill="#42A5F5"/><text x="65.0" y="29" text-anchor="middle" font-size="6" fill="#42A5F5" font-family="sans-serif">A</text><rect x="79.6" y="6.0" width="21.2" height="20.0" rx="1.5" fill="#2196F3"/><text x="90.2" y="29" text-anchor="middle" font-size="6" fill="#2196F3" font-family="sans-serif">M</text><rect x="104.8" y="6.0" width="21.2" height="20.0" rx="1.5" fill="#43A047"/><text x="115.4" y="29" text-anchor="middle" font-size="6" fill="#43A047" font-family="sans-serif">J</text></svg>
+    </div>
+
+    <div style="background:#fff;border-radius:8px;padding:12px 16px;border:1px solid var(--gray-200)">
+      <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-400);margin-bottom:4px">Repeat Engagement</div>
+      <div style="display:flex;align-items:baseline;gap:6px">
+        <div style="font-size:28px;font-weight:900;color:var(--navy);line-height:1">40.0%</div>
+        <div style="font-size:11px;font-weight:700;color:var(--gray-500)">all-time · 448.3K</div>
+      </div>
+      <div style="margin-top:5px;display:flex;justify-content:space-between;align-items:center;background:#EEF3F8;border-radius:4px;padding:4px 7px">
+        <div>
+          <div style="font-size:9px;color:var(--gray-500);font-weight:600">Jun MTD wk1</div>
+          <div style="font-size:13px;font-weight:900;color:var(--navy)">16.1% <span style="font-size:10px;font-weight:700;color:#43A047">116 ITPM</span></div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-size:9px;color:var(--gray-500);font-weight:600">May wk1</div>
+          <div style="font-size:13px;font-weight:700;color:var(--gray-600)">15.4% <span style="font-size:10px;color:var(--gray-500)">102 ITPM</span></div>
+        </div>
+      </div>
+      <div style="font-size:9px;color:#43A047;font-weight:700;margin-top:3px">+0.7pp · +14pp ITPM MoM</div>
+      <svg width="130" height="30" viewBox="0 0 130 30" style="display:block;margin-top:6px"><rect x="4.0" y="10.3" width="21.2" height="15.7" rx="1.5" fill="#1565C0" opacity=".85"/><text x="14.6" y="28" text-anchor="middle" font-size="6" fill="#aaa" font-family="sans-serif">V1</text><rect x="29.2" y="9.3" width="21.2" height="16.7" rx="1.5" fill="#1565C0" opacity=".85"/><text x="39.8" y="28" text-anchor="middle" font-size="6" fill="#aaa" font-family="sans-serif">M</text><rect x="54.4" y="7.0" width="21.2" height="19.0" rx="1.5" fill="#1565C0" opacity=".85"/><text x="65.0" y="28" text-anchor="middle" font-size="6" fill="#aaa" font-family="sans-serif">A</text><rect x="79.6" y="6.0" width="21.2" height="20.0" rx="1.5" fill="#1565C0" opacity=".85"/><text x="90.2" y="28" text-anchor="middle" font-size="6" fill="#aaa" font-family="sans-serif">M</text><rect x="104.8" y="6.0" width="21.2" height="20.0" rx="1.5" fill="#1565C0" opacity=".85"/><text x="115.4" y="28" text-anchor="middle" font-size="6" fill="#aaa" font-family="sans-serif">J</text><rect x="104.8" y="6.0" width="21.2" height="20.0" rx="1.5" fill="#43A047"/><text x="115.4" y="28" text-anchor="middle" font-size="6" fill="#43A047" font-family="sans-serif">J</text></svg>
+    </div>
+
+    <div style="background:#fff;border-radius:8px;padding:12px 16px;border:1px solid #FFE082">
+      <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-400);margin-bottom:4px">Offline CQ</div>
+      <div style="display:flex;align-items:baseline;gap:6px">
+        <div style="font-size:26px;font-weight:900;color:var(--navy);line-height:1">85.5%</div>
+        <div style="font-size:11px;font-weight:700;color:#FB8C00">−2.5pp</div>
+      </div>
+      <div style="font-size:10px;color:var(--gray-500);margin-top:2px">Target ≥88% · V1: 80.6% · Source: Eval Scorecard</div>
+      <svg width="130" height="32" viewBox="0 0 130 32" style="display:block;margin-top:5px"><rect x="4.0" y="6.0" width="21.2" height="20.0" rx="1.5" fill="#90CAF9"/><text x="14.6" y="29" text-anchor="middle" font-size="6" fill="#90CAF9" font-family="sans-serif">M</text><rect x="29.2" y="10.4" width="21.2" height="15.6" rx="1.5" fill="#EF9A9A"/><text x="39.8" y="29" text-anchor="middle" font-size="6" fill="#EF9A9A" font-family="sans-serif">A</text><rect x="54.4" y="7.5" width="21.2" height="18.5" rx="1.5" fill="#81C784"/><text x="65.0" y="29" text-anchor="middle" font-size="6" fill="#81C784" font-family="sans-serif">A</text><rect x="79.6" y="8.8" width="21.2" height="17.2" rx="1.5" fill="#FFB74D"/><text x="90.2" y="29" text-anchor="middle" font-size="6" fill="#FFB74D" font-family="sans-serif">M</text><rect x="104.8" y="8.3" width="21.2" height="17.7" rx="1.5" fill="#43A047"/><text x="115.4" y="29" text-anchor="middle" font-size="6" fill="#43A047" font-family="sans-serif">M</text></svg>
+    </div>
+
+    <div style="background:#fff;border-radius:8px;padding:12px 16px;border:1px solid #A5D6A7">
+      <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-400);margin-bottom:4px">TTFMT — First Token</div>
+      <div style="display:flex;align-items:baseline;gap:6px">
+        <div style="font-size:28px;font-weight:900;color:var(--navy);line-height:1">~1.4s</div>
+        <div style="font-size:11px;font-weight:700;color:#43A047">−83%</div>
+      </div>
+      <div style="font-size:10px;color:var(--gray-500);margin-top:3px">V1: ~8.0s · GA latency gate cleared</div>
+      <svg width="130" height="30" viewBox="0 0 130 30" style="display:block;margin-top:6px"><rect x="4.0" y="6.0" width="21.2" height="20.0" rx="1.5" fill="#BDBDBD" opacity=".85"/><text x="14.6" y="28" text-anchor="middle" font-size="6" fill="#aaa" font-family="sans-serif">V1</text><rect x="29.2" y="19.4" width="21.2" height="6.6" rx="1.5" fill="#81C784" opacity=".85"/><text x="39.8" y="28" text-anchor="middle" font-size="6" fill="#aaa" font-family="sans-serif">M</text><rect x="54.4" y="23.0" width="21.2" height="3.0" rx="1.5" fill="#4CAF50" opacity=".85"/><text x="65.0" y="28" text-anchor="middle" font-size="6" fill="#aaa" font-family="sans-serif">A</text><rect x="79.6" y="23.0" width="21.2" height="3.0" rx="1.5" fill="#43A047" opacity=".85"/><text x="90.2" y="28" text-anchor="middle" font-size="6" fill="#aaa" font-family="sans-serif">M</text><rect x="104.8" y="23.0" width="21.2" height="3.0" rx="1.5" fill="#43A047"/><text x="115.4" y="28" text-anchor="middle" font-size="6" fill="#43A047" font-family="sans-serif">J</text></svg>
+    </div>
+
+    <div style="background:#fff;border-radius:8px;padding:12px 16px;border:1px solid #A5D6A7">
+      <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-400);margin-bottom:4px">Add-On Subscribers</div>
+      <div style="display:flex;align-items:baseline;gap:6px">
+        <div style="font-size:26px;font-weight:900;color:var(--navy);line-height:1">1,254</div>
+        <div style="font-size:11px;font-weight:700;color:#43A047">active</div>
+      </div>
+      <div style="font-size:10px;color:var(--gray-500);margin-top:2px">383→1,123 · 2× in 4 months</div>
+      <svg width="130" height="30" viewBox="0 0 130 30" style="display:block;margin-top:6px"><rect x="4.0" y="22.6" width="21.2" height="3.4" rx="1.5" fill="#1565C0" opacity=".85"/><text x="14.6" y="28" text-anchor="middle" font-size="6" fill="#aaa" font-family="sans-serif">F</text><rect x="29.2" y="20.2" width="21.2" height="5.8" rx="1.5" fill="#1565C0" opacity=".85"/><text x="39.8" y="28" text-anchor="middle" font-size="6" fill="#aaa" font-family="sans-serif">M</text><rect x="54.4" y="16.6" width="21.2" height="9.4" rx="1.5" fill="#1565C0" opacity=".85"/><text x="65.0" y="28" text-anchor="middle" font-size="6" fill="#aaa" font-family="sans-serif">A</text><rect x="79.6" y="13.6" width="21.2" height="12.4" rx="1.5" fill="#1565C0" opacity=".85"/><text x="90.2" y="28" text-anchor="middle" font-size="6" fill="#aaa" font-family="sans-serif">M</text><rect x="104.8" y="6.0" width="21.2" height="20.0" rx="1.5" fill="#43A047"/><text x="115.4" y="28" text-anchor="middle" font-size="6" fill="#43A047" font-family="sans-serif">J</text></svg>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ── ENGAGEMENT PROGRESSION ─────────────── -->
+<div style="padding:10px 22px 14px;border-bottom:1px solid var(--gray-200)">
+  <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-500);margin-bottom:10px">Engagement Rate Progression — Slide 6 · Oct 2025 → Jun 2026</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+
+    <!-- Engagement Rate chart -->
+    <div>
+      <div style="font-size:11px;font-weight:700;color:var(--navy);margin-bottom:8px">Overall Engagement Rate (Monthly)</div>
+      <div style="display:flex;align-items:flex-end;gap:6px;height:130px;padding-bottom:28px;position:relative">
+        <div style="position:absolute;bottom:28px;left:0;right:0;border-top:1px dashed #e2e8f0"></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex:1">
+          <div style="font-size:9.5px;font-weight:700;color:var(--gray-600)">6%</div>
+          <div style="background:#90CAF9;border-radius:3px 3px 0 0;width:100%;height:53px"></div>
+          <div style="font-size:9px;color:var(--gray-500)">Feb</div>
+          <div style="font-size:8px;color:var(--gray-400)">V1 GA</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex:1">
+          <div style="font-size:9.5px;font-weight:700;color:var(--gray-600)">8.3%</div>
+          <div style="background:#64B5F6;border-radius:3px 3px 0 0;width:100%;height:73px"></div>
+          <div style="font-size:9px;color:var(--gray-500)">Mar</div>
+          <div style="font-size:8px;color:var(--gray-400)">100 ITT</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex:1">
+          <div style="font-size:9.5px;font-weight:700;color:var(--gray-600)">8.5%</div>
+          <div style="background:#42A5F5;border-radius:3px 3px 0 0;width:100%;height:75px"></div>
+          <div style="font-size:9px;color:var(--gray-500)">Apr</div>
+          <div style="font-size:8px;color:var(--gray-400)">102 ITT</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex:1">
+          <div style="font-size:9.5px;font-weight:700;color:var(--gray-600)">9.6%</div>
+          <div style="background:#1976D2;border-radius:3px 3px 0 0;width:100%;height:85px"></div>
+          <div style="font-size:9px;color:var(--gray-500)">May</div>
+          <div style="font-size:8px;color:var(--gray-400)">108 ITT</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex:1">
+          <div style="font-size:9.5px;font-weight:800;color:var(--green)">4.3%*</div>
+          <div style="background:#43A047;border-radius:3px 3px 0 0;width:100%;height:38px;position:relative">
+            <div style="position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:#43A047;color:#fff;font-size:8px;font-weight:900;padding:2px 5px;border-radius:2px;white-space:nowrap">114 ITT ↑</div>
+          </div>
+          <div style="font-size:9px;color:var(--green);font-weight:700">Jun wk1</div>
+          <div style="font-size:8px;color:var(--gray-400)">*weekly</div>
+        </div>
+      </div>
+      <div style="font-size:9.5px;color:var(--gray-500);font-style:italic;margin-top:2px">*Jun wk1 weekly rate (monthly comparable ≈ 9–10%). ITPM trend: 100 → 102 → 108 → <strong style="color:var(--green)">114</strong></div>
+    </div>
+
+    <!-- Repeat Engagement chart -->
+    <div>
+      <div style="font-size:11px;font-weight:700;color:var(--navy);margin-bottom:8px">Repeat Engagement Rate (Monthly)</div>
+      <div style="display:flex;align-items:flex-end;gap:6px;height:130px;padding-bottom:28px;position:relative">
+        <div style="position:absolute;bottom:28px;left:0;right:0;border-top:1px dashed #e2e8f0"></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex:1">
+          <div style="font-size:9.5px;font-weight:700;color:var(--gray-600)">22.6%</div>
+          <div style="background:#90CAF9;border-radius:3px 3px 0 0;width:100%;height:76px"></div>
+          <div style="font-size:9px;color:var(--gray-500)">Feb</div>
+          <div style="font-size:8px;color:var(--gray-400)">V1 GA</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex:1">
+          <div style="font-size:9.5px;font-weight:700;color:var(--gray-600)">22.6%</div>
+          <div style="background:#64B5F6;border-radius:3px 3px 0 0;width:100%;height:76px"></div>
+          <div style="font-size:9px;color:var(--gray-500)">Mar</div>
+          <div style="font-size:8px;color:var(--gray-400)">103 ITT</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex:1">
+          <div style="font-size:9.5px;font-weight:700;color:var(--gray-600)">23.3%</div>
+          <div style="background:#42A5F5;border-radius:3px 3px 0 0;width:100%;height:78px"></div>
+          <div style="font-size:9px;color:var(--gray-500)">Apr</div>
+          <div style="font-size:8px;color:var(--gray-400)">103 ITT</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex:1">
+          <div style="font-size:9.5px;font-weight:700;color:var(--gray-600)">25.3%</div>
+          <div style="background:#1976D2;border-radius:3px 3px 0 0;width:100%;height:85px"></div>
+          <div style="font-size:9px;color:var(--gray-500)">May</div>
+          <div style="font-size:8px;color:var(--gray-400)">106 ITT</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex:1">
+          <div style="font-size:9.5px;font-weight:800;color:var(--green)">16.1%*</div>
+          <div style="background:#43A047;border-radius:3px 3px 0 0;width:100%;height:54px;position:relative">
+            <div style="position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:#43A047;color:#fff;font-size:8px;font-weight:900;padding:2px 5px;border-radius:2px;white-space:nowrap">116 ITT ↑</div>
+          </div>
+          <div style="font-size:9px;color:var(--green);font-weight:700">Jun wk1</div>
+          <div style="font-size:8px;color:var(--gray-400)">*weekly</div>
+        </div>
+      </div>
+      <div style="font-size:9.5px;color:var(--gray-500);font-style:italic;margin-top:2px">NTTF 30.1% · Existing 14.9%. ITPM trend: 103 → 103 → 106 → <strong style="color:var(--green)">116</strong></div>
+    </div>
+
+  </div>
+  <div style="margin-top:8px;background:#EEF3F8;border-radius:4px;padding:5px 10px;font-size:9.5px;color:var(--navy)">
+    <strong>Key milestones:</strong> V1 GA (Feb) · V2 GA (Apr 29) · 8 Bold NTTF Experiments live · Contextual Auto-Open (Jun 3) · Omni as QB Help GA (Jun 4) · Homepage P&amp;L widget GA (Jun 3, 108 ITC) · <strong>Jun wk1 ITPM all-time high for both metrics</strong>
+  </div>
+</div>
+
+
+<!-- ── V1 → V2 COMPARISON TABLE ─────────────── -->
+<div style="padding:16px 22px 20px">
+  <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;color:var(--gray-400);margin-bottom:10px">V1 → V2 · Jun 2026 · Every tracked dimension improved</div>
+  <table style="width:100%;border-collapse:collapse;font-size:11.5px">
+    <colgroup>
+      <col style="width:90px">
+      <col style="width:180px">
+      <col style="width:80px">
+      <col style="width:80px">
+      <col>
+    </colgroup>
+    <thead>
+      <tr style="background:var(--gray-50)">
+        <th style="padding:6px 10px;text-align:left;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-500);border-bottom:2px solid var(--gray-200)">CATEGORY</th>
+        <th style="padding:6px 10px;text-align:left;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-500);border-bottom:2px solid var(--gray-200)">METRIC</th>
+        <th style="padding:6px 10px;text-align:center;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-500);border-bottom:2px solid var(--gray-200)">V1</th>
+        <th style="padding:6px 10px;text-align:center;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--navy);border-bottom:2px solid var(--gray-200)">NOW</th>
+        <th style="padding:6px 10px;text-align:center;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-500);border-bottom:2px solid var(--gray-200)">CHANGE</th>
+        <th style="padding:6px 10px;text-align:left;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-500);border-bottom:2px solid var(--gray-200)">NOTE</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- SPEED -->
+      <tr>
+        <td rowspan="2" style="padding:7px 10px;border-bottom:1px solid var(--gray-200);vertical-align:top;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#1565C0;background:#F3F8FF">SPEED</td>
+        <td style="padding:7px 10px;border-bottom:1px solid var(--gray-100);color:var(--gray-700)">Time to first token (TTFMT)</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);color:var(--gray-500)">8.0s</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);font-weight:700;color:var(--navy)">1.4s</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);font-weight:700;color:#43A047">−83%</td>
+        <td style="padding:7px 10px;font-size:9.5px;color:var(--gray-500);font-style:italic">6× faster than V1 · GA latency gate cleared</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;border-bottom:2px solid var(--gray-200);color:var(--gray-700)">Avg response (P50)</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:2px solid var(--gray-200);color:var(--gray-500)">31.6s</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:2px solid var(--gray-200);font-weight:700;color:var(--navy)">~14s</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:2px solid var(--gray-200);font-weight:700;color:#43A047">−54%</td>
+        <td style="padding:7px 10px;font-size:9.5px;color:var(--gray-500);font-style:italic">P50 more than halved · speculative actions driving improvement</td>
+      </tr>
+      <!-- ACCURACY -->
+      <tr>
+        <td rowspan="2" style="padding:7px 10px;border-bottom:1px solid var(--gray-200);vertical-align:top;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#1565C0;background:#F3F8FF">ACCURACY</td>
+        <td style="padding:7px 10px;border-bottom:1px solid var(--gray-100);color:var(--gray-700)">Offline CQ</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);color:var(--gray-500)">80.6%</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);font-weight:700;color:var(--navy)">85.5%</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);font-weight:700;color:#43A047">+4.9pp</td>
+        <td style="padding:7px 10px;font-size:9.5px;color:var(--gray-500);font-style:italic">2.5pp below ≥88% target · stable but work to do</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;border-bottom:2px solid var(--gray-200);color:var(--gray-700)">Human Eval correctness</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:2px solid var(--gray-200);color:var(--gray-500)">75.4%</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:2px solid var(--gray-200);font-weight:700;color:var(--navy)">85.8%</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:2px solid var(--gray-200);font-weight:700;color:#43A047">+10.4pp</td>
+        <td style="padding:7px 10px;font-size:9.5px;color:var(--gray-500);font-style:italic">Above ≥80% GA gate · highest since launch</td>
+      </tr>
+      <!-- ENGAGEMENT -->
+      <tr>
+        <td rowspan="2" style="padding:7px 10px;border-bottom:1px solid var(--gray-200);vertical-align:top;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#1565C0;background:#F3F8FF">ENGAGE&shy;MENT</td>
+        <td style="padding:7px 10px;border-bottom:1px solid var(--gray-100);color:var(--gray-700)">Repeat engagement</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);color:var(--gray-500)">22.6%</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);font-weight:700;color:var(--navy)">25.1%</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);font-weight:700;color:#43A047">−6.2pp (Jun wk1)</td>
+        <td style="padding:7px 10px;font-size:9.5px;color:var(--gray-500);font-style:italic">116 ITPM · NTTF 30.1% / 131 ITPM · Existing 14.9% / 114 ITPM</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;border-bottom:2px solid var(--gray-200);color:var(--gray-700)">Billable message %</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:2px solid var(--gray-200);color:var(--gray-500)">62.2%</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:2px solid var(--gray-200);font-weight:700;color:var(--navy)">71.6%</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:2px solid var(--gray-200);font-weight:700;color:#43A047">+9.4pp</td>
+        <td style="padding:7px 10px;font-size:9.5px;color:var(--gray-500);font-style:italic">V2 users hit quota faster — DFY actions vs help text</td>
+      </tr>
+      <!-- SENTIMENT -->
+      <tr>
+        <td rowspan="3" style="padding:7px 10px;border-bottom:1px solid var(--gray-200);vertical-align:top;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#1565C0;background:#F3F8FF">SENTI&shy;MENT</td>
+        <td style="padding:7px 10px;border-bottom:1px solid var(--gray-100);color:var(--gray-700)">Session thumbs-up <span style="font-size:8.5px;color:var(--gray-400)">(≈ CSAT proxy)</span></td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);color:var(--gray-500)">7.1%</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);font-weight:700;color:var(--navy)">13.9%</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);font-weight:700;color:#43A047">+6.8pp</td>
+        <td style="padding:7px 10px;font-size:9.5px;color:var(--gray-500);font-style:italic">Highest CSAT since launch · 39.2% MoM</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;border-bottom:1px solid var(--gray-100);color:var(--gray-700)">Positive verbatims</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);color:var(--gray-500)">~4%</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);font-weight:700;color:var(--navy)">~8.5%</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);font-weight:700;color:#43A047">~2×</td>
+        <td style="padding:7px 10px;font-size:9.5px;color:var(--gray-500);font-style:italic">~2× positive verbatims at same volume as V1</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;border-bottom:1px solid var(--gray-200);color:var(--gray-700)">AI opt-out demand <span style="font-size:8.5px;color:var(--gray-400)">(VOC)</span></td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-500)">9.6%</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-200);font-weight:700;color:var(--navy)">2.5%</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-200);font-weight:700;color:#43A047">−74% ✓</td>
+        <td style="padding:7px 10px;font-size:9.5px;color:var(--gray-500);font-style:italic">Opt-out halved — customers choosing to stay vs leave</td>
+      </tr>
+      <!-- MONETIZATION -->
+      <tr>
+        <td rowspan="2" style="padding:7px 10px;border-bottom:1px solid var(--gray-200);vertical-align:top;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#1565C0;background:#F3F8FF">MONETI&shy;ZATION</td>
+        <td style="padding:7px 10px;border-bottom:1px solid var(--gray-100);color:var(--gray-700)">Add-on subscribers</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);color:var(--gray-500)">—</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);font-weight:700;color:var(--navy)">1,254</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-100);font-weight:700;color:#43A047">New in V2</td>
+        <td style="padding:7px 10px;font-size:9.5px;color:var(--gray-500);font-style:italic">1,424 all-time purchases · launched with V2 add-on</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;border-bottom:1px solid var(--gray-200);color:var(--gray-700)">Conversion &amp; retention</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-500)">—</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-200);font-weight:700;color:var(--navy)">20.0% CVR</td>
+        <td style="padding:7px 10px;text-align:center;border-bottom:1px solid var(--gray-200);font-weight:700;color:#43A047">88.3% retained</td>
+        <td style="padding:7px 10px;font-size:9.5px;color:var(--gray-500);font-style:italic">12% cumulative churn (170/1,424) · Intl 20.8% CVR · WoW funnel CVR 11.6% (−2.7pp)</td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="font-size:9.5px;color:var(--gray-500);margin-top:8px;font-style:italic">V2 GA · 2M customers reached · Data through Jun 2026</div>
+
+</div>
+
+  </div>
+</div>
+<!-- ═══════════════════════════════════════════
+     SECTION 1 · METRICS PULSE CHECK
+     ═══════════════════════════════════════ -->
+</div><!-- /tab-1 -->
+<div class="tab-panel" id="tab-2" style="display:none">
+<div id="metrics" style="scroll-margin-top:115px"></div>
+<div class="section">
+  <div class="sec-hd">
+    <div class="sec-num">2</div>
+    <span class="sec-title">Metrics &amp; Customer Insights</span>
+    <span class="sec-sub">Customer journey · VOC &amp; sentiment · ELM campaigns · Performance metrics · Sources: Chase canvas 6/6 · Scorecard · ~850 verbatims</span>
+  </div>
+  <div style="display:flex;gap:0;padding:6px 22px 0;background:#0f2744;border-bottom:2px solid #c0c8d8">
+    <button class="stb active" id="stb-voc" onclick="showSub('voc')">VOC &amp; Sentiment</button>
+    <button class="stb" id="stb-met" onclick="showSub('met')">Metrics</button>
+    <button class="stb" id="stb-acc" onclick="showSub('acc')">Latency &amp; Accuracy</button>
+  </div>
+  <div class="sec-body">
+
+<div class="subtab-panel" id="subtab-voc">
+<div class="strat-callout">
+      <strong>Strategic read:</strong> Customers are not rejecting Omni — they are rejecting moments where Omni breaks financial truth. Every major complaint maps to a single failure mode: Omni asserting something that contradicts what the customer can see or knows to be true in their own books. CSAT and sentiment are improving because V2 is more accurate and faster, but "no data found when data clearly exists" remains the single largest trust-breaker and must be treated as a product correctness issue, not a UX issue.
+    </div>
+
+    <!-- CUSTOMER JOURNEY FUNNEL -->
+    <div class="sh" style="margin-top:16px">Customer Journey — Where Trust Is Built and Lost</div>
+    <div style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius);padding:10px 14px;margin-bottom:10px">
+      <div style="font-size:12px;font-weight:700;color:var(--gray-900);margin-bottom:4px">How to read this</div>
+      <div style="font-size:11.5px;color:var(--gray-700);line-height:1.6">Six stages from discovery to loyalty. The metrics row below each stage shows the program signals that tell us how Omni is performing <em>at that moment</em>. <strong>Opt-out demand is the clearest V2 win at Stage 2:</strong> customers who hit early friction demanded to turn Omni off — 40% at launch, now 9%. That single trend shows V2 improved first contact. The job now is to fix the accuracy and trust failures at Stages 3–4 so more customers reach the loyalty cohort at Stage 5.</div>
+      <div style="font-size:10.5px;color:var(--gray-500);margin-top:5px">n=616 verbatims by behavioral intent, May 2026 · % = confirmed-positive · Source: Omni CX Deck (Ruta Bhat, 851 verbatims, May 2026) · Qual Interviews (Austin Harris, 40+ sessions, Feb–Apr 2026)</div>
+    </div>
+
+    <!-- Metrics Ladder Strip -->
+    <div style="background:var(--navy);border-radius:var(--radius);padding:9px 12px;margin-bottom:7px">
+      <div style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.7px;color:rgba(255,255,255,.45);margin-bottom:7px">Program Metrics → Journey Stage</div>
+      <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:5px">
+        <div>
+          <div style="font-size:8.5px;font-weight:700;color:rgba(255,255,255,.55);margin-bottom:3px">S1 · Find It</div>
+          <div style="background:rgba(255,255,255,.08);border-radius:3px;padding:3px 6px;font-size:8.5px;color:rgba(255,255,255,.5);margin-bottom:2px">Engagement 23.2% all-time · 4.3% Jun MTD</div>
+        </div>
+        <div>
+          <div style="font-size:8.5px;font-weight:700;color:#FFD54F;margin-bottom:3px">S2 · Try It ★ best trend</div>
+          <div style="background:rgba(255,213,79,.15);border:1px solid rgba(255,213,79,.35);border-radius:3px;padding:3px 6px;font-size:8.5px;color:#FFD54F;margin-bottom:2px">Opt-Out 40%→9% ↓</div>
+          <div style="background:rgba(255,255,255,.08);border-radius:3px;padding:3px 6px;font-size:8.5px;color:rgba(255,255,255,.5)">TTFMT 1.4s avg</div>
+        </div>
+        <div>
+          <div style="font-size:8.5px;font-weight:700;color:rgba(255,255,255,.55);margin-bottom:3px">S3 · Get Answer</div>
+          <div style="background:rgba(255,255,255,.08);border-radius:3px;padding:3px 6px;font-size:8.5px;color:rgba(255,255,255,.5);margin-bottom:2px">Online CQ 92%</div>
+          <div style="background:rgba(255,255,255,.08);border-radius:3px;padding:3px 6px;font-size:8.5px;color:rgba(255,255,255,.5);margin-bottom:2px">Offline CQ@5 83.2%</div>
+          <div style="background:rgba(255,255,255,.08);border-radius:3px;padding:3px 6px;font-size:8.5px;color:rgba(255,255,255,.5)">No-Hallucination 90.7%</div>
+        </div>
+        <div>
+          <div style="font-size:8.5px;font-weight:700;color:rgba(255,255,255,.55);margin-bottom:3px">S4 · Trust It</div>
+          <div style="background:rgba(255,255,255,.08);border-radius:3px;padding:3px 6px;font-size:8.5px;color:rgba(255,255,255,.5);margin-bottom:2px">Human Eval 92.7%</div>
+          <div style="background:rgba(239,83,80,.2);border-radius:3px;padding:3px 6px;font-size:8.5px;color:#EF9A9A">Action-Promise Gap 12% — new in V2</div>
+        </div>
+        <div>
+          <div style="font-size:8.5px;font-weight:700;color:#A5D6A7;margin-bottom:3px">S5 · Use Again ★ goal</div>
+          <div style="background:rgba(165,214,167,.15);border:1px solid rgba(165,214,167,.3);border-radius:3px;padding:3px 6px;font-size:8.5px;color:#A5D6A7;margin-bottom:2px">Repeat 40.0% all-time · 16.1% Jun MTD</div>
+          <div style="background:rgba(165,214,167,.15);border-radius:3px;padding:3px 6px;font-size:8.5px;color:#A5D6A7;margin-bottom:2px">Add-on Subs 1,254 active</div>
+          <div style="background:rgba(255,255,255,.08);border-radius:3px;padding:3px 6px;font-size:8.5px;color:rgba(255,255,255,.5);margin-bottom:2px">CSAT 39.2%</div>
+                  </div>
+        <div>
+          <div style="font-size:8.5px;font-weight:700;color:rgba(255,255,255,.55);margin-bottom:3px">S6 · When It Fails</div>
+          <div style="background:rgba(255,255,255,.08);border-radius:3px;padding:3px 6px;font-size:8.5px;color:rgba(255,255,255,.5);margin-bottom:2px">Agent Escape 7%</div>
+          <div style="background:rgba(255,255,255,.08);border-radius:3px;padding:3px 6px;font-size:8.5px;color:rgba(255,255,255,.5)">Monthly Churn 5.6%</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-bottom:6px">
+
+      <!-- Stage 1 -->
+      <div style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius);padding:9px 10px;position:relative">
+        <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;color:var(--gray-500);margin-bottom:2px">Stage 1</div>
+        <div style="font-size:12px;font-weight:800;color:var(--gray-900);margin-bottom:3px">Find It</div>
+        <div style="font-size:20px;font-weight:900;color:var(--gray-400)">0%</div>
+        <div style="font-size:10px;color:var(--gray-500);margin-bottom:5px">positive · n=9</div>
+        <div style="font-size:10px;color:var(--gray-700);line-height:1.4">23.2% of eligible users have ever opened Omni (all-time); 4.3% engaged Jun wk1. Discovery earns zero positives in VOC.</div>
+                <div style="margin-top:5px;font-size:10px;font-style:italic;color:var(--gray-500)">"I kind of figured it was just a logo thing."</div>
+        <div style="font-size:8px;color:var(--gray-400);margin-top:2px">Jake Fuller · Omni CX Deck, Stage 1 Appendix (June 2026)</div>
+      </div>
+
+      <!-- Stage 2 — opt-out prominence -->
+      <div style="background:var(--amber-lt);border:1px solid #FFCC80;border-radius:var(--radius);padding:9px 10px">
+        <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;color:var(--amber);margin-bottom:2px">Stage 2</div>
+        <div style="font-size:12px;font-weight:800;color:var(--gray-900);margin-bottom:3px">Try It</div>
+        <div style="font-size:20px;font-weight:900;color:var(--amber)">8%</div>
+        <div style="font-size:10px;color:var(--gray-500);margin-bottom:5px">positive · n=136</div>
+        <div style="font-size:10px;color:var(--gray-700);line-height:1.4;margin-bottom:5px">54 verbatims cite outdated nav post-Fusion redesign. Opt-out demand fell 40% (launch) → 9% (V2) — biggest positive signal in the dataset. Positive rate doubled V1→V2.</div>
+                <div style="margin-top:5px;font-size:10px;font-style:italic;color:var(--gray-500)">"I would never use this again — it's too slow."</div>
+        <div style="font-size:8px;color:var(--gray-400);margin-top:2px">Corey Cook, QBO user, UK · Omni CX Deck, Stage 2 Appendix (Ruta Bhat, June 2026)</div>
+      </div>
+
+      <!-- Stage 3 — biggest volume, worst -->
+      <div style="background:#FFF3CD;border:2px solid var(--red);border-radius:var(--radius);padding:9px 10px;position:relative">
+        <div style="position:absolute;top:-9px;left:10px;background:var(--red);color:#fff;font-size:8px;font-weight:900;padding:1px 7px;border-radius:3px;text-transform:uppercase;letter-spacing:.5px">⚠ DROP-OFF SIGNAL</div>
+        <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;color:var(--red);margin-bottom:2px">Stage 3 · Highest Volume</div>
+        <div style="font-size:12px;font-weight:800;color:var(--gray-900);margin-bottom:3px">Get Answer</div>
+        <div style="display:flex;align-items:baseline;gap:8px">
+          <div style="font-size:20px;font-weight:900;color:var(--red)">7%</div>
+          <div style="font-size:11px;color:var(--gray-600)">positive</div>
+        </div>
+        <div style="background:var(--red);color:#fff;border-radius:3px;padding:3px 7px;font-size:11px;font-weight:800;margin:5px 0 4px;display:inline-block">~178 of 191 responses are negative</div>
+        <div style="font-size:9px;color:var(--gray-500);margin-bottom:5px">largest stage in dataset — n=191 verbatims</div>
+        <div style="font-size:10px;color:var(--gray-700);line-height:1.4">"No data found" when data is on screen — 25% of all feedback. 95% negative for accountants. (Ruta Bhat, Jun 4)</div>
+        <div style="margin-top:5px;font-size:10px;font-style:italic;color:var(--red)">"18 pending transactions — how can I trust it on anything?"</div>
+        <div style="font-size:8px;color:var(--gray-400);margin-top:2px">CX Deck Verbatim · May 2026 · Accuracy category</div>
+      </div>
+
+      <!-- Stage 4 -->
+      <div style="background:var(--red-lt);border:1px solid #FFCDD2;border-radius:var(--radius);padding:9px 10px">
+        <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;color:var(--red);margin-bottom:2px">Stage 4</div>
+        <div style="font-size:12px;font-weight:800;color:var(--gray-900);margin-bottom:3px">Trust It</div>
+        <div style="font-size:20px;font-weight:900;color:var(--red)">0%</div>
+        <div style="font-size:10px;color:var(--gray-500);margin-bottom:5px">positive · n=80</div>
+        <div style="font-size:10px;color:var(--gray-700);line-height:1.4">Action-promise gap (12%) — says "I'll do that" then gives instructions instead. New in V2; no V1 baseline. 80 verbatims on wrong answers.</div>
+                <div style="margin-top:5px;font-size:10px;font-style:italic;color:var(--gray-500)">"I'd be a fool to take AI data to a board meeting without verifying."</div>
+        <div style="font-size:8px;color:var(--gray-400);margin-top:2px">Ryan Bowen · Omni CX Deck, Stage 4 Appendix (June 2026)</div>
+      </div>
+
+      <!-- Stage 5 — best stage -->
+      <div style="background:var(--green-lt);border:1px solid #A5D6A7;border-radius:var(--radius);padding:9px 10px;border-width:2px">
+        <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;color:var(--green);margin-bottom:2px">Stage 5 · Best Stage</div>
+        <div style="font-size:12px;font-weight:800;color:var(--gray-900);margin-bottom:3px">Use Again</div>
+        <div style="font-size:20px;font-weight:900;color:var(--green)">37%</div>
+        <div style="font-size:10px;color:var(--gray-500);margin-bottom:5px">positive · n=67</div>
+        <div style="font-size:10px;color:var(--gray-700);line-height:1.4">Customers who survive Stages 3–4 become loyal. Subs 2× in 4 months. No saved queries yet.</div>
+                <div style="margin-top:5px;font-size:10px;font-style:italic;color:var(--green)">"I use this every day — saves me so much time."</div>
+        <div style="font-size:8px;color:var(--gray-400);margin-top:2px">CX Deck Verbatim · May 2026 · Positive / Time-Saving</div>
+      </div>
+
+      <!-- Stage 6 -->
+      <div style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius);padding:9px 10px">
+        <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;color:var(--gray-500);margin-bottom:2px">Stage 6</div>
+        <div style="font-size:12px;font-weight:800;color:var(--gray-900);margin-bottom:3px">When It Fails</div>
+        <div style="font-size:20px;font-weight:900;color:var(--gray-500)">2%</div>
+        <div style="font-size:10px;color:var(--gray-500);margin-bottom:5px">positive · n=57</div>
+        <div style="font-size:10px;color:var(--gray-700);line-height:1.4">3 of 18 May cancellations cited named AI competitors. Bot loops block human handoff.</div>
+                <div style="margin-top:5px;font-size:10px;font-style:italic;color:var(--gray-500)">"Gemini keeps all that context — I don't have to re-explain."</div>
+        <div style="font-size:8px;color:var(--gray-400);margin-top:2px">Shelli Broussard, Bookkeeper · Omni CX Deck, Stage 6 Appendix (Ruta Bhat, June 2026) · AI competitor category</div>
+      </div>
+
+    </div>
+
+    <!-- Journey insight bar -->
+    <div style="background:#EEF3F8;border:1px solid #B0BEC5;border-radius:var(--radius);padding:8px 14px;font-size:11px;color:var(--navy);margin-bottom:10px">
+      <strong>The funnel insight:</strong> Opt-out demand falling 40%→9% (Stage 2) and positive VOC nearly doubling 5.6%→10.7% show V2 improved the entry experience. Stage 5's 37% loyalty cohort is the target state — but getting more customers there requires fixing Stage 3 "no data found" and Stage 4 action-promise gap first.
+    </div>
+
+    <!-- V2 Metrics → Customer Language Translation -->
+    <div class="sh" style="margin-top:4px">What V2 Metrics Mean in Customer Language</div>
+    <table class="tbl" style="margin-bottom:16px">
+      <colgroup><col style="width:160px"><col style="width:90px"><col style="width:90px"><col><col style="width:115px"></colgroup>
+      <thead><tr><th>Metric</th><th>V1 Baseline</th><th>V2 Result</th><th>What Customers Now Say / Experience</th><th>Journey Stage</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Opt-Out Demand Rate</strong></td>
+          <td class="num" style="color:var(--red)">17–40%</td>
+          <td class="num" style="color:var(--green)">9%</td>
+          <td>Customers stopped demanding to turn Omni off. First contact is no longer a breaking point.</td>
+          <td>Stage 2</td>
+        </tr>
+        <tr>
+          <td><strong>Positive VOC Rate</strong></td>
+          <td class="num" style="color:var(--amber)">5.6%</td>
+          <td class="num" style="color:var(--green)">10.7%</td>
+          <td>1 in 10 customers now actively praises the product — nearly double. Time-saving language appearing in verbatims.</td>
+          <td>Stages 3–5</td>
+        </tr>
+        <tr>
+          <td><strong>Add-on Subscribers</strong></td>
+          <td class="num" style="color:var(--amber)">383</td>
+          <td class="num" style="color:var(--green)">1,254</td>
+          <td>3× more customers paying extra to keep Omni. Loyalty cohort at Stage 5 is real and growing.</td>
+          <td>Stage 5</td>
+        </tr>
+        <tr>
+          <td><strong>CSAT</strong></td>
+          <td class="num" style="color:var(--amber)">36.2%</td>
+          <td class="num" style="color:var(--amber)">39.2%</td>
+          <td>Satisfaction is improving but still losing 6 in 10 interactions. Trend is right; absolute level is not there yet.</td>
+          <td>Stages 3–5</td>
+        </tr>
+        <tr style="background:#FFF3E0">
+          <td><strong>Generic / Steps Response Rate</strong><div style="font-size:9px;color:var(--amber);font-weight:600">New in V2</div></td>
+          <td class="num" style="color:var(--amber)">28.3%</td>
+          <td class="num" style="color:var(--red)">36.9%</td>
+          <td>Customers feel like they're reading a manual. V2 Omni sounds more confident but still gives instructions instead of taking action.</td>
+          <td>Stages 3–4</td>
+        </tr>
+        <tr style="background:#FFF3E0">
+          <td><strong>Action-Promise Gap</strong><div style="font-size:9px;color:var(--amber);font-weight:600">New in V2</div></td>
+          <td class="num">N/A V1</td>
+          <td class="num" style="color:var(--red)">12%</td>
+          <td>Omni says "I'll do that for you" then gives step-by-step instructions. Creates distrust — customers feel misled by the product's own language.</td>
+          <td>Stage 4</td>
+        </tr>
+        <tr>
+          <td><strong>Repeat Engagement Rate</strong></td>
+          <td class="num" style="color:var(--amber)">Low / unmeasured</td>
+          <td class="num" style="color:var(--amber)">25.3%</td>
+          <td>1 in 4 customers who use Omni once come back. Repeat engagement is building — slightly below the 26.3% ITF target but trending positively.</td>
+          <td>Stage 5</td>
+        </tr>
+
+    </tbody>
+    </table>
+
+    <div class="sh" style="margin-top:12px">CSAT Trend (Dec '25–May '26)</div>
+        <div style="display:flex;align-items:flex-end;gap:9px;height:62px;padding:2px 0;margin-bottom:4px">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1"><div style="font-size:9px;font-weight:700;color:var(--gray-700)">36.2%</div><div style="width:100%;background:#90CAF9;border-radius:3px 3px 0 0;height:37px"></div><div style="font-size:8.5px;color:var(--gray-500)">Dec</div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1"><div style="font-size:9px;font-weight:700;color:#C62828">27.7%</div><div style="width:100%;background:#EF9A9A;border-radius:3px 3px 0 0;height:14px"></div><div style="font-size:8.5px;color:var(--gray-500)">Jan</div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1"><div style="font-size:9px;font-weight:700;color:var(--gray-700)">34.5%</div><div style="width:100%;background:#90CAF9;border-radius:3px 3px 0 0;height:32px"></div><div style="font-size:8.5px;color:var(--gray-500)">Feb</div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1"><div style="font-size:9px;font-weight:700;color:var(--gray-700)">34.1%</div><div style="width:100%;background:#90CAF9;border-radius:3px 3px 0 0;height:31px"></div><div style="font-size:8.5px;color:var(--gray-500)">Mar</div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1"><div style="font-size:9px;font-weight:700;color:var(--gray-700)">36.7%</div><div style="width:100%;background:#64B5F6;border-radius:3px 3px 0 0;height:38px"></div><div style="font-size:8.5px;color:var(--gray-500)">Apr</div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1"><div style="font-size:9px;font-weight:700;color:var(--green)"><strong>39.2%</strong></div><div style="width:100%;background:#43A047;border-radius:3px 3px 0 0;height:50px"></div><div style="font-size:8.5px;color:var(--gray-500)">May ✓</div></div>
+        </div>
+        <div class="note">Feedback rate ~0.3% — all signals directional. 1,280 add-on subs = 88.3% retained.</div>
+
+    
+</div><!-- /subtab-voc -->
+<div class="subtab-panel" id="subtab-met" style="display:none">
+    <div class="sh" style="margin-top:24px">Metrics</div>
+
+<!-- Pill tabs for the 3 metric tables -->
+<div style="margin-top:4px">
+  <div style="margin-bottom:20px">
+    <div class="sh">Funnel & Adoption</div>
+    <table class="tbl">
+      <colgroup>
+        <col style="width:190px">
+        <col style="width:110px">
+        <col style="width:110px">
+        <col style="width:130px">
+        <col style="width:75px">
+        <col style="width:40px">
+        <col style="width:155px">
+        <col>
+      </colgroup>
+      <thead><tr><th>Metric</th><th style="text-align:center">Latest (Jun MTD)</th><th style="text-align:center">All-Time</th><th style="text-align:center">May Full</th><th style="text-align:center">Target</th><th style="text-align:center">ITT</th><th style="text-align:center">WoW / MoM Δ</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Overall Engagement Rate</strong></td><td class="num">4.3% (114 ITPM)</td><td class="num" style="font-weight:700;color:var(--navy)">23.2% (1.1M sessions)</td><td class="num">9.6% (108 ITPM)</td><td>—</td><td>114</td><td><span class="delta up">↑ vs May wk1: 4.3% (101 ITPM) · +13pp ITPM</span></td><td><span class="pill pg">GREEN — 114 ITPM, all-time wk high</span></td></tr>
+        <tr><td style="padding-left:22px;color:var(--gray-500);font-size:10.5px">↳ <em>NTTF Engagement Rate</em></td><td class="num" style="color:var(--gray-500)">—</td><td style="color:var(--gray-500);text-align:center">—</td><td class="num" style="color:var(--gray-500)">17.7% (121 ITPM)</td><td style="color:var(--gray-500)">—</td><td style="color:var(--gray-500)">—</td><td><span class="delta up">↑ +3.5pp May vs Apr (14.2% / 132 ITPM) · Jun MTD NTTF engagement not in wk1 scorecard</span></td><td><span class="pill pa">Sub-segment of Overall</span></td></tr>
+        <tr><td><strong>Repeat Engagement Rate</strong></td><td class="num">16.1% (116 ITPM)</td><td class="num" style="font-weight:700;color:var(--navy)">40.0% (448.3K sessions)</td><td class="num">25.3% (106 ITPM)</td><td>—</td><td>116</td><td><span class="delta up">↑ vs May wk1: 15.4% (102 ITPM) · +0.7pp / +14pp ITPM · NTTF 30.1% / Existing 14.9%</span></td><td><span class="pill pg">GREEN — 116 ITPM Jun wk1</span></td></tr>
+        <tr><td><strong>Contextual Auto-Open</strong></td><td style="text-align:center;font-size:11.5px;font-weight:600;white-space:nowrap">17% of engaged cos</td><td style="text-align:center">—</td><td>—</td><td>—</td><td>—</td><td style="text-align:center;font-size:11px;color:var(--gray-600)">2nd largest first-touch after header</td><td><span class="pill pg">GREEN — 100% ramped 5/27</span></td></tr>
+              </tbody>
+    </table>
+  </div>
+  <div style="margin-bottom:20px">
+    <div class="sh">Quality & Performance</div>
+    <table class="tbl">
+      <colgroup>
+        <col style="width:190px">
+        <col style="width:105px">
+        <col style="width:105px">
+        <col style="width:80px">
+        <col style="width:155px">
+        <col>
+      </colgroup>
+      <thead><tr><th>Metric</th><th style="text-align:center">Latest</th><th style="text-align:center">Prior Week</th><th style="text-align:center">Goal</th><th style="text-align:center">WoW Δ</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Online CQ (production)</strong></td><td class="num">92.0%</td><td class="num">89.7%</td><td>≥88%</td><td><span class="delta up">↑ +2.3pp</span></td><td><span class="pill pg">GREEN — above goal</span></td></tr>
+        <tr><td><strong>Human Eval Accuracy</strong></td><td class="num">92.7%</td><td class="num">85.8%</td><td>—</td><td><span class="delta up">↑ +6.9pp</span></td><td><span class="pill pg">GREEN — strong recovery</span></td></tr>
+        <tr><td><strong>Offline CQ@5</strong></td><td class="num">83.2%</td><td class="num">85.5%</td><td>≥88%</td><td><span class="delta down">↓ −2.3pp</span></td><td><span class="pill pa">WATCH — 4.8pp below goal</span></td></tr>
+        <tr><td><strong>Offline Correctness</strong></td><td class="num">69.1%</td><td class="num">72.9%</td><td>—</td><td><span class="delta down">↓ −3.8pp</span></td><td><span class="pill pa">WATCH — monitor</span></td></tr>
+        <tr><td><strong>No-Hallucination Rate</strong></td><td class="num">90.7%</td><td class="num">97.6%</td><td>—</td><td><span class="delta down">↓ −6.9pp</span></td><td><span class="pill pr">REGRESSION — root cause unknown</span></td></tr>
+        <tr><td><strong>TTFMT</strong></td><td>~1.4s</td><td>—</td><td>continuing ↓</td><td><span class="delta up">↓ 36% this month · 9% WoW</span></td><td><span class="pill pg">GREEN — strong trajectory</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="margin-bottom:4px">
+    <div class="sh">Monetization</div>
+    <table class="tbl">
+      <colgroup>
+        <col style="width:210px">
+        <col style="width:170px">
+        <col style="width:260px">
+        <col>
+      </colgroup>
+      <thead><tr><th>Metric</th><th style="text-align:center">Current</th><th>Target / Benchmark</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Add-on All-Time CVR</strong></td><td class="num">20.0%</td><td>—</td><td><span class="pill pg">GREEN — strong purchase funnel</span></td></tr>
+        <tr><td><strong>WoW Funnel CVR (Jun wk1)</strong></td><td class="num" style="color:var(--red)">11.6% <span style="font-size:11px;font-weight:400">↓ −2.7pp</span></td><td>Prior week: 14.3% · Root cause: NTTF denominator dilution from expanded quota message reach to lower-intent users</td><td><span class="pill pr">WATCH — NTTF cohort experiments driving dilution</span></td></tr>
+        <tr><td><strong>US Active Subs</strong></td><td class="num">1,254 (1,424 total)</td><td>88% retained · 12% cumulative churn (170 cancels)</td><td><span class="pill pb">TRACKING</span></td></tr>
+        <tr><td><strong>Intl CVR (CA/UK/AU, mid-May)</strong></td><td class="num">20.8% (41 subs)</td><td>US benchmark 18.3%</td><td><span class="pill pg">GREEN — +2.5pts above US</span></td></tr>
+        <tr><td><strong>Monthly Churn (May)</strong></td><td class="num">5.6%</td><td>—</td><td><span class="pill pt">Older cohort mix — not dissatisfaction</span></td></tr>
+        <tr><td><strong>IAS Firms (monetizable)</strong></td><td class="num">4.4K firms</td><td>4K IG goal before July 1 billing</td><td><span class="pill pg">GREEN — ahead of goal</span></td></tr>
+        <tr><td><strong>WW QBO Customer Growth (May)</strong></td><td class="num">+5% Y/Y</td><td>US GNS 113 ITF · Digital Acq 118 ITF</td><td><span class="pill pg">GREEN — E3B conversions driving</span></td></tr>
+      </tbody>
+    </table>
+
+    <div class="cpair">
+      <div class="callout w">
+        <div class="clbl">Wins</div>
+        1M engaged US users milestone · Jun 9: 10K traces/hr — highest traffic day ever · Intl CVR beats US benchmark · CSAT highest since launch · V2 opt-out halved vs V1 · IAS ahead of July 1 billing goal
+      </div>
+      <div class="callout x">
+        <div class="clbl">Watch</div>
+        May Full repeat 25.3% — 1pt below 26.3% target · 3 high-volume experiments paused mid-May — watch 2H engagement trajectory
+      </div>
+    </div>
+  </div>
+
+<div style="margin-top:24px">
+      <div class="sh" style="margin-top:18px">Engagement Campaigns — ELM Status (Product Marketing)</div>
+    <div style="font-size:11.5px;color:var(--gray-700);margin-bottom:10px"></div>
+    <table class="tbl" style="margin-bottom:10px">
+      <colgroup><col style="width:155px"><col style="width:100px"><col><col style="width:160px"><col style="width:75px"></colgroup>
+      <thead>
+        <tr>
+          <th>Campaign</th>
+          <th>Window</th>
+          <th>Goal</th>
+          <th>Result</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>ELM 9444</strong> — Brainstorming &amp; Analytics</td>
+          <td>Apr 20 – Jun 30</td>
+          <td>First-time use · Chat engagement · Repeat usage</td>
+          <td>Chat Engagement: <strong>105.11 ITC</strong> · Repeat Usage (2+ engaged days): <strong>105.17 ITC</strong></td>
+          <td><span class="pill pg">LIVE · ON TRACK</span></td>
+        </tr>
+        <tr>
+          <td><strong>ELM 9916</strong> — AI Takes Action NTTF: Bank Connect</td>
+          <td>Apr 22 – Jun 25</td>
+          <td>First-time use via Bank Connect entry point</td>
+          <td>Treatment A (Evergreen): CTR <strong>2.41%</strong> · Treatment B (Intuit Intelligence): CTR <strong>0.91%</strong> — Treatment A outperforming</td>
+          <td><span class="status-pill sp-yellow">WATCH · A&gt;B</span></td>
+        </tr>
+        <tr style="background:#F1F8E9">
+          <td><strong>ELM 9490</strong> — Create Invoice (Supernova)</td>
+          <td>July launch</td>
+          <td>Repeat engagement via recurring invoicing behavior</td>
+          <td>Requires PM/PD support to build attributes. Unlike first-time use campaigns, invoicing is recurring — highest repeat engagement potential of the three.</td>
+          <td><span class="status-pill sp-blocked">NEEDS PM/PD SUPPORT</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="background:#FFF8E1;border:1px solid #FFE082;border-radius:var(--radius);padding:7px 12px;font-size:11px;color:#5D4037;margin-bottom:4px">
+      <strong>ELM 9916 signal to watch:</strong> The Intuit Intelligence treatment (Treatment B) is underperforming the evergreen experience by 1.5pp in CTR. This is the reverse of what we'd want — worth a closer look at message framing, surface placement, or audience before the campaign closes Jun 25.
+    </div>
+    <div style="font-size:10px;color:var(--gray-500);margin-bottom:4px">Source: Product Marketing team · Slack update Jun 9, 2026 · Dashboards: ELM 9444 (github.intuit.com/jlee81) · ELM 9916 (github.intuit.com/spatkar)</div>
+    </div>
+</div><!-- /subtab-met -->
+  </div>
+</div>
+</div>
+<div class="subtab-panel" id="subtab-acc" style="display:none">
+<div id="accuracy" style="scroll-margin-top:115px"></div>
+<div class="section">
+  <div class="sec-hd">
+    <div class="sec-num">3</div>
+    <span class="sec-title">Latency &amp; Accuracy — Detail</span>
+    <span class="sec-sub">Wall Clock P95 44.45s ↓ · TTFMT P95 2.78s ⚠ vs 2.00s target · TRT P95 39.53s ↓ · Online CQ 92.0% ✓ · No-Hallucination 90.7%</span>
+  </div>
+  <div class="sec-body">
+
+    <!-- ── LATENCY DEEP DIVE ── -->
+    <div class="sh">Latency KPIs — Jun 1–7, 2026 · 483,882 Messages · Source: de.dash.a.intuit.com/omni-latency</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px">
+      <div style="background:var(--amber-lt);border-radius:var(--radius);padding:12px 14px;border:1px solid #FFCC80">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--amber);margin-bottom:3px">Wall Clock (P95)</div>
+        <div style="font-size:24px;font-weight:900;color:var(--amber)">44.45s</div>
+        <div style="font-size:10.5px;color:var(--amber)">prev 50.09s · <strong>−11.3% WoW</strong> · vs 30s target · above target</div>
+      </div>
+      <div style="background:#FFF3F3;border-radius:var(--radius);padding:12px 14px;border:1px solid #FFCDD2">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--red);margin-bottom:3px">TTFMT (P95) ⚠</div>
+        <div style="font-size:24px;font-weight:900;color:var(--red)">2.78s</div>
+        <div style="font-size:10.5px;color:var(--red)">prev 2.61s · <strong>+6.8% WoW ↑</strong> · vs 2.00s target · NEEDS ATTENTION</div>
+      </div>
+      <div style="background:var(--green-lt);border-radius:var(--radius);padding:12px 14px;border:1px solid #A5D6A7">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--green);margin-bottom:3px">TRT (P95)</div>
+        <div style="font-size:24px;font-weight:900;color:var(--green)">39.53s</div>
+        <div style="font-size:10.5px;color:var(--green-md)">prev 44.86s · <strong>−11.9% WoW</strong> · improving</div>
+      </div>
+      <div style="background:var(--gray-50,#fafafa);border-radius:var(--radius);padding:12px 14px;border:1px solid var(--gray-200)">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--gray-600);margin-bottom:3px">Messages (7D)</div>
+        <div style="font-size:24px;font-weight:900;color:var(--gray-900)">483,882</div>
+        <div style="font-size:10.5px;color:var(--gray-500)">prev 412,329 · <strong>+17.4% WoW</strong> · data through Jun 7</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px">
+      <div style="background:var(--green-lt);border-radius:var(--radius);padding:12px 14px;border:1px solid #A5D6A7">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--green);margin-bottom:4px">TRT P95 — FAST tier <span style="font-weight:400;color:var(--gray-500)">57k msgs (13%)</span></div>
+        <div style="font-size:22px;font-weight:900;color:var(--green)">22.38s</div>
+        <div style="font-size:10.5px;color:var(--green-md)">Target 15s · Breach 11.7% · improving</div>
+      </div>
+      <div style="background:var(--amber-lt);border-radius:var(--radius);padding:12px 14px;border:1px solid #FFCC80">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--amber);margin-bottom:4px">TRT P95 — STANDARD tier <span style="font-weight:400;color:var(--gray-500)">212k msgs (50%)</span></div>
+        <div style="font-size:22px;font-weight:900;color:var(--amber)">41.34s</div>
+        <div style="font-size:10.5px;color:var(--amber)">Target 35s · Breach 9.2% · above target</div>
+      </div>
+      <div style="background:var(--green-lt);border-radius:var(--radius);padding:12px 14px;border:1px solid #A5D6A7">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--green);margin-bottom:4px">TRT P95 — COMPLEX tier <span style="font-weight:400;color:var(--gray-500)">159k msgs (37%)</span></div>
+        <div style="font-size:22px;font-weight:900;color:var(--green)">41.27s</div>
+        <div style="font-size:10.5px;color:var(--green-md)">Target 55s · Breach 1.5% · well within target</div>
+      </div>
+    </div>
+
+    <div class="two-col" style="margin-bottom:14px">
+      <div>
+        <div class="sh" style="margin-top:0">Latency by Response Tier (Target SLAs)</div>
+        <table class="tbl">
+      <colgroup><col style="width:130px"><col style="width:130px"><col style="width:130px"><col></colgroup>
+          <thead><tr><th>Tier</th><th>SLA Target</th><th>P95 (Jun 1–7)</th><th>Breach %</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Fast</strong> <span style="font-size:10px;color:var(--gray-500)">57k msgs · 13%</span></td><td class="num">≤15s</td><td class="num">22.38s</td><td class="num" style="color:var(--amber)">11.7%</td><td><span class="pill pa">WATCH</span></td></tr>
+            <tr><td><strong>Standard</strong> <span style="font-size:10px;color:var(--gray-500)">212k msgs · 50%</span></td><td class="num">≤35s</td><td class="num">41.34s</td><td class="num" style="color:var(--amber)">9.2%</td><td><span class="pill pa">WATCH — above target</span></td></tr>
+            <tr><td><strong>Complex</strong> <span style="font-size:10px;color:var(--gray-500)">159k msgs · 37%</span></td><td class="num">≤55s</td><td class="num">41.27s</td><td class="num" style="color:var(--green)">1.5%</td><td><span class="pill pg">GREEN</span></td></tr>
+          </tbody>
+        </table>
+              </div>
+      <div>
+        <div class="sh" style="margin-top:0">Latency Improvements Shipped This Sprint</div>
+        <table class="tbl">
+      <colgroup><col style="width:220px"><col><col style="width:90px"></colgroup>
+          <thead><tr><th>Improvement</th><th>Impact</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Speculative actions (fast-track tools)</td><td>4–7s faster retrieval · +0.01 CQ</td><td><span class="pill pg">LIVE</span></td></tr>
+            <tr><td>Trajectory caching</td><td>1.5–3s savings non-BI queries</td><td><span class="pill pa">RAMPING</span></td></tr>
+                        <tr><td>Adaptive depth orchestration</td><td>Reduces unnecessary compute for simple queries</td><td><span class="pill pb">IN PROGRESS</span></td></tr>
+          </tbody>
+        </table>
+        <div class="note">WoW overall latency spike under investigation — analytics running complexity classifier + top-tool review. P0 decision EOW if spike confirmed structural.</div>
+      </div>
+    </div>
+
+    <hr class="divider">
+    <!-- ── ACCURACY DEEP DIVE ── -->
+    <div class="sh">V2 Accuracy vs V1 — Production Quality is Clearly Better</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px">
+      <div style="background:var(--green-lt);border-radius:var(--radius);padding:12px 14px;border:1px solid #A5D6A7">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--green);margin-bottom:3px">Online CQ</div>
+        <div style="font-size:22px;font-weight:900;color:var(--green)">92.0%</div>
+        <div style="font-size:10.5px;color:var(--green-md)">V1 ~88% · <strong>+4pp vs V1</strong></div>
+      </div>
+      <div style="background:var(--green-lt);border-radius:var(--radius);padding:12px 14px;border:1px solid #A5D6A7">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--green);margin-bottom:3px">Human Eval</div>
+        <div style="font-size:22px;font-weight:900;color:var(--green)">92.7%</div>
+        <div style="font-size:10.5px;color:var(--green-md)">V1 75.4% · <strong>+17.3pp vs V1</strong></div>
+      </div>
+      <div style="background:var(--green-lt);border-radius:var(--radius);padding:12px 14px;border:1px solid #A5D6A7">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--green);margin-bottom:3px">Positive Verbatims</div>
+        <div style="font-size:22px;font-weight:900;color:var(--green)">~8.5%</div>
+        <div style="font-size:10.5px;color:var(--green-md)">V1 ~4% · <strong>~2× V1</strong></div>
+      </div>
+      <div style="background:var(--green-lt);border-radius:var(--radius);padding:12px 14px;border:1px solid #A5D6A7">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--green);margin-bottom:3px">V2 Opt-Out Rate</div>
+        <div style="font-size:22px;font-weight:900;color:var(--green)">8–9%</div>
+        <div style="font-size:10.5px;color:var(--green-md)">V1 17–18% · <strong>Halved</strong></div>
+      </div>
+    </div>
+
+    <div class="sh">Week-over-Week Accuracy Trend (V2)</div>
+    <div style="overflow-x:auto;max-width:100%"><table class="tbl" style="margin-bottom:14px;table-layout:fixed;width:100%">
+      <colgroup><col style="width:18%"><col style="width:9%"><col style="width:9%"><col style="width:9%"><col style="width:9%"><col style="width:9%"><col style="width:11%"><col style="width:9%"><col style="width:17%"></colgroup>
+      <thead>
+        <tr><th>Metric</th><th class="num">4/17</th><th class="num">4/24</th><th class="num">5/1</th><th class="num">5/8</th><th class="num">5/15</th><th class="num">6/2 (latest)</th><th>Goal</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Offline CQ@5</strong></td><td class="num">81.0%</td><td class="num">85.5%</td><td class="num">83.5%</td><td class="num">84.2%</td><td class="num">85.5%</td><td class="num"><strong style="color:var(--amber)">83.2%</strong></td><td>≥88%</td><td><span class="pill pa">WATCH — 4.8pp gap</span></td></tr>
+        <tr><td><strong>Offline Correctness</strong></td><td class="num">—</td><td class="num">74.9%</td><td class="num">69.4%</td><td class="num">70.7%</td><td class="num">72.9%</td><td class="num"><strong style="color:var(--amber)">69.1%</strong></td><td>—</td><td><span class="pill pa">WATCH — −3.8pp WoW</span></td></tr>
+        <tr><td><strong>Online CQ</strong></td><td class="num">90.8%</td><td class="num">90.1%</td><td class="num">90.1%</td><td class="num">90.1%</td><td class="num">89.7%</td><td class="num"><strong style="color:var(--green)">92.0%</strong></td><td>≥88%</td><td><span class="pill pg">GREEN — above goal</span></td></tr>
+        <tr><td><strong>Human Eval</strong></td><td class="num">88.0%</td><td class="num">86.4%</td><td class="num">86.4%</td><td class="num">86.4%</td><td class="num">85.8%</td><td class="num"><strong style="color:var(--green)">92.7%</strong></td><td>—</td><td><span class="pill pg">GREEN — +6.9pp WoW</span></td></tr>
+        <tr><td><strong>No-Hallucination</strong></td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">97.6%</td><td class="num"><strong style="color:var(--red)">90.7%</strong></td><td>—</td><td><span class="pill pr">REGRESSION — cause unknown</span></td></tr>
+      </tbody>
+    </table></div>
+
+    <div style="overflow-x:auto;max-width:100%;">
+    <div class="sh">L1 Module CQ@5 vs 88% Goal (6/2 run)</div>
+    <div style="margin-bottom:4px;display:grid;grid-template-columns:150px 1fr 60px minmax(120px,1fr);gap:8px;font-size:9.5px;font-weight:700;text-transform:uppercase;color:var(--gray-500)">
+      <div>Module</div><div>CQ@5 vs 88% goal threshold (|)</div><div>Correctness</div><div>Status</div>
+    </div>
+    <div class="mod-rows">
+      <div class="mod-row"><div style="font-size:11.5px;font-weight:600">Paying Bills</div><div class="mod-outer"><div class="mod-inner g" style="width:93.1%"><span>93.1%</span></div><div class="mod-goal"></div></div><div style="font-size:11.5px;font-weight:700;color:var(--green)">90.4%</div><span class="pill pg">Strongest module</span></div>
+      <div class="mod-row"><div style="font-size:11.5px;font-weight:600">Expense Management</div><div class="mod-outer"><div class="mod-inner g" style="width:92.5%"><span>92.5%</span></div><div class="mod-goal"></div></div><div style="font-size:11.5px;font-weight:700;color:var(--green)">87.5%</div><span class="pill pg">Strong</span></div>
+      <div class="mod-row"><div style="font-size:11.5px;font-weight:600">Customer Lifecycle</div><div class="mod-outer"><div class="mod-inner g" style="width:90.9%"><span>90.9%</span></div><div class="mod-goal"></div></div><div style="font-size:11.5px;font-weight:700;color:var(--green)">80.9%</div><span class="pill pg">Good</span></div>
+      <div class="mod-row"><div style="font-size:11.5px;font-weight:600">Employee Payroll</div><div class="mod-outer"><div class="mod-inner a" style="width:84.9%"><span>84.9%</span></div><div class="mod-goal"></div></div><div style="font-size:11.5px;font-weight:700;color:var(--amber)">71.6%</div><span class="pill pa">Scream Test outage — not regression</span></div>
+      <div class="mod-row"><div style="font-size:11.5px;font-weight:600">Invoicing</div><div class="mod-outer"><div class="mod-inner r" style="width:82%"><span>&lt;85%</span></div><div class="mod-goal"></div></div><div style="font-size:11.5px;font-weight:700;color:var(--red)">41.8%</div><span class="pill pr">Cascading eval fail · fix in PR</span></div>
+      <div class="mod-row"><div style="font-size:11.5px;font-weight:600">Business Analytics</div><div class="mod-outer"><div class="mod-inner r" style="width:80%"><span>&lt;85%</span></div><div class="mod-goal"></div></div><div style="font-size:11.5px;font-weight:700;color:var(--red)">55.3%</div><span class="pill pr">reporting_skill 45.3% — structural drag</span></div>
+      <div class="mod-row"><div style="font-size:11.5px;font-weight:600">Product Help & Support</div><div class="mod-outer"><div class="mod-inner r" style="width:79%"><span>&lt;85%</span></div><div class="mod-goal"></div></div><div style="font-size:11.5px;font-weight:700;color:var(--red)">48.2%</div><span class="pill pr">help_questions 46.5% — structural drag</span></div>
+    </div>
+    <div class="note" style="margin:6px 0 14px">Vertical marker = 88% goal. Payroll and Invoicing drops are infra/eval failures — not product regressions.</div>
+    </div>
+
+    <div class="skills-note" style="background:var(--amber-lt);border:1px solid #FFCC80;border-radius:var(--radius);padding:7px 12px;font-size:11.5px;color:var(--amber);display:flex;align-items:center;gap:6px;margin-bottom:10px">
+      Skills CQ data refresh in progress. Table below reflects 5/28 run. Updated submissions due from domain PMs by 5pm today — rows marked as No Data remain outstanding.
+    </div>
+
+    <div class="sh">CQ by Skill (5/28 run) — Grouped by Status</div>
+    <table class="tbl">
+      <colgroup><col style="width:250px"><col style="width:100px"><col style="width:155px"><col></colgroup>
+      <thead><tr><th>Skills</th><th>CQ Range</th><th>PM / Driver</th><th>Next Steps</th></tr></thead>
+      <tbody>
+        <tr class="grp"><td colspan="4">INFRA OUTAGES — not product regressions</td></tr>
+        <tr>
+          <td>Payroll: compensation_earned · enter_hours · review_payroll · manage-payroll-run · set-base-pay · payroll_help</td>
+          <td class="num" style="color:var(--red)">54.5–78.1% ↓<br><span style="font-size:10px;color:var(--gray-500)">(was 80–95%)</span></td>
+          <td>Alok Bapat<br><span style="font-size:10.5px;color:var(--gray-500)">Scream Test downstream offline</span></td>
+          <td>Verify downstream restored; rerun eval to confirm recovery</td>
+        </tr>
+        <tr>
+          <td>Invoicing: send · create · duplicate · update · invoice write-off</td>
+          <td class="num" style="color:var(--amber)">59–81% ↓<br><span style="font-size:10px;color:var(--gray-500)">(was 68–96%)</span></td>
+          <td>Rene Huang<br><span style="font-size:10.5px;color:var(--gray-500)">One broken eval → cascading failure</span></td>
+          <td>Merge open PR → expect ~86%</td>
+        </tr>
+        <tr class="grp"><td colspan="4">BELOW THRESHOLD — fixes in progress</td></tr>
+        <tr><td>Payroll Tax (payroll_tax_setup)</td><td class="num" style="color:var(--amber)">79.3%</td><td>Ram Nivas Choudhary · misrouting non-payroll queries</td><td>Front matter improvements + GT enhancement</td></tr>
+        <tr><td>Lending (lending_skill)</td><td class="num" style="color:var(--amber)">80.0% (chronic)</td><td>Colleen Kestner · skill_not_called ~35% of tests</td><td>Improve skill description · IBCC partnership on credit card queries</td></tr>
+        <tr><td>skill-report</td><td class="num" style="color:var(--amber)">73.9%</td><td>Sharon George · GT data corrupted</td><td>Full GT rebuild in progress</td></tr>
+        <tr><td>portfolio_insights</td><td class="num" style="color:var(--amber)">79.9%</td><td>Karla Uribe · GT data not frozen</td><td>Dedicated account with frozen data in progress</td></tr>
+        <tr><td>project_plan</td><td class="num" style="color:var(--amber)">80.0%</td><td>Tilak Vaidya · duplicate creates on 5/28</td><td>Root cause investigation in progress</td></tr>
+        <tr><td>Help Skill</td><td class="num" style="color:var(--amber)">82.0%</td><td>Gautham Muthukumar · GT issues + content team capacity reduced</td><td>Identifying domain experts for GT validation</td></tr>
+        <tr class="grp"><td colspan="4">NO DATA — awaiting 5/28 submissions (due 5pm today)</td></tr>
+        <tr style="color:var(--red)">
+          <td>Tommy Wang (5 accounting) · Tom Menzies (5 skills) · Joseph Lasee (4 invoice write-off) · Ashwin Bharadwaj (Bank Connect) · Adolfo Fernandez (uk_income_tax_digital) · Alok Bapat (review_payroll v1/v2)<br><em style="font-size:11px">Unassigned: financial_business_advisor · financial_planning · panel_preferences · skill_creator · file_conversation · report-0_0_2</em></td>
+          <td class="num">—</td>
+          <td>Multiple / Unassigned</td>
+          <td>Each PM submits CQ data by 5pm. Unassigned skills need owners assigned before next CPR.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="cpair" style="margin-top:14px">
+      <div class="callout w">
+        <div class="clbl">Wins</div>
+        Online CQ 92.0% and Human Eval 92.7% both above target — V2 production quality is measurably better than V1 on every tracked dimension. Payroll and Invoicing drops are infrastructure and eval failures, not product regressions.
+      </div>
+      <div class="callout x">
+        <div class="clbl">Watch</div>
+        No-Hallucination 90.7% from 97.6% — root cause must be identified. Offline CQ@5 83.2% vs 88% goal is a 4.8pp gap. Business Analytics and Product Help are structurally below threshold. 20+ skills with no eval data create release-readiness blind spots.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── SOURCE STRIP ──────────────────────────────── -->
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 4 · KEY DATES
+     ═══════════════════════════════════════ -->
+</div><!-- /subtab-acc -->
+</div><!-- /tab-2 -->
+<div class="tab-panel" id="tab-3" style="display:none">
+<div id="dates" style="scroll-margin-top:115px"></div>
+<div class="section">
+  <div class="sec-hd">
+    <div class="sec-num">4</div>
+    <span class="sec-title">Upcoming Milestones — Jun 9 to July GA</span>
+    <span class="sec-sub">Source: July Release Key Dates &amp; Milestones (Google Sheets)</span>
+  </div>
+  <div class="sec-body">
+
+
+    <!-- ── VISUAL TIMELINE ── -->
+    <div style="margin:0 0 24px;padding:20px 24px 8px;background:#f8fafc;border-radius:8px;border:1px solid #e2e8f0;overflow:visible">
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--gray-500);letter-spacing:.5px;margin-bottom:18px">Jun 9 → Aug 3 · Today marked ▼</div>
+      <div style="position:relative;height:72px;margin:0 12px">
+        <!-- Track line -->
+        <div style="position:absolute;top:18px;left:0;right:0;height:4px;background:#e2e8f0;border-radius:2px"></div>
+        <!-- Progress fill to today (Jun 9 = 0%) -->
+        <div style="position:absolute;top:18px;left:0;width:0%;height:4px;background:var(--blue);border-radius:2px"></div>
+
+        <!-- Jun 9 TODAY -->
+        <div style="position:absolute;left:0%;transform:translateX(-50%)">
+          <div style="width:14px;height:14px;border-radius:50%;background:var(--blue);border:3px solid #fff;box-shadow:0 0 0 2px var(--blue);margin:12px auto 0;position:relative"></div>
+          <div style="text-align:center;margin-top:6px;font-size:9px;font-weight:800;color:var(--blue);white-space:nowrap">Jun 9<br><span style="font-weight:600;color:var(--gray-500)">TODAY</span></div>
+        </div>
+
+        <!-- Jun 30 Dev Complete -->
+        <div style="position:absolute;left:38%;transform:translateX(-50%)">
+          <div style="width:14px;height:14px;border-radius:50%;background:#43A047;border:3px solid #fff;box-shadow:0 0 0 2px #43A047;margin:12px auto 0"></div>
+          <div style="text-align:center;margin-top:6px;font-size:9px;font-weight:800;color:#2e7d32;white-space:nowrap">Jun 30<br><span style="font-weight:500;color:var(--gray-600)">Dev Complete</span></div>
+        </div>
+
+        <!-- Jul 3 Stability Gate -->
+        <div style="position:absolute;left:44%;transform:translateX(-50%)">
+          <div style="width:14px;height:14px;border-radius:50%;background:#F9A825;border:3px solid #fff;box-shadow:0 0 0 2px #F9A825;margin:12px auto 0"></div>
+          <div style="text-align:center;margin-top:6px;font-size:9px;font-weight:800;color:#e65100;white-space:nowrap">Jul 3<br><span style="font-weight:500;color:var(--gray-600)">Stable Gate</span></div>
+        </div>
+
+        <!-- Jul 15 Code Freeze -->
+        <div style="position:absolute;left:65%;transform:translateX(-50%)">
+          <div style="width:14px;height:14px;border-radius:50%;background:#90a4ae;border:3px solid #fff;box-shadow:0 0 0 2px #90a4ae;margin:12px auto 0"></div>
+          <div style="text-align:center;margin-top:6px;font-size:9px;font-weight:800;color:#546e7a;white-space:nowrap">Jul 15<br><span style="font-weight:500;color:var(--gray-600)">Code Freeze</span></div>
+        </div>
+
+        <!-- Jul 22 E2E Sign-Off -->
+        <div style="position:absolute;left:78%;transform:translateX(-50%)">
+          <div style="width:14px;height:14px;border-radius:50%;background:#90a4ae;border:3px solid #fff;box-shadow:0 0 0 2px #90a4ae;margin:12px auto 0"></div>
+          <div style="text-align:center;margin-top:6px;font-size:9px;font-weight:800;color:#546e7a;white-space:nowrap">Jul 22<br><span style="font-weight:500;color:var(--gray-600)">E2E Sign-Off</span></div>
+        </div>
+
+        <!-- Jul 24 GA ★ -->
+        <div style="position:absolute;left:82%;transform:translateX(-50%)">
+          <div style="width:20px;height:20px;border-radius:50%;background:var(--navy);border:3px solid #fff;box-shadow:0 0 0 2px var(--navy);margin:9px auto 0;display:flex;align-items:center;justify-content:center">
+            <span style="color:#FFD700;font-size:9px;line-height:1">★</span>
+          </div>
+          <div style="text-align:center;margin-top:5px;font-size:9px;font-weight:800;color:var(--navy);white-space:nowrap">Jul 24<br><span style="font-weight:700;color:var(--navy)">GA 🚀</span></div>
+        </div>
+
+        <!-- Aug 3 GTM Go Big -->
+        <div style="position:absolute;left:100%;transform:translateX(-50%)">
+          <div style="width:14px;height:14px;border-radius:50%;background:#90a4ae;border:3px solid #fff;box-shadow:0 0 0 2px #90a4ae;margin:12px auto 0"></div>
+          <div style="text-align:center;margin-top:6px;font-size:9px;font-weight:800;color:#546e7a;white-space:nowrap">Aug 3<br><span style="font-weight:500;color:var(--gray-600)">GTM Go Big</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sh" style="margin-bottom:8px">Milestone Detail</div>
+    <table class="tbl" style="font-size:11px;">
+      <colgroup><col style="width:70px"><col><col style="width:140px"><col style="width:90px"><col style="width:80px"></colgroup>
+      <thead><tr><th>Date</th><th>Milestone</th><th>Function</th><th>Track</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Jun 30</strong></td><td>Dev complete: latency improvements (7 platform items) + dashboarding live</td><td>PD · Steven / Aharon</td><td>PMF-Latency</td><td><span class="pill pg">GREEN</span></td></tr>
+        <tr><td><strong>Jun 30</strong></td><td>Dev complete: platform accuracy improvements (Memory &amp; Personalization)</td><td>PD · Steven</td><td>PMF-Accuracy</td><td><span class="pill pg">GREEN</span></td></tr>
+        <tr><td><strong>Jul 3</strong></td><td>Latency stable — no new breaches; all tickets resolved across skill teams</td><td>All</td><td>PMF-Latency</td><td><span class="pill pa">YELLOW</span></td></tr>
+        <tr><td><strong>Jul 3</strong></td><td>Accuracy stable — no new correctness breaches; skill teams resolved</td><td>All</td><td>PMF-Accuracy</td><td><span class="pill pa">YELLOW</span></td></tr>
+        <tr><td><strong>Jul 15</strong></td><td>Required Code Freeze — only critical quality fixes after this</td><td>GBSG</td><td>All</td><td><span class="pill" style="background:#e0e0e0;color:#555">NOT STARTED</span></td></tr>
+        <tr><td><strong>Jul 22</strong></td><td>E2E Sign-Off — GTM &amp; Product Go/No-Go</td><td>Leads</td><td>All</td><td><span class="pill" style="background:#e0e0e0;color:#555">NOT STARTED</span></td></tr>
+        <tr><td><strong>Jul 24 ★</strong></td><td>Product GA — Go Live</td><td>Leads</td><td>All</td><td><span class="pill" style="background:#e0e0e0;color:#555">NOT STARTED</span></td></tr>
+        <tr><td><strong>Aug 1</strong></td><td>Pricing Action</td><td>GTM</td><td>Monetization</td><td><span class="pill" style="background:#e0e0e0;color:#555">NOT STARTED</span></td></tr>
+        <tr><td><strong>Aug 3</strong></td><td>GTM Go Big Campaign</td><td>GTM</td><td>Growth</td><td><span class="pill" style="background:#e0e0e0;color:#555">NOT STARTED</span></td></tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+<div id="execution" style="scroll-margin-top:115px"></div>
+<div class="section">
+  <div class="sec-hd">
+    <div class="sec-num">5</div>
+    <span class="sec-title">Execution &amp; Delivery</span>
+    <span class="sec-sub">Source: July Release Milestones · Latency SLA Breach Tracker · Latency Improvements Tracker</span>
+  </div>
+  <div class="sec-body">
+
+    <div class="sh">Latency Improvements — July Release (P0 Items)</div>
+    <table class="tbl" style="font-size:11px;">
+      <colgroup><col style="width:200px"><col><col style="width:80px"><col style="width:80px"></colgroup>
+      <thead><tr><th>Feature</th><th>Notes</th><th>Priority</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Progressive Updates</strong></td><td>Streaming partial results to reduce perceived wait</td><td>P0</td><td><span class="pill pg">COMPLETE</span></td></tr>
+        <tr><td><strong>ReAct Agent/Planner Parallelization</strong></td><td>Parallel planning → faster orchestration</td><td>P0</td><td><span class="pill pg">COMPLETE</span></td></tr>
+        <tr><td><strong>Trajectory Caching</strong></td><td>1.5–3s savings for non-BI queries · ramping</td><td>P0</td><td><span class="pill pg">COMPLETE</span></td></tr>
+        <tr><td><strong>Richer CoT UI (Web + Native)</strong></td><td>Real-time reasoning narration → perceived-latency win</td><td>P0</td><td><span class="pill pg">COMPLETE</span></td></tr>
+        <tr><td><strong>BI Skill Optimization</strong></td><td>Highest-volume skill; optimized tool path</td><td>P0</td><td><span class="pill pg">COMPLETE</span></td></tr>
+        <tr><td><strong>Accelerating Help</strong></td><td>Help skill latency reduction — in progress</td><td>P0</td><td><span class="pill pb">IN PROGRESS</span></td></tr>
+        <tr><td><strong>Intent Classification/Matching</strong></td><td>Deferred from July release</td><td>P0</td><td><span class="pill pa">DEFERRED</span></td></tr>
+        <tr><td><strong>Multi-turn Optimization</strong></td><td>Not yet started; due 6/30</td><td>P0</td><td><span class="pill" style="background:#e0e0e0;color:#555">NOT STARTED</span></td></tr>
+      </tbody>
+    </table>
+
+    <div class="sh" style="margin-top:16px">Open SLA Breach Tickets — P0 Items Requiring Resolution by Jul 3</div>
+    <table class="watchlist">
+      <colgroup><col style="width:200px"><col style="width:90px"><col><col style="width:140px"><col style="width:110px"></colgroup>
+      <thead>
+        <tr>
+          <th>Skill / Team</th>
+          <th>Status</th>
+          <th>Latest Update</th>
+          <th>Ticket / Owner</th>
+          <th>Fix Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="item-name">Finance Agent (BI)<span class="sub">financial_planning · 60–117s avg, target 35s</span></td>
+          <td><span class="status-pill sp-yellow">IN REVIEW</span></td>
+          <td>Rohit perf PR #68: sandbox tests ~40s avg (from ~80s); Byron driving e2e jam + prod go/no-go</td>
+          <td>MMDFY-3307 · Rohit / Byron</td>
+          <td>Jun 9 (committed)</td>
+        </tr>
+        <tr>
+          <td class="item-name">Delphi — Financial Advisor<span class="sub">financial_business_advisor · 72.9s, target 35s</span></td>
+          <td><span class="status-pill sp-red">ESCALATED</span></td>
+          <td>P95 has gone to 72s; additional violations seen. Must fix by 7/3 — escalating to P0.</td>
+          <td>DELPHIAI-713 · Delphi team</td>
+          <td>Jul 3 (hard deadline)</td>
+        </tr>
+        <tr>
+          <td class="item-name">Payroll — Review Payroll<span class="sub">review_payroll · 68.3s spike, target 55s complex</span></td>
+          <td><span class="status-pill sp-yellow">OPEN</span></td>
+          <td>Parth building cross-skill fix (review_payroll prioritized), then Jiajie PRs</td>
+          <td>PAYC-20389 · Parth / Jiajie</td>
+          <td>Jul 10</td>
+        </tr>
+        <tr>
+          <td class="item-name">BI — Report Skill<span class="sub">report/data/graphs/BI skills · >55s complex SLA</span></td>
+          <td><span class="status-pill sp-yellow">IN REVIEW</span></td>
+          <td>Fix proposed on report skill; timeline and scope lock for all other skills pending</td>
+          <td>MMDFY-3359 · BI team</td>
+          <td>Jul 10</td>
+        </tr>
+        <tr>
+          <td class="item-name">No-Hallucination regression<span class="sub">97.6% → 90.7% · root cause unknown</span></td>
+          <td><span class="status-pill sp-red">REGRESSION</span></td>
+          <td>Largest accuracy trust risk before GA. Must identify root cause before July readiness checkpoint.</td>
+          <td>Eval team · TBD</td>
+          <td>Before Jul 3 gate</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+</div>
+</div><!-- /tab-3 -->
+<div class="tab-panel" id="tab-4" style="display:none">
+
+<div id="sources-reveal">
+<div id="sources" style="scroll-margin-top:115px"></div>
+<div class="section">
+  <div class="sec-hd">
+    <div class="sec-num">6</div>
+    <span class="sec-title">Data &amp; VOC Sources</span>
+    <span class="sec-sub">Every metric and quote cited in this document — sourced from multiple internal documents listed below</span>
+  </div>
+  <div class="sec-body">
+
+    <div class="sh">Primary Source Documents</div>
+    <table class="tbl" style="margin-bottom:20px;table-layout:fixed;width:100%">
+      <colgroup>
+        <col style="width:16%"><col style="width:11%"><col style="width:7%"><col style="width:53%"><col style="width:13%">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Source</th>
+          <th>Owner / Location</th>
+          <th>Date</th>
+          <th>What It Covers</th>
+          <th>Used In</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong><a href="https://intuit.enterprise.slack.com/canvas/F0B15CCL0SE" target="_blank" style="color:var(--navy)">Chase's Slack Canvas</a></strong><br><span style="font-size:10px;color:var(--gray-500)">F0B15CCL0SE</span></td>
+          <td>Chase (PM)</td>
+          <td>Jun 9, 2026</td>
+          <td>TTFMT, Repeat Engagement, CSAT, Online CQ, V2 ramp (2M customers), Add-On Subscribers, AI Opt-Out, ELM campaigns, International CVR, weekly scorecard</td>
+          <td>All sections</td>
+        </tr>
+        <tr>
+          <td><strong><a href="https://docs.google.com/presentation/d/1kvS63F20nNNPkXX03gmQbqIokm0raW3d87m9VCqfvVU/edit?slide=id.g3e8bcefa9fe_1_4#slide=id.g3e8bcefa9fe_1_4" target="_blank" style="color:var(--navy)">Omni Overview Deck</a></strong></td>
+          <td>Omni Team · Google Drive</td>
+          <td>Jun 2026</td>
+          <td>V1→V2 performance comparison, Late July GA readiness, execution priorities, V2 architecture context</td>
+          <td>Overview, Execution</td>
+        </tr>
+        <tr>
+          <td><strong>Eval Scorecard</strong></td>
+          <td>Evals Team · Google Drive</td>
+          <td>6/2 run</td>
+          <td>Offline CQ@5 (83.2%), No-Hallucination Rate (90.7%), Human Eval Correctness (75.4%), CQ by Skill table, eval coverage gaps (20+ skills missing), WoW accuracy trend</td>
+          <td>Metrics, Latency &amp; Accuracy</td>
+        </tr>
+        <tr>
+          <td><strong>SBG Business Review</strong></td>
+          <td>SBG · Google Drive</td>
+          <td>Jun 2026</td>
+          <td>Add-On Subscribers growth, International CVR</td>
+          <td>Metrics, Execution</td>
+        </tr>
+        <tr>
+          <td><strong>Exec Dashboard Scorecard</strong></td>
+          <td>BizOps · Google Drive</td>
+          <td>Jun 9, 2026</td>
+          <td>Key milestone dates, GA readiness gate status, upcoming sprint schedule</td>
+          <td>Key Dates</td>
+        </tr>
+              </tbody>
+    </table>
+
+    <div class="sh">VOC &amp; Qualitative Research Sources</div>
+    <table class="tbl" style="margin-bottom:20px;table-layout:fixed;width:100%">
+      <colgroup>
+        <col style="width:17%"><col style="width:11%"><col style="width:9%"><col style="width:50%"><col style="width:13%">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Source</th>
+          <th>Owner</th>
+          <th>Coverage</th>
+          <th>What It Covers</th>
+          <th>Used In</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Ruta Bhat CX Deck</strong><br><span style="font-size:10px;color:var(--gray-500)">Omni CX Deck, Stage 3 Appendix</span></td>
+          <td>Ruta Bhat (CX)</td>
+          <td>851 verbatims<br>May 2026</td>
+          <td>Stage-level sentiment breakdown (Stages 1–6), positive VOC rate (10.7%), Stage 3 drop-off signal (7% positive = ~178/191 negative), customer journey behavioral intent classification</td>
+          <td>Metrics &amp; Insights</td>
+        </tr>
+        <tr>
+          <td><strong>Austin Harris Qual Interviews</strong><br><span style="font-size:10px;color:var(--gray-500)">GA Rolling Interviews</span></td>
+          <td>Austin Harris (Research)</td>
+          <td>40+ sessions<br>Feb–Apr 2026</td>
+          <td>Customer quotes on trust, workflow, confidence in Omni answers; JTBD themes; "not ready for prime time" sentiment; action-promise gap observations</td>
+          <td>Metrics &amp; Insights</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="sh">Metric-Level Source Map</div>
+    <table class="tbl" style="margin-bottom:20px">
+      <colgroup>
+        <col style="width:22%"><col style="width:11%"><col style="width:11%"><col style="width:12%"><col>
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Current Value</th>
+          <th>Source</th>
+          <th>Pull Date</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>TTFMT</td><td>~1.4s (↓82.5% V1)</td><td>Chase canvas</td><td>Jun 9</td><td>WoW spike being investigated</td></tr>
+        <tr><td>Repeat Engagement Rate</td><td>25.3% (106 ITPM, ITT 96)</td><td>Jessie Ju · Jun 10 SteerCo deck slide 4</td><td>Jun 10</td><td>May full; 26.3% ITF target — 1pt below</td></tr>
+        <tr><td>CSAT — Thumbs Up %</td><td>39.2% (highest since launch)</td><td>Chase canvas</td><td>Jun 9</td><td>~850 verbatims; Jan low 27.7%</td></tr>
+        <tr><td>Online CQ — Production</td><td>92.0% (↑+2.3pp WoW)</td><td>Chase canvas</td><td>Jun 9</td><td>Goal ≥88% ✓; Human Eval 92.7%</td></tr>
+        <tr><td>Offline CQ@5 — Eval</td><td>83.2% (↓2.3pp WoW)</td><td>Eval Scorecard</td><td>6/2 run</td><td>4.8pp below 88% goal; <span style="color:var(--amber);font-weight:700">AT WATCH</span></td></tr>
+        <tr><td>No-Hallucination Rate</td><td>90.7% (↓6.9pp WoW)</td><td>Eval Scorecard</td><td>Jun 9</td><td>Was 97.6%; regression; <span style="color:var(--red);font-weight:700">AT RISK</span></td></tr>
+                <tr><td>Add-On Subscribers</td><td>1,123 US active</td><td>Chase canvas</td><td>Jun 9</td><td>2× growth in 4 months; Intl CVR 20.8%</td></tr>
+        <tr><td>Positive VOC Rate</td><td>10.7% (V2 vs 5.6% V1)</td><td>Ruta Bhat CX Deck</td><td>May 2026</td><td>851 verbatims; 1 in 10 sessions positive</td></tr>
+        <tr><td>Stage 3 Positive Sentiment</td><td>7% positive (~178 negative)</td><td>Ruta Bhat CX Deck</td><td>May 2026</td><td>Highest-volume stage; n=191; drop-off signal</td></tr>
+        <tr><td>Avg Response Time (P50)</td><td>~14.4s (↓54% V1)</td><td>Chase canvas</td><td>Jun 9</td><td>V1 baseline 31.6s</td></tr>
+        <tr><td>Human Eval Correctness</td><td>75.4%</td><td>Eval Scorecard</td><td>6/2 run</td><td>+17.3pp vs prior</td></tr>
+        <tr><td>AI Opt-Out (live)</td><td>8–9%</td><td>Chase canvas</td><td>Jun 9</td><td>V1 17–18%; halved</td></tr>
+        <tr><td>Action-Promise Gap</td><td>12% (N/A V1)</td><td>Chase canvas</td><td>Jun 9</td><td><span style="color:var(--amber);font-weight:700">New in V2 — not a regression</span>; Omni "I'll do that" then gives instructions</td></tr>
+        <tr><td>Billable Message %</td><td>71.6% (↑+9.4pp)</td><td>Chase canvas</td><td>Jun 9</td><td>V1 62.2%</td></tr>
+        <tr><td>Generic / Steps Response Rate</td><td>36.9% (V1 28.3%)</td><td>Chase canvas</td><td>Jun 9</td><td>V2 regression; Omni sounds more confident but still gives instructions</td></tr>
+      </tbody>
+    </table>
+
+    <div class="sh">Customer Quote Attribution</div>
+    <table class="tbl">
+      <colgroup>
+        <col style="width:28%"><col style="width:18%"><col style="width:18%"><col>
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Quote (abbreviated)</th>
+          <th>Attribution</th>
+          <th>Source Doc</th>
+          <th>Context</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>"I definitely will reuse it — it's more than standard help; I hope it resolves my daily problems."</td>
+          <td>Joseph B., Controller (recently migrated QBO)</td>
+          <td>Austin Harris Qual Interviews, Feb–Apr 2026</td>
+          <td>Stage 5 (Use Again) — loyalty signal</td>
+        </tr>
+        <tr>
+          <td>"I moved everything to QuickBooks so it could help me automate… I can't keep spending an hour every morning tracking everything."</td>
+          <td>Abigail Z., Owner (Qual Interviews)</td>
+          <td>Austin Harris Qual Interviews, Feb–Apr 2026</td>
+          <td>Stage 2 (Try It) — time-saving JTBD</td>
+        </tr>
+        <tr>
+          <td>"It's easier for the client to be here than to try to get a hold of us — if they're getting the right answer, they don't have to wait."</td>
+          <td>Wesley, Accountant (Qual Interviews)</td>
+          <td>Austin Harris Qual Interviews, Feb–Apr 2026</td>
+          <td>Stage 3 (Get Answer) — trust building</td>
+        </tr>
+        <tr>
+          <td>"If I know QuickBooks can do this… why go with ChatGPT? I'm already paying you."</td>
+          <td>Austin Harris (Qual Interviews, Feb–Apr 2026)</td>
+          <td>Austin Harris Qual Interviews, Feb–Apr 2026</td>
+          <td>Stage 3 — competitive loyalty signal</td>
+        </tr>
+        <tr>
+          <td>"Not ready for prime time."</td>
+          <td>Brian Borchardt, QBO User — Omni CX Deck, Stage 3 Appendix</td>
+          <td>Ruta Bhat CX Deck, May 2026</td>
+          <td>Stage 3 — vendor lookup failure, negative signal</td>
+        </tr>
+        <tr>
+          <td>"No data found" when data is on screen — 25% of all feedback. 96% negative for accountants. (Ruta Bhat, Jun 4)</td>
+          <td>Corey Cook, QBO user</td>
+          <td>Omni CX Deck, Stage 3 Appendix (Ruta Bhat, May 2026)</td>
+          <td>Stage 3 drop-off — accuracy failure mode</td>
+        </tr>
+        <tr>
+          <td>"I would never use this again — it's too slow."</td>
+          <td>Omni CX Deck verbatim</td>
+          <td>Ruta Bhat CX Deck, May 2026</td>
+          <td>Stage 3 — latency / trust failure</td>
+        </tr>
+        <tr>
+          <td>"I see this every day — saves me so much time."</td>
+          <td>Ryan Bower, Omni CX Deck, Stage 4 Appendix</td>
+          <td>Ruta Bhat CX Deck, May 2026</td>
+          <td>Stage 4 (Trust It) — time saving, positive signal</td>
+        </tr>
+        <tr>
+          <td>"It's a foul to take in data to a board meeting without verifying."</td>
+          <td>Omni CX Deck verbatim</td>
+          <td>Ruta Bhat CX Deck, May 2026</td>
+          <td>Stage 4 — trust gap, action-promise failure</td>
+        </tr>
+        <tr>
+          <td>"Omni keeps all that context — I don't have to re-explain."</td>
+          <td>Shelli Broussard, Bookkeeper — Omni CX Deck, Stage 4 Appendix</td>
+          <td>Ruta Bhat CX Deck, May 2026</td>
+          <td>Stage 4 — multi-turn retention, positive</td>
+        </tr>
+      </tbody>
+    </table>
+
+  <div class="source-strip">
+  Sources: Chase canvas (F0B15CCL0SE) · <a href="https://docs.google.com/presentation/d/1kvS63F20nNNPkXX03gmQbqIokm0raW3d87m9VCqfvVU/edit?slide=id.g3e8bcefa9fe_1_4#slide=id.g3e8bcefa9fe_1_4" target="_blank">Omni Overview deck (Jun 2026)</a> · Eval Scorecard (Drive) · SBG Business Review (Drive) · Ruta Bhat CX Deck (851 verbatims, May 2026) · Austin Harris Qual Interviews (40+, Feb–Apr 2026)
+  <br>Generated June 9, 2026 · Prepared by BizOps (Dee Prasad, amardeep_prasad@intuit.com) · Confidential · Internal use only
+</div>
+
+  </div>
+</div>
+</div><!-- /sources-reveal -->
+</div><!-- /tab-4 -->
+</div><!-- /pg-body -->
+
+
+<!-- FEEDBACK WIDGET -->
+<style>
+  #fb-btn {
+    position:fixed;bottom:24px;right:24px;z-index:9999;
+    background:var(--navy);color:#fff;border:none;border-radius:24px;
+    padding:10px 18px;font-size:13px;font-weight:700;cursor:pointer;
+    box-shadow:0 4px 14px rgba(0,0,0,.25);display:flex;align-items:center;gap:7px;
+    transition:transform .15s,box-shadow .15s;
+  }
+  #fb-btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.3);}
+  #fb-overlay{display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.45);backdrop-filter:blur(2px);align-items:center;justify-content:center;}
+  #fb-overlay.open{display:flex;}
+  #fb-modal{background:#fff;border-radius:12px;width:480px;max-width:95vw;box-shadow:0 20px 60px rgba(0,0,0,.3);overflow:hidden;}
+  #fb-modal-hd{background:var(--navy);color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;}
+  #fb-modal-hd h3{margin:0;font-size:15px;font-weight:700;}
+  #fb-modal-hd p{margin:2px 0 0;font-size:11px;opacity:.7;}
+  #fb-close{background:none;border:none;color:#fff;font-size:20px;cursor:pointer;line-height:1;}
+  #fb-body{padding:20px;display:flex;flex-direction:column;gap:14px;}
+  .fb-row label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--gray-600);margin-bottom:5px;}
+  .fb-chips{display:flex;flex-wrap:wrap;gap:6px;}
+  .fb-chip{display:flex;align-items:center;gap:5px;}
+  .fb-chip input{display:none;}
+  .fb-chip span{display:inline-block;padding:4px 10px;border-radius:12px;border:1.5px solid var(--gray-300);font-size:11.5px;cursor:pointer;background:#fff;color:var(--gray-700);transition:all .1s;}
+  .fb-chip input:checked+span{background:var(--navy);color:#fff;border-color:var(--navy);}
+  .fb-stars{display:flex;gap:4px;}
+  .fb-star{font-size:22px;cursor:pointer;color:var(--gray-300);transition:color .1s;line-height:1;}
+  .fb-star.lit{color:#FFA000;}
+  .fb-row textarea{width:100%;border:1.5px solid var(--gray-300);border-radius:6px;padding:8px 10px;font-size:12.5px;font-family:inherit;resize:vertical;min-height:64px;box-sizing:border-box;transition:border-color .15s;}
+  .fb-row textarea:focus{outline:none;border-color:var(--navy);}
+  .fb-row input[type=text]{width:100%;border:1.5px solid var(--gray-300);border-radius:6px;padding:7px 10px;font-size:12.5px;font-family:inherit;box-sizing:border-box;}
+  .fb-row input[type=text]:focus{outline:none;border-color:var(--navy);}
+  #fb-submit{background:var(--navy);color:#fff;border:none;border-radius:7px;padding:11px 0;font-size:13px;font-weight:700;cursor:pointer;width:100%;transition:background .15s;}
+  #fb-submit:hover{background:#1a3d6b;}
+  #fb-status{font-size:12px;text-align:center;min-height:16px;color:var(--gray-600);}
+  #fb-status.ok{color:#2E7D32;font-weight:700;}
+  #fb-status.err{color:var(--red);}
+</style>
+
+<button id="fb-btn" onclick="document.getElementById('fb-overlay').classList.add('open')">
+  💬 Leave Feedback
+</button>
+
+<div id="fb-overlay" onclick="if(event.target===this)closeFb()">
+  <div id="fb-modal">
+    <div id="fb-modal-hd">
+      <div>
+        <h3>📋 Fact Sheet Feedback</h3>
+        <p>Opens a pre-filled email — takes 60 seconds</p>
+      </div>
+      <button id="fb-close" onclick="closeFb()">×</button>
+    </div>
+    <div id="fb-body">
+      <div class="fb-row">
+        <label>Your name (optional)</label>
+        <input type="text" id="fb-name" placeholder="Your name">
+      </div>
+      <div class="fb-row">
+        <label>Which section(s)?</label>
+        <div class="fb-chips">
+          <label class="fb-chip"><input type="checkbox" value="Overview"><span>Overview</span></label>
+          <label class="fb-chip"><input type="checkbox" value="Metrics &amp; Insights"><span>Metrics &amp; Insights</span></label>
+          <label class="fb-chip"><input type="checkbox" value="Latency &amp; Accuracy"><span>Latency &amp; Accuracy</span></label>
+          <label class="fb-chip"><input type="checkbox" value="Key Dates"><span>Key Dates</span></label>
+          <label class="fb-chip"><input type="checkbox" value="Execution"><span>Execution</span></label>
+          <label class="fb-chip"><input type="checkbox" value="Whole doc"><span>Whole doc</span></label>
+        </div>
+      </div>
+      <div class="fb-row">
+        <label>Overall usefulness for SLT</label>
+        <div class="fb-stars" id="fb-stars">
+          <span class="fb-star" data-v="1">★</span>
+          <span class="fb-star" data-v="2">★</span>
+          <span class="fb-star" data-v="3">★</span>
+          <span class="fb-star" data-v="4">★</span>
+          <span class="fb-star" data-v="5">★</span>
+        </div>
+      </div>
+      <div class="fb-row">
+        <label>What's working well?</label>
+        <textarea id="fb-good" placeholder="e.g. Stage 3 drop-off signal is clear, V2 comparison tables are helpful…"></textarea>
+      </div>
+      <div class="fb-row">
+        <label>What's unclear, missing, or needs fixing?</label>
+        <textarea id="fb-bad" placeholder="e.g. Latency table is hard to read, need more context on ITT…"></textarea>
+      </div>
+      <div id="fb-status"></div>
+      <button id="fb-submit" onclick="submitFeedback()">Send Feedback →</button>
+    </div>
+  </div>
+</div>
+
+<script>
+var fbRating=0;
+function closeFb(){document.getElementById('fb-overlay').classList.remove('open');document.getElementById('fb-status').textContent='';document.getElementById('fb-status').className='';}
+document.querySelectorAll('.fb-star').forEach(function(star){
+  star.addEventListener('click',function(){fbRating=parseInt(star.dataset.v);document.querySelectorAll('.fb-star').forEach(function(s){s.classList.toggle('lit',parseInt(s.dataset.v)<=fbRating);});});
+  star.addEventListener('mouseenter',function(){var v=parseInt(star.dataset.v);document.querySelectorAll('.fb-star').forEach(function(s){s.classList.toggle('lit',parseInt(s.dataset.v)<=v);});});
+  star.addEventListener('mouseleave',function(){document.querySelectorAll('.fb-star').forEach(function(s){s.classList.toggle('lit',parseInt(s.dataset.v)<=fbRating);});});
+});
+function submitFeedback(){
+  var name=document.getElementById('fb-name').value.trim()||'Anonymous';
+  var good=document.getElementById('fb-good').value.trim();
+  var bad=document.getElementById('fb-bad').value.trim();
+  var stars=fbRating?'★'.repeat(fbRating)+'☆'.repeat(5-fbRating):'not rated';
+  var sections=[].slice.call(document.querySelectorAll('.fb-chips input:checked')).map(function(i){return i.value;});
+  var sectionStr=sections.length?sections.join(', '):'not specified';
+  var date=new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+  if(!good&&!bad){document.getElementById('fb-status').textContent='Please fill in at least one field.';document.getElementById('fb-status').className='err';return;}
+  var subject=encodeURIComponent('Omni Fact Sheet Feedback — '+date);
+  var body=encodeURIComponent('FROM: '+name+'\nSECTION(S): '+sectionStr+'\nRATING: '+stars+'\n\nWHAT\'S WORKING:\n'+(good||'(not provided)')+'\n\nWHAT\'S UNCLEAR / MISSING:\n'+(bad||'(not provided)'));
+  window.open('mailto:amardeep_prasad@intuit.com?subject='+subject+'&body='+body);
+  document.getElementById('fb-status').textContent='✓ Email client opened — hit send!';
+  document.getElementById('fb-status').className='ok';
+  document.getElementById('fb-submit').disabled=true;
+  setTimeout(function(){
+    document.getElementById('fb-name').value='';document.getElementById('fb-good').value='';document.getElementById('fb-bad').value='';
+    document.querySelectorAll('.fb-chips input').forEach(function(i){i.checked=false;});
+    fbRating=0;document.querySelectorAll('.fb-star').forEach(function(s){s.classList.remove('lit');});
+    document.getElementById('fb-status').textContent='';document.getElementById('fb-status').className='';
+    document.getElementById('fb-submit').disabled=false;
+  },3000);
+}
+
+function toggleSources() {
+  var el = document.getElementById('sources-reveal');
+  var btn = document.getElementById('src-nav-btn');
+  if (el.style.display === 'none') {
+    el.style.display = 'block';
+    btn.textContent = 'Sources ▴';
+    btn.style.background = 'rgba(255,255,255,.15)';
+    el.scrollIntoView({behavior:'smooth', block:'start'});
+  } else {
+    el.style.display = 'none';
+    btn.textContent = '6 · Sources ▾';
+    btn.style.background = 'none';
+  }
+}
+
+function showTab(n) {
+  [1,2,3,4].forEach(i => {
+    document.getElementById('tab-' + i).style.display = (i===n)?'block':'none';
+    var btn = document.getElementById('tb-' + i);
+    if(btn) btn.classList.toggle('active', i===n);
+  });
+  if(n===2) showSub('voc'); // reset to VOC sub-tab when switching to metrics
+}
+function showSub(s) {
+  ['voc','met','acc'].forEach(k => {
+    document.getElementById('subtab-' + k).style.display = (k===s)?'block':'none';
+    var btn = document.getElementById('stb-' + k);
+    if(btn) btn.classList.toggle('active', k===s);
+  });
+}
+</script>
+
+</body>
+</html>
